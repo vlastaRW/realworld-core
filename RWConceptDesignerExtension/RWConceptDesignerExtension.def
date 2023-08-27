@@ -1,0 +1,8 @@
+; RWConceptDesignerExtension.def : Declares the module parameters.
+
+LIBRARY      "RWConceptDesignerExtension.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

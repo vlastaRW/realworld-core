@@ -1,0 +1,6 @@
+#define RWVER0409_FILEVERSION "4.1.0.0\0"
+#define RWVER0409_FILEINFO 4,1,0,0
+#define RWVER0409_COMMENTS "\0"
+#define RWVER0409_FILEDESC "RWDesignerServices\0"
+#define RWVER0409_INTERNALNAME "RWDesignerServices\0"
+#define RWVER0409_ORIGINALFILENAME "RWDesignerServices.dll\0"

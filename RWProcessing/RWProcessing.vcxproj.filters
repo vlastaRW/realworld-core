@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{3f64074f-3aee-47d4-a385-733335aef692}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{2a09e534-b5a9-43dd-a1fc-95a781553d51}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;cpp;c;cxx;def;odl;idl;hpj;bat;asm;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="MenuCommands Files">
+      <UniqueIdentifier>{e2e06eea-369f-4f4f-872b-c4a4d27d9932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transformation Files">
+      <UniqueIdentifier>{cea2e5da-f2cc-41a2-a314-bfd038bf6fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operation Files">
+      <UniqueIdentifier>{ea76d8a9-c5dd-496c-aa82-bb46e248956e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MouseGesturesHelper Files">
+      <UniqueIdentifier>{904cf209-9b15-49ff-b270-ee09cb865282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PerformanceManagement Files">
+      <UniqueIdentifier>{b7178061-dd45-4484-8543-263e56249cbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{3199c4e1-68ed-4d34-a08b-b1c2dcdd2830}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\RWConfig\RWConfig_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWProcessing_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWProcessing.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsAutoOperation.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsManager.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsOperation.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsPopup.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsSeparator.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsVector.cpp">
+      <Filter>MenuCommands Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTransformationCopy.cpp">
+      <Filter>Transformation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTransformationNULL.cpp">
+      <Filter>Transformation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTransformationShowConfig.cpp">
+      <Filter>Transformation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformationManager.cpp">
+      <Filter>Transformation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationNULL.cpp">
+      <Filter>Operation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationSequence.cpp">
+      <Filter>Operation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationShowConfig.cpp">
+      <Filter>Operation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationManager.cpp">
+      <Filter>Operation Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MLNet.cpp">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseGesturesHelper.cpp">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceManager.cpp">
+      <Filter>PerformanceManagement Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIOperation.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIPopup.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIVector.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIVectorItem.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsAutoOperation.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsManager.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsOperation.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsPopup.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsSeparator.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsVector.h">
+      <Filter>MenuCommands Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIShowTransformationConfig.h">
+      <Filter>Transformation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTransformationNULL.h">
+      <Filter>Transformation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTransformationShowConfig.h">
+      <Filter>Transformation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformationManager.h">
+      <Filter>Transformation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIPipe.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUISequence.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIShowOperationConfig.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationNULL.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationSequence.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationShowConfig.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationManager.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RuntimeConfigSimple.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowConfigWithPreviewDlg.h">
+      <Filter>Operation Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GestureData.h">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MLNet.h">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseGesturesDlg.h">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseGesturesHelper.h">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWProcessingTags.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWProcessingUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_interninc\CooperatingObjectsManager.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\AutoCategories.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DocumentMenuCommandImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWProcessing.def">
+      <Filter>Misc Files</Filter>
+    </None>
+    <None Include="default.gst">
+      <Filter>MouseGesturesHelper Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWProcessing.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWProcessing.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

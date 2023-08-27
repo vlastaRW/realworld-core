@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hpp;hxx;hm;inl;inc;xsd;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Text Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Binary Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scintilla Files">
+      <UniqueIdentifier>{76367178-6bfc-4ca2-844b-f628b1c574d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scintilla Files\_inc">
+      <UniqueIdentifier>{04bf8c5d-66da-424d-b3f9-556d80b25c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scintilla Files\win32">
+      <UniqueIdentifier>{1ca65ac1-1421-42ba-a400-b491f10c41d2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryText.h">
+      <Filter>Text Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewText.h">
+      <Filter>Text Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewBinary.h">
+      <Filter>Binary Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryBinary.h">
+      <Filter>Binary Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\AutoComplete.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\CallTip.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\CellBuffer.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\CharacterSet.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\CharClassify.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\ContractionState.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Decoration.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Document.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\DocumentAccessor.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Editor.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\ExternalLexer.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Indicator.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\KeyMap.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\LineMarker.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Partitioning.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\PositionCache.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\RESearch.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\RunStyles.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\ScintillaBase.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\SplitVector.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\Style.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\StyleContext.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\SVector.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\UniConversion.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\ViewStyle.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\XPM.h">
+      <Filter>Scintilla Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\Accessor.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\KeyWords.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\Platform.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\PropSet.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\SciLexer.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\Scintilla.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\ScintillaWidget.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\SString.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\WindowAccessor.h">
+      <Filter>Scintilla Files\_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="scintilla\win32\PlatformRes.h">
+      <Filter>Scintilla Files\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_inc\RWViewBasic.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWViewBasic.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryText.cpp">
+      <Filter>Text Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewText.cpp">
+      <Filter>Text Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewBinary.cpp">
+      <Filter>Binary Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryBinary.cpp">
+      <Filter>Binary Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\AutoComplete.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\CallTip.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\CellBuffer.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\CharClassify.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\ContractionState.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\Decoration.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\Document.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\DocumentAccessor.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\Editor.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\ExternalLexer.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\Indicator.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\KeyMap.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\KeyWords.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAbaqus.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAda.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAPDL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAsm.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAsn1.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexASY.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAU3.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexAVE.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexBaan.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexBash.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexBasic.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexBullant.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCaml.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCLW.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCmake.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexConf.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCPP.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCrontab.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCsound.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexCSS.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexD.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexEiffel.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexErlang.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexEScript.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexFlagship.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexForth.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexFortran.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexGAP.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexGui4Cli.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexHaskell.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexHTML.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexInno.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexKix.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexLisp.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexLout.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexLua.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMagik.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMatlab.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMetapost.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMMIXAL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMPT.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexMSSQL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexNsis.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexOpal.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexOthers.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPascal.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPB.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPerl.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPLM.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPOV.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPowerShell.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexProgress.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPS.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexPython.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexR.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexRebol.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexRuby.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexScriptol.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexSmalltalk.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexSpecman.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexSpice.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexSQL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexTADS3.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexTCL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexTeX.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexVB.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexVerilog.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexVHDL.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LexYAML.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\LineMarker.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\PositionCache.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\PropSet.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\RESearch.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\RunStyles.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\ScintillaBase.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\Style.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\StyleContext.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\UniConversion.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\ViewStyle.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\WindowAccessor.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\XPM.cxx">
+      <Filter>Scintilla Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\win32\PlatWin.cxx">
+      <Filter>Scintilla Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="scintilla\win32\ScintillaWin.cxx">
+      <Filter>Scintilla Files\win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWViewBasic.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWViewBasic.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

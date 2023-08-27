@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hpp;hxx;hm;inl;inc;xsd;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{722ad299-cfe7-4c35-9219-c0ff0f5e5472}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Binary Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\UChD">
+      <UniqueIdentifier>{5e85e15e-4776-40fd-9b81-d45db58ad5e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripting Files">
+      <UniqueIdentifier>{e6562c2d-f023-4272-98e8-da855d282ae1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWDocumentBasic.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWDocumentBasic_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentBinary.cpp">
+      <Filter>Binary Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentFactoryBinary.cpp">
+      <Filter>Binary Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentFactoryText.cpp">
+      <Filter>Text Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentText.cpp">
+      <Filter>Text Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\CharDistribution.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\JpCntx.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangBulgarianModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangCyrillicModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangGreekModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangHebrewModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangHungarianModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\LangThaiModel.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsBig5Prober.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsCharSetProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsEscCharsetProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsEscSM.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsEUCJPProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsEUCKRProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsEUCTWProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsGB2312Prober.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsHebrewProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsLatin1Prober.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsMBCSGroupProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsMBCSSM.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsSBCharSetProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsSBCSGroupProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsSJISProber.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsUniversalDetector.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="uchd\nsUTF8Prober.cpp">
+      <Filter>Text Files\UChD</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptingInterfaceBasic.cpp">
+      <Filter>Scripting Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentBinary.h">
+      <Filter>Binary Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentFactoryBinary.h">
+      <Filter>Binary Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentFactoryText.h">
+      <Filter>Text Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentText.h">
+      <Filter>Text Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\CharDistribution.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\JpCntx.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsBig5Prober.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsCharSetProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsCodingStateMachine.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nscore.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsEscCharsetProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsEUCJPProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsEUCKRProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsEUCTWProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsGB2312Prober.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsHebrewProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsLatin1Prober.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsMBCSGroupProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsPkgInt.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsSBCharSetProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsSBCSGroupProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsSJISProber.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsUniversalDetector.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\nsUTF8Prober.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="uchd\prmem.h">
+      <Filter>Text Files\UChD</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptingInterfaceBasic.h">
+      <Filter>Scripting Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWDocumentBasic.def">
+      <Filter>Misc Files</Filter>
+    </None>
+    <None Include="uchd\Big5Freq.tab">
+      <Filter>Text Files\UChD</Filter>
+    </None>
+    <None Include="uchd\EUCKRFreq.tab">
+      <Filter>Text Files\UChD</Filter>
+    </None>
+    <None Include="uchd\EUCTWFreq.tab">
+      <Filter>Text Files\UChD</Filter>
+    </None>
+    <None Include="uchd\GB2312Freq.tab">
+      <Filter>Text Files\UChD</Filter>
+    </None>
+    <None Include="uchd\JISFreq.tab">
+      <Filter>Text Files\UChD</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWDocumentBasic.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BinaryDocument.ico">
+      <Filter>Binary Files</Filter>
+    </Image>
+    <Image Include="TextDocument.ico">
+      <Filter>Text Files</Filter>
+    </Image>
+    <Image Include="TextNewDoc.ico">
+      <Filter>Text Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWDocumentBasic.idl">
+      <Filter>Misc Files</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

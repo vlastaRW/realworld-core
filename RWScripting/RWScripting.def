@@ -1,0 +1,8 @@
+; RWScripting.def : Declares the module parameters.
+
+LIBRARY      "RWScripting.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

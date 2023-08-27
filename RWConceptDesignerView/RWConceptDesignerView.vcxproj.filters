@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hpp;hxx;hm;inl;inc;xsd;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{5d8146a4-46be-46ef-b0e3-cc77b735a1d6}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="ViewManager Files">
+      <UniqueIdentifier>{0c7054c3-9ee3-482c-8c29-3f1b8d3608e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{4e659394-5e30-4c68-b285-bc7efc9eb42e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWConceptDesignerView.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWConceptDesignerView_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryNULL.cpp">
+      <Filter>ViewManager Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewManager.cpp">
+      <Filter>ViewManager Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryNULL.h">
+      <Filter>ViewManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewNULL.h">
+      <Filter>ViewManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewManager.h">
+      <Filter>ViewManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWConceptDesignerViewUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWConceptDesignerView.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWConceptDesignerView.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWConceptDesignerView.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

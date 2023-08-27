@@ -1,0 +1,8 @@
+; RWConceptStructuredData.def : Declares the module parameters.
+
+LIBRARY      "RWConceptStructuredData.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

@@ -1,0 +1,8 @@
+; RWConceptDesignerView.def : Declares the module parameters.
+
+LIBRARY      "RWConceptDesignerView.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

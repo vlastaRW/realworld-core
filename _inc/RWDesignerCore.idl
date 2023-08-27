@@ -1,0 +1,307 @@
+// RWDesignerCore.idl : IDL source for RWDesignerCore
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWDesignerCore.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWStorage.idl";
+import "RWInput.idl";
+import "RWConceptDesignerView.idl";
+import "RWConceptDesignerExtension.idl";
+import "RWConceptSharedState.idl";
+import "RWProcessing.idl";
+
+
+///////////////////////////////////////////////
+// IStartViewPage
+
+[
+	object,
+	uuid(D3141D23-207E-441d-814A-8637CC0FFDCA),
+	helpstring("IStartViewCallback Interface"),
+	pointer_default(unique),
+	local
+]
+interface IStartViewCallback : IUnknown
+{
+	//[helpstring("method SetDefaultButtonState")] HRESULT SetDefaultButtonState([in] ILocalizedString* a_pText, [in] BYTE a_bEnabled, [in] ILocalizedString* a_pSubmenuTemplate);
+	[helpstring("method ReportError")] HRESULT ReportError([in] ILocalizedString* a_pMessage);
+	[helpstring("method OpenDocument")] HRESULT OpenDocument([in] IDocument* a_pDoc);
+	[helpstring("method OnOKEx")] HRESULT OnOKEx();
+	[helpstring("method UpdateStatusBar")] HRESULT UpdateStatusBar();
+};
+
+[
+	object,
+	uuid(1EBF90F3-05D7-4CE9-AFCC-5819D3F51F8E),
+	helpstring("IStartViewPage Interface"),
+	pointer_default(unique),
+	local
+]
+interface IStartViewPage : IChildWindow
+{
+	[helpstring("method Activate")] HRESULT Activate();
+	[helpstring("method Deactivate")] HRESULT Deactivate();
+	[helpstring("method ClickedDefault")] HRESULT ClickedDefault();
+	[helpstring("method OnIdle")] HRESULT OnIdle();
+};
+
+[
+	object,
+	uuid(4612500D-02C6-4940-B89E-EDC9911D013E),
+	helpstring("IStartViewPageFactory Interface"),
+	pointer_default(unique),
+	local
+]
+interface IStartViewPageFactory : IUnknown
+{
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method HelpText")] HRESULT HelpText([out] ILocalizedString** a_ppHelpText);
+	[helpstring("method Icon")] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method InitConfig")] HRESULT InitConfig([in] IConfigWithDependencies* a_pMainConfig);
+
+	[helpstring("method Create")] HRESULT Create([in] RWHWND a_hParent, [in] RECT const* a_prc, [in] LCID a_tLocaleID, [in] IStartViewCallback* a_pCallback, [in] IConfig* a_pAppConfig, [out] IStartViewPage** a_ppPage);
+};
+
+[
+	object,
+	uuid(DE2E011F-0355-44f0-BF02-6BFE06DD287D),
+	helpstring("IAnimatedIcon Interface"),
+	pointer_default(unique),
+	local
+]
+interface IAnimatedIcon : IUnknown
+{
+	[helpstring("method Phase")] ULONG Phase([in] ULONG a_nMSElapsed, [out] ULONG* a_pNextPhase);
+	[helpstring("method Icon")] HICON Icon([in] ULONG a_nPhase, [in] ULONG a_nSize);
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_StartViewPage = {0x1d612b4d, 0x2494, 0x49fe, {0x88, 0x54, 0xd3, 0x54, 0xc5, 0x48, 0x97, 0x16}};")
+
+typedef [v1_enum] enum EMDIType
+{
+	EMTDefault = 0,
+	EMTMSDI,
+	EMTTabs,
+} EMDIType;
+
+[
+	object,
+	uuid(11AB0A89-2016-4D26-B8CD-A08219D2A025),
+	helpstring("IDesignerCore Interface"),
+	pointer_default(unique),
+	local
+]
+interface IDesignerCore : IUnknown
+{
+	[helpstring("method Initialize")] HRESULT Initialize([in] IConfig* a_pConfig, [in] IApplicationInfo* a_pAppInfo, [in] ULONG a_nStartPages, [in, size_is(a_nStartPages)] CLSID const* a_aStartPages, [in] REFCLSID a_tDefaultStartPage, [in] IConfig* a_pStartPageMenu, [in] EMDIType a_eMDIType);
+
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method Version")] HRESULT Version([out] ULONG* a_pVersion);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method NewWindowPath")] HRESULT NewWindowPath([in] BSTR a_bstrFullPath, [out] RWHWND* a_pCreatedWindow);
+	[helpstring("method NewWindowDocument")] HRESULT NewWindowDocument([in] IDocument* a_pDocument, [out] RWHWND* a_pCreatedWindow);
+	[helpstring("method NewWindowPage")] HRESULT NewWindowPage([in] REFCLSID a_tStartPageID, [out] RWHWND* a_pCreatedWindow);
+
+	[helpstring("method Documents")] HRESULT Documents([out] IEnumUnknowns** a_ppOpenDocuments);
+
+	[helpstring("method MessagePump")] HRESULT MessagePump([in] ULONG a_nStopEvents, [in, size_is(a_nStopEvents)] HANDLE* a_pStopEvents, [out] ULONG* a_pWaitResult);
+};
+
+[
+	object,
+	uuid(E8E9150F-5C98-4E13-8CF4-56F8C12BFEC6),
+	helpstring("ISharedStateToolbar Interface"),
+	pointer_default(unique)
+]
+interface ISharedStateToolbar : IUnknown
+{
+	[helpstring("method IsVisible")] HRESULT IsVisible();
+	[helpstring("method SetVisible")] HRESULT SetVisible([in] BOOL a_bVisible);
+};
+
+[
+	object,
+	uuid(E1F23AD8-3781-4465-9912-A255D0B59BE8),
+	dual,
+	nonextensible,
+	helpstring("IOnlinePageExternal Interface"),
+	pointer_default(unique)
+]
+interface IOnlinePageExternal : IDispatch
+{
+	[id(1), helpstring("method IsInstalled")] HRESULT IsInstalled([in] BSTR plugInID, [out, retval] VARIANT_BOOL* res);
+	[id(2), helpstring("method InstallPlugIn")] HRESULT InstallPlugIn([in] BSTR plugInID, [in] BSTR version, [out, retval] VARIANT_BOOL* res);
+	[propget, id(3), helpstring("property AppLangID")] HRESULT AppLangID([out, retval] ULONG* pnLangID);
+	[propput, id(3), helpstring("property AppLangID")] HRESULT AppLangID([in] ULONG nLangID);
+	[propget, id(4), helpstring("property AppLangStamp")] HRESULT AppLangStamp([out, retval] ULONG* pnLangStamp);
+	[propget, id(5), helpstring("property OSLangID")] HRESULT OSLangID([out, retval] ULONG* pnLangID);
+	[id(6), helpstring("method UpdateLanguage")] HRESULT UpdateLanguage([out, retval] VARIANT_BOOL* res);
+	[propget, id(7), helpstring("property EvalMax")] HRESULT EvalMax([out, retval] ULONG* pnVal);
+	[propget, id(8), helpstring("property EvalDay")] HRESULT EvalDay([out, retval] ULONG* pnVal);
+	[id(9), helpstring("property SetValue")] HRESULT SetValue([in] BSTR key, [in] BSTR val);
+	[id(10), helpstring("property GetValue")] HRESULT GetValue([in] BSTR key, [out, retval] BSTR* pVal);
+	[id(11), helpstring("property Translate")] HRESULT Translate([in] BSTR eng, [out, retval] BSTR* pVal);
+	[id(12), helpstring("property ChangeAccount")] HRESULT ChangeAccount([in] BSTR email, [in] BSTR password);
+	[id(13), helpstring("property ChangeLicense")] HRESULT ChangeLicense([in] BSTR name, [in] BSTR organization, [in] BSTR serial);
+	[id(14), helpstring("property OpenFile")] HRESULT OpenFile([in] BSTR path);
+	[id(15), helpstring("property RunCommand")] HRESULT RunCommand([in] BSTR commandCode);
+	[propget, id(16), helpstring("property status")] HRESULT status([out, retval] BSTR* pVal);
+	[propput, id(16), helpstring("property status")] HRESULT status([in] BSTR val);
+	[id(17), helpstring("method RemovePlugIn")] HRESULT RemovePlugIn([in] BSTR plugInID, [out, retval] VARIANT_BOOL* res);
+	[id(18), helpstring("method GetPlugInVersion")] HRESULT GetPlugInVersion([in] BSTR plugInID, [out, retval] BSTR* ver);
+	[propget, id(19), helpstring("property LicName")] HRESULT LicName([out, retval] BSTR* pVal);
+	[propget, id(20), helpstring("property LicOrg")] HRESULT LicOrg([out, retval] BSTR* pVal);
+	[propget, id(21), helpstring("property LicCode")] HRESULT LicCode([out, retval] BSTR* pVal);
+	[propget, id(22), helpstring("property TagLib")] HRESULT TagLib([out, retval] VARIANT_BOOL* res);
+	[id(23), helpstring("method TagLibCheck")] HRESULT TagLibCheck([in] BSTR fileID, [out, retval] VARIANT_BOOL* res);
+	[id(24), helpstring("method TagLibAdd")] HRESULT TagLibAdd([in] BSTR fileID, [in] BSTR tagsAndName, [out, retval] VARIANT_BOOL* res);
+	[propget, id(25), helpstring("property BatchOp")] HRESULT BatchOp([out, retval] VARIANT_BOOL* res);
+	[id(26), helpstring("method BatchOpCheck")] HRESULT BatchOpCheck([in] BSTR opName, [out, retval] VARIANT_BOOL* res);
+	[id(27), helpstring("method BatchOpAdd")] HRESULT BatchOpAdd([in] BSTR fileName, [out, retval] VARIANT_BOOL* res);
+	[id(28), helpstring("method LayoutAdd")] HRESULT LayoutAdd([in] BSTR fileName, [out, retval] VARIANT_BOOL* res);
+	[propget, id(29), helpstring("property autoUpdates")] HRESULT autoUpdates([out, retval] LONG* pVal);
+	[propput, id(29), helpstring("property autoUpdates")] HRESULT autoUpdates([in] LONG val);
+	[id(30), helpstring("method UpdateNow")] HRESULT UpdateNow();
+	[propget, id(31), helpstring("property lastUpdateCheck")] HRESULT lastUpdateCheck([out, retval] LONG* pVal);
+	[id(32), helpstring("method ReloadPage")] HRESULT ReloadPage();
+};
+
+[
+	object,
+	uuid(530DA44F-D35C-4A27-8378-9B6E1B2F8D14),
+	helpstring("IDesignerBatchOpManager Interface"),
+	pointer_default(unique)
+]
+interface IDesignerBatchOpManager : IUnknown
+{
+	[helpstring("method HasOperation")] HRESULT HasOperation([in] IConfig* a_pMainConfig, [in] BSTR a_bstrOpName);
+	[helpstring("method AddOperation")] HRESULT AddOperation([in] IConfig* a_pMainConfig, [in] ULONG a_nLen, [in, size_is(a_nLen)] BYTE const* a_pData);
+};
+
+[
+	object,
+	uuid(36C98CC3-C077-4A83-AE28-857BBF2EB592),
+	helpstring("IAutoUpdater Interface"),
+	pointer_default(unique)
+]
+interface IAutoUpdater : IUnknown
+{
+	[helpstring("method CheckNow")] HRESULT CheckNow();
+};
+
+
+[
+	uuid(E5CC56F3-6D6E-4A13-83D7-A8E90221C6F2),
+	version(1.0),
+	helpstring("RWDesignerCore 1.0 Type Library")
+]
+library RWDesignerCoreLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWStorage.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWConceptDesignerView.tlb");
+	importlib("RWConceptDesignerExtension.tlb");
+	importlib("RWConceptSharedState.tlb");
+	importlib("RWProcessing.tlb");
+
+	interface ISharedStateToolbar;
+	interface IOnlinePageExternal;
+
+	[
+		uuid(B274F86D-6584-4B8B-9C11-D8247BB532DF),
+		helpstring("DesignerCore Class")
+	]
+	coclass DesignerCore
+	{
+		[default] interface IDesignerCore;
+	};
+
+	// start view pages
+	[
+		uuid(32BCE887-10F0-4E63-ADA8-EC7FABF443F4),
+		helpstring("StartViewPageFactoryOpenFile Class")
+	]
+	coclass StartViewPageFactoryOpenFile
+	{
+		[default] interface IStartViewPageFactory;
+	};
+
+	[
+		uuid(66849C39-1C9F-4D5F-B513-DF3A3460412A),
+		helpstring("StartViewPageFactoryRecentFiles Class")
+	]
+	coclass StartViewPageFactoryRecentFiles
+	{
+		[default] interface IStartViewPageFactory;
+	};
+
+	[
+		uuid(6BF86E4B-F76F-46C8-9A4A-AFAEFE512F87),
+		helpstring("StartViewPageFactoryNewDocument Class")
+	]
+	coclass StartViewPageFactoryNewDocument
+	{
+		[default] interface IStartViewPageFactory;
+	};
+
+	[
+		uuid(57F1E4B5-26CE-4614-8BCE-760FF0D6ED7E),
+		helpstring("DesignerViewFactoryToolbar Class")
+	]
+	coclass DesignerViewFactoryToolbar
+	{
+		[default] interface IDesignerViewFactory;
+	};
+	[
+		uuid(D1A6FCF0-1FE4-4E08-8B29-34A37890342A),
+		helpstring("SharedStateToolbar Class")
+	]
+	coclass SharedStateToolbar
+	{
+		[default] interface ISharedStateToolbar;
+		interface ISharedState;
+	};
+	[
+		uuid(3959A01C-C1D8-4968-9D10-D32B5FE1E806),
+		helpstring("MenuCommandsToolbar Class")
+	]
+	coclass MenuCommandsToolbar
+	{
+		[default] interface IDocumentMenuCommands;
+	};
+	[
+		uuid(2E85563C-4FF0-4820-A8BA-1B4763ABCC1C),
+		helpstring("GlobalConfigMainFrame Class")
+	]
+	coclass GlobalConfigMainFrame
+	{
+		[default] interface IGlobalConfigFactory;
+	};
+	[
+		uuid(D3858B6B-657E-406C-8FFE-300CABBEED8E),
+		helpstring("StartPageOnline Class")
+	]
+	coclass StartPageOnline
+	{
+		[default] interface IStartViewPageFactory;
+	};
+	[
+		uuid(28CDF534-077C-41FD-8CF2-D37BA7AD3CAB),
+		helpstring("AutoUpdater Class")
+	]
+	coclass AutoUpdater
+	{
+		[default] interface IAutoUpdater;
+	};
+};
+

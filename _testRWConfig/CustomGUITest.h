@@ -1,0 +1,17 @@
+
+#pragma once
+
+#include <ConfigCustomGUIImpl.h>
+
+class ATL_NO_VTABLE CCustomGUITestDlg : public CCustomConfigWndImpl<CCustomGUITestDlg>
+{
+public:
+	enum { IDD = IDD_CUSTOMGUITEST };
+
+	BEGIN_CONFIGITEM_MAP(CCustomGUITestDlg)
+		CONFIGITEM_CHECKBOX(IDC_TESTCHECK1, L"TestBool")
+		CONFIGITEM_CHECKBOX(IDC_TESTCHECK2, L"SimpleBool")
+		CONFIGITEM_COMBOBOX(IDC_TESTCOMBO1, L"TestInt")
+		CONFIGITEM_EDITBOX(IDC_TESTEDIT1, L"TestEdit")
+	END_CONFIGITEM_MAP()
+};

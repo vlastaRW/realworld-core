@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="StartPageBatchImageProcessor Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;cpp;c;cxx;def;odl;idl;hpj;bat;asm;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{ce77b58d-a308-4d3f-a1f3-b8b33cc9151a}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BatchOperationContext.h">
+      <Filter>StartPageBatchImageProcessor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BatchOperationManager.h">
+      <Filter>StartPageBatchImageProcessor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartPageBatchImageProcessor.h">
+      <Filter>StartPageBatchImageProcessor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWBatchProcessing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StartPageBatchImageProcessor.cpp">
+      <Filter>StartPageBatchImageProcessor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StartPageFactoryBatchImageProcessor.cpp">
+      <Filter>StartPageBatchImageProcessor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWBatchProcessing.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWBatchProcessing.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWBatchProcessing.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

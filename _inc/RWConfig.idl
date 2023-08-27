@@ -1,0 +1,572 @@
+// RWConfig.idl : IDL source for RWConfig
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWConfig.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+
+typedef [v1_enum] enum EConfigValueType
+{
+	ECVTEmpty = 0,
+	ECVTInteger = 1,
+	ECVTFloat = 2,
+	ECVTBool = 3,
+	ECVTString = 4,
+	ECVTGUID = 5,
+	ECVTVector2 = 6,
+	ECVTVector3 = 7,
+	ECVTVector4 = 8,
+	ECVTFloatColor = 9,
+} EConfigValueType;
+
+typedef struct TConfigValue
+{
+	EConfigValueType eTypeID;
+	[switch_type(EConfigValueType), switch_is(eTypeID)]
+	union
+	{
+		[case(ECVTInteger)]
+		LONG iVal;
+		[case(ECVTFloat)]
+		float fVal;
+		[case(ECVTBool)]
+		boolean bVal;
+		[case(ECVTString)]
+		BSTR bstrVal;
+		[case(ECVTGUID)]
+		GUID guidVal;
+		[case(ECVTVector2, ECVTVector3, ECVTVector4, ECVTFloatColor)]
+		float vecVal[4];
+		[default]
+		ULONG dummy;
+	};
+} TConfigValue;
+
+//#########################################################
+// IConfigObserver - any object can register this interface
+// with IConfig to receive change notifications
+//
+
+[
+	object,
+	uuid(53E39BF0-DF46-4A1B-AE46-A0EC12C9AFB9),
+	helpstring("IConfigObserver Interface"),
+	pointer_default(unique)
+]
+interface IConfigObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] IUnknown* a_pChangedParam);
+};
+
+//#########################################################
+// IConfig interface
+//
+[
+	object,
+	uuid(2E84313C-8D96-468E-93D4-8CE157172EB1),
+	helpstring("IConfigItem Interface"),
+	pointer_default(unique)
+]
+interface IConfigItem : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([out] ILocalizedString** a_ppName, [out] ILocalizedString** a_ppHelpText);
+	[helpstring("method ValueGetName")] HRESULT ValueGetName([in] const TConfigValue* a_ptValue, [out] ILocalizedString** a_ppName);
+	[helpstring("method ValueIsValid")] HRESULT ValueIsValid([in] const TConfigValue* a_ptValue);
+	[helpstring("method Default")] HRESULT Default([out] TConfigValue* a_ptValue);
+};
+
+[
+	object,
+	uuid(A147A25E-6CA9-49C3-80FF-1F5FA0118135),
+	helpstring("IConfigItemRange Interface"),
+	pointer_default(unique)
+]
+interface IConfigItemRange : IConfigItem
+{
+	[helpstring("method RangePropsGet")] HRESULT RangePropsGet([out] TConfigValue* a_ptFrom, [out] TConfigValue* a_ptTo, [out] TConfigValue* a_ptStep);
+};
+
+[
+	object,
+	uuid(C2D739BC-1753-4322-B5B4-039FD146D5F3),
+	helpstring("IEnumConfigItemOptions Interface"),
+	pointer_default(unique)
+]
+interface IEnumConfigItemOptions : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [out] TConfigValue* a_ptItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [out, size_is(a_nCount)] TConfigValue* a_atItems);
+};
+
+[
+	object,
+	uuid(D9B85FC6-D182-4A16-AE69-0665F5772D37),
+	helpstring("IConfigItemOptions Interface"),
+	pointer_default(unique)
+]
+interface IConfigItemOptions : IConfigItem
+{
+	[helpstring("method OptionsEnum")] HRESULT OptionsEnum([out] IEnumConfigItemOptions** a_ppOptions);
+};
+
+[
+	object,
+	uuid(58F9CF17-ACA2-4364-8CDF-7CA9C2F614CB),
+	helpstring("IConfigItemSimple Interface"),
+	pointer_default(unique)
+]
+interface IConfigItemSimple : IConfigItem
+{
+	[helpstring("method IsEnabled")] HRESULT IsEnabled();
+};
+
+[
+	object,
+	uuid(52779F02-B777-4539-8E40-07B67463D3B0),
+	helpstring("IConfig Interface"),
+	pointer_default(unique)
+]
+interface IConfig : IUnknown
+{
+	[helpstring("method ItemIDsEnum")] HRESULT ItemIDsEnum([out] IEnumStrings** a_ppIDs);
+	[helpstring("method ItemValueGet")] HRESULT ItemValueGet([in] BSTR a_bstrID, [out] TConfigValue* a_ptValue);
+	[helpstring("method ItemValuesSet")] HRESULT ItemValuesSet([in] ULONG a_nCount, [in,size_is(a_nCount)] BSTR* a_aIDs, [in,size_is(a_nCount)] const TConfigValue* a_atValues);
+	[helpstring("method ItemGetUIInfo")] HRESULT ItemGetUIInfo([in] BSTR a_bstrID, [in] REFIID a_iidInfo, [out, iid_is(a_iidInfo)] void** a_ppItemInfo);
+
+	[helpstring("method SubConfigGet")] HRESULT SubConfigGet([in] BSTR a_bstrID, [out] IConfig** a_ppSubConfig);
+	[helpstring("method DuplicateCreate")] HRESULT DuplicateCreate([out] IConfig** a_ppCopiedConfig);
+	[helpstring("method CopyFrom")] HRESULT CopyFrom([in] IConfig* a_pSource, [in] BSTR a_bstrIDPrefix);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IConfigObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IConfigObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+//#########################################################
+// ISubConfig - a sub-config attached to an item is
+// controlled and cached by this object
+//
+[
+	object,
+	uuid(0FB13D03-C705-4505-8B5B-E38CCD2F670E),
+	helpstring("ISubConfig Interface"),
+	pointer_default(unique)
+]
+interface ISubConfig : IConfig
+{
+	[helpstring("method ControllerSet")] HRESULT ControllerSet([in] const TConfigValue* a_ptValue);
+};
+
+typedef [v1_enum] enum EConfigPanelMode
+{
+	ECPMFull = 0,
+	ECPMSimplified = 1,
+	ECPMWithCanvas = 2,
+} EConfigPanelMode;
+
+//#########################################################
+// IConfigGUI - for configs that have custom GUI.
+//
+[
+	object,
+	uuid(8C6CD252-6D36-4C6B-8035-7AD1DA491828),
+	helpstring("IConfigCustomGUI Interface"),
+	pointer_default(unique)
+]
+interface IConfigCustomGUI : IUnknown
+{
+	[helpstring("method UIDGet")] HRESULT UIDGet([out] GUID* a_pguid);
+	[helpstring("method RequiresMargins")] HRESULT RequiresMargins();
+	[helpstring("method MinSizeGet")] HRESULT MinSizeGet([in] IConfig* a_pConfig, [in] LCID a_tLocaleID, [in] EConfigPanelMode a_eMode, [out] ULONG* a_nSizeX, [out] ULONG* a_nSizeY);
+	[helpstring("method WindowCreate")] HRESULT WindowCreate([in] RWHWND a_hParent, [in] RECT const* a_prcPositon, [in] UINT a_nCtlID, [in] LCID a_tLocaleID, [in] BOOL a_bVisible, [in] BOOL a_bParentBorder, [in] IConfig* a_pConfig, [in] EConfigPanelMode a_eMode, [out] IChildWindow** a_ppWindow);
+};
+
+
+//#########################################################
+// IConfigWithDependencies - used to initialize ConfigWithDependencies class.
+// The IConfig interface can be used after Finalize is successfully called.
+//
+typedef [v1_enum] enum EConfigOptionCondition
+{
+	ECOCEqual = 0,
+	ECOCNotEqual = 1,
+	ECOCLess = 2,
+	ECOCLessEqual = 3,
+	ECOCGreater = 4,
+	ECOCGreaterEqual = 5
+} EConfigOptionCondition;
+
+typedef struct TConfigOptionCondition
+{
+	BSTR bstrID;
+	EConfigOptionCondition eConditionType;
+	TConfigValue tValue;
+} TConfigOptionCondition;
+
+[
+	object,
+	uuid(07671F88-DFB4-40E7-AD4E-AAC8322D4D21),
+	helpstring("IConfigItemCustomOptions Interface"),
+	pointer_default(unique)
+]
+interface IConfigItemCustomOptions : IEnumConfigItemOptions
+{
+	[helpstring("method GetValueName")] HRESULT GetValueName([in] TConfigValue const* a_pValue, [out] ILocalizedString** a_ppName);
+}
+
+[
+	object,
+	uuid(9ABF9CA9-DB43-45A9-A305-64759713A15C),
+	helpstring("IConfigWithDependencies Interface"),
+	pointer_default(unique)
+]
+interface IConfigWithDependencies : IConfig
+{
+	[helpstring("method ItemIns1ofN")] HRESULT ItemIns1ofN([in] BSTR a_bstrID, [in] ILocalizedString* a_pName, [in] ILocalizedString* a_pHelpText, [in] const TConfigValue* a_ptDefaultValue, [in] ISubConfig* a_pSubConfig);
+	[helpstring("method ItemOptionAdd")] HRESULT ItemOptionAdd([in] BSTR a_bstrID, [in] const TConfigValue* a_ptValue, [in] ILocalizedString* a_pName, [in] ULONG a_nConditions, [in,size_is(a_nConditions)] const TConfigOptionCondition* a_aConditions);
+	[helpstring("method ItemInsRanged")] HRESULT ItemInsRanged([in] BSTR a_bstrID, [in] ILocalizedString* a_pName, [in] ILocalizedString* a_pHelpText, [in] const TConfigValue* a_ptDefaultValue, [in] ISubConfig* a_pSubConfig, [in] const TConfigValue* a_ptFrom, [in] const TConfigValue* a_ptTo, [in] const TConfigValue* a_ptStep, [in] ULONG a_nConditions, [in,size_is(a_nConditions)] const TConfigOptionCondition* a_aConditions);
+	[helpstring("method ItemInsSimple")] HRESULT ItemInsSimple([in] BSTR a_bstrID, [in] ILocalizedString* a_pName, [in] ILocalizedString* a_pHelpText, [in] const TConfigValue* a_ptDefaultValue, [in] ISubConfig* a_pSubConfig, [in] ULONG a_nConditions, [in,size_is(a_nConditions)] const TConfigOptionCondition* a_aConditions);
+	[helpstring("method ItemIns1ofNWithCustomOptions")] HRESULT ItemIns1ofNWithCustomOptions([in] BSTR a_bstrID, [in] ILocalizedString* a_pName, [in] ILocalizedString* a_pHelpText, [in] const TConfigValue* a_ptDefaultValue, [in] IConfigItemCustomOptions* a_pOptions, [in] ISubConfig* a_pSubConfig, [in] ULONG a_nConditions, [in,size_is(a_nConditions)] const TConfigOptionCondition* a_aConditions);
+	[helpstring("method Finalize")] HRESULT Finalize([in] IConfigCustomGUI* a_pCustomGUI);
+};
+
+//#########################################################
+// IConfigInMemory interface
+//
+[
+	object,
+	uuid(0811E8ED-BA25-4B26-80F1-209B6D89A714),
+	helpstring("IConfigInMemory Interface"),
+	pointer_default(unique)
+]
+interface IConfigInMemory : IConfig
+{
+	[helpstring("method DataBlockSet")] HRESULT DataBlockSet([in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+	[helpstring("method DataBlockGet")] HRESULT DataBlockGet([in] ULONG a_nSize, [out, size_is(a_nSize)] BYTE* a_pBuffer);
+	[helpstring("method DataBlockGetSize")] HRESULT DataBlockGetSize([out] ULONG* a_pnSize);
+	[helpstring("method DataBlockGetData")] HRESULT DataBlockGetData([in] IReturnedData* buffer);
+	[helpstring("method DeleteItems")] HRESULT DeleteItems([in] BSTR a_bstrPrefix);
+	[helpstring("method TextBlockGet")] HRESULT TextBlockGet([in] IReturnedData* buffer);
+};
+
+//#########################################################
+// ISubConfigSwitch interface - initializes an SubConfigHandler class.
+//
+[
+	object,
+	uuid(2A6DBED3-C050-41BB-A4EC-45869D229F29),
+	helpstring("ISubConfigSwitch Interface"),
+	pointer_default(unique)
+]
+interface ISubConfigSwitch : ISubConfig
+{
+	[helpstring("method ItemInsert")] HRESULT ItemInsert([in] const TConfigValue* a_ptValue, [in] IConfig* a_pConfig);
+};
+
+[
+	object,
+	uuid(FB6687B1-8685-4933-B733-412B7D167585),
+	helpstring("ILateConfigCreator Interface"),
+	pointer_default(unique)
+]
+interface ILateConfigCreator : IUnknown
+{
+	[helpstring("method CreateConfig")] HRESULT CreateConfig([in] const TConfigValue* a_ptControllerID, [out] IConfig** a_ppConfig);
+};
+
+[
+	object,
+	uuid(6533CEDE-140C-4F2D-BC6D-06FBDD5B731D),
+	helpstring("ISubConfigSwitchLate Interface"),
+	pointer_default(unique)
+]
+interface ISubConfigSwitchLate : ISubConfig
+{
+	[helpstring("method Init")] HRESULT Init([in] ILateConfigCreator* a_pCreator);
+};
+
+//#########################################################
+// ISubConfigVector interface - initializes an SubConfigHandler class.
+//
+
+[
+	object,
+	uuid(535F25A0-AE5A-4755-B8C1-EFF28CE6186B),
+	helpstring("ISubConfigVector Interface"),
+	pointer_default(unique)
+]
+interface IVectorItemName : IUnknown
+{
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [in] IConfig* a_pItemConfig, [out] ILocalizedString** a_ppName);
+};
+
+[
+	object,
+	uuid(3DFD4E86-79FB-4097-8CB1-E36CD5E0A933),
+	helpstring("ISubConfigVector Interface"),
+	pointer_default(unique)
+]
+interface ISubConfigVector : ISubConfig
+{
+	[helpstring("method Init")] HRESULT Init([in] BOOL a_bEditableNames, [in] IConfig* a_pPattern);
+	[helpstring("method InitName")] HRESULT InitName([in] IVectorItemName* a_pCustomName, [in] IConfig* a_pPattern);
+};
+
+[
+	object,
+	uuid(27A22CBD-0BBC-48FA-8B3A-3C647A868F73),
+	helpstring("IConfigVector Interface"),
+	pointer_default(unique)
+]
+interface IConfigVector : IConfig
+{
+	[helpstring("method Swap")] HRESULT Swap([in] ULONG a_nIndex1, [in] ULONG a_nIndex2);
+	[helpstring("method Move")] HRESULT Move([in] ULONG a_nIndexSrc, [in] ULONG a_nIndexDst);
+};
+
+//#########################################################
+// IConfigWnd interface
+//
+
+typedef [v1_enum] enum EConfigWindowBorderMode
+{
+	ECWBMNothing = 0,
+	ECWBMMargin,
+	ECWBMMarginAndOutline,
+} EConfigWindowBorderMode;
+
+[
+	object,
+	uuid(53908B68-C59D-4622-8483-554EFA66A2C1),
+	helpstring("IConfigWnd Interface"),
+	pointer_default(unique),
+]
+interface IConfigWnd : IChildWindow
+{
+	[helpstring("method ConfigSet")] HRESULT ConfigSet([in] IConfig* a_pConfig, [in] EConfigPanelMode a_eMode);
+	[helpstring("method TopWindowSet")] HRESULT TopWindowSet([in] BOOL a_bIsTopWindow, [in] DWORD a_clrBackground);
+	[helpstring("method OptimumSize")] HRESULT OptimumSize([out] SIZE *a_pSize);
+	[helpstring("method Create")] HRESULT Create([in] RWHWND a_hParent, [in] RECT const* a_prcPositon, [in] UINT a_nCtlID, [in] LCID a_tLocaleID, [in] BOOL a_bVisible, [in] EConfigWindowBorderMode a_eBorderMode);
+	[helpstring("method ChangeLanguage")] HRESULT ChangeLanguage([in] LCID a_tLocaleID);
+};
+
+[
+	object,
+	uuid(3F945991-1924-46A8-8B4F-D434C5EFBA34),
+	helpstring("IResizableConfigWindow Interface"),
+	pointer_default(unique),
+	local
+]
+interface IResizableConfigWindow : IUnknown
+{
+	[helpstring("method OptimumSize")] HRESULT OptimumSize([out] SIZE *a_pSize);
+};
+
+//#########################################################
+// IGlobalConfig interface
+//
+
+[
+	object,
+	uuid(069122AB-9466-40E1-ABC4-071CE8E3AAEA),
+	helpstring("IGlobalConfigFactory Interface"),
+	pointer_default(unique),
+]
+interface IGlobalConfigFactory : IUnknown
+{
+	[helpstring("method Interactive")] HRESULT Interactive([out] BYTE* a_pPriority);
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method Description")] HRESULT Description([out] ILocalizedString** a_ppDesc);
+	[helpstring("method Config")] HRESULT Config([out] IConfig** a_ppConfig);
+};
+
+[
+	object,
+	uuid(218136AD-E4C2-44D2-9D15-7CEDADBB1429),
+	helpstring("IGlobalConfigManager Interface"),
+	pointer_default(unique),
+]
+interface IGlobalConfigManager : IUnknown
+{
+	[helpstring("method EnumIDs")] HRESULT EnumIDs([out] IEnumGUIDs** a_ppIDs);
+	[helpstring("method Interactive")] HRESULT Interactive([in] REFGUID a_tID, [out] BYTE* a_pPriority);
+	[helpstring("method Name")] HRESULT Name([in] REFGUID a_tID, [out] ILocalizedString** a_ppName);
+	[helpstring("method Description")] HRESULT Description([in] REFGUID a_tID, [out] ILocalizedString** a_ppDesc);
+	[helpstring("method Config")] HRESULT Config([in] REFGUID a_tID, [out] IConfig** a_ppConfig);
+
+	[helpstring("method GetValue")] HRESULT GetValue([in] REFGUID a_tID, [in] BSTR a_bstrID, [out] TConfigValue* a_pVal);
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_GlobalConfigFactory = {0xaadb963d, 0xdf63, 0x4f90, {0xa8, 0x45, 0xda, 0x25, 0xb5, 0x3e, 0x74, 0x45}};")
+
+
+// help class for handling TConfigValue from .net
+[
+	object,
+	uuid(496AB1C8-80AD-4518-A16A-6CD54303348A),
+	helpstring("IConfigValueHelper Interface"),
+	pointer_default(unique)
+]
+interface IConfigValueHelper : IUnknown
+{
+	[helpstring("method Init")] HRESULT Init([out] TConfigValue* a_pVal);
+	[helpstring("method Copy")] HRESULT Copy([in] TConfigValue* a_pIn, [out] TConfigValue* a_pOut);
+	[helpstring("method Destroy")] HRESULT Destroy([in, out] TConfigValue* a_pVal);
+
+	[helpstring("method SetInt")] HRESULT SetInt([in, out] TConfigValue* a_pVal, [in] int a_nVal);
+	[helpstring("method SetFloat")] HRESULT SetFloat([in, out] TConfigValue* a_pVal, [in] float a_fVal);
+	[helpstring("method SetBool")] HRESULT SetBool([in, out] TConfigValue* a_pVal, [in] VARIANT_BOOL a_bVal);
+	[helpstring("method SetString")] HRESULT SetString([in, out] TConfigValue* a_pVal, [in] BSTR a_bstrVal);
+	[helpstring("method SetGUID")] HRESULT SetGUID([in, out] TConfigValue* a_pVal, [in] GUID a_guidVal);
+	[helpstring("method SetVector2")] HRESULT SetVector2([in, out] TConfigValue* a_pVal, [in] float a_fVal1, [in] float a_fVal2);
+	[helpstring("method SetVector3")] HRESULT SetVector3([in, out] TConfigValue* a_pVal, [in] float a_fVal1, [in] float a_fVal2, [in] float a_fVal3);
+	[helpstring("method SetVector4")] HRESULT SetVector4([in, out] TConfigValue* a_pVal, [in] float a_fVal1, [in] float a_fVal2, [in] float a_fVal3, [in] float a_fVal4);
+	[helpstring("method SetColor")] HRESULT SetColor([in, out] TConfigValue* a_pVal, [in] float a_fValR, [in] float a_fValG, [in] float a_fValB);
+
+	[helpstring("method GetInt")] HRESULT GetInt([in] TConfigValue* a_pVal, [out] int* a_nVal);
+	[helpstring("method GetFloat")] HRESULT GetFloat([in] TConfigValue* a_pVal, [out] float* a_fVal);
+	[helpstring("method GetBool")] HRESULT GetBool([in] TConfigValue* a_pVal, [out] VARIANT_BOOL* a_bVal);
+	[helpstring("method GetString")] HRESULT GetString([in] TConfigValue* a_pVal, [out] BSTR* a_bstrVal);
+	[helpstring("method GetGUID")] HRESULT GetGUID([in] TConfigValue* a_pVal, [out] GUID* a_guidVal);
+	[helpstring("method GetVector2")] HRESULT GetVector2([in] TConfigValue* a_pVal, [out] float* a_fVal1, [out] float* a_fVal2);
+	[helpstring("method GetVector3")] HRESULT GetVector3([in] TConfigValue* a_pVal, [out] float* a_fVal1, [out] float* a_fVal2, [out] float* a_fVal3);
+	[helpstring("method GetVector4")] HRESULT GetVector4([in] TConfigValue* a_pVal, [out] float* a_fVal1, [out] float* a_fVal2, [out] float* a_fVal3, [out] float* a_fVal4);
+	[helpstring("method GetColor")] HRESULT GetColor([in] TConfigValue* a_pVal, [out] float* a_fValR, [out] float* a_fValG, [out] float* a_fValB);
+};
+
+[
+	object,
+	uuid(AC5F0F5C-E5B5-4CDE-8101-F65A728D33F8),
+	helpstring("IConfigDescriptor Interface"),
+	pointer_default(unique)
+]
+interface IConfigDescriptor : IUnknown
+{
+	[helpstring("method Name")] HRESULT Name([in] IUnknown* a_pContext, [in] IConfig* a_pConfig, [out] ILocalizedString** a_ppName);
+	[helpstring("method Description")] HRESULT Description([in] IUnknown* a_pContext, [in] IConfig* a_pConfig, [out] ILocalizedString** a_ppDesc);
+	[helpstring("method PreviewIconID")] HRESULT PreviewIconID([in] IUnknown* a_pContext, [in] IConfig* a_pConfig, [out] GUID* a_pIconID);
+	[helpstring("method PreviewIcon"), local] HRESULT PreviewIcon([in] IUnknown* a_pContext, [in] IConfig* a_pConfig, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method Command")] HRESULT Command([out] BSTR* a_pbstrCmd);
+	[helpstring("method Serialize")] HRESULT Serialize([in] IConfig* a_pConfig, [out] BSTR* a_pbstrCmd);
+	[helpstring("method Parse")] HRESULT Parse([in] BSTR a_bstrCmd, [in] IConfig* a_pConfig);
+};
+
+
+[
+	uuid(832C4F65-9BE0-4B76-9A10-C5AAC64CB768),
+	version(1.0),
+	helpstring("RWConfig 1.0 Type Library")
+]
+library RWConfigLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+
+	interface IGlobalConfigFactory;
+	interface IConfigDescriptor;
+
+	[
+		uuid(98D37AED-647D-44F6-9290-1854B1F59C5C),
+		helpstring("Config Class")
+	]
+	coclass ConfigWithDependencies
+	{
+		[default] interface IConfigWithDependencies;
+		interface IConfig;
+	};
+
+	[
+		uuid(2F69BAD0-5BD9-4DF7-A792-68694373F2B0),
+		helpstring("ConfigInMemory Class")
+	]
+	coclass ConfigInMemory
+	{
+		[default] interface IConfigInMemory;
+		interface IConfig;
+	};
+
+	[
+		uuid(B99F6EE5-2737-4DAF-A30B-6ECD0CDA5E74),
+		helpstring("SubConfigSwitch Class")
+	]
+	coclass SubConfigSwitch
+	{
+		[default] interface ISubConfigSwitch;
+	};
+
+	[
+		uuid(CA8091BC-2787-43CE-8BA2-72E02F6A919D),
+		helpstring("SubConfigSwitchLate Class")
+	]
+	coclass SubConfigSwitchLate
+	{
+		[default] interface ISubConfigSwitchLate;
+	};
+
+	[
+		uuid(51B7C9FF-B097-40BE-A8D7-783558FB8A76),
+		helpstring("SubConfigVector Class")
+	]
+	coclass SubConfigVector
+	{
+		[default] interface ISubConfigVector;
+	};
+
+	[
+		uuid(7978FE37-B5B0-4A8E-B77E-6BEDA18B6921),
+		helpstring("MiniConfigWnd Class")
+	]
+	coclass MiniConfigWnd
+	{
+		[default] interface IConfigWnd;
+	};
+	[
+		uuid(7D53C6D2-723B-417D-86B5-0FE78BF77070),
+		helpstring("FullConfigWnd Class")
+	]
+	coclass FullConfigWnd
+	{
+		[default] interface IConfigWnd;
+	};
+	[
+		uuid(950C5B64-492C-427C-9D51-8FEDDBD5759B),
+		helpstring("AutoConfigWnd Class")
+	]
+	coclass AutoConfigWnd
+	{
+		[default] interface IConfigWnd;
+	};
+	[
+		uuid(294CDBDB-6000-4983-B514-F8E64878A9E4),
+		helpstring("TreeConfigWnd Class")
+	]
+	coclass TreeConfigWnd
+	{
+		[default] interface IConfigWnd;
+	};
+	[
+		uuid(800B3D5E-AF33-473B-9046-A8841D270C26),
+		helpstring("ConfigValueHelper Class")
+	]
+	coclass ConfigValueHelper
+	{
+		[default] interface IConfigValueHelper;
+	};
+	[
+		uuid(9E06F7C2-CFF3-4EFA-9595-56EF788E0482),
+		helpstring("GlobalConfigManager Class")
+	]
+	coclass GlobalConfigManager
+	{
+		[default] interface IGlobalConfigManager;
+	};
+};
+
+cpp_quote("#include \"RWConfigUtils.h\"")
+cpp_quote("#define WM_RW_GETCFGDOC (WM_APP+3194)")
+cpp_quote("#define WM_RW_CFGSPLIT (WM_APP+3195)")

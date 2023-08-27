@@ -1,0 +1,158 @@
+// RWConceptDesignerExtension.idl : IDL source for RWConceptDesignerExtension
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWConceptDesignerExtension.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWInput.idl";
+
+
+[
+	object,
+	uuid(AA3A167B-694F-4DE3-A31C-4F5125EDDB95),
+	helpstring("IDesignerWizardFrame Interface"),
+	pointer_default(unique)
+]
+interface IDesignerWizardFrame : IUnknown
+{
+	[helpstring("method DefaultConfig")] HRESULT DefaultConfig([out] IConfig** a_ppConfig);
+
+	[helpstring("method Size")] HRESULT Size([out] ULONG* a_pnCount);
+
+	[helpstring("method Name")] HRESULT Name([in] ULONG a_nIndex, [out] ILocalizedString** a_ppName);
+	[helpstring("method HelpText")] HRESULT HelpText([in] ULONG a_nIndex, [out] ILocalizedString** a_ppHelpText);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nIndex, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method Category")] HRESULT Category([in] ULONG a_nIndex, [out] ILocalizedString** a_ppCategory);
+
+	[helpstring("method CheckFeatures")] HRESULT CheckFeatures([in] ULONG a_nIndex, [in] ULONG a_nCount, [in, size_is(a_nCount)] const IID* a_aiidRequired);
+
+	[helpstring("method DocumentCreate")] HRESULT DocumentCreate([in] ULONG a_nIndex, [in] RWHWND a_hParentWnd, [in] LCID a_tLocaleID, [in] IConfig* a_pConfig, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+};
+
+[
+	object,
+	uuid(F3F2599F-B3C0-48D0-BBE1-7D9FD116CC27),
+	helpstring("IDesignerWizard Interface"),
+	pointer_default(unique)
+]
+interface IDesignerWizard : IUnknown
+{
+	[helpstring("method Priority")] HRESULT Priority([out] ULONG* a_pPriority);
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method HelpText")] HRESULT HelpText([out] ILocalizedString** a_ppHelpText);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method Category")] HRESULT Category([out] ILocalizedString** a_ppCategory);
+	[helpstring("method State")] HRESULT State([out] BOOLEAN* a_pEnableDocName, [out] ILocalizedString** a_ppButtonText);
+	[helpstring("method Config")] HRESULT Config([out] IConfig** a_ppConfig);
+
+	[helpstring("method IsCompatible")] HRESULT IsCompatible([in] ULONG a_nBuilders, [in, size_is(a_nBuilders)] IDocumentBuilder* const* a_apBuilders);
+	[helpstring("method Activate")] HRESULT Activate([in] RWHWND a_hParentWnd, [in] LCID a_tLocaleID, [in] IConfig* a_pConfig, [in] ULONG a_nBuilders, [in, size_is(a_nBuilders)] IDocumentBuilder* const* a_apBuilders, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+};
+
+[
+	object,
+	uuid(666FAFBE-68C4-48DA-A7CA-762B44FD8C60),
+	helpstring("IDesignerWizardClipboard Interface"),
+	pointer_default(unique)
+]
+interface IDesignerWizardClipboard : IUnknown
+{
+	[helpstring("method CanActivate")] HRESULT CanActivate();
+};
+
+
+typedef [v1_enum] enum EStatusBarClickType
+{
+	ESBCTLeftSingle = 0,
+	ESBCTLeftDouble = 1,
+	ESBCTRightSingle = 2,
+	ESBCTRightDouble = 3,
+} EStatusBarClickType;
+
+[
+	object,
+	uuid(1146522C-6117-498D-B768-42960063A8BF),
+	helpstring("IStatusBarPane Interface"),
+	pointer_default(unique)
+]
+interface IStatusBarPane : IUnknown
+{
+	//[helpstring("method SetDoc")] HRESULT SetDoc([in] IDocument* a_pCurrentDoc);
+
+	[helpstring("method IsVisible")] HRESULT IsVisible([in] IDocument* a_pCurrentDoc, [out] ULONG* a_pnTimeStamp);
+
+	[helpstring("method Text")] HRESULT Text([out] ILocalizedString** a_ppText);
+	[helpstring("method Tooltip")] HRESULT Tooltip([out] ILocalizedString** a_ppText);
+	[helpstring("method MaxWidth")] HRESULT MaxWidth([out] ULONG* a_pnPixels);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method OnClick")] HRESULT OnClick([in] RWHWND a_hFrameWnd, [in] LCID a_tLocaleID, [in] RECT const* a_pPaneRect, [in] POINT a_ptClick, [in] EStatusBarClickType a_eClickType);
+};
+
+[
+	object,
+	uuid(80CF3259-5193-4E8A-AF64-A11FC9BD92A5),
+	helpstring("IDesignerFrameTools Interface"),
+	pointer_default(unique)
+]
+interface IDesignerFrameTools : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG* a_pnCount);
+
+	[helpstring("method Name")] HRESULT Name([in] ULONG a_nIndex, [out] ILocalizedString** a_ppName);
+	[helpstring("method HelpText")] HRESULT HelpText([in] ULONG a_nIndex, [out] ILocalizedString** a_ppHelpText);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nIndex, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method Activate")] HRESULT Activate([in] ULONG a_nIndex, [in] RWHWND a_hFrameWnd, [in] LCID a_tLocaleID, [in] IDocument* a_pDocument);
+};
+
+[
+	object,
+	uuid(A92B5009-6841-4B7B-B8C4-75746F15DFEB),
+	helpstring("IDesignerFrameIcons Interface"),
+	pointer_default(unique)
+]
+interface IDesignerFrameIcons : IUnknown
+{
+	[helpstring("method TimeStamp")] HRESULT TimeStamp([out] ULONG* a_pTimeStamp);
+	[helpstring("method EnumIconIDs")] HRESULT EnumIconIDs([out] IEnumGUIDs** a_ppIDs);
+	[helpstring("method GetIcon"), local] HRESULT GetIcon([in] REFGUID a_tIconID, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+};
+
+
+[
+	uuid(4E7A14E7-2B17-4364-91BF-F1FB3DAA9656),
+	version(1.0),
+	helpstring("RWConceptDesignerExtension 1.0 Type Library")
+]
+library RWConceptDesignerExtensionLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWInput.tlb");
+
+	interface IDesignerWizard;
+	interface IStatusBarPane;
+	interface IDesignerFrameTools;
+
+	[
+		uuid(A30C34A5-B48F-4C27-9B53-2A552EE6AB37),
+		helpstring("DesignerFrameIconsManager Class")
+	]
+	coclass DesignerFrameIconsManager
+	{
+		[default] interface IDesignerFrameIcons;
+	};
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DesignerWizard = {0x1e74ac29, 0x5115, 0x4c9b, {0xb6, 0xdb, 0x3d, 0x94, 0xdb, 0x39, 0x89, 0x11}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DesignerFrameTools = {0xfb076600, 0xf33a, 0x4a8e, {0x94, 0x6d, 0xaa, 0x75, 0x41, 0xb4, 0xdb, 0x2f}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_StatusBarPane = {0xe4bc3868, 0xd4b0, 0x41bf, {0xaf, 0xed, 0x1a, 0x2b, 0x67, 0xb6, 0x8b, 0x74}};") // {E4BC3868-D4B0-41bf-AFED-1A2B67B68B74}
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DesignerFrameIcons = {0x5fc14b40, 0xb502, 0x4001, {0x8a, 0xb1, 0xee, 0x65, 0xc4, 0x59, 0xf7, 0x8e}};")
+cpp_quote("#include \"RWConceptDesignerExtensionUtils.h\"")

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{9f40ad2c-a90e-4fca-9a1a-cf4352982bcc}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="FilterResize Files">
+      <UniqueIdentifier>{7a7fa9f2-4bbf-4d7f-af75-450671656edc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{52c13fcc-2e18-4f6e-8f24-db583fd5ec4c}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="ColorQuantizer Files">
+      <UniqueIdentifier>{554811e7-8068-4903-8a93-c077ed96f12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FilterPixelPack Files">
+      <UniqueIdentifier>{92559c98-05ec-41f2-91f1-949a628d14be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCache Files">
+      <UniqueIdentifier>{251e9de0-53b9-4700-8e14-695c210fc756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageMetaData Files">
+      <UniqueIdentifier>{0b3c372b-e8df-4e88-802d-566d8de6cf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorPicker Files">
+      <UniqueIdentifier>{7857b914-a319-41ad-8727-84d244e01f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorNames Files">
+      <UniqueIdentifier>{84d4c902-0184-4f58-8214-6bd087901762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorWindow Files">
+      <UniqueIdentifier>{0cff9177-c7de-47b0-b6d3-d0952c47f29e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Files">
+      <UniqueIdentifier>{d92d26da-3d0a-45a3-9c63-d45be2eba126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{f3852954-cf7a-4fd1-8651-401a2195a8ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWImaging.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFilterResize.cpp">
+      <Filter>FilterResize Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RWBase\RWBase_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWImaging_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorQuantizer.cpp">
+      <Filter>ColorQuantizer Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelFormatConverter.cpp">
+      <Filter>FilterPixelPack Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageCache.cpp">
+      <Filter>ImageCache Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageMetaData.cpp">
+      <Filter>ImageMetaData Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker.cpp">
+      <Filter>ColorPicker Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedColors.cpp">
+      <Filter>ColorNames Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorWindow.cpp">
+      <Filter>ColorWindow Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFilterResize.h">
+      <Filter>FilterResize Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorQuantizer.h">
+      <Filter>ColorQuantizer Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelFormatConverter.h">
+      <Filter>FilterPixelPack Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelPackConverter.h">
+      <Filter>FilterPixelPack Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageCache.h">
+      <Filter>ImageCache Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageMetaData.h">
+      <Filter>ImageMetaData Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPicker.h">
+      <Filter>ColorPicker Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedColors.h">
+      <Filter>ColorNames Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorHistory.h">
+      <Filter>ColorWindow Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorWindow.h">
+      <Filter>ColorWindow Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_interninc\WTL_ColorGradient.h">
+      <Filter>Shared Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_interninc\WTL_ColorHistory.h">
+      <Filter>Shared Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_interninc\WTL_ColorPopup.h">
+      <Filter>Shared Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_interninc\WTL_ColorWheel.h">
+      <Filter>Shared Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWImagingDocumentUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\Resampling.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWImagingUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ColorPicker.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWImaging.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWImaging.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWImaging.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

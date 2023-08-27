@@ -1,0 +1,148 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGCONTROLTEST DIALOGEX 0, 0, 450, 300
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_NOFAILCREATE | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,339,279,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,393,279,50,14
+    PUSHBUTTON      "Export Defaults",IDC_BUTTON1,95,279,59,14
+    CONTROL         "",IDC_CLTR1,"Static",SS_BLACKRECT,7,7,216,131
+    CONTROL         "",IDC_CLTR2,"Static",SS_BLACKRECT,227,7,216,131
+    CONTROL         "",IDC_CLTR3,"Static",SS_BLACKRECT,7,142,216,131
+    CONTROL         "",IDC_CLTR4,"Static",SS_BLACKRECT,227,142,216,131
+    CONTROL         "Border",IDC_BORDER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,300,283,37,10
+    PUSHBUTTON      "Save Clipboard Config",IDC_BUTTON2,158,279,83,14
+    PUSHBUTTON      "RW Config",IDC_BUTTON3,246,279,50,14
+    EDITTEXT        IDC_DEFAULTS_EDIT,7,280,48,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VERSION_EDIT,58,280,33,12,ES_AUTOHSCROLL
+END
+
+IDD_CUSTOMGUITEST DIALOGEX 0, 0, 122, 57
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CHECKBOX        "Bool depending on Ranged Int",IDC_TESTCHECK1,0,0,113,10
+    CHECKBOX        "Simple bool",IDC_TESTCHECK2,0,14,51,10
+    COMBOBOX        IDC_TESTCOMBO1,36,28,86,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Test Int:",IDC_STATIC,0,30,29,8
+    LTEXT           "Test Edit:",IDC_STATIC,0,46,32,8
+    EDITTEXT        IDC_TESTEDIT1,36,44,86,12,ES_AUTOHSCROLL | ES_WANTRETURN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONFIGCONTROLTEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 293
+    END
+
+    IDD_CUSTOMGUITEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "_testRWConfig"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TESTINTNAME         "Test Int (def = 7)"
+    IDS_TESTINTHELP         "Help text for Int (def = 7)"
+    IDS_TESTINT7            "7 (named)"
+    IDS_TESTSTRINGNAME      "Test String"
+    IDS_TESTSTRINGHELP      "Help text for String"
+    IDS_TESTBOOLNAME        "Test Bool"
+    IDS_TESTBOOLHELP        "Help text for Bool"
+    IDS_TESTRNGINTNAME      "Ranged Int"
+    IDS_TESTRNGINTHELP      "Help text for Ranged Int"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TESTSWITCHNAME      "Test Switch"
+    IDS_TESTSWITCHHELP      "Test Switch Help"
+    IDS_TESTGUIDNAME        "Test GUID"
+    IDS_TESTGUIDHELP        "Test GUID Help"
+    IDS_TESTGUID1           "Test GUID val1"
+    IDS_TESTVECTORNAME      "Test Vector Root"
+    IDS_TESTVECTORHELP      "Test Vector Root Help"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

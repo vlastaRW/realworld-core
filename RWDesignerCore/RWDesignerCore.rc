@@ -1,0 +1,1286 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "MainFrame.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_CONFIG
+//
+
+IDR_DEFAULTMENU         RT_CONFIG               "DefaultMenu.bin"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+IDR_OFFLINE0409         HTML                    "offline0409.html"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDB_WATERMARK           PNG                     "Watermark.png"
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech (Czech Republic) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NEWFILEDLG DIALOGEX 0, 0, 202, 181
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_LIST | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_AUTOARRANGE | WS_TABSTOP,7,0,24,181
+    CONTROL         "",IDC_PANEL,"Static",SS_BLACKRECT | NOT WS_VISIBLE,39,3,156,153
+    PUSHBUTTON      "Vytvo¯it",IDOK,145,160,50,14
+    CONTROL         "",IDC_SEPLINE,"Static",SS_ETCHEDVERT,31,0,1,181
+    CONTROL         "",IDC_FILL,"Static",SS_OWNERDRAW,0,0,7,181
+END
+
+IDD_MANAGECONFIGURABLEITEMS DIALOGEX 0, 0, 278, 193
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "...",IDC_MANAGE_LABEL,7,8,9,8,SS_ENDELLIPSIS
+    CONTROL         "",IDC_MANAGE_ITEMLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,21,264,145
+    DEFPUSHBUTTON   "OK",IDOK,166,172,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,221,172,50,14
+    CONTROL         "ToolBar",IDC_MANAGE_TOOLBAR,"ToolbarWindow32",0x994e,119,5,152,14
+    PUSHBUTTON      "N·povÏda",IDHELP,7,172,50,14
+END
+
+IDD_CONFIGFRAME DIALOGEX 0, 0, 430, 241
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,319,219,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,373,219,50,14
+    PUSHBUTTON      "N·povÏda",IDHELP,7,219,50,14
+    CONTROL         "Uloûit layout jako:",IDC_LS_SAVE,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,69,221,73,10
+    COMBOBOX        IDC_LS_NAME,144,219,164,144,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CONFIGGUI_MAINFRAME DIALOGEX 0, 0, 219, 131
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "⁄vodnÌ &strana:",IDC_STATIC,0,2,75,8
+    COMBOBOX        IDC_APPOPT_STARTPAGE,82,0,136,135,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&UûivatelskÈ rozhranÌ:",IDC_STATIC,0,18,76,8
+    COMBOBOX        IDC_APPOPT_INTERFACE,82,16,136,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Titulek okna",IDC_APPOPT_CAPTION_GRP,0,32,218,57,WS_GROUP,WS_EX_TRANSPARENT
+    CHECKBOX        "Zobrazit jmÈno &dokumentu",IDC_APPOPT_CAPTNAME,7,44,101,10
+    CHECKBOX        "Zobrazit &typ dokumentu",IDC_APPOPT_CAPTTYPE,7,58,96,10
+    CHECKBOX        "Zobrazit vlastnosti dokumentu",IDC_APPOPT_CAPTPROPS,7,72,155,10
+    CHECKBOX        "Zobrazit jmÈno &aplikace",IDC_APPOPT_CAPTAPP,113,44,95,10
+    CHECKBOX        "Zobrazit jmÈno &layoutu",IDC_APPOPT_CAPTLAYOUT,113,58,93,10
+    CONTROL         "&Zak·zat funkci zpÏt",IDC_APPOPT_UNDODISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,93,100,10
+    CHECKBOX        "Zo&brazit p¯Ìkazy pro ovl·d·nÌ layout˘ v menu (pro pokroËilÈ)",IDC_APPOPT_LAYOUTCMDS,0,121,217,10
+    CONTROL         "Zak·zat automatickÈ aktualizace",IDC_APPOPT_DISABLEUPDATES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,107,140,10
+END
+
+IDD_FATALERROR DIALOGEX 0, 0, 278, 118
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RealWorld Designer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,221,97,50,14
+    LTEXT           "P¯i bÏhu programu doölo k nezotavitelnÈ chybÏ. Omlouv·me se za vzniklÈ nep¯Ìjemnosti.",IDC_STATIC,35,7,236,20
+    ICON            "",IDC_FE_ICON,7,7,20,20
+    LTEXT           "DoporuËujeme uloûit a zav¯Ìt ostatnÌ otev¯enÈ dokumenty a program restartovat.",IDC_STATIC,7,33,264,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,48,264,1
+    LTEXT           "Aktu·lnÌ dokument obsahuje neuloûen· data. Chete-li se pokusit o jejich uloûenÌ, stisknÏte tlaËÌtko 'Uloûit...'.",IDC_FE_SAVELABEL,7,53,210,16
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,73,263,1
+    PUSHBUTTON      "&Uloûit...",IDC_FE_SAVEBUTTON,221,54,50,14
+    LTEXT           "ProsÌme o nahl·öenÌ tohoto problÈmu na adresu support@rw-designer.com.",IDC_STATIC,7,81,242,8
+END
+
+IDD_CONFIGGUI_TOOLBAR DIALOGEX 0, 0, 204, 123
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,0,100,14
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,14,100,46
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,104,0,100,60
+    LTEXT           "Typ &pohledu:",IDC_CG_VIEWLABEL,0,66,46,8
+    COMBOBOX        IDC_CG_VIEW,47,64,156,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,0,80,203,43
+END
+
+IDD_CONFIGGUI_ITEM DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&ID:",IDC_STATIC,0,2,13,8
+    EDITTEXT        IDC_CG_ID,14,0,20,12,ES_AUTOHSCROLL
+    LTEXT           "&JmÈno:",IDC_CG_NAMELABEL,41,1,27,8
+    EDITTEXT        IDC_CG_NAME,69,0,27,12,ES_AUTOHSCROLL
+    LTEXT           "&P¯Ìkazy:",IDC_STATIC,0,18,30,8
+    COMBOBOX        IDC_CG_OPERATION,41,16,104,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,145,58
+    CHECKBOX        "&Schovat",IDC_CG_HIDDEN,103,1,42,10
+END
+
+IDD_CONFIGGUI_LAYOUT DIALOGEX 0, 0, 281, 152
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Typ pohledu:",IDC_CGLAYOUT_VIEWLABEL,7,21,47,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,57,19,217,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Ikona:",IDC_CGLAYOUT_ICONLABEL,219,37,22,8
+    CONTROL         "",IDC_CGLAYOUT_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,245,35,29,197
+    CONTROL         "",IDC_CGLAYOUT_VIEWCFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,7,38,267,107
+    LTEXT           "P¯Ìkazy &menu:",IDC_CGLAYOUT_COMMANDSLABEL,7,21,48,8
+    COMBOBOX        IDC_CGLAYOUT_COMMANDS,57,19,217,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_CMDSCFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,7,34,267,107
+    LTEXT           "JmÈno layoutu:",IDC_CGLAYOUT_NAME_LABEL,7,21,56,8
+    EDITTEXT        IDC_CGLAYOUT_NAME,66,19,208,12,ES_AUTOHSCROLL
+    LTEXT           "Zkratka layoutu:",IDC_CGLAYOUT_VERB_LABEL,7,37,54,8
+    EDITTEXT        IDC_CGLAYOUT_VERB,66,35,127,12,ES_AUTOHSCROLL
+    LTEXT           "Typ dokumentu:",IDC_CGLAYOUT_DOCTYPE_LABEL,7,53,57,8
+    COMBOBOX        IDC_CGLAYOUT_DOCTYPE,66,51,127,101,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_GLOBALOPTIONS DIALOGEX 0, 0, 265, 258
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Nastavit aplikaËnÌ volby"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,153,237,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,209,237,50,14
+    ICON            "",IDC_GO_INFO,7,18,20,20,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_GO_HINT,36,20,222,16
+    PUSHBUTTON      "N·povÏda",IDHELP,7,237,50,14
+    CONTROL         "",IDC_GO_SEP,"Static",SS_ETCHEDHORZ,0,231,265,1
+    CONTROL         "",IDC_GO_TAB,"Static",SS_BLACKRECT,0,0,265,12
+    CONTROL         "",IDC_GO_CONFIG,"Static",SS_GRAYRECT,7,43,251,182
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_NEWFILEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    IDD_MANAGECONFIGURABLEITEMS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_CONFIGFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 423
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_CONFIGGUI_MAINFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_FATALERROR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_CONFIGGUI_TOOLBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 116
+    END
+
+    IDD_CONFIGGUI_ITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_LAYOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 145
+    END
+
+    IDD_GLOBALOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""RWVersion.h""\r\n"
+    "#include ""RWVersionInfo.rc2""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWDesignerCore"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "RealWorld Designer"
+    IDS_ERROR_OPERATION     "BÏhem prov·dÏnÌ operace doölo k chybÏ. ProsÌm zkontrolujte platnost dokumentu a konfigurace danÈ operace."
+    IDS_ERROR_CREATION      "Chyba vytv·¯enÌ"
+    IDS_LANGUAGE            "»eötina"
+    IDS_VIEWCREATIONFAIL    "Nebylo moûnÈ vytvo¯it pohled. Je t¯eba p¯ekofigurovat layout."
+    IDS_RECENTFILES_TOOLBAR "Obnovit n·hled|Odstranit ze seznamu|"
+    IDS_STARTVIEWBTN_NEW    "Vytvo¯it"
+    IDS_STARTVIEWBTN_OPEN   "Otev¯Ìt"
+    IDS_STARTVIEWBTN_RECENT "Otev¯Ìt"
+    IDS_FORCEOPENAS         "Otev¯Ìt jako ""%s"""
+    IDS_SAVECHANGESTO       "Uloûit zmÏny do %s ?"
+    IDS_ACTIONFAILED        "Poûadovanou operaci se z nespecifikovanÈho d˘vodu nepoda¯ilo dokonËit. ProsÌm ovÏ¯te, ûe vöechny pot¯ebnÈ vnÏjöÌ podmÌnky jsou splnÏny."
+    IDS_STARTVIEW_UNKNOWNCATEGORY "OstatnÌ"
+    IDS_SAVEDLGCAPTION      "Uloûit dokument"
+    IDS_ERROR_SAVE          "BÏhem ukl·d·nÌ nastala chyba. ProsÌm ovÏ¯te, ûe na disku je dostatek mÌsta a m·te opr·vnÏnÌ k z·pisu."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MNGLTS_BUTTONTOOLTIPS 
+                            "Vytvo¯it nov˝ layout|Duplikovat vybran˝ layout|Smazat vybran˝ layout|P¯ejmenovat vybran˝ layout|Konfigurovat vybran˝ layout|Posunout vybran˝ layout dol˘|Posunout vybran˝ layout nahoru|Importovat layout|Exportovat layout|"
+    IDS_MNGOPS_BUTTONTOOLTIPS 
+                            "Vytvo¯it novou operaci|Duplikovat vybranou operaci|Smazat vybranou operaci|P¯ejmenovat vybranou operaci|Konfigurovat vybranou operaci|Posunout vybranou operaci dol˘|Posunout vybranou operaci nahoru|Importovat operaci|Exportovat operaci|"
+    IDS_CGTOOLBAR_BUTTONNAMES 
+                            "Vytvo¯it novou n·strojovou liötu|Duplikovat n·strojovou liötu|Smazat n·strojovou liötu|Posunout nahoru|Posunout dol˘|"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_IDLEMESSAGE     "Hotovo"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OP_OPENINSAMEWINDOW "Dokument - otev¯Ìt v aktu·lnÌm oknÏ"
+    IDS_VIEWTOOLBAR_NAME    "ª N·strojov· liöta ´"
+    IDS_MENUTOOLBAR_NAME    "Apl-Zobrazit: N·strojov· liöta"
+    IDS_MENUTOOLBAR_CMDDESC "Uk·zat nebo schovat tuto n·strojovou liötu."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DESIGNERVIEW_NAME "Zvolen˝ pohled"
+    IDS_CFGID_DESIGNERVIEW_HELP "Vyberte hlavnÌ zobrazovaË"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_WIN_X_POS     "Pozice okna X"
+    IDS_CFGID_WIN_Y_POS     "Pozice okna Y"
+    IDS_CFGID_WIN_WIDTH     "Velikost okna X"
+    IDS_CFGID_WIN_HEIGHT    "Velikost okna Y"
+    IDS_CFGID_WIN_MAXIMIZED "MaximalizovanÈ okno"
+    IDS_CFGID_LAYOUTCOMMANDS_NAME "Zobrazit p¯Ìkazy pro layouty"
+    IDS_CFGID_LAYOUTCOMMANDS_DESC 
+                            "Je-li povoleno, budou v menu zobrazeny p¯Ìkazy pro konfiguraci a volbu layout˘ oken."
+    IDS_CFGID_STATUSBAR     "InformaËnÌ ¯·dek"
+    IDS_CFGID_VIEWPROFILES_NAME "PoËet layout˘"
+    IDS_CFGID_VIEWPROFILES_DESC "PoËet pr·vÏ existujÌcÌch layout˘"
+    IDS_STARTDLG_X          "Pozice startovnÌho dialogu X"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RECENTFILES_COLNAME "JmÈno"
+    IDS_RECENTFILES_COLPATH "Cesta"
+    IDS_RECENTFILES_COLTYPE "Typ"
+    IDS_RECENTFILES_COLSIZE "Velikost"
+    IDS_RECENTFILES_COLDATEMOD "Datum zmÏny"
+    IDS_MENU_ABOUTAPPLICATION "O aplikaci %s..."
+    IDS_FILELEN_BYTES       "%i bajt˘"
+    IDS_FILELEN_KBYTES      "%g kB"
+    IDS_FILELEN_MBYTES      "%g MB"
+    IDS_FILEDATE_MODIFIED   "Upraveno: %s"
+    IDS_NORECENTFILES       "Nebyly nalezeny û·dnÈ ned·vno pouûitÈ soubory."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NEWLAYOUT           "Nov˝ layout"
+    IDS_CLONEDVIEWPROFILE   "Kopie: "
+    IDS_LAYOUTCFG_COLVIEW   "RozloûenÌ a konfigurace oken"
+    IDS_LAYOUTCFG_COLOPS    "Konfigurace menu"
+    IDS_CONFIGURELAYOUT     "Konfigurace layoutu - %s"
+    IDS_CONFIGURECURRENTLAYOUT "Konfigurace aktu·lnÌho layoutu"
+    IDS_MANAGELAYOUTS_CAPTION "Spr·va layout˘"
+    IDS_MANAGELAYOUTS_LISTLABEL "&Layouty:"
+    IDS_LAYOUTCFG_COLDESC   "JmÈno a ikona"
+    IDS_CONFIGURETHISLAYOUT "Konfigurovat tento layout"
+    IDS_SWITCHTOTHISLAYOUT  "P¯epnout na tento layout"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTDLG_Y          "Pozice startovnÌho dialogu Y"
+    IDS_STARTDLG_WIDTH      "Velikost startovnÌho dialogu X"
+    IDS_STARTDLG_HEIGHT     "Velikost startovnÌho dialogu Y"
+    IDS_RECENTFILES_NAME    "PouûÌvanÈ soubory"
+    IDS_RECENTFILES_HELP    "PoËet naposled pouûit˝ch soubor˘"
+    IDS_CFGID_COMMANDS_NAME "P¯Ìkazy"
+    IDS_CFGID_COMMANDS_DESC "Objekt s p¯Ìkazy pro menu nebo n·strojovou liötu."
+    IDS_CFGID_EXEC_NAME_NAME "JmÈno"
+    IDS_CFGID_EXEC_NAME_DESC 
+                            "Tento text bude pouûit v menu nebo v n·strojovÈ liötÏ."
+    IDS_CFGID_EXEC_DESC_NAME "Popis"
+    IDS_CFGID_EXEC_DESC_DESC "Tento text bude zobrazen ve stavovÈm ¯·dku."
+    IDS_CFGID_EXEC_COMMAND_NAME "P¯Ìkaz"
+    IDS_CFGID_EXEC_COMMAND_DESC 
+                            "Tento p¯Ìkaz bude vykon·n p¯i spuötÏnÌ. Lze pouûÌt jak˝koli spustiteln˝ soubor nebo internetovÈ adresy."
+    IDS_CFGID_APPASKTOSAVE_NAME "Pt·t se na uloûenÌ"
+    IDS_CFGID_APPASKTOSAVE_DESC 
+                            "P¯i zavÌr·nÌ okna s modifikovan˝m dokumentem aplikace nabÌdne uloûenÌ souboru."
+    IDS_CFGID_USERINTERFACE_NAME "UûivatelskÈ rozhranÌ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HELP_IDOK           "TlaËÌtko OK zav¯e dialog a potvrdÌ vöechny provedenÈ zmÏny."
+    IDS_HELP_IDCANCEL       "TlaËÌtko Storno zav¯e dialog a zruöÌ vöechny provedenÈ zmÏny."
+    IDS_HELP_IDHELP         "TlaËÌtko N·povÏda zobrazÌ detailnÌ n·povÏdu pro tento dialog."
+    IDS_HELP_MANAGE_LAYOUTLIST 
+                            "Tato tabulka obsahuje seznam jmen dostupn˝ch layout˘. Pouûijte tlaËÌtka vpravo naho¯e pro jejich spr·vu. Dvojit˝ klik na layoutu spustÌ jeho konfiguraci."
+    IDS_HELP_MANAGE_TOOLBAR "Pouûijte tako tlaËÌtka pro spr·vu dokumentov˝ch operacÌ. StisknÏte tlaËÌtko N·povÏda pro detailnÏjöÌ n·povÏdu o spr·vÏ operacÌ."
+    IDS_CONTEXTHELP_TOOLBAR "StisknÏte tlaËÌtko n·strojovÈ liöty pro spuötÏnÌ p¯Ìkazu. VÌce o konkrÈtnÌch p¯Ìkazech se dozvÌte, kdyû posunete myö nad tlaËÌtko a p¯eËtete si popis ve stavovÈm ¯·dku.\n\nTlaËÌtka lze p¯id·vat, odebÌrat, p¯esouvat a konfigurovat v dialogu s konfiguracÌ layoutu oken."
+    IDS_HELP_MANAGE_GLBOPSLIST 
+                            "Tato tabulka obsahuje seznam jmen dostupn˝ch operacÌ. Pouûijte tlaËÌtka vpravo naho¯e pro spr·vu operacÌ. Dvojit˝ klik na operaci spustÌ jejÌ konfiguraci."
+    IDS_HELP_APPOPT_UNDODEFAULT 
+                            "Kaûd˝ dokument pouûije sv˘j v˝chozÌ mÛd. Toto je doporuËen· volba."
+    IDS_HELP_APPOPT_UNDODISABLED 
+                            "Funkce 'zpÏt' bude zak·z·na. Vyberte tuto volbu pro maxim·lnÌ v˝kon a nejniûöÌ pamÏùovÈ n·roky."
+    IDS_HELP_APPOPT_UNDOSINGLE 
+                            "Pouze poslednÌ operace m˘ûe b˝t vr·cena zpÏt. Tato volba öet¯Ì pamÏù, ale nezvyöuje v˝kon."
+    IDS_HELP_APPOPT_UNDOMULTIPLE 
+                            "VÌce operacÌ m˘ûe b˝t vr·ceno zpÏt. PoËet operacÌ z·visÌ na jejich pamÏùov˝ch n·rocÌch."
+    IDS_HELP_APPOPT_UNDOALL "Vöechny operace mohou b˝t vr·ceny zpÏt. NenÌ-li k dispozici dostatek pamÏti, m˘ûe se st·t, ûe nebudete moci d·le upravovat dokument."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_USERINTERFACE_DESC 
+                            "Vyberte, jak prezentovat vÌce otev¯en˝ch dokument˘."
+    IDS_CFGID_STARTPAGE_NAME "⁄vodnÌ strana"
+    IDS_CFGID_STARTPAGE_DESC 
+                            "Zvolen· str·nka bude zobrazena p¯i startu aplikace bez parametr˘."
+    IDS_CFGID_ICONID_NAME   "Ikona"
+    IDS_CFGID_ICONID_DESC   "Ikona tÈto operace pro pouûitÌ v menu nebo v panelu n·stroj˘."
+    IDS_CFGID_DLGS_SIZE_NAME "RozmÏry okna"
+    IDS_CFGID_DLGS_SIZE_DESC 
+                            "PoslednÌ pouûit· velikost jednoho z aplikaËnÌch dialogov˝ch oken."
+    IDS_CFGID_UNDOMODE_NAME "Funkce 'zpÏt'"
+    IDS_CFGID_UNDOMODE_DESC "UrËuje chov·nÌ funkce 'zpÏt' (stornov·nÌ poslednÌ provedenÈ operace ). NÏkterÈ typy dokument˘ mohou podporovat jen vybranÈ mÛdy chov·nÌ."
+    IDS_CFGVAL_UNDOMODE_DEFAULT "V˝chozÌ chov·nÌ"
+    IDS_CFGVAL_UNDOMODE_DISABLED "Vypnuta"
+    IDS_CFGVAL_UNDOMODE_SINGLE "Jeden krok"
+    IDS_CFGVAL_UNDOMODE_MULTIPLE "VÌce krok˘"
+    IDS_CFGVAL_UNDOMODE_ALL "Vöechny kroky"
+    IDS_CFGID_HELPTOPIC_NAME "N·povÏda"
+    IDS_CFGID_HELPTOPIC_DESC "OddÌl n·povÏdy p¯i¯azen˝ k tomuto layoutu."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LAYOUT_OPEN         "Importovat konfiguraci layoutu oken"
+    IDS_LAYOUT_SAVE         "Exportovat konfiguraci layoutu oken"
+    IDS_LAYOUT_FILETYPE     "Layouty oken RealWorldu"
+    IDS_COMMAND_OPEN        "Importovat konfiguraci p¯Ìkazu"
+    IDS_COMMAND_SAVE        "Exportovat konfiguraci p¯Ìkazu"
+    IDS_COMMAND_FILETYPE    "P¯Ìkazy RealWorldu"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTPAGENEWDOCUMENT_NAME "Vytvo¯it"
+    IDS_STARTPAGENEWDOCUMENT_DESC "Vytvo¯it nov˝ dokument podle öablony."
+    IDS_STARTPAGEOPENFILE_NAME "Otev¯Ìt"
+    IDS_STARTPAGEOPENFILE_DESC "NaËÌst existujÌcÌ dokument ze souboru."
+    IDS_STARTPAGERECENTFILES_NAME "Historie"
+    IDS_STARTPAGERECENTFILES_DESC "Otev¯Ìt jeden z ned·vno pouûit˝ch soubor˘."
+    IDS_DROPMSG_ADDCOMMANDS "P¯idat p¯Ìkazy do n·strojovÈ liöty."
+    IDS_DROPMSG_OPENFILES   "Otev¯Ìt taûen˝ soubor Ëi soubory."
+    IDS_GCNAME_MAINFRAME    "HlavnÌ okno"
+    IDS_GCDESC_MAINFRAME    "Nastavte chov·nÌ hlavnÌho okna aplikace. Uû otev¯enÈ dokumenty nebo okna nebudou ovlivnÏny."
+    IDS_CFGID_CTXHELPASTIPS_NAME "KontextovÈ tipy"
+    IDS_CFGID_CTXHELPASTIPS_DESC 
+                            "Zobrazovat kontextovou n·povÏdu (tento text) jako tooltipy pro vöechny ovl·dacÌ prvky."
+    IDS_SAVECHANGES_YES     "Uloûit\nUloûit zmÏny a zav¯Ìt dokument."
+    IDS_SAVECHANGES_NO      "Neukl·dat\nZahodit zmÏny a zav¯Ìt dokument."
+    IDS_SAVECHANGES_CANCEL  "Storno\nPokraËovat v pr·ci s dokumentem."
+    IDS_SAVECHANGES_CONTENT "Dokument obsahuje neuloûen· data."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MENUCOMMANDS_FILEOPS "Apl-Soubor: Nov˝, Otev¯Ìt, Uloûit"
+    IDS_MENUCOMMANDS_SAVEAS "Apl-Soubor: Uloûit jako"
+    IDS_MENUCOMMANDS_CLOSE  "Apl-Soubor: Zav¯Ìt"
+    IDS_MENUCOMMANDS_EXIT   "Apl-Soubor: Konec"
+    IDS_MENUCOMMANDS_RECENT "Apl-Soubor: PouûÌvanÈ soubory"
+    IDS_MENUCOMMANDS_STATUS "Apl-Zobrazit: Stavov˝ panel"
+    IDS_MENUCOMMANDS_CLIPBOARD "Apl-Upravit: Schr·nka"
+    IDS_MENUCOMMANDS_UNDO   "Apl-Upravit: ZpÏt"
+    IDS_MENUCOMMANDS_LAYOUTS "Apl-N·stroje: Layouty"
+    IDS_MENUCOMMANDS_LAYOUTCFG "Apl-N·stroje: Konfigurace layoutu"
+    IDS_MENUCOMMANDS_LAYOUTSMNG "Apl-N·stroje: Spr·va layout˘"
+    IDS_MENUCOMMANDS_OPTIONS "Apl-N·stroje: Moûnosti"
+    IDS_MENUCOMMANDS_FRAMETOOLS "Apl-N·stroje: OstatnÌ"
+    IDS_MENUCOMMANDS_HELP   "Apl-N·povÏda: MÌstnÌ"
+    IDS_MENUCOMMANDS_ASKONLINE "Apl-N·povÏda: Zeptat se online"
+    IDS_MENUCOMMANDS_CONTEXT "Apl-N·povÏda: Kontextov·"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MENUCOMMANDS_ABOUT  "Apl-N·povÏda: O aplikaci"
+    IDS_MENUCOMMANDS_SELECTALL "Apl-Upravit: Vybrat vöe"
+    IDS_MENUCOMMANDS_INVERTSELECTION "Apl-Upravit: Invertovat v˝bÏr"
+    IDS_MENUCOMMANDS_EXECCMD "Apl-JinÈ: Spustit p¯Ìkaz"
+    IDS_MENUCOMMANDS_CUSTOM "Apl-N·povÏda: VlastnÌ"
+    IDS_MENUCOMMANDS_REDO   "Apl-Upravit: Vp¯ed"
+    IDS_MENUCOMMANDS_DELETE "Apl-Upravit: Smazat"
+    IDS_MENUCOMMANDS_DUPLICATE "Apl-Upravit: Duplikovat"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_FILE_NEW         "&Nov˝..."
+    IDS_MD_FILE_NEW         "Vytvo¯it nov˝ dokument."
+    IDS_MN_FILE_OPEN        "&Otev¯Ìt..."
+    IDS_MD_FILE_OPEN        "Otev¯Ìt existujÌcÌ dokument."
+    IDS_MN_FILE_SAVE        "&Uloûit..."
+    IDS_MD_FILE_SAVE        "Uloûit aktivnÌ dokument."
+    IDS_MN_FILE_SAVEAS      "Uloûit &jako..."
+    IDS_MD_FILE_SAVEAS      "Uloûit aktivnÌ dokument pod nov˝m jmÈnem."
+    IDS_MN_FILE_CLOSE       "Zav¯Ìt"
+    IDS_MD_FILE_CLOSE       "Zav¯Ìt aktivnÌ dokument."
+    IDS_MN_FILE_EXIT        "&Konec"
+    IDS_MD_FILE_EXIT        "UkonËit aplikaci; nabÌdnout uloûenÌ modifikovan˝ch dokument˘."
+    IDS_MN_FILE_RECENT      "<path to recent file>"
+    IDS_MD_FILE_RECENT      "Otev¯Ìt tento dokument."
+    IDS_MN_HELP_LOCAL       "Z·&klady..."
+    IDS_MD_HELP_LOCAL       "Zobrazit z·kladnÌ informace o ovl·d·nÌ a vlastnostech aplikace."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_HELP_INDEX       "&Rejst¯Ìk..."
+    IDS_MD_HELP_INDEX       "Zobrazit rejst¯Ìk n·povÏdy."
+    IDS_MN_HELP_SEARCH      "&Hledat..."
+    IDS_MD_HELP_SEARCH      "Prohledat n·povÏdu podle danÈho termÌnu."
+    IDS_MN_HELP_ASKONLINE   "&Zeptat se online..."
+    IDS_MD_HELP_ASKONLINE   "Otev¯Ìt internetovou str·nku, kde m˘ûete poloûit dotaz vztahujÌcÌ se k tomuto programu."
+    IDS_MN_HELP_CONTEXT     "Konte&xtov˝ tip"
+    IDS_MD_HELP_CONTEXT     "KliknÏte sem a pak na ovl·dacÌ prvek, o kterÈm se chcete dozvÏdÏt vÌce."
+    IDS_MN_HELP_ABOUT       "&O aplikaci %s..."
+    IDS_MD_HELP_ABOUT       "Zobrazit informace o programu, verzi a copyright."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_EDIT_UNDO        "&ZpÏt"
+    IDS_MD_EDIT_UNDO        "Vr·tit poslednÌ akci zpÏt."
+    IDS_MN_VIEW_STATUS      "&Stavov˝ ¯·dek"
+    IDS_MD_VIEW_STATUS      "Uk·zat nebo schovat informaËnÌ ¯·dek."
+    IDS_MN_VIEW_LAYOUTCFG   "&Konfigurovat layout..."
+    IDS_MD_VIEW_LAYOUTCFG   "Konfigurovat souËasn˝ layout oken, menu a panel n·stroj˘."
+    IDS_MN_TOOLS_LAYOUTMNG  "&Spr·va layout˘..."
+    IDS_MD_TOOLS_LAYOUTMNG  "Vytv·¯et, mazat, modifikovat a priorizovat layouty."
+    IDS_MN_TOOLS_OPTIONS    "&Moûnosti aplikace..."
+    IDS_MD_TOOLS_OPTIONS    "Konfigurovat moûnosti aplikace."
+    IDS_MN_VIEW_SWITCHLAYOUT "<layout>"
+    IDS_MD_VIEW_SWITCHLAYOUT "P¯epnout na tento layout."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TOOLBAR_COMMANDS_NAME "P¯Ìkazy"
+    IDS_CFGID_TOOLBAR_COMMANDS_DESC "Objekt specifikujÌcÌ seznam p¯Ìkaz˘."
+    IDS_CFGID_TOOLBAR_NAME_NAME "JmÈno n·strojovÈ liöty"
+    IDS_CFGID_TOOLBAR_NAME_DESC "JmÈno je zobrazov·no nalevo od tlaËÌtek."
+    IDS_CFGID_TOOLBAR_ID_NAME "ID n·strojovÈ liöty"
+    IDS_CFGID_TOOLBAR_ID_DESC 
+                            "Unik·tnÌ identifik·tor n·stojovÈ liöty umoûÚuje liötu schovat nebo zobrazit z hlavnÌho menu."
+    IDS_CFGID_TOOLBAR_ITEMS_NAME "Poloûky"
+    IDS_CFGID_TOOLBAR_ITEMS_DESC "PoËet n·stojov˝ch liöt."
+    IDS_CFGID_TOOLBAR_VIEW_NAME "Pohled"
+    IDS_CFGID_TOOLBAR_VIEW_DESC "Typ vnit¯nÌho pohledu."
+    IDS_CFGID_TOOLBAR_NAME_MENUDESC "Text zobrazovan˝ tÌmto p¯Ìkazem v menu."
+    IDS_CFGID_EXEC_PARAMS_NAME "Parametry"
+    IDS_CFGID_EXEC_PARAMS_DESC "Parametry pouûitÈ p¯i spuötÏnÌ aplikace."
+    IDS_CFGID_CAPTION_NAME  "Titulek okna"
+    IDS_CFGID_CAPTION_DESC  "UrËuje, jakÈ informace se zobrazujÌ v z·hlavÌ okna."
+    IDS_CFGID_TOOLBAR_HIDDEN_NAME "Schovan˝"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_HELP_CUSTOM      "&Co teÔ?"
+    IDS_MD_HELP_CUSTOM      "Zobrazit n·povÏdu vztahujÌcÌ se k aktu·lnÌmu stavu aplikace."
+    IDS_MN_EDIT_REDO        "&Vp¯ed"
+    IDS_MD_EDIT_REDO        "Znovu provÈs akci, kter· byla vr·cena zpÏt."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CONTEXTHELP_REBAR   "K zobrazenÌ nebo skrytÌ n·strojovÈ liöty pouûijte p¯Ìkazy z menu Zobrazit. Je-li zobrazeno vÌce liöt, m˘ûete je p¯esouvat taûenÌm myöÌ. N·strojovÈ liöty lze konfigurovat z dialogu pro konfiguraci layoutu oken."
+    IDS_CONTEXTHELP_MENUBAR "HlavnÌ menu umoûÚuje spouötÏt p¯Ìkazy. Menu lze p¯ekonfigurovat v konfiguraËnÌm dialogu layout˘ oken. \nPouûijte tlaËÌtko po pravÈ stranÏ menu pro zav¯enÌ aktu·lnÌho dokumentu a k ponech·nÌ okna otev¯enÈho."
+    IDS_CONTEXTHELP_STATUSBAR 
+                            "Stavov˝ ¯·dek zobrazuje popisy p¯Ìkaz˘ menu nebo tlaËÌtek n·strojov˝ch liöt a r˘znÈ dalöÌ stavy aplikace. NÏkterÈ ze stav˘ lze ovlivnit kliknutÌm."
+    IDS_CONTEXTHELP_NONE    "Pro tuto oblast okna nenÌ k dispozici û·dn· n·povÏda."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TOOLBAR_HIDDEN_DESC 
+                            "UrËuje, bude-li n·strojov· liöta viditeln· p¯i vytv·¯enÌ nov˝ch oken."
+    IDS_CFGID_APPSAVELAYOUT_NAME "Ukl·dat layouty"
+    IDS_CFGID_APPSAVELAYOUT_DESC 
+                            "Je-li povoleno, budou zmÏny v layoutech (vËetnÏ hodnot v dialozÌch operacÌ) uloûeny p¯i zavÌr·nÌ okna."
+    IDS_CFGVAL_UI_MSDI      "Dokument m· vlastnÌ okno"
+    IDS_CFGVAL_UI_TABS      "Z·loûky v jedinÈm oknÏ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GENERICERROR        "ProvedenÌ operace se nezda¯ilo a byl vr·cen chybov˝ kÛd 0x%08x. ProsÌm ovÏ¯te, ûe je dostatek volnÈ pamÏti a konfigurace operace je spr·vn·."
+    IDS_STARTPAGEONLINE_NAME "Online"
+    IDS_STARTPAGEONLINE_DESC "Aktu·lnÌ novinky, pr˘vodci a centrum n·povÏdy."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RECENTFILES_COLNOTE "Pozn·mka"
+    IDS_CONFIGURETOOLBAR    "Konfigurovat n·strojovou liötu"
+    IDS_MN_HELP_DONATE      "Poslat p¯ÌspÏvek..."
+    IDS_MD_HELP_DONATE      "Podpo¯te dalöÌ v˝voj tÈto aplikace zasl·nÌm dobrovolnÈho p¯ÌspÏvku."
+    IDS_MN_HELP_REGISTER    "Zaregistrovat..."
+    IDS_MD_HELP_REGISTER    "Vloûte obdrûenÈ sÈriovÈ ËÌslo nebo objednejte novou licenci."
+    IDS_MN_HELP_BETA        "Beta problÈm..."
+    IDS_MD_HELP_BETA        "Nahl·sit problÈm s beta verzÌ."
+END
+
+#endif    // Czech (Czech Republic) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_LAYOUT DIALOGEX 0, 0, 281, 152
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&View type:",IDC_CGLAYOUT_VIEWLABEL,7,21,54,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,66,19,208,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Icon:",IDC_CGLAYOUT_ICONLABEL,212,37,27,8
+    CONTROL         "",IDC_CGLAYOUT_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,245,35,29,197
+    CONTROL         "",IDC_CGLAYOUT_VIEWCFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,7,38,267,107
+    LTEXT           "&Menu commands:",IDC_CGLAYOUT_COMMANDSLABEL,7,21,65,8
+    COMBOBOX        IDC_CGLAYOUT_COMMANDS,79,19,195,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_CMDSCFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,7,34,267,107
+    LTEXT           "Layout name:",IDC_CGLAYOUT_NAME_LABEL,7,21,56,8
+    EDITTEXT        IDC_CGLAYOUT_NAME,66,19,208,12,ES_AUTOHSCROLL
+    LTEXT           "Layout verb:",IDC_CGLAYOUT_VERB_LABEL,7,37,54,8
+    EDITTEXT        IDC_CGLAYOUT_VERB,66,35,127,12,ES_AUTOHSCROLL
+    LTEXT           "Document type:",IDC_CGLAYOUT_DOCTYPE_LABEL,7,53,57,8
+    COMBOBOX        IDC_CGLAYOUT_DOCTYPE,66,51,127,101,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MANAGECONFIGURABLEITEMS DIALOGEX 0, 0, 278, 193
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "...",IDC_MANAGE_LABEL,7,8,9,8,SS_ENDELLIPSIS
+    CONTROL         "",IDC_MANAGE_ITEMLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,21,264,145
+    DEFPUSHBUTTON   "OK",IDOK,166,172,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,221,172,50,14
+    CONTROL         "ToolBar",IDC_MANAGE_TOOLBAR,"ToolbarWindow32",0x994e,119,5,152,14
+    PUSHBUTTON      "Help",IDHELP,7,172,50,14
+END
+
+IDD_CONFIGFRAME DIALOGEX 0, 0, 430, 241
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,319,219,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,373,219,50,14
+    PUSHBUTTON      "Help",IDHELP,7,219,50,14
+    CONTROL         "Save layout as:",IDC_LS_SAVE,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,69,221,80,10
+    COMBOBOX        IDC_LS_NAME,152,219,156,144,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CONFIGGUI_MAINFRAME DIALOGEX 0, 0, 219, 131
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Start &page:",IDC_STATIC,0,2,72,8
+    COMBOBOX        IDC_APPOPT_STARTPAGE,75,0,144,135,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&User interface:",IDC_STATIC,0,18,72,8
+    COMBOBOX        IDC_APPOPT_INTERFACE,75,16,144,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Window caption",IDC_APPOPT_CAPTION_GRP,0,32,218,57,WS_GROUP,WS_EX_TRANSPARENT
+    CHECKBOX        "Show document &name",IDC_APPOPT_CAPTNAME,7,44,93,10
+    CHECKBOX        "Show document &type",IDC_APPOPT_CAPTTYPE,7,58,93,10
+    CHECKBOX        "Show document p&roperties",IDC_APPOPT_CAPTPROPS,7,72,155,10
+    CHECKBOX        "Show appli&cation name",IDC_APPOPT_CAPTAPP,116,44,93,10
+    CHECKBOX        "Show la&yout name",IDC_APPOPT_CAPTLAYOUT,116,58,93,10
+    CONTROL         "&Disable undo",IDC_APPOPT_UNDODISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,93,100,10
+    CONTROL         "Disable &automatic updates",IDC_APPOPT_DISABLEUPDATES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,107,140,10
+    CHECKBOX        "Show m&enu commands for layout control (for advanced users)",IDC_APPOPT_LAYOUTCMDS,0,121,219,10
+END
+
+IDD_NEWFILEDLG DIALOGEX 0, 0, 202, 181
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_LIST | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_AUTOARRANGE | WS_TABSTOP,7,0,24,181
+    CONTROL         "",IDC_PANEL,"Static",SS_BLACKRECT | NOT WS_VISIBLE,39,3,156,153
+    PUSHBUTTON      "Create",IDOK,145,160,50,14
+    CONTROL         "",IDC_SEPLINE,"Static",SS_ETCHEDVERT,31,0,1,181
+    CONTROL         "",IDC_FILL,"Static",SS_OWNERDRAW,0,0,7,181
+END
+
+IDD_FATALERROR DIALOGEX 0, 0, 278, 118
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "RealWorld Designer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,221,97,50,14
+    LTEXT           "An unrecoverable error occured during execution of the program. We are sorry for any incovenience.",IDC_STATIC,35,7,236,20
+    ICON            "",IDC_FE_ICON,7,7,20,20
+    LTEXT           "It is recommended to save and close all other documents and restart the program.",IDC_STATIC,7,33,264,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,48,264,1
+    LTEXT           "Current document contains unsaved data. You may attempt to save the document using the 'Save...' button.",IDC_FE_SAVELABEL,7,53,210,16
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,73,263,1
+    PUSHBUTTON      "&Save...",IDC_FE_SAVEBUTTON,221,54,50,14
+    LTEXT           "Please report this problem at support@rw-designer.com.",IDC_STATIC,7,81,182,8
+END
+
+IDD_CONFIGGUI_TOOLBAR DIALOGEX 0, 0, 204, 123
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,0,100,14
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,14,100,46
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,104,0,100,60
+    LTEXT           "&View type:",IDC_CG_VIEWLABEL,0,66,50,8
+    COMBOBOX        IDC_CG_VIEW,52,64,151,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,0,80,203,43
+END
+
+IDD_CONFIGGUI_ITEM DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&ID:",IDC_STATIC,0,2,18,8
+    EDITTEXT        IDC_CG_ID,22,0,10,12,ES_AUTOHSCROLL
+    LTEXT           "&Name:",IDC_CG_NAMELABEL,43,1,33,8
+    EDITTEXT        IDC_CG_NAME,79,0,10,12,ES_AUTOHSCROLL
+    CHECKBOX        "&Hidden",IDC_CG_HIDDEN,100,1,45,10
+    LTEXT           "&Commands:",IDC_STATIC,0,18,52,8
+    COMBOBOX        IDC_CG_OPERATION,55,16,90,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,145,58
+END
+
+IDD_GLOBALOPTIONS DIALOGEX 0, 0, 265, 258
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Configure Application Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,153,237,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,209,237,50,14
+    ICON            "",IDC_GO_INFO,7,18,20,20,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_GO_HINT,36,20,222,16
+    PUSHBUTTON      "Help",IDHELP,7,237,50,14
+    CONTROL         "",IDC_GO_SEP,"Static",SS_ETCHEDHORZ,0,231,265,1
+    CONTROL         "",IDC_GO_TAB,"Static",SS_BLACKRECT,0,0,265,12
+    CONTROL         "",IDC_GO_CONFIG,"Static",SS_GRAYRECT,7,43,251,182
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONFIGGUI_LAYOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 145
+    END
+
+    IDD_MANAGECONFIGURABLEITEMS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_CONFIGFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 423
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_CONFIGGUI_MAINFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_NEWFILEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    IDD_FATALERROR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_CONFIGGUI_TOOLBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 116
+    END
+
+    IDD_CONFIGGUI_ITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_GLOBALOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWDesignerCore"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "RealWorld Designer"
+    IDS_ERROR_OPERATION     "An error occured during execution of an operation. To resolve it, check validity of current document and configuration of the attempted operation."
+    IDS_ERROR_CREATION      "Creation error"
+    IDS_LANGUAGE            "English (U.S.)"
+    IDS_VIEWCREATIONFAIL    "Cannot create this view. Please reconfigure the layout."
+    IDS_RECENTFILES_TOOLBAR "Refresh thumbnail|Remove from list|"
+    IDS_STARTVIEWBTN_NEW    "Create"
+    IDS_STARTVIEWBTN_OPEN   "Open"
+    IDS_STARTVIEWBTN_RECENT "Open"
+    IDS_FORCEOPENAS         "Open as ""%s"""
+    IDS_SAVECHANGESTO       "Save changes to %s ?"
+    IDS_ACTIONFAILED        "The application failed to execute the requested action for unspecified reason. Please verify that all external conditions for the attempted operation are valid."
+    IDS_STARTVIEW_UNKNOWNCATEGORY "Unspecified"
+    IDS_SAVEDLGCAPTION      "Save Document"
+    IDS_ERROR_SAVE          "An error occured during save operation. Please verify that there is enough space on the destination drive and that you have sufficient access rights."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MNGLTS_BUTTONTOOLTIPS 
+                            "Create new layout|Duplicate selected layout|Delete selected layout|Rename selected layout|Configure selected layout|Move selected layout down|Move selected layout up|Import layout|Export layout|"
+    IDS_MNGOPS_BUTTONTOOLTIPS 
+                            "Create new operation|Duplicate selected operation|Delete selected operation|Rename selected operation|Configure selected operation|Move selected operation down|Move selected operation up|Import operation|Export operation|"
+    IDS_CGTOOLBAR_BUTTONNAMES 
+                            "Create new toolbar|Duplicate toolbar|Delete toolbar|Move up|Move down|"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OP_OPENINSAMEWINDOW "Document - Open in current window"
+    IDS_VIEWTOOLBAR_NAME    "ª Toolbar ´"
+    IDS_MENUTOOLBAR_NAME    "App-View: Custom Toolbar"
+    IDS_MENUTOOLBAR_CMDDESC "Show or hide this toolbar."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DESIGNERVIEW_NAME "Selected view"
+    IDS_CFGID_DESIGNERVIEW_HELP "Select a view to use."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_WIN_X_POS     "Window X position"
+    IDS_CFGID_WIN_Y_POS     "Window Y position"
+    IDS_CFGID_WIN_WIDTH     "Window width"
+    IDS_CFGID_WIN_HEIGHT    "Window height"
+    IDS_CFGID_WIN_MAXIMIZED "Window maximized"
+    IDS_CFGID_LAYOUTCOMMANDS_NAME "Show layout commands"
+    IDS_CFGID_LAYOUTCOMMANDS_DESC 
+                            "If enabled, menu commands related to layout configuration and switching will be visible in main menu."
+    IDS_CFGID_STATUSBAR     "Statusbar"
+    IDS_CFGID_VIEWPROFILES_NAME "View profile count"
+    IDS_CFGID_VIEWPROFILES_DESC "Number of currently existing layouts."
+    IDS_STARTDLG_X          "Start Dialog X position"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RECENTFILES_COLNAME "Name"
+    IDS_RECENTFILES_COLPATH "Path"
+    IDS_RECENTFILES_COLTYPE "Type"
+    IDS_RECENTFILES_COLSIZE "Size"
+    IDS_RECENTFILES_COLDATEMOD "Modified date"
+    IDS_MENU_ABOUTAPPLICATION "About %s..."
+    IDS_FILELEN_BYTES       "%i bytes"
+    IDS_FILELEN_KBYTES      "%g kB"
+    IDS_FILELEN_MBYTES      "%g MB"
+    IDS_FILEDATE_MODIFIED   "Modified on %s"
+    IDS_NORECENTFILES       "No recently used files found."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NEWLAYOUT           "New layout"
+    IDS_CLONEDVIEWPROFILE   "Copy of "
+    IDS_LAYOUTCFG_COLVIEW   "Window layout"
+    IDS_LAYOUTCFG_COLOPS    "Menu configuration"
+    IDS_CONFIGURELAYOUT     "Configure layout - %s"
+    IDS_CONFIGURECURRENTLAYOUT "Configure current layout"
+    IDS_MANAGELAYOUTS_CAPTION "Manage Layouts"
+    IDS_MANAGELAYOUTS_LISTLABEL "&Layouts:"
+    IDS_LAYOUTCFG_COLDESC   "Name and icon"
+    IDS_CONFIGURETHISLAYOUT "Configure this layout"
+    IDS_SWITCHTOTHISLAYOUT  "Switch to this layout"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTDLG_Y          "Start Dialog Y position"
+    IDS_STARTDLG_WIDTH      "Start Dialog width"
+    IDS_STARTDLG_HEIGHT     "Start Dialog height"
+    IDS_RECENTFILES_NAME    "Recent files"
+    IDS_RECENTFILES_HELP    "Current number of remembered recent files."
+    IDS_CFGID_COMMANDS_NAME "Commands"
+    IDS_CFGID_COMMANDS_DESC "Object providing menu or toolbar commands."
+    IDS_CFGID_EXEC_NAME_NAME "Name"
+    IDS_CFGID_EXEC_NAME_DESC "This text will be used in menu or toolbar."
+    IDS_CFGID_EXEC_DESC_NAME "Description"
+    IDS_CFGID_EXEC_DESC_DESC 
+                            "This text will be used in status bar when this command is selected."
+    IDS_CFGID_EXEC_COMMAND_NAME "Command"
+    IDS_CFGID_EXEC_COMMAND_DESC 
+                            "This command will be executed, you may use any commands including applications or internet addresses."
+    IDS_CFGID_APPASKTOSAVE_NAME "Ask to save modified"
+    IDS_CFGID_APPASKTOSAVE_DESC 
+                            "If enabled, application will ask to save modified document when window with that document is closing."
+    IDS_CFGID_USERINTERFACE_NAME "User interface"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HELP_IDOK           "The OK button closes this dialog accepting changes made"
+    IDS_HELP_IDCANCEL       "The Cancel button closes this dialog reverting all changes"
+    IDS_HELP_IDHELP         "The Help button displays more detailed help for this dialog"
+    IDS_HELP_MANAGE_LAYOUTLIST 
+                            "This list contains names of currently available layouts. Use the toolbar buttons above the box to control the layouts. Double-click an layout to configure it."
+    IDS_HELP_MANAGE_TOOLBAR "Use these buttons to control items in the list below. For a more detailed help on available operations, press the Help button."
+    IDS_CONTEXTHELP_TOOLBAR "Click the toolbar buttons to run commands. To get more help for individual buttons, move mouse over the button and read the description in status bar.\n\nYou can add, remove, reorder, or configure toolbar buttons in layout configuration dialog."
+    IDS_HELP_MANAGE_GLBOPSLIST 
+                            "This list contains names of currently available operations. Use the toolbar buttons above the box to control the operations. Double-click an operation to configure it."
+    IDS_HELP_APPOPT_UNDODEFAULT 
+                            "Each document type will use its default undo mode. This is the recommended option."
+    IDS_HELP_APPOPT_UNDODISABLED 
+                            "Undo functionality will be disabled. Choose this option for best performace and lowest memory requirements."
+    IDS_HELP_APPOPT_UNDOSINGLE 
+                            "Only the last operation can be undone. This option conserves memory but does not improve performance."
+    IDS_HELP_APPOPT_UNDOMULTIPLE 
+                            "Multiple operations can be undone. The number of operations depends on their memory requirements."
+    IDS_HELP_APPOPT_UNDOALL "All operations can be undone. If there is not enough memory for backup of an operation, it may become impossible to further edit a document."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_USERINTERFACE_DESC 
+                            "Select how to handle multiple open documents."
+    IDS_CFGID_STARTPAGE_NAME "Start page"
+    IDS_CFGID_STARTPAGE_DESC 
+                            "Selected page will be displayed if the application is started without parameters."
+    IDS_CFGID_ICONID_NAME   "Icon"
+    IDS_CFGID_ICONID_DESC   "Operation icon to use in menu or toolbar."
+    IDS_CFGID_DLGS_SIZE_NAME "Window size"
+    IDS_CFGID_DLGS_SIZE_DESC "Last size of one of dialogs in the application."
+    IDS_CFGID_UNDOMODE_NAME "Undo mode"
+    IDS_CFGID_UNDOMODE_DESC "Defines the strategy for the undo operation. Some document types may only support selected modes."
+    IDS_CFGVAL_UNDOMODE_DEFAULT "Default"
+    IDS_CFGVAL_UNDOMODE_DISABLED "Disabled"
+    IDS_CFGVAL_UNDOMODE_SINGLE "Single step"
+    IDS_CFGVAL_UNDOMODE_MULTIPLE "Multiple steps"
+    IDS_CFGVAL_UNDOMODE_ALL "All steps"
+    IDS_CFGID_HELPTOPIC_NAME "Help path"
+    IDS_CFGID_HELPTOPIC_DESC 
+                            "Help topic displayed as when this layout is active."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTPAGENEWDOCUMENT_NAME "Create"
+    IDS_STARTPAGENEWDOCUMENT_DESC "Create new document from a template."
+    IDS_STARTPAGEOPENFILE_NAME "Open"
+    IDS_STARTPAGEOPENFILE_DESC "Open an existing file."
+    IDS_STARTPAGERECENTFILES_NAME "Recent"
+    IDS_STARTPAGERECENTFILES_DESC "Open a recently used file."
+    IDS_DROPMSG_ADDCOMMANDS "Add commands to this toolbar."
+    IDS_DROPMSG_OPENFILES   "Open the dragged file(s)."
+    IDS_GCNAME_MAINFRAME    "Main window"
+    IDS_GCDESC_MAINFRAME    "Customize the main application window. Already opened documents or windows will not be affected."
+    IDS_CFGID_CTXHELPASTIPS_NAME "Context tooltips"
+    IDS_CFGID_CTXHELPASTIPS_DESC 
+                            "Display context help (this message) as tooltips for all controls."
+    IDS_SAVECHANGES_YES     "Save|Close document saving changes."
+    IDS_SAVECHANGES_NO      "Don't save|Close document discarding changes."
+    IDS_SAVECHANGES_CANCEL  "Cancel|Continue working with the document."
+    IDS_SAVECHANGES_CONTENT "Document contains unsaved data."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LAYOUT_OPEN         "Import Window Layout Configuration"
+    IDS_LAYOUT_SAVE         "Export Window Layout Configuration"
+    IDS_LAYOUT_FILETYPE     "RealWorld window layouts"
+    IDS_COMMAND_OPEN        "Import Command Configuration"
+    IDS_COMMAND_SAVE        "Export Command Configuration"
+    IDS_COMMAND_FILETYPE    "RealWorld commands"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MENUCOMMANDS_FILEOPS "App-File: New, Open, Save"
+    IDS_MENUCOMMANDS_SAVEAS "App-File: Save As"
+    IDS_MENUCOMMANDS_CLOSE  "App-File: Close"
+    IDS_MENUCOMMANDS_EXIT   "App-File: Exit"
+    IDS_MENUCOMMANDS_RECENT "App-File: Recent Files"
+    IDS_MENUCOMMANDS_STATUS "App-View: Status Bar"
+    IDS_MENUCOMMANDS_CLIPBOARD "App-Edit: Clipboard"
+    IDS_MENUCOMMANDS_UNDO   "App-Edit: Undo"
+    IDS_MENUCOMMANDS_LAYOUTS "App-Tools: Layouts"
+    IDS_MENUCOMMANDS_LAYOUTCFG "App-Tools: Layout Configuration"
+    IDS_MENUCOMMANDS_LAYOUTSMNG "App-Tools: Layouts Management"
+    IDS_MENUCOMMANDS_OPTIONS "App-Tools: Options"
+    IDS_MENUCOMMANDS_FRAMETOOLS "App-Tools: Misc"
+    IDS_MENUCOMMANDS_HELP   "App-Help: Local"
+    IDS_MENUCOMMANDS_ASKONLINE "App-Help: Ask Online"
+    IDS_MENUCOMMANDS_CONTEXT "App-Help: Context"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MENUCOMMANDS_ABOUT  "App-Help: About"
+    IDS_MENUCOMMANDS_SELECTALL "App-Edit: Select All"
+    IDS_MENUCOMMANDS_INVERTSELECTION "App-Edit: Invert Selection"
+    IDS_MENUCOMMANDS_EXECCMD "App-Misc: Execute Command"
+    IDS_MENUCOMMANDS_CUSTOM "App-Help: Custom"
+    IDS_MENUCOMMANDS_REDO   "App-Edit: Redo"
+    IDS_MENUCOMMANDS_DELETE "App-Edit: Delete"
+    IDS_MENUCOMMANDS_DUPLICATE "App-Edit: Duplicate"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_FILE_NEW         "&New..."
+    IDS_MD_FILE_NEW         "Create a new document."
+    IDS_MN_FILE_OPEN        "&Open..."
+    IDS_MD_FILE_OPEN        "Open an existing document."
+    IDS_MN_FILE_SAVE        "&Save..."
+    IDS_MD_FILE_SAVE        "Save the active document."
+    IDS_MN_FILE_SAVEAS      "Save &as..."
+    IDS_MD_FILE_SAVEAS      "Save the active document with a new name."
+    IDS_MN_FILE_CLOSE       "Close"
+    IDS_MD_FILE_CLOSE       "Close the active document."
+    IDS_MN_FILE_EXIT        "E&xit"
+    IDS_MD_FILE_EXIT        "Quit the application; prompts to save document if modified."
+    IDS_MN_FILE_RECENT      "<path to recent file>"
+    IDS_MD_FILE_RECENT      "Open this document."
+    IDS_MN_HELP_LOCAL       "&Essentials..."
+    IDS_MD_HELP_LOCAL       "Displays the basic information about the application and its usage."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_HELP_INDEX       "&Index..."
+    IDS_MD_HELP_INDEX       "Displays the help index page."
+    IDS_MN_HELP_SEARCH      "&Search..."
+    IDS_MD_HELP_SEARCH      "Search the help for selected phrase."
+    IDS_MN_HELP_ASKONLINE   "Ask &question online..."
+    IDS_MD_HELP_ASKONLINE   "Open an internet page, where you can ask questions related to this program."
+    IDS_MN_HELP_CONTEXT     "Conte&xt help"
+    IDS_MD_HELP_CONTEXT     "Click here and then on any control that you want to learn more about."
+    IDS_MN_HELP_ABOUT       "&About %s..."
+    IDS_MD_HELP_ABOUT       "Display program information, version number and copyright."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_EDIT_UNDO        "&Undo"
+    IDS_MD_EDIT_UNDO        "Undo the last action."
+    IDS_MN_VIEW_STATUS      "&Status bar"
+    IDS_MD_VIEW_STATUS      "Show or hide the status bar."
+    IDS_MN_VIEW_LAYOUTCFG   "&Configure layout..."
+    IDS_MD_VIEW_LAYOUTCFG   "Configure current window layout, menu, and toolbar."
+    IDS_MN_TOOLS_LAYOUTMNG  "&Manage layouts..."
+    IDS_MD_TOOLS_LAYOUTMNG  "Create, delete, rename and priorize layouts."
+    IDS_MN_TOOLS_OPTIONS    "Application &options..."
+    IDS_MD_TOOLS_OPTIONS    "Configure application settings."
+    IDS_MN_VIEW_SWITCHLAYOUT "<layout>"
+    IDS_MD_VIEW_SWITCHLAYOUT "Switch to this layout."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TOOLBAR_COMMANDS_NAME "Commands"
+    IDS_CFGID_TOOLBAR_COMMANDS_DESC "Object specifying command list."
+    IDS_CFGID_TOOLBAR_NAME_NAME "Toolbar name"
+    IDS_CFGID_TOOLBAR_NAME_DESC "Name is displayed before its buttons."
+    IDS_CFGID_TOOLBAR_ID_NAME "Toolbar ID"
+    IDS_CFGID_TOOLBAR_ID_DESC 
+                            "Assign a unique ID to be able to identify the toolbar and to show or hide it from menu."
+    IDS_CFGID_TOOLBAR_ITEMS_NAME "Items"
+    IDS_CFGID_TOOLBAR_ITEMS_DESC "Number of toolbars."
+    IDS_CFGID_TOOLBAR_VIEW_NAME "View"
+    IDS_CFGID_TOOLBAR_VIEW_DESC "Internal view type."
+    IDS_CFGID_TOOLBAR_NAME_MENUDESC "Text used by this command."
+    IDS_CFGID_EXEC_PARAMS_NAME "Parameters"
+    IDS_CFGID_EXEC_PARAMS_DESC 
+                            "Command line parameters for the executed application."
+    IDS_CFGID_CAPTION_NAME  "Window caption"
+    IDS_CFGID_CAPTION_DESC  "Controls what information is displayed in window caption."
+    IDS_CFGID_TOOLBAR_HIDDEN_NAME "Hidden"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MN_HELP_CUSTOM      "&What now?"
+    IDS_MD_HELP_CUSTOM      "Display hints relevant to application current state."
+    IDS_MN_EDIT_REDO        "&Redo"
+    IDS_MD_EDIT_REDO        "Perform the last undone action again."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CONTEXTHELP_REBAR   "Show or hide command bands from the View menu. If there is more than one band, you may change their positions and sizes be dragging them. Bands can be configured in Layout configuration dialog."
+    IDS_CONTEXTHELP_MENUBAR "The main menu allows you to run commands. Menu can be reconfigured in Layout configuration dialog.\nUse the button at the right edge of the menu bar to close current document and keep the window open."
+    IDS_CONTEXTHELP_STATUSBAR 
+                            "The status bar displays descriptions for menu or toolbar commands and various states of the application. You may influence some of the states by clicking on them."
+    IDS_CONTEXTHELP_NONE    "No help is available for this window area."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TOOLBAR_HIDDEN_DESC 
+                            "Controls whether a toolbar is visible when creating new window."
+    IDS_CFGID_APPSAVELAYOUT_NAME "Auto-save layout"
+    IDS_CFGID_APPSAVELAYOUT_DESC 
+                            "If enabled, all changes to the GUI layout (including last used filter values, panel sizes, splitter positions, active tabs, etc.) will be automatically saved when window or document is closed."
+    IDS_CFGVAL_UI_MSDI      "One window per document"
+    IDS_CFGVAL_UI_TABS      "Multiple tabs in single window"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GENERICERROR        "The attempted operation failed with error code 0x%08x. Please verify that there is enough free memory and that the configuration of the operation is correct."
+    IDS_STARTPAGEONLINE_NAME "Online"
+    IDS_STARTPAGEONLINE_DESC "Latest news, tutorials, support center."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RECENTFILES_COLNOTE "Note"
+    IDS_CONFIGURETOOLBAR    "Configure toolbar"
+    IDS_MN_HELP_DONATE      "Donate..."
+    IDS_MD_HELP_DONATE      "Support further development of this application by a donation."
+    IDS_MN_HELP_REGISTER    "Register..."
+    IDS_MD_HELP_REGISTER    "Enter received serial number or order a new license."
+    IDS_MN_HELP_BETA        "Beta feedback..."
+    IDS_MD_HELP_BETA        "Report a problem with the beta version."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "RWVersion.h"
+#include "RWVersionInfo.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

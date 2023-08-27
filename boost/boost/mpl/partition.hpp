@@ -1,0 +1,46 @@
+
+#ifndef BOOST_MPL_PARTITION_HPP_INCLUDED
+#define BOOST_MPL_PARTITION_HPP_INCLUDED
+
+// Copyright Eric Friedman 2002-2003
+//
+// Distributed under the Boost Software License, Version 1.0. 
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// See http://www.boost.org/libs/mpl for documentation.
+
+// $Source: /cvsroot/boost/boost/boost/mpl/partition.hpp,v $
+// $Date: 2004/09/02 15:40:42 $
+// $Revision: 1.3 $
+
+#include <boost/mpl/aux_/partition_op.hpp>
+#include <boost/mpl/clear.hpp>
+#include <boost/mpl/iter_fold.hpp>
+#include <boost/mpl/pair.hpp>
+#include <boost/mpl/aux_/na_spec.hpp>
+#include <boost/mpl/aux_/lambda_support.hpp>
+
+namespace boost { namespace mpl {
+
+template <
+      typename BOOST_MPL_AUX_NA_PARAM(Sequence)
+    , typename BOOST_MPL_AUX_NA_PARAM(Predicate)
+    >
+struct partition
+{
+    typedef typename clear<Sequence>::type cleared_;
+    typedef typename iter_fold<
+          Sequence
+        , pair< cleared_,cleared_ >
+        , aux::partition_op<Predicate>
+        >::type type;
+
+    BOOST_MPL_AUX_LAMBDA_SUPPORT(2,partition,(Sequence,Predicate))
+};
+
+BOOST_MPL_AUX_NA_SPEC(2, partition)
+
+}}
+
+#endif // BOOST_MPL_PARTITION_HPP_INCLUDED

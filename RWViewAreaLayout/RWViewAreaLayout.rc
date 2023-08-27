@@ -1,0 +1,741 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONTAINER DIALOGEX 0, 0, 144, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONTAINER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 137
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech (Czech Republic) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_SPLITTER DIALOGEX 0, 0, 200, 130
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Smìr dìlení:",IDC_STATIC,0,0,40,8
+    COMBOBOX        IDC_CGSPLITTER_SPLITDIRECTION,0,14,57,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGSPLITTER_HORGROUP,"Static",SS_ETCHEDFRAME,0,35,199,1
+    LTEXT           "Horizontální dìlení:",IDC_CGSPLITTER_HORLABEL,0,38,61,8
+    CONTROL         "Relativní",IDC_CGSPLITTER_HORRELATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,49,43,10
+    CONTROL         "Nastavitelné",IDC_CGSPLITTER_HORADJUSTABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,61,56,10
+    EDITTEXT        IDC_CGSPLITTER_HORABSOLUTEVAL,0,78,37,12,ES_AUTOHSCROLL
+    LTEXT           "pixelù",IDC_CGSPLITTER_HORPIXELS,41,80,20,8
+    CONTROL         "Odzadu",IDC_CGSPLITTER_HORABSOLUTEBACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,95,41,10
+    CONTROL         "",IDC_CGSPLITTER_HORRELATIVEVAL,"msctls_trackbar32",TBS_VERT | TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,22,75,16,55
+    CONTROL         "",IDC_CGSPLITTER_VERGROUP,"Static",SS_ETCHEDFRAME,62,0,1,134
+    LTEXT           "Vertikální dìlení:",IDC_CGSPLITTER_VERLABEL,67,0,53,8
+    CONTROL         "Relativní",IDC_CGSPLITTER_VERRELATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,10,43,10
+    CONTROL         "Nastavitelné",IDC_CGSPLITTER_VERADJUSTABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,22,56,10
+    EDITTEXT        IDC_CGSPLITTER_VERABSOLUTEVAL,130,7,37,12,ES_AUTOHSCROLL
+    LTEXT           "pixelù",IDC_CGSPLITTER_VERPIXELS,172,9,20,8
+    CONTROL         "Odzadu",IDC_CGSPLITTER_VERABSOLUTEBACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,130,22,41,10
+    CONTROL         "",IDC_CGSPLITTER_VERRELATIVEVAL,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,126,11,73,16
+    COMBOBOX        IDC_CGSPLITTER_LT,102,82,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_LB,102,105,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_RT,102,70,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_RB,102,102,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGSPLITTER_SUBVIEWS,"Static",SS_BLACKRECT | NOT WS_VISIBLE,67,40,132,90
+END
+
+IDD_CONFIGGUI_TAB DIALOGEX 0, 0, 281, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Pozice:",IDC_STATIC,0,2,36,8
+    COMBOBOX        IDC_TAB_POSITION,43,0,43,69,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ID:",IDC_TAB_IDLABEL,98,2,14,8
+    EDITTEXT        IDC_TAB_ID,116,0,12,12,ES_AUTOHSCROLL
+    LTEXT           "Aktivní:",IDC_TAB_ACTIVELABEL,135,2,30,8
+    EDITTEXT        IDC_TAB_ACTIVE,171,0,32,12,ES_AUTOHSCROLL | ES_NUMBER
+    CHECKBOX        "Schovat záložky",IDC_TAB_HIDE,214,1,67,10
+    CONTROL         "ToolBar",IDC_TAB_TOOLBAR,"ToolbarWindow32",0x994e,0,18,152,14
+    CONTROL         "",IDC_TAB_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,36,152,110
+END
+
+IDD_CONFIGGUI_TABWND DIALOGEX 0, 0, 206, 126
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Podmínka:",IDC_STATIC,0,2,49,8
+    EDITTEXT        IDC_CGLAYOUT_CONDITION,50,0,82,12,ES_AUTOHSCROLL
+    LTEXT           "Ikona:",IDC_CGLAYOUT_ICONLABEL,152,2,22,8
+    CONTROL         "",IDC_CGLAYOUT_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,177,0,29,197
+    LTEXT           "&Typ pohledu:",IDC_STATIC,0,18,43,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,50,16,156,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_CFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,0,35,206,91
+END
+
+IDD_CONFIGGUI_ROLLDOWN DIALOGEX 0, 0, 281, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,18,152,128
+    CONTROL         "ToolBar",IDC_TAB_TOOLBAR,"ToolbarWindow32",0x994e,0,0,152,14
+END
+
+IDD_CONFIGGUI_RDWND DIALOGEX 0, 0, 267, 126
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Typ pohledu:",IDC_STATIC,0,2,43,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,47,0,66,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_ICON2,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,117,0,29,197
+    CHECKBOX        "Výška:",IDC_RD_CUSTOMHEIGHT,151,1,37,10
+    EDITTEXT        IDC_RD_HEIGHT,189,0,29,12,ES_AUTOHSCROLL | ES_NUMBER
+    CHECKBOX        "Zavøeno",IDC_RD_COLLAPSED,224,1,43,10
+    CONTROL         "",IDC_CGLAYOUT_CFG,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,0,19,267,107
+END
+
+IDD_CONFIGFRAME DIALOGEX 0, 0, 400, 232
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Konfigurovat panel"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,289,211,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,343,211,50,14
+    PUSHBUTTON      "Nápovìda",IDHELP,7,211,50,14
+    CONTROL         "",IDC_CONFIGCONTROL,"Static",SS_BLACKRECT,7,7,386,198
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONFIGGUI_SPLITTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_CONFIGGUI_TAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_CONFIGGUI_TABWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_CONFIGGUI_ROLLDOWN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_CONFIGGUI_RDWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_CONFIGFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 225
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWViewAreaLayout"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SPLITTER_VIEWNAME   "» Dìlení plochy «"
+    IDS_DOCKWINS_VIEWNAME   "» Dokovatelná okna «"
+    IDS_TABS_VIEWNAME       "» Záložky «"
+    IDS_ROLLDOWN_VIEWNAME   "» Rozbalovací panely «"
+    IDS_DOCKWINS_COMMANDS   "Dokovatelná okna - viditelnost"
+    IDS_DOCKWINS_HIDE       "Schovat okno ""%s""."
+    IDS_DOCKWINS_SHOW       "Zobrazit okno ""%s""."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_SPLITTYPE_NAME "Smìr dìlení"
+    IDS_CFGID_SPLITTYPE_HELP "Zpùsob rozdìlení plochy okna."
+    IDS_CFGID_SPLITTYPE_HOR "Horizontálnì"
+    IDS_CFGID_SPLITTYPE_VERT "Vertikálnì"
+    IDS_CFGID_SPLITTYPE_BOTH "V obou smìrech"
+    IDS_CFGID_HORDIVTYPE_NAME "Typ rozdìlení (horizontálnì)"
+    IDS_CFGID_HORDIVTYPE_HELP 
+                            "Zpùsob rozdìlení prostoru v horizonálním smìru."
+    IDS_CFGID_VERDIVTYPE_NAME "Typ rozdìlení (vertikálnì)"
+    IDS_CFGID_VERDIVTYPE_HELP "Zpùsob rozdìlení prostoru v vertikálním smìru."
+    IDS_CFGID_DIVTYPE_RELFIX "Relativnì"
+    IDS_CFGID_DIVTYPE_ABSFIX "Absolutnì (zleva/shora)"
+    IDS_CFGID_DIVTYPE_RELADJ "Relativnì volitelnì za bìhu"
+    IDS_CFGID_DIVTYPE_ABSADJ "Absolutnì volitelnì za bìhu (zleva-shora)"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_HORRELATIVE_NAME "Výška horní èásti [%]"
+    IDS_CFGID_HORRELATIVE_HELP 
+                            "Specifikujte výšku horní èásti rozdìleného okna v procentech."
+    IDS_CFGID_VERRELATIVE_NAME "Šíøka levé èásti [%]"
+    IDS_CFGID_VERRELATIVE_HELP 
+                            "Specifikujte šíøku levé èásti rozdìleného okna v procentech."
+    IDS_CFGID_HORABSOLUTE_NAME "Výška pevné èásti [body]"
+    IDS_CFGID_HORABSOLUTE_HELP 
+                            "Specifikujte výšku pevné èásti rozdìleného okna v bodech."
+    IDS_CFGID_VERABSOLUTE_NAME "Šíøka pevné èásti [body]"
+    IDS_CFGID_VERABSOLUTE_HELP 
+                            "Specifikujte šíøku pevné èásti rozdìleného okna v bodech."
+    IDS_CFGID_DIVTYPE_ABSBTMFIX "Absolutnì (zprava/zdola)"
+    IDS_CFGID_DIVTYPE_ABSBTMADJ "Absolutnì volitelnì za bìhu (zprava/zdola)"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_SUBVIEWLT_NAME "Levé/horní okno"
+    IDS_CFGID_SUBVIEWLT_HELP "Typ pohledu pro levé/horní okno."
+    IDS_CFGID_SUBVIEWLB_NAME "Levé/dolní okno"
+    IDS_CFGID_SUBVIEWLB_HELP "Typ pohledu pro levé/dolní okno."
+    IDS_CFGID_SUBVIEWRT_NAME "Pravé/horní okno"
+    IDS_CFGID_SUBVIEWRT_HELP "Typ pohledu pro pravé/horlní okno."
+    IDS_CFGID_SUBVIEWRB_NAME "Pravé/Dolní okno"
+    IDS_CFGID_SUBVIEWRB_HELP "Typ pohledu pro pravé/dolní okno."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DOCK_SUBVIEW_NAME "Typ pohledu"
+    IDS_CFGID_DOCK_SUBVIEW_DESC 
+                            "Typ pohledu, který bude umístìn v klientské oblsati."
+    IDS_CFGID_DOCK_WINDOWVIEW_NAME "Typ pohledu"
+    IDS_CFGID_DOCK_WINDOWVIEW_DESC 
+                            "Typ pohledu, který bude umístìn v tomto dokovatelném oknì."
+    IDS_CFGID_DOCK_WINDOWS_NAME "Dokovatelná okna"
+    IDS_CFGID_DOCK_WINDOWS_DESC "Poèet dokovatelných oken."
+    IDS_CFGID_DOCK_FLOATPOSX_NAME "Plovoucí pozice X"
+    IDS_CFGID_DOCK_FLOATPOSX_DESC 
+                            "Horizontální pozice okna v pixelech, když je plovoucím stavu."
+    IDS_CFGID_DOCK_FLOATPOSY_NAME "Plovoucí pozice Y"
+    IDS_CFGID_DOCK_FLOATPOSY_DESC 
+                            "Vertikální pozice okna v pixelech, když je plovoucím stavu."
+    IDS_CFGID_DOCK_FLOATSIZEX_NAME "Plovoucí velikost X"
+    IDS_CFGID_DOCK_FLOATSIZEX_DESC "Šiøka okna v plovoucím stavu v pixelech."
+    IDS_CFGID_DOCK_FLOATSIZEY_NAME "Plovoucí velikost Y"
+    IDS_CFGID_DOCK_FLOATSIZEY_DESC "Výška okna v plovoucím stavu v pixelech."
+    IDS_CFGID_DOCK_DOCKED_NAME "Zadokované"
+    IDS_CFGID_DOCK_DOCKED_DESC 
+                            "Je-li povoleno, okno bude pøi startu zadokované."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DOCK_DOCKSIDE_NAME "Pozice dokování"
+    IDS_CFGID_DOCK_DOCKSIDE_DESC "Aktuální strana hlavního okna pro dokování."
+    IDS_CFGVAL_DOCKSIDE_LEFT "Vlevo"
+    IDS_CFGVAL_DOCKSIDE_TOP "Nahoøe"
+    IDS_CFGVAL_DOCKSIDE_RIGHT "Vpravo"
+    IDS_CFGVAL_DOCKSIDE_BOTTOM "Dole"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TABS_VIEW_NAME "Typ pohledu"
+    IDS_CFGID_TABS_VIEW_DESC "Typ pohledu, který bude umístìn v této záložce."
+    IDS_CFGID_TABS_HEADERPOS_NAME "Pozice záložek"
+    IDS_CFGID_TABS_HEADERPOS_DESC 
+                            "Urèuje pozici záložek vzhledem k vlastnímu pohledu."
+    IDS_CFGVAL_TABS_POSTOP  "Nahoøe"
+    IDS_CFGVAL_TABS_POSBOTTOM "Dole"
+    IDS_CFGVAL_TABS_POSLEFT "Vlevo"
+    IDS_CFGVAL_TABS_POSRIGHT "Vpravo"
+    IDS_CFGID_TABS_ITEMS_NAME "Poèet záložek"
+    IDS_CFGID_TABS_ITEMS_DESC "Poèet záložek a pod-pohledù."
+    IDS_CFGID_TABS_ACTIVEINDEX_NAME "Aktivní záložka"
+    IDS_CFGID_TABS_ACTIVEINDEX_DESC 
+                            "Poøadové èíslo aktivní záložky (0 pro první záložku)."
+    IDS_NEWSUBWINDOW        "Nové okno"
+    IDS_CLONEDSUBITEM       "Kopie "
+    IDS_CFGID_ICONID_DESC   "Ikona oznaèující vybrané okno."
+    IDS_CFGID_ICONID_NAME   "Ikona"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ITEMLIST_BUTTONS    "Vytvoøit nový pohled|Duplikovat pohled|Smazat pohled|Pøejmenovat pohled|Posunout nahoru|Posunout dolù|"
+    IDS_CFGID_TABS_INVISIBLE_NAME "Schovat záložky"
+    IDS_CFGID_TABS_INVISIBLE_DESC 
+                            "Je-li povoleno, záložky nebudou zobrazeny a pro pøepínání stránke je nutno použít jiné metody."
+    IDS_TABCONTROL_NAME     "Záložky - ovladaè"
+    IDS_TABCONTROL_DESC     "Pøepnout na stránku ""%s""."
+    IDS_CFGID_TABSMENU_SHOWTEXT_NAME "Zobrazit jméno záložky"
+    IDS_CFGID_TABSMENU_SHOWTEXT_DESC 
+                            "Je-li povoleno, bude jméno záložky zobrazeno v nástrojové lištì i v pøípadì, že záložka má ikonu."
+    IDS_TABCONTROL_ONOFF    "Zobrazit nebo skrýt panel ""%s""."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_RD_ITEMS_NAME "Panely"
+    IDS_CFGID_RD_ITEMS_DESC "Poèet panelù vložených v oknì."
+    IDS_CFGID_RD_VIEWTYPE_NAME "Typ pohledu"
+    IDS_CFGID_RD_VIEWTYPE_DESC "Typ pohledu v panelu."
+    IDS_CFGID_RD_HEIGHT_NAME "Výška panelu"
+    IDS_CFGID_RD_HEIGHT_DESC "Výška pohledu vloženího do panelu v pixelech."
+    IDS_CFGID_RD_COLLAPSED_NAME "Sbalit panel"
+    IDS_CFGID_RD_COLLAPSED_DESC 
+                            "Øídí poèáteèní stav panelu. Je-li povoleno, bude panel skrytý."
+    IDS_CFGID_RD_CUSTOMHEIGHT_NAME "Zadat výšku panelu"
+    IDS_CFGID_RD_CUSTOMHEIGHT_DESC 
+                            "Je-li povoleno, výška panelu musí být specifikována ruènì. Jinak bude použita výchozí výška panelu."
+END
+
+#endif    // Czech (Czech Republic) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_SPLITTER DIALOGEX 0, 0, 200, 130
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Split direction:",IDC_STATIC,0,0,60,8
+    COMBOBOX        IDC_CGSPLITTER_SPLITDIRECTION,0,14,57,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGSPLITTER_HORGROUP,"Static",SS_ETCHEDHORZ,0,35,199,1
+    LTEXT           "Horizontal division:",IDC_CGSPLITTER_HORLABEL,0,38,60,8
+    CONTROL         "Relative",IDC_CGSPLITTER_HORRELATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,49,57,10
+    CONTROL         "Adjustable",IDC_CGSPLITTER_HORADJUSTABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,61,58,10
+    EDITTEXT        IDC_CGSPLITTER_HORABSOLUTEVAL,0,78,37,12,ES_AUTOHSCROLL
+    LTEXT           "pixels",IDC_CGSPLITTER_HORPIXELS,41,80,19,8
+    CONTROL         "From back",IDC_CGSPLITTER_HORABSOLUTEBACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,95,59,10
+    CONTROL         "",IDC_CGSPLITTER_HORRELATIVEVAL,"msctls_trackbar32",TBS_VERT | TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,22,75,16,55
+    CONTROL         "",IDC_CGSPLITTER_VERGROUP,"Static",SS_ETCHEDVERT,62,0,1,134
+    LTEXT           "Vertical division:",IDC_CGSPLITTER_VERLABEL,67,0,61,8
+    CONTROL         "Relative",IDC_CGSPLITTER_VERRELATIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,10,54,10
+    CONTROL         "Adjustable",IDC_CGSPLITTER_VERADJUSTABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,22,54,10
+    EDITTEXT        IDC_CGSPLITTER_VERABSOLUTEVAL,130,7,37,12,ES_AUTOHSCROLL
+    LTEXT           "pixels",IDC_CGSPLITTER_VERPIXELS,172,9,19,8
+    CONTROL         "From back",IDC_CGSPLITTER_VERABSOLUTEBACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,130,22,60,10
+    CONTROL         "",IDC_CGSPLITTER_VERRELATIVEVAL,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,126,11,73,16
+    COMBOBOX        IDC_CGSPLITTER_LT,102,82,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_LB,102,105,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_RT,102,70,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGSPLITTER_RB,102,102,98,171,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGSPLITTER_SUBVIEWS,"Static",SS_BLACKRECT | NOT WS_VISIBLE,67,40,132,90
+END
+
+IDD_CONFIGGUI_TAB DIALOGEX 0, 0, 281, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Header:",IDC_STATIC,0,2,42,8
+    COMBOBOX        IDC_TAB_POSITION,43,0,43,69,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ID:",IDC_TAB_IDLABEL,98,2,14,8
+    EDITTEXT        IDC_TAB_ID,116,0,12,12,ES_AUTOHSCROLL
+    LTEXT           "Active tab:",IDC_TAB_ACTIVELABEL,138,2,45,8
+    EDITTEXT        IDC_TAB_ACTIVE,184,0,27,12,ES_AUTOHSCROLL | ES_NUMBER
+    CHECKBOX        "Hide tabs",IDC_TAB_HIDE,222,1,52,10
+    CONTROL         "ToolBar",IDC_TAB_TOOLBAR,"ToolbarWindow32",0x994e,0,18,152,14
+    CONTROL         "",IDC_TAB_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,36,152,110
+END
+
+IDD_CONFIGGUI_TABWND DIALOGEX 0, 0, 198, 126
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Condition:",IDC_STATIC,0,2,49,8
+    EDITTEXT        IDC_CGLAYOUT_CONDITION,50,0,71,12,ES_AUTOHSCROLL
+    LTEXT           "Icon:",IDC_CGLAYOUT_ICONLABEL,137,2,29,8
+    CONTROL         "",IDC_CGLAYOUT_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,169,0,29,197
+    LTEXT           "&View type:",IDC_STATIC,0,18,49,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,50,16,148,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_CFG,"Static",SS_BLACKRECT | NOT WS_VISIBLE,0,35,198,91
+END
+
+IDD_CONFIGGUI_ROLLDOWN DIALOGEX 0, 0, 281, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,18,152,128
+    CONTROL         "ToolBar",IDC_TAB_TOOLBAR,"ToolbarWindow32",0x994e,0,0,152,14
+END
+
+IDD_CONFIGGUI_RDWND DIALOGEX 0, 0, 267, 126
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&View type:",IDC_STATIC,0,2,49,8
+    COMBOBOX        IDC_CGLAYOUT_VIEW,50,0,63,189,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGLAYOUT_ICON2,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,117,0,29,197
+    CHECKBOX        "Height:",IDC_RD_CUSTOMHEIGHT,153,1,43,10
+    EDITTEXT        IDC_RD_HEIGHT,197,0,23,12,ES_AUTOHSCROLL | ES_NUMBER
+    CHECKBOX        "Closed",IDC_RD_COLLAPSED,225,1,42,10
+    CONTROL         "",IDC_CGLAYOUT_CFG,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,0,19,267,107
+END
+
+IDD_CONFIGFRAME DIALOGEX 0, 0, 400, 232
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Configure Panel"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,289,211,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,343,211,50,14
+    PUSHBUTTON      "Help",IDHELP,7,211,50,14
+    CONTROL         "",IDC_CONFIGCONTROL,"Static",SS_BLACKRECT,7,7,386,198
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONFIGGUI_SPLITTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_CONFIGGUI_TAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_CONFIGGUI_TABWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_CONFIGGUI_ROLLDOWN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_CONFIGGUI_RDWND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_CONFIGFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 225
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""RWVersion.h""\r\n"
+    "#include ""RWVersionInfo.rc2""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWViewAreaLayout"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SPLITTER_VIEWNAME   "» Area Splitter «"
+    IDS_DOCKWINS_VIEWNAME   "» Docking Windows «"
+    IDS_TABS_VIEWNAME       "» Tabs «"
+    IDS_ROLLDOWN_VIEWNAME   "» Roll-Out Panels «"
+    IDS_DOCKWINS_COMMANDS   "Docking Windows - Visibility"
+    IDS_DOCKWINS_HIDE       "Hide the ""%s"" window."
+    IDS_DOCKWINS_SHOW       "Show the ""%s"" window."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_SPLITTYPE_NAME "Splitting Direction"
+    IDS_CFGID_SPLITTYPE_HELP "Select the splitting style."
+    IDS_CFGID_SPLITTYPE_HOR "Horizontal"
+    IDS_CFGID_SPLITTYPE_VERT "Vertical"
+    IDS_CFGID_SPLITTYPE_BOTH "Both"
+    IDS_CFGID_HORDIVTYPE_NAME "Horizontal Split Type"
+    IDS_CFGID_HORDIVTYPE_HELP 
+                            "Select the type of splitting style in the horizontal direction."
+    IDS_CFGID_VERDIVTYPE_NAME "Vertical Split Type"
+    IDS_CFGID_VERDIVTYPE_HELP 
+                            "Select the type of splitting style in the vertical direction."
+    IDS_CFGID_DIVTYPE_RELFIX "Relative Fixed"
+    IDS_CFGID_DIVTYPE_ABSFIX "Absolute Fixed (Left/Top)"
+    IDS_CFGID_DIVTYPE_RELADJ "Relative Adjustable"
+    IDS_CFGID_DIVTYPE_ABSADJ "Absolute Adjustable (Left/Top)"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_HORRELATIVE_NAME "Upper part height [%]"
+    IDS_CFGID_HORRELATIVE_HELP "Choose the height of the upper part [0-100%]."
+    IDS_CFGID_VERRELATIVE_NAME "Left part width [%]"
+    IDS_CFGID_VERRELATIVE_HELP "Choose the width of the left part [0-100%]."
+    IDS_CFGID_HORABSOLUTE_NAME "Upper part height [pixels]"
+    IDS_CFGID_HORABSOLUTE_HELP 
+                            "Choose the height of the upper part in pixels."
+    IDS_CFGID_VERABSOLUTE_NAME "Left part width [pixels]"
+    IDS_CFGID_VERABSOLUTE_HELP "Choose the width of the left part in pixels."
+    IDS_CFGID_DIVTYPE_ABSBTMFIX "Absolute Fixed (Right/Bottom)"
+    IDS_CFGID_DIVTYPE_ABSBTMADJ "Absolute Adjustable (Right/Bottom)"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_SUBVIEWLT_NAME "Left/Upper Pane"
+    IDS_CFGID_SUBVIEWLT_HELP "Select the sub-view in the left/upper pane."
+    IDS_CFGID_SUBVIEWLB_NAME "Left/Lower Pane"
+    IDS_CFGID_SUBVIEWLB_HELP "Select the sub-view in the left/lower pane."
+    IDS_CFGID_SUBVIEWRT_NAME "Right/Upper Pane"
+    IDS_CFGID_SUBVIEWRT_HELP "Select the sub-view in the right/upper pane."
+    IDS_CFGID_SUBVIEWRB_NAME "Right/Lower Pane"
+    IDS_CFGID_SUBVIEWRB_HELP "Select the sub-view in the right/lower pane."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DOCK_SUBVIEW_NAME "View Type"
+    IDS_CFGID_DOCK_SUBVIEW_DESC "Type of the view to occupy the client area."
+    IDS_CFGID_DOCK_WINDOWVIEW_NAME "View Type"
+    IDS_CFGID_DOCK_WINDOWVIEW_DESC "Type of view for this docking window."
+    IDS_CFGID_DOCK_WINDOWS_NAME "Docking Windows"
+    IDS_CFGID_DOCK_WINDOWS_DESC "Number of docking windows."
+    IDS_CFGID_DOCK_FLOATPOSX_NAME "Floating Position X"
+    IDS_CFGID_DOCK_FLOATPOSX_DESC 
+                            "Horizontal position of the wiindow while floating."
+    IDS_CFGID_DOCK_FLOATPOSY_NAME "Floating Position Y"
+    IDS_CFGID_DOCK_FLOATPOSY_DESC 
+                            "Vertical position of the wiindow while floating."
+    IDS_CFGID_DOCK_FLOATSIZEX_NAME "Floating Size X"
+    IDS_CFGID_DOCK_FLOATSIZEX_DESC "Width of a floating window in pixels."
+    IDS_CFGID_DOCK_FLOATSIZEY_NAME "Floating Size Y"
+    IDS_CFGID_DOCK_FLOATSIZEY_DESC "Height of a floating window in pixels."
+    IDS_CFGID_DOCK_DOCKED_NAME "Docked"
+    IDS_CFGID_DOCK_DOCKED_DESC 
+                            "If checked, the window will be docked at start."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_DOCK_DOCKSIDE_NAME "Docking Side"
+    IDS_CFGID_DOCK_DOCKSIDE_DESC "The current docking side of the window."
+    IDS_CFGVAL_DOCKSIDE_LEFT "Left"
+    IDS_CFGVAL_DOCKSIDE_TOP "Top"
+    IDS_CFGVAL_DOCKSIDE_RIGHT "Right"
+    IDS_CFGVAL_DOCKSIDE_BOTTOM "Bottom"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_TABS_VIEW_NAME "View Type"
+    IDS_CFGID_TABS_VIEW_DESC "Type of view to be placed in this tab."
+    IDS_CFGID_TABS_HEADERPOS_NAME "Tabs Position"
+    IDS_CFGID_TABS_HEADERPOS_DESC "Specifies location of the tabs."
+    IDS_CFGVAL_TABS_POSTOP  "Top"
+    IDS_CFGVAL_TABS_POSBOTTOM "Bottom"
+    IDS_CFGVAL_TABS_POSLEFT "Left"
+    IDS_CFGVAL_TABS_POSRIGHT "Right"
+    IDS_CFGID_TABS_ITEMS_NAME "Tab Count"
+    IDS_CFGID_TABS_ITEMS_DESC "The number of tabs and sub-views."
+    IDS_CFGID_TABS_ACTIVEINDEX_NAME "Active Tab"
+    IDS_CFGID_TABS_ACTIVEINDEX_DESC "Zero-based index of the active tab."
+    IDS_NEWSUBWINDOW        "New Window"
+    IDS_CLONEDSUBITEM       "Copy of "
+    IDS_CFGID_ICONID_DESC   "Icon assigned to this window."
+    IDS_CFGID_ICONID_NAME   "Icon"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ITEMLIST_BUTTONS    "Create new view|Duplicate view|Delete view|Rename view|Move down|Move up|"
+    IDS_CFGID_TABS_INVISIBLE_NAME "Hide tabs"
+    IDS_CFGID_TABS_INVISIBLE_DESC 
+                            "If enabled, tabs are not displayed and pages must be switched using alternative methods."
+    IDS_TABCONTROL_NAME     "Tabs - Controller"
+    IDS_TABCONTROL_DESC     "Switch to page ""%s""."
+    IDS_CFGID_TABSMENU_SHOWTEXT_NAME "Show Tab Name"
+    IDS_CFGID_TABSMENU_SHOWTEXT_DESC 
+                            "If enabled, the names of tabs will be shown in toolbar even if there are tab icons available."
+    IDS_TABCONTROL_ONOFF    "Show or hide the ""%s"" panel."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CFGID_RD_ITEMS_NAME "Panels"
+    IDS_CFGID_RD_ITEMS_DESC "Number of panels in this window."
+    IDS_CFGID_RD_VIEWTYPE_NAME "View Type"
+    IDS_CFGID_RD_VIEWTYPE_DESC "Type of the view in this panel."
+    IDS_CFGID_RD_HEIGHT_NAME "Panel Height"
+    IDS_CFGID_RD_HEIGHT_DESC "Height in pixels of the view in this panel."
+    IDS_CFGID_RD_COLLAPSED_NAME "Collapsed"
+    IDS_CFGID_RD_COLLAPSED_DESC 
+                            "Indicates the initial status of the panel. If enabled, the panel is not visible."
+    IDS_CFGID_RD_CUSTOMHEIGHT_NAME "Custom Panel Height"
+    IDS_CFGID_RD_CUSTOMHEIGHT_DESC 
+                            "If enabled, panel height must be specified. Otherwise, internal view's optimum height or default height is used."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "RWVersion.h"
+#include "RWVersionInfo.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

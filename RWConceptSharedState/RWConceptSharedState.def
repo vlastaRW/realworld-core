@@ -1,0 +1,8 @@
+; RWConceptSharedState.def : Declares the module parameters.
+
+LIBRARY      "RWConceptSharedState.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

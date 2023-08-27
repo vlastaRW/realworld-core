@@ -1,0 +1,6 @@
+#define RWVER0409_FILEVERSION "4.1.0.0\0"
+#define RWVER0409_FILEINFO 4,1,0,0
+#define RWVER0409_COMMENTS "\0"
+#define RWVER0409_FILEDESC "RealWorld Basic Document Support\0"
+#define RWVER0409_INTERNALNAME "RWDocumentBasic\0"
+#define RWVER0409_ORIGINALFILENAME "RWDocumentBasic.dll\0"

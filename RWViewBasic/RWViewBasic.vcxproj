@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelStatic|Win32">
+      <Configuration>RelStatic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelStatic|x64">
+      <Configuration>RelStatic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{E74A8EF4-4532-4C14-B289-9515A9B78813}</ProjectGuid>
+    <RootNamespace>RWViewBasic</RootNamespace>
+    <Keyword>AtlProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\realworld-core.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.32708.82</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName />
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName />
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;_USRDLL;WIN64;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName />
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <DelayLoadDLLs>imm32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <BaseAddress>%40..\..\_interninc\RWbases.txt,$(ProjectName)</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <DelayLoadDLLs>imm32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <BaseAddress>%40..\..\_interninc\RWbases.txt,$(ProjectName)</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName />
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;_USRDLL;WIN64;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <DelayLoadDLLs>imm32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <BaseAddress>%40..\..\_interninc\RWbases.txt,$(ProjectName)</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)RWViewBasic.tlb</TypeLibraryName>
+      <HeaderFileName>%(RootDir)%(Directory)%(Filename).h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>RWViewBasic_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>RWViewBasic_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;_USRDLL;WIN64;SCI_LEXER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>_inc;scintilla;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\RWViewBasic.def</ModuleDefinitionFile>
+      <DelayLoadDLLs>imm32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <BaseAddress>%40..\..\_interninc\RWbases.txt,$(ProjectName)</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(IntDir)$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DesignerViewBinary.h" />
+    <ClInclude Include="DesignerViewFactoryBinary.h" />
+    <ClInclude Include="DesignerViewFactoryText.h" />
+    <ClInclude Include="DesignerViewText.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RWVersion.h" />
+    <ClInclude Include="scintilla\AutoComplete.h" />
+    <ClInclude Include="scintilla\CallTip.h" />
+    <ClInclude Include="scintilla\CellBuffer.h" />
+    <ClInclude Include="scintilla\CharacterSet.h" />
+    <ClInclude Include="scintilla\CharClassify.h" />
+    <ClInclude Include="scintilla\ContractionState.h" />
+    <ClInclude Include="scintilla\Decoration.h" />
+    <ClInclude Include="scintilla\Document.h" />
+    <ClInclude Include="scintilla\DocumentAccessor.h" />
+    <ClInclude Include="scintilla\Editor.h" />
+    <ClInclude Include="scintilla\ExternalLexer.h" />
+    <ClInclude Include="scintilla\Indicator.h" />
+    <ClInclude Include="scintilla\KeyMap.h" />
+    <ClInclude Include="scintilla\LineMarker.h" />
+    <ClInclude Include="scintilla\Partitioning.h" />
+    <ClInclude Include="scintilla\PositionCache.h" />
+    <ClInclude Include="scintilla\RESearch.h" />
+    <ClInclude Include="scintilla\RunStyles.h" />
+    <ClInclude Include="scintilla\ScintillaBase.h" />
+    <ClInclude Include="scintilla\SplitVector.h" />
+    <ClInclude Include="scintilla\Style.h" />
+    <ClInclude Include="scintilla\StyleContext.h" />
+    <ClInclude Include="scintilla\SVector.h" />
+    <ClInclude Include="scintilla\UniConversion.h" />
+    <ClInclude Include="scintilla\ViewStyle.h" />
+    <ClInclude Include="scintilla\win32\PlatformRes.h" />
+    <ClInclude Include="scintilla\XPM.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="_inc\Accessor.h" />
+    <ClInclude Include="_inc\KeyWords.h" />
+    <ClInclude Include="_inc\Platform.h" />
+    <ClInclude Include="_inc\PropSet.h" />
+    <ClInclude Include="_inc\RWViewBasic.h" />
+    <ClInclude Include="_inc\SciLexer.h" />
+    <ClInclude Include="_inc\Scintilla.h" />
+    <ClInclude Include="_inc\ScintillaWidget.h" />
+    <ClInclude Include="_inc\SString.h" />
+    <ClInclude Include="_inc\WindowAccessor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DesignerViewBinary.cpp" />
+    <ClCompile Include="DesignerViewFactoryBinary.cpp" />
+    <ClCompile Include="DesignerViewFactoryText.cpp" />
+    <ClCompile Include="DesignerViewText.cpp" />
+    <ClCompile Include="RWViewBasic.cpp" />
+    <ClCompile Include="scintilla\AutoComplete.cxx" />
+    <ClCompile Include="scintilla\CallTip.cxx" />
+    <ClCompile Include="scintilla\CellBuffer.cxx" />
+    <ClCompile Include="scintilla\CharClassify.cxx" />
+    <ClCompile Include="scintilla\ContractionState.cxx" />
+    <ClCompile Include="scintilla\Decoration.cxx" />
+    <ClCompile Include="scintilla\Document.cxx" />
+    <ClCompile Include="scintilla\DocumentAccessor.cxx" />
+    <ClCompile Include="scintilla\Editor.cxx" />
+    <ClCompile Include="scintilla\ExternalLexer.cxx" />
+    <ClCompile Include="scintilla\Indicator.cxx" />
+    <ClCompile Include="scintilla\KeyMap.cxx" />
+    <ClCompile Include="scintilla\KeyWords.cxx" />
+    <ClCompile Include="scintilla\LexAbaqus.cxx" />
+    <ClCompile Include="scintilla\LexAda.cxx" />
+    <ClCompile Include="scintilla\LexAPDL.cxx" />
+    <ClCompile Include="scintilla\LexAsm.cxx" />
+    <ClCompile Include="scintilla\LexAsn1.cxx" />
+    <ClCompile Include="scintilla\LexASY.cxx" />
+    <ClCompile Include="scintilla\LexAU3.cxx" />
+    <ClCompile Include="scintilla\LexAVE.cxx" />
+    <ClCompile Include="scintilla\LexBaan.cxx" />
+    <ClCompile Include="scintilla\LexBash.cxx" />
+    <ClCompile Include="scintilla\LexBasic.cxx" />
+    <ClCompile Include="scintilla\LexBullant.cxx" />
+    <ClCompile Include="scintilla\LexCaml.cxx" />
+    <ClCompile Include="scintilla\LexCLW.cxx" />
+    <ClCompile Include="scintilla\LexCmake.cxx" />
+    <ClCompile Include="scintilla\LexConf.cxx" />
+    <ClCompile Include="scintilla\LexCPP.cxx" />
+    <ClCompile Include="scintilla\LexCrontab.cxx" />
+    <ClCompile Include="scintilla\LexCsound.cxx" />
+    <ClCompile Include="scintilla\LexCSS.cxx" />
+    <ClCompile Include="scintilla\LexD.cxx" />
+    <ClCompile Include="scintilla\LexEiffel.cxx" />
+    <ClCompile Include="scintilla\LexErlang.cxx" />
+    <ClCompile Include="scintilla\LexEScript.cxx" />
+    <ClCompile Include="scintilla\LexFlagship.cxx" />
+    <ClCompile Include="scintilla\LexForth.cxx" />
+    <ClCompile Include="scintilla\LexFortran.cxx" />
+    <ClCompile Include="scintilla\LexGAP.cxx" />
+    <ClCompile Include="scintilla\LexGui4Cli.cxx" />
+    <ClCompile Include="scintilla\LexHaskell.cxx" />
+    <ClCompile Include="scintilla\LexHTML.cxx" />
+    <ClCompile Include="scintilla\LexInno.cxx" />
+    <ClCompile Include="scintilla\LexKix.cxx" />
+    <ClCompile Include="scintilla\LexLisp.cxx" />
+    <ClCompile Include="scintilla\LexLout.cxx" />
+    <ClCompile Include="scintilla\LexLua.cxx" />
+    <ClCompile Include="scintilla\LexMagik.cxx" />
+    <ClCompile Include="scintilla\LexMatlab.cxx" />
+    <ClCompile Include="scintilla\LexMetapost.cxx" />
+    <ClCompile Include="scintilla\LexMMIXAL.cxx" />
+    <ClCompile Include="scintilla\LexMPT.cxx" />
+    <ClCompile Include="scintilla\LexMSSQL.cxx" />
+    <ClCompile Include="scintilla\LexNsis.cxx" />
+    <ClCompile Include="scintilla\LexOpal.cxx" />
+    <ClCompile Include="scintilla\LexOthers.cxx" />
+    <ClCompile Include="scintilla\LexPascal.cxx" />
+    <ClCompile Include="scintilla\LexPB.cxx" />
+    <ClCompile Include="scintilla\LexPerl.cxx" />
+    <ClCompile Include="scintilla\LexPLM.cxx" />
+    <ClCompile Include="scintilla\LexPOV.cxx" />
+    <ClCompile Include="scintilla\LexPowerShell.cxx" />
+    <ClCompile Include="scintilla\LexProgress.cxx" />
+    <ClCompile Include="scintilla\LexPS.cxx" />
+    <ClCompile Include="scintilla\LexPython.cxx" />
+    <ClCompile Include="scintilla\LexR.cxx" />
+    <ClCompile Include="scintilla\LexRebol.cxx" />
+    <ClCompile Include="scintilla\LexRuby.cxx" />
+    <ClCompile Include="scintilla\LexScriptol.cxx" />
+    <ClCompile Include="scintilla\LexSmalltalk.cxx" />
+    <ClCompile Include="scintilla\LexSpecman.cxx" />
+    <ClCompile Include="scintilla\LexSpice.cxx" />
+    <ClCompile Include="scintilla\LexSQL.cxx" />
+    <ClCompile Include="scintilla\LexTADS3.cxx" />
+    <ClCompile Include="scintilla\LexTCL.cxx" />
+    <ClCompile Include="scintilla\LexTeX.cxx" />
+    <ClCompile Include="scintilla\LexVB.cxx" />
+    <ClCompile Include="scintilla\LexVerilog.cxx" />
+    <ClCompile Include="scintilla\LexVHDL.cxx" />
+    <ClCompile Include="scintilla\LexYAML.cxx" />
+    <ClCompile Include="scintilla\LineMarker.cxx" />
+    <ClCompile Include="scintilla\PositionCache.cxx" />
+    <ClCompile Include="scintilla\PropSet.cxx" />
+    <ClCompile Include="scintilla\RESearch.cxx" />
+    <ClCompile Include="scintilla\RunStyles.cxx" />
+    <ClCompile Include="scintilla\ScintillaBase.cxx" />
+    <ClCompile Include="scintilla\Style.cxx" />
+    <ClCompile Include="scintilla\StyleContext.cxx" />
+    <ClCompile Include="scintilla\UniConversion.cxx" />
+    <ClCompile Include="scintilla\ViewStyle.cxx" />
+    <ClCompile Include="scintilla\win32\PlatWin.cxx" />
+    <ClCompile Include="scintilla\win32\ScintillaWin.cxx">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'">STATIC_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="scintilla\WindowAccessor.cxx" />
+    <ClCompile Include="scintilla\XPM.cxx" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelStatic|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelStatic|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWViewBasic.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWViewBasic.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RWBase\RWBase.vcxproj">
+      <Project>{6890628a-f03e-4d30-ac7c-ad4830b2f5e8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RWConceptDesignerView\RWConceptDesignerView.vcxproj">
+      <Project>{34844887-feaa-4939-bd8f-03c343e1b3bd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RWConceptSharedState\RWConceptSharedState.vcxproj">
+      <Project>{7eefc30b-f02b-4084-98b2-1bcf3597d31c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RWConfig\RWConfig.vcxproj">
+      <Project>{2730efc3-c2d8-4e97-81eb-bd4f6a45e7d9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RWDocumentBasic\RWDocumentBasic.vcxproj">
+      <Project>{3f81bad2-4a22-4838-a28f-09ac323f73de}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RWInput\RWInput.vcxproj">
+      <Project>{2839c0fc-0d72-4a3b-9689-96cf7cb02425}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

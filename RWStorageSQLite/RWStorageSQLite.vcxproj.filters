@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="StorageSQLite Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="sqlite Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DatabaseImportDlg.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabasePickDlg.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropSource.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportDlg.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileImportDlg.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePropertiesDlg.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageBrowserSQLite.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFactorySQLite.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageSQLite.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageWindowSQLite.h">
+      <Filter>StorageSQLite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sqlite\sqlite3.h">
+      <Filter>sqlite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sqlite\sqlite3ext.h">
+      <Filter>sqlite Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWStorageSQLite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StorageBrowserSQLite.cpp">
+      <Filter>StorageSQLite Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFactorySQLite.cpp">
+      <Filter>StorageSQLite Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageSQLite.cpp">
+      <Filter>StorageSQLite Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageWindowSQLite.cpp">
+      <Filter>StorageSQLite Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWStorageSQLite.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sqlite\sqlite3.c">
+      <Filter>sqlite Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWStorageSQLite.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWStorageSQLite.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

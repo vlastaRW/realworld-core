@@ -1,0 +1,8 @@
+; RWImaging.def : Declares the module parameters.
+
+LIBRARY      "RWImaging.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

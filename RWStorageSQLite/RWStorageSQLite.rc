@@ -1,0 +1,600 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FILTERBROWSERSQLITE DIALOGEX 0, 0, 163, 69
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FWSQL_LISTING,"SysListView32",LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_AUTOARRANGE | LVS_EDITLABELS | WS_TABSTOP,0,0,163,69
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_FILTERBROWSERSQLITE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech (Czech Republic) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FILEPROPERTIES DIALOGEX 0, 0, 258, 108
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vlastnosti souboru"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,148,87,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,201,87,50,14
+    ICON            "",IDC_MTN_THUMBNAIL,7,7,20,20
+    LTEXT           "filename.ext",IDC_MTN_FILENAME,51,7,200,8
+    LTEXT           "created",IDC_MTN_CREATED,51,18,200,8
+    LTEXT           "modified",IDC_MTN_MODIFIED,51,27,200,8
+    LTEXT           "&Znaèky:",IDC_STATIC,7,42,35,8
+    EDITTEXT        IDC_MTN_TAGS,51,40,200,12,ES_AUTOHSCROLL
+    LTEXT           "&Poznámka:",IDC_STATIC,7,58,43,8
+    EDITTEXT        IDC_MTN_NOTE,51,56,200,24,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+END
+
+IDD_IMPORTFILE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Importovat soubor"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,146
+    LTEXT           "&Znaèky:",IDC_IF_TAGSLABEL,7,147,33,8
+    EDITTEXT        IDC_IF_TAGS,58,146,252,12,ES_AUTOHSCROLL
+END
+
+IDD_EXPORTFILE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Exportovat soubor"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_EXPORTDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Zálohovat databázi"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_FILTERWINDOWSQLITE DIALOGEX 0, 0, 250, 125
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FWSQL_LISTING,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_AUTOARRANGE | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,80,17,163,69
+    LTEXT           "Znaèky:",IDC_FWSQL_KEYWORDSLABEL,7,7,48,8
+    EDITTEXT        IDC_FWSQL_KEYWORDS,168,90,75,12,ES_AUTOHSCROLL
+    LTEXT           "Jméno:",IDC_FWSQL_NAMELABEL,7,92,48,8
+    EDITTEXT        IDC_FWSQL_NAME,57,90,75,12,ES_AUTOHSCROLL
+    LTEXT           "Typ souboru:",IDC_FWSQL_TYPELABEL,7,108,48,8
+    CONTROL         "",IDC_FWSQL_TYPE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,57,106,90,151
+    LISTBOX         IDC_FWSQL_TAGCLOUD,7,17,69,69,LBS_MULTIPLESEL | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "ToolBar",IDC_FWSQL_TOOLBAR,"ToolbarWindow32",0x994e,173,2,70,14
+    LTEXT           "Znaèky:",IDC_FWSQL_TAGSLABEL,137,92,29,8
+    LTEXT           "Vyhovující soubory:",IDC_STATIC,80,7,69,8
+    CONTROL         "Vytvoøit novou revizi",IDC_FWSQL_NEWREVISION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,107,82,10
+END
+
+IDD_PICKDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Vybrat databázi"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_IMPORTDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Importovat databázi"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,146
+    LTEXT           "&Skládání:",IDC_ID_MERGELABEL,7,147,36,8
+    COMBOBOX        IDC_ID_MERGE,58,146,252,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,260,165,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_FILEPROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_IMPORTFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_EXPORTFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_EXPORTDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_FILTERWINDOWSQLITE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_PICKDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_IMPORTDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""RWVersion.h""\r\n"
+    "#include ""RWVersionInfo.rc2""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWStorageSQLite"
+    IDS_SQLITEFILTERNAME    "Znaèkovaná knihovna"
+    IDS_CMD_PICKDATABASE    "Vybrat databázi"
+    IDS_CMD_IMPORTDATABASE  "Importovat databázi"
+    IDS_CMD_EXPORTDATABASE  "Zálohovat databázi"
+    IDS_CMD_IMPORTFILE      "Importovat soubor"
+    IDS_CMD_EXPORTFILE      "Exportovat soubor"
+    IDS_CMD_DELETEFILE      "Smazat soubor"
+    IDS_CMD_RENAMEFILE      "Pøejmenovat soubor"
+    IDS_CMD_MODIFYTAGS      "Upravit znaèky nebo poznámku"
+    IDS_CMD_HELP            "Online nápovìda"
+    IDS_CMD_MANAGEDATABASE  "Spravovat databázi"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FILELEN_BYTES       "%i bajtù"
+    IDS_FILELEN_KBYTES      "%g kB"
+    IDS_FILELEN_MBYTES      "%g MB"
+    IDS_FILEDATE_MODIFIED   "Upraveno: %s"
+    IDS_NOMATCHINGFILES     "Žádne soubory vyhovující zadaným kritériím nebyly nalezeny."
+    IDS_COL_NAME            "Jméno"
+    IDS_COL_PATH            "Umístìní"
+    IDS_COL_TYPE            "Typ"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_COL_SIZE            "Velikost"
+    IDS_COL_DATEMOD         "Upraveno"
+    IDS_COL_DATECRE         "Vytvoøeno"
+    IDS_COL_TAGS            "Znaèky"
+    IDS_COL_UID             "Identifikátor"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CONFIRMDELETE       "Opravdu chcete vymazat soubor ""%s""?"
+    IDS_CONFIRMOVERWRITE    "Soubor již existuje. Pøejete si ho pøepsat?"
+    IDS_MERGE_REPLACE       "Nahradit celou databázi (smaže všechny souèasné soubory)."
+    IDS_MERGE_CURRENT       "V pøípadì konfliktu zachovat souèasný soubor."
+    IDS_MERGE_IMPORTED      "V pøípadì konfliktu použít importovaný soubor."
+    IDS_MERGE_NEWER         "V pøípadì konfliktu použít novìjší soubor."
+    IDS_FORMATFILTER_RWDB   "Soubory znaèkovaných databází RealWorldu"
+    IDS_CMD_SORTBY          "Øadit podle"
+    IDS_CMD_THUMBNAILS      "Zobrazovat náhledy"
+    IDS_CMD_DEFAULTDATABASE "Použít výchozí databázi"
+    IDS_CMD_ONLINEDATABASE  "Použít online databázi"
+    IDS_CMD_GROUPITEMS      "Seskupovat soubory"
+    IDS_GROUP_RECENT        "Naposled upravované soubory"
+    IDS_GROUP_NOTAGS        "Soubory bez znaèek"
+    IDS_GROUP_MISC          "Ostatní soubory"
+    IDS_CMD_FOLLOWLINK      "Otevøít odkaz z poznámky"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HELP_TAGCLOUD       "Kliknutím vyberete nebo zrušíte výbìr znaèky. Dvojitým kliknutím vyberete pouze kliknutou znaèku. Vìtší a tuènìjší písmo znamená èastìji používanou znaèku."
+    IDS_HELP_FILELIST       "Tato oblast zobrazuje soubory zvoleného typu s vybranými znaèkami. Kliknìte pravým pro zobrazení kontextového menu. Poklepejte pro aktivace souboru. Stisknìte F2 pro pøejmenování nebo F4 pro zobrazení vlastností."
+    IDS_HELP_TOOLBAR        "Použijte tlaèítka pro export, import, smazání a úpravy souborù nebo pro správu celé databáze. Kliknìte na žárovku pro zobrazení další nápovìdy."
+    IDS_HELP_FILENAME       "Jméno ukládaného souboru. Pøípona bude automaticky pøidána pokud nedáte jméno do uvozovek."
+    IDS_HELP_KEYWORDS       "Znaèky uvedené v tomto poli budou pøiøazeny k ukládanému souboru."
+    IDS_HELP_FILETYPE       "Toto pole umožòuje zvolit typy souborù, které budou zobrazovány. Pokud se jedná o ukládání dat, mùže toto pole ovlivnit souborový formát ukládaného souboru."
+    IDS_HELP_NEWREVISION    "Databáze mùže obsahovat více souborù shodného jména a atributù. Povolte toto nastavení, aby nedošlo k pøepsání souboru vybraného v seznamu."
+    IDC_MN_TAGADD           "Activavat znaèku"
+    IDC_MD_TAGADD           "Zobrazit soubory s vybranou znaèkou."
+END
+
+#endif    // Czech (Czech Republic) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FILTERWINDOWSQLITE DIALOGEX 0, 0, 250, 125
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FWSQL_LISTING,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_AUTOARRANGE | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,80,17,163,69
+    LISTBOX         IDC_FWSQL_TAGCLOUD,7,17,69,69,LBS_MULTIPLESEL | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_FWSQL_TYPE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,57,106,90,151
+    LTEXT           "Files of type:",IDC_FWSQL_TYPELABEL,7,108,48,8
+    EDITTEXT        IDC_FWSQL_NAME,57,90,75,12,ES_AUTOHSCROLL
+    LTEXT           "File name:",IDC_FWSQL_NAMELABEL,7,92,48,8
+    EDITTEXT        IDC_FWSQL_KEYWORDS,168,90,75,12,ES_AUTOHSCROLL
+    LTEXT           "All tags:",IDC_FWSQL_KEYWORDSLABEL,7,7,48,8
+    CONTROL         "Create new revision",IDC_FWSQL_NEWREVISION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,162,107,81,10
+    LTEXT           "Matching files:",IDC_STATIC,80,7,52,8
+    LTEXT           "Tags:",IDC_FWSQL_TAGSLABEL,140,92,24,8
+    CONTROL         "ToolBar",IDC_FWSQL_TOOLBAR,"ToolbarWindow32",0x994e,173,2,70,14
+END
+
+IDD_IMPORTFILE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Import File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,146
+    LTEXT           "&Tags:",IDC_IF_TAGSLABEL,7,147,30,8
+    EDITTEXT        IDC_IF_TAGS,58,146,252,12,ES_AUTOHSCROLL
+END
+
+IDD_FILEPROPERTIES DIALOGEX 0, 0, 258, 108
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "File Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,148,87,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,201,87,50,14
+    ICON            "",IDC_MTN_THUMBNAIL,7,7,20,20
+    LTEXT           "filename.ext",IDC_MTN_FILENAME,51,7,200,8
+    LTEXT           "created",IDC_MTN_CREATED,51,18,200,8
+    LTEXT           "modified",IDC_MTN_MODIFIED,51,27,200,8
+    LTEXT           "&Tags:",IDC_STATIC,7,42,29,8
+    EDITTEXT        IDC_MTN_TAGS,51,40,200,12,ES_AUTOHSCROLL
+    LTEXT           "&Note:",IDC_STATIC,7,58,30,8
+    EDITTEXT        IDC_MTN_NOTE,51,56,200,24,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+END
+
+IDD_EXPORTFILE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Export File"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_EXPORTDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Export Database"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_PICKDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Pick Database"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,165,50,14
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,165
+END
+
+IDD_IMPORTDATABASE DIALOGEX 0, 0, 317, 187
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Import Database"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_IF_LOCATOR,"Static",SS_BLACKRECT,0,0,316,146
+    LTEXT           "&Merging:",IDC_ID_MERGELABEL,7,147,36,8
+    COMBOBOX        IDC_ID_MERGE,58,146,252,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,206,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,165,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_FILTERWINDOWSQLITE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_IMPORTFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_FILEPROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_EXPORTFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_EXPORTDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_PICKDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+
+    IDD_IMPORTDATABASE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "RWStorageSQLite"
+    IDS_SQLITEFILTERNAME    "Tagged library"
+    IDS_CMD_PICKDATABASE    "Pick database to use"
+    IDS_CMD_IMPORTDATABASE  "Restore database"
+    IDS_CMD_EXPORTDATABASE  "Backup database"
+    IDS_CMD_IMPORTFILE      "Import file"
+    IDS_CMD_EXPORTFILE      "Export file"
+    IDS_CMD_DELETEFILE      "Delete file"
+    IDS_CMD_RENAMEFILE      "Rename file"
+    IDS_CMD_MODIFYTAGS      "Modify tags or note"
+    IDS_CMD_HELP            "Online help"
+    IDS_CMD_MANAGEDATABASE  "Manage database"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FILELEN_BYTES       "%i bytes"
+    IDS_FILELEN_KBYTES      "%g kB"
+    IDS_FILELEN_MBYTES      "%g MB"
+    IDS_FILEDATE_MODIFIED   "Modified on %s"
+    IDS_NOMATCHINGFILES     "No files matching specified criteria found."
+    IDS_COL_NAME            "Name"
+    IDS_COL_PATH            "Location"
+    IDS_COL_TYPE            "Type"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_COL_SIZE            "Size"
+    IDS_COL_DATEMOD         "Modified"
+    IDS_COL_DATECRE         "Created"
+    IDS_COL_TAGS            "Tags"
+    IDS_COL_UID             "Identifier"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CONFIRMDELETE       "Are you sure you want to permanently delete file ""%s""?"
+    IDS_CONFIRMOVERWRITE    "The file already exists. Do you wish to overwrite it?"
+    IDS_MERGE_REPLACE       "Replace entire database (deletes all current files)."
+    IDS_MERGE_CURRENT       "In case of conflict, keep current file."
+    IDS_MERGE_IMPORTED      "In case of conflict, use imported file."
+    IDS_MERGE_NEWER         "In case of conflict, use newer file."
+    IDS_FORMATFILTER_RWDB   "RealWorld tagged database files"
+    IDS_CMD_SORTBY          "Sort by"
+    IDS_CMD_THUMBNAILS      "Show thumbnails"
+    IDS_CMD_DEFAULTDATABASE "Use default database"
+    IDS_CMD_ONLINEDATABASE  "Use online database"
+    IDS_CMD_GROUPITEMS      "Group files"
+    IDS_GROUP_RECENT        "Recently modified files"
+    IDS_GROUP_NOTAGS        "Files with no tags"
+    IDS_GROUP_MISC          "Other files"
+    IDS_CMD_FOLLOWLINK      "Follow link in note"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HELP_TAGCLOUD       "Click on tags to select/unselect them. Double-click a tag to select it and unselect all other tags. A bigger or bolder font indicates a frequently used tag."
+    IDS_HELP_FILELIST       "This area displays files with specified tags and type. Right-click to display context menu. Double-click item to activate it. Press F2 to rename active item or F4 to set its properties."
+    IDS_HELP_TOOLBAR        "Use the buttons to export, import, delete or modify files and to manage the whole database. Click the lightbulb icon for more detailed help."
+    IDS_HELP_FILENAME       "Name of the saved file. Extension will be automatically added unless you enclose the name in double quotes."
+    IDS_HELP_KEYWORDS       "Tags specified in this box will be associated with the saved file."
+    IDS_HELP_FILETYPE       "This box allows you to display only files of selected types. When storing files, this box may influence the file format of the saved file."
+    IDS_HELP_NEWREVISION    "The database may contain multiple files with same name and attributes. Enable this option to not overwrite previous version."
+    IDC_MN_TAGADD           "Activate tag"
+    IDC_MD_TAGADD           "Display files with the given tag."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "RWVersion.h"
+#include "RWVersionInfo.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

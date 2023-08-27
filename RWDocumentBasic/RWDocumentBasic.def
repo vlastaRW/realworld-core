@@ -1,0 +1,8 @@
+; RWDocumentBasic.def : Declares the module parameters.
+
+LIBRARY      "RWDocumentBasic.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

@@ -1,0 +1,8 @@
+; RWViewAreaLayout.def : Declares the module parameters.
+
+LIBRARY      "RWViewAreaLayout.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

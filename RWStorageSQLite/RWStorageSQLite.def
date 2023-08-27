@@ -1,0 +1,8 @@
+; RWStorageSQLite.def : Declares the module parameters.
+
+LIBRARY      "RWStorageSQLite.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

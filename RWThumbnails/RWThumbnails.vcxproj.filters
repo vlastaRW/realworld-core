@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ThumbnailCache Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ThumbnailRenderer Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ThumbnailDecorator">
+      <UniqueIdentifier>{da9d2eb6-1875-49d1-8c10-43ccbd2fc55b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AsyncThumbnailRenderer">
+      <UniqueIdentifier>{5be4a33e-c7ad-44f7-8b47-0e844148cb9f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ThumbnailCache.cpp">
+      <Filter>ThumbnailCache Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWThumbnails.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThumbnailRenderer.cpp">
+      <Filter>ThumbnailRenderer Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThumbnailDecorator.cpp">
+      <Filter>ThumbnailDecorator</Filter>
+    </ClCompile>
+    <ClCompile Include="AsyncThumbnailRenderer.cpp">
+      <Filter>AsyncThumbnailRenderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ThumbnailCache.h">
+      <Filter>ThumbnailCache Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThumbnailRenderer.h">
+      <Filter>ThumbnailRenderer Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThumbnailDecorator.h">
+      <Filter>ThumbnailDecorator</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncThumbnailRenderer.h">
+      <Filter>AsyncThumbnailRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWThumbnailProvider.h" />
+    <ClInclude Include="..\_inc\RWThumbnails.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWThumbnails.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWThumbnails.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

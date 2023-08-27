@@ -1,0 +1,8 @@
+; RWDesignerCore.def : Declares the module parameters.
+
+LIBRARY      "RWDesignerCore.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

@@ -1,0 +1,115 @@
+// RWConceptSharedState.idl : IDL source for RWConceptSharedState
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWConceptSharedState.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+
+[
+	object,
+	uuid(F2024EC0-CFF9-44CF-91A6-60A4C0BFA512),
+	helpstring("ISharedState Interface"),
+	pointer_default(unique)
+]
+interface ISharedState : IUnknown
+{
+	[helpstring("method CLSIDGet")] HRESULT CLSIDGet([out] CLSID* a_pCLSID);
+	[helpstring("method ToText")] HRESULT ToText([out] BSTR* a_pbstrText);
+	[helpstring("method FromText")] HRESULT FromText([in] BSTR a_bstrText);
+};
+
+typedef struct TSharedStateChange
+{
+	BSTR bstrName;
+	ISharedState* pState;
+} TSharedStateChange;
+
+[
+	object,
+	uuid(29D4D220-2C5F-44CB-8A6E-43A62C91E678),
+	helpstring("ISharedStateObserver Interface"),
+	pointer_default(unique)
+]
+interface ISharedStateObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] TSharedStateChange a_pChangeParams);
+};
+
+[
+	object,
+	uuid(DB032741-6CD8-4247-8EAD-CB2F5E3DBF9E),
+	helpstring("ISharedStateManager Interface"),
+	pointer_default(unique)
+]
+interface ISharedStateManager : IUnknown
+{
+	[helpstring("method StateGet")] HRESULT StateGet([in] BSTR a_bstrCategoryName, [in] REFIID a_iid, [out, iid_is(a_iid)] void** a_ppState);
+	[helpstring("method StateSet")] HRESULT StateSet([in] BSTR a_bstrCategoryName, [in] ISharedState* a_pState);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] ISharedStateObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] ISharedStateObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+[
+	object,
+	uuid(4D744EF5-761B-474D-BFC6-FDC163EACB77),
+	helpstring("ISharedStateColor Interface"),
+	pointer_default(unique)
+]
+interface ISharedStateColor : ISharedState
+{
+	[helpstring("method RGBAGet")] HRESULT RGBAGet([out, size_is(4)] float* a_pRGBA);
+	[helpstring("method HLSAGet")] HRESULT HLSAGet([out, size_is(4)] float* a_pHLSA);
+	[helpstring("method RGBASet")] HRESULT RGBASet([in, size_is(4)] float const* a_pRGBA, [in] ISharedStateColor* a_pOldState);
+	[helpstring("method HLSASet")] HRESULT HLSASet([in, size_is(4)] float const* a_pHLSA, [in] ISharedStateColor* a_pOldState);
+	[helpstring("method RGBHLSAGet")] HRESULT RGBHLSAGet([out, size_is(7)] float* a_pRGBHLSA);
+	[helpstring("method RGBAHLSSet")] HRESULT RGBHLSASet([in, size_is(7)] float const* a_pRGBHLSA, [in] ISharedStateColor* a_pOldState);
+	[helpstring("method AlphaEnabled")] HRESULT AlphaEnabled();
+	[helpstring("method AlphaSet")] HRESULT AlphaSet([in] BYTE a_bEnable);
+};
+
+
+[
+	uuid(8F37D877-C7D4-4FDA-B2EC-06AE759E68A2),
+	version(1.0),
+	helpstring("RWConceptSharedState 1.0 Type Library")
+]
+library RWConceptSharedStateLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+
+	interface ISharedStateObserver;
+	interface ISharedStateManager;
+
+	[
+		uuid(E64F3A87-07C9-42E1-80EF-B54C11695661),
+		helpstring("SharedStateEnum Class")
+	]
+	coclass SharedStateEnum
+	{
+		[default] interface ISharedState;
+		interface IEnumUnknowns;
+		interface IEnumUnknownsInit;
+	};
+	[
+		uuid(7B2E6774-E794-453E-BE0C-5975245DA87D),
+		helpstring("SharedStateString Class")
+	]
+	coclass SharedStateString
+	{
+		[default] interface ISharedState;
+	};
+	[
+		uuid(EB5626F9-93F8-41A9-A576-B5DEB0F3BCCA),
+		helpstring("SharedStateColor Class")
+	]
+	coclass SharedStateColor
+	{
+		[default] interface ISharedState;
+		interface ISharedStateColor;
+	};
+};

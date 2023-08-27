@@ -1,0 +1,8 @@
+; RWLocalization.def : Declares the module parameters.
+
+LIBRARY      "RWLocalization.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

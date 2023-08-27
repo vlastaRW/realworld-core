@@ -1,0 +1,231 @@
+// RWConceptDesignerView.idl : IDL source for RWConceptDesignerView
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWConceptDesignerView.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWInput.idl";
+import "RWConceptSharedState.idl";
+
+[
+	object,
+	uuid(D2C9C7DE-FA61-42CC-8EDA-33033023C35C),
+	helpstring("IDesignerStatusBar Interface"),
+	pointer_default(unique)
+]
+interface IDesignerStatusBar : IUnknown
+{
+	[helpstring("method PaneKeep")] HRESULT PaneKeep([in] BSTR a_bstrPaneID);
+	[helpstring("method PaneSet"), local] HRESULT PaneSet([in] BSTR a_bstrPaneID, [in] HICON a_hIcon, [in] BSTR a_bstrText, [in] ULONG a_nWidth, [in] LONG a_nPosition);
+	[helpstring("method SimpleModeKeep")] HRESULT SimpleModeKeep();
+	[helpstring("method SimpleModeSet")] HRESULT SimpleModeSet([in] BSTR a_bstrText);
+};
+
+[
+	object,
+	uuid(6D94664F-D3CF-4A0F-A09F-28C3411E068C),
+	helpstring("IDesignerViewStatusBar Interface"),
+	pointer_default(unique)
+]
+interface IDesignerViewStatusBar : IUnknown
+{
+	[helpstring("method Update")] HRESULT Update([in] IDesignerStatusBar* a_pStatusBar);
+};
+
+[
+	object,
+	uuid(76D4DCF1-2E08-4582-9177-B5437FC0F675),
+	helpstring("IStatusBarObserver Interface"),
+	pointer_default(unique)
+]
+interface IStatusBarObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] BYTE a_nDummy);
+};
+
+typedef [v1_enum] enum EDesignerViewClipboardAction
+{
+	EDVCACut = 0,
+	EDVCACopy,
+	EDVCAPaste,
+	EDVCASelectAll,
+	EDVCAInvertSelection,
+	EDVCADelete,
+	EDVCADuplicate,
+} EDesignerViewClipboardAction;
+
+[
+	object,
+	uuid(30F45025-9465-493A-9186-939C144DE530),
+	helpstring("IDesignerViewClipboardHandler Interface"),
+	pointer_default(unique)
+]
+interface IDesignerViewClipboardHandler : IUnknown
+{
+	[helpstring("method Priority")] HRESULT Priority([out] BYTE* a_pPrio); // 128 ... average priority
+
+	[helpstring("method ObjectName")] HRESULT ObjectName([in] EDesignerViewClipboardAction a_eAction, [out] ILocalizedString** a_ppName);
+	[helpstring("method ObjectIconID")] HRESULT ObjectIconID([in] EDesignerViewClipboardAction a_eAction, [out] GUID* a_pIconID);
+	[helpstring("method ObjectIcon"), local] HRESULT ObjectIcon([in] EDesignerViewClipboardAction a_eAction, [in] ULONG a_nSize, [out] HICON* a_phIcon, [out] BYTE* a_pOverlay);
+
+	[helpstring("method Check")] HRESULT Check([in] EDesignerViewClipboardAction a_eAction);
+	[helpstring("method Exec")] HRESULT Exec([in] EDesignerViewClipboardAction a_eAction);
+};
+
+[
+	object,
+	uuid(77B140BF-6C25-4DAC-8B93-57F7E8CD057B),
+	helpstring("IDragAndDropHandler Interface"),
+	pointer_default(unique),
+	local
+]
+interface IDragAndDropHandler : IUnknown
+{
+	[helpstring("method Drag")] HRESULT Drag([in] IDataObject* a_pDataObj, [in] IEnumStrings* a_pFileNames, [in] DWORD a_grfKeyState, [in] POINT a_pt, [in, out] DWORD* a_pdwEffect, [out] ILocalizedString** a_ppFeedback);
+	[helpstring("method Drop")] HRESULT Drop([in] IDataObject* a_pDataObj, [in] IEnumStrings* a_pFileNames, [in] DWORD a_grfKeyState, [in] POINT a_pt);
+};
+
+[
+	object,
+	uuid(16044513-EA26-4475-A31D-46A1A2038D6B),
+	helpstring("IDesignerViewUndoOverride Interface"),
+	pointer_default(unique)
+]
+interface IDesignerViewUndoOverride : IUnknown
+{
+	[helpstring("method CanUndo")] HRESULT CanUndo();
+	[helpstring("method Undo")] HRESULT Undo();
+	[helpstring("method UndoName")] HRESULT UndoName([out] ILocalizedString** a_ppName);
+
+	[helpstring("method CanRedo")] HRESULT CanRedo();
+	[helpstring("method Redo")] HRESULT Redo();
+	[helpstring("method RedoName")] HRESULT RedoName([out] ILocalizedString** a_ppName);
+};
+
+
+
+typedef [v1_enum] enum EQIFilter
+{
+	EQIFActive = 0,
+	EQIFVisible = 1,
+	EQIFAll = 2,
+} EQIFilter;
+
+[
+	object,
+	uuid(5FB5E951-04D6-4B45-A11D-43252B6FAEDB),
+	helpstring("IDesignerView Interface"),
+	pointer_default(unique)
+]
+interface IDesignerView : IChildWindow
+{
+	[helpstring("method OptimumSize")] HRESULT OptimumSize([in, out] SIZE* a_pSize);
+	[helpstring("method QueryInterfaces")] HRESULT QueryInterfaces([in] REFIID a_iid, [in] EQIFilter a_eFilter, [in] IEnumUnknownsInit* a_pInterfaces);
+	[helpstring("method OnIdle")] HRESULT OnIdle();
+	[helpstring("method OnDeactivate")] HRESULT OnDeactivate([in] BOOL a_bCancelChanges);
+	[helpstring("method DeactivateAll")] HRESULT DeactivateAll([in] BOOL a_bCancelChanges);
+};
+
+typedef [v1_enum] enum EDesignerViewWndStyle
+{
+	EDVWSBorder = 0,
+	EDVWSNoBorder = 1,
+	EDVWSVolatileBorder = 2,
+	EDVWSBorderMask = 3
+} EDesignerViewWndStyle;
+
+interface IViewManager;
+
+[
+	object,
+	uuid(C146E735-AAC6-4DCA-9B0C-2639AAB4E365),
+	helpstring("ICheckSuitabilityCallback Interface"),
+	pointer_default(unique)
+]
+interface ICheckSuitabilityCallback : IUnknown
+{
+	[helpstring("method Used")] HRESULT Used([in] REFIID a_iid);
+	[helpstring("method Missing")] HRESULT Missing([in] REFIID a_iid);
+};
+
+[
+	object,
+	uuid(9BA7526E-4AC0-4BE7-8641-5B78D9C5F296),
+	helpstring("IDesignerViewFactory Interface"),
+	pointer_default(unique)
+]
+interface IDesignerViewFactory : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([in] IViewManager* a_pManager, [out] ILocalizedString** a_ppOperationName);
+	[helpstring("method ConfigCreate")] HRESULT ConfigCreate([in] IViewManager* a_pManager, [out] IConfig** a_ppDefaultConfig);
+
+	[helpstring("method CreateWnd"), local] HRESULT CreateWnd([in] IViewManager* a_pManager, [in] IConfig* a_pConfig, [in] ISharedStateManager* a_pStates, [in] IStatusBarObserver* a_pStatusBar, [in] IDocument* a_pDoc, [in] RWHWND a_hParent, [in] RECT const* a_prcWindow, [in] EDesignerViewWndStyle a_nStyle, [in] LCID a_tLocaleID, [out] IDesignerView** a_ppDVWnd);
+	[helpstring("method CheckSuitability")] HRESULT CheckSuitability([in] IViewManager* a_pManager, [in] IConfig* a_pConfig, [in] IDocument* a_pDocument, [in] ICheckSuitabilityCallback* a_pCallback);
+};
+
+[
+	object,
+	uuid(DAAF6803-556D-4892-990A-746CA539BFB6),
+	helpstring("IViewManager Interface"),
+	pointer_default(unique)
+]
+interface IViewManager : ILateConfigCreator
+{
+	[helpstring("method ItemGetCount")] HRESULT ItemGetCount([out] ULONG* a_pnCount);
+	[helpstring("method ItemIDGetDefault")] HRESULT ItemIDGetDefault([out] TConfigValue* a_ptDefaultOpID);
+	[helpstring("method ItemIDGet")] HRESULT ItemIDGet([in] IViewManager* a_pOverrideForItem, [in] ULONG a_nIndex, [out] TConfigValue* a_ptOperationID, [out] ILocalizedString** a_ppName);
+
+	[helpstring("method InsertIntoConfigAs")] HRESULT InsertIntoConfigAs([in] IViewManager* a_pOverrideForItem, [in] IConfigWithDependencies* a_pConfig, [in] BSTR a_bstrID, [in] ILocalizedString* a_pItemName, [in] ILocalizedString* a_pItemDesc, [in] ULONG a_nItemConditions, [in, size_is(a_nItemConditions)] TConfigOptionCondition const* a_aItemConditions);
+
+	[helpstring("method CreateWnd"), local] HRESULT CreateWnd([in] IViewManager* a_pOverrideForItem, [in] TConfigValue const* a_ptItemID, [in] IConfig* a_pItemCfg, [in] ISharedStateManager* a_pFrame, [in] IStatusBarObserver* a_pStatusBar, [in] IDocument* a_pDoc, [in] RWHWND a_hParent, [in] RECT const* a_prcWindow, [in] EDesignerViewWndStyle a_nStyle, [in] LCID a_tLocaleID, [out] IDesignerView** a_ppDVWnd);
+	[helpstring("method CheckSuitability")] HRESULT CheckSuitability([in] IViewManager* a_pOverrideForItem, [in] TConfigValue const* a_ptItemID, [in] IConfig* a_pItemCfg, [in] IDocument* a_pDocument, [in] ICheckSuitabilityCallback* a_pCallback);
+};
+
+
+[
+	uuid(B9F4556E-E9B2-44C9-B5A4-5B91BDF98075),
+	version(1.0),
+	helpstring("RWConceptDesignerView 1.0 Type Library")
+]
+library RWConceptDesignerViewLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWConceptSharedState.tlb");
+
+	interface IDesignerStatusBar;
+	interface IDesignerViewStatusBar;
+	interface IStatusBarObserver;
+	interface IDesignerViewClipboardHandler;
+	//interface IDragAndDropHandler;
+	interface IDesignerViewUndoOverride;
+	interface IDesignerView;
+
+	[
+		uuid(5609998F-AEF6-4F8F-BA91-7F1CDA6843F3),
+		helpstring("ViewManager Class")
+	]
+	coclass ViewManager
+	{
+		[default] interface IViewManager;
+	};
+	[
+		uuid(190BF8BB-9F37-4410-AB3C-62E5486F9F9C),
+		helpstring("DesignerViewFactoryNULL Class")
+	]
+	coclass DesignerViewFactoryNULL
+	{
+		[default] interface IDesignerViewFactory;
+	};
+};
+
+cpp_quote("#define WM_RW_GOTFOCUS (WM_APP+3195)")
+cpp_quote("#define WM_RW_DEACTIVATE (WM_APP+3196)")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DesignerViewFactory = {0xf4febfde, 0x4f77, 0x45a8, {0xb2, 0x9e, 0xce, 0xbc, 0x99, 0xa4, 0xcd, 0x08}};")
+cpp_quote("#include \"RWConceptDesignerViewUtils.h\"")

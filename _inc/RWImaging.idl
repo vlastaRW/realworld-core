@@ -1,0 +1,510 @@
+// RWImaging.idl : IDL source for RWImaging
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWImaging.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWStorage.idl";
+import "RWInput.idl";
+
+
+//*********************************************************
+// packed image conversion utils - pixel may occupy 1-4 bytes
+
+typedef struct TChannelSpec
+{
+	BYTE nOffset;
+	BYTE nWidth;
+} TChannelSpec;
+
+typedef struct TPixelFormat
+{
+	ULONG nSizeX;
+	ULONG nSizeY;
+	LONG nStrideX;
+	LONG nStrideY;
+	TChannelSpec tRed;
+	TChannelSpec tGreen;
+	TChannelSpec tBlue;
+	TChannelSpec tAlpha;
+} TPixelFormat;
+
+
+[
+	object,
+	uuid(80CEF218-7631-4001-8CFE-0A013F4DC8B8),
+	helpstring("IPixelFormatConverter Interface"),
+	pointer_default(unique)
+]
+interface IPixelFormatConverter : IUnknown
+{
+	[helpstring("method Convert")] HRESULT Convert([in] TPixelFormat const* a_ptInputFormat, [in] ULONG a_nInputPixels, [in, size_is(a_nInputPixels)] BYTE const* a_aInputPixels, [in] TPixelFormat const* a_ptOutputFormat, [in] ULONG a_nOutputPixels, [out, size_is(a_nOutputPixels)] BYTE* a_aOutputPixels);
+};
+
+
+// image metadata helper
+
+// common IDs:
+// "EXIF"
+// "ICC" - color profile
+[
+	object,
+	uuid(BA327F87-7F25-4197-94F3-B4EF86A3EF3D),
+	helpstring("IImageMetaData Interface"),
+	pointer_default(unique)
+]
+interface IImageMetaData : IUnknown
+{
+	[helpstring("method EnumIDs")] HRESULT EnumIDs([out] IEnumStrings** a_ppBlockIDs);
+	[helpstring("method SetBlock")] HRESULT SetBlock([in] BSTR a_bstrID, [in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+	[helpstring("method GetBlockSize")] HRESULT GetBlockSize([in] BSTR a_bstrID, [out] ULONG* a_pSize);
+	[helpstring("method GetBlock")] HRESULT GetBlock([in] BSTR a_bstrID, [in] ULONG a_nSize, [out, size_is(a_nSize)] BYTE* a_pData);
+	[helpstring("method DeleteBlock")] HRESULT DeleteBlock([in] BSTR a_bstrID);
+};
+
+[
+	object,
+	uuid(2B78ABF3-E2A6-4C47-8EE5-FACD968F6113),
+	helpstring("INamedColors Interface"),
+	pointer_default(unique)
+]
+interface INamedColors : IUnknown
+{
+	[helpstring("method ColorToName")] HRESULT ColorToName([in] DWORD a_dwRGBA, [out] ILocalizedString** a_ppName);
+};
+
+
+// image document
+
+typedef [v1_enum] enum EImageChannelID
+{
+	EICIRGBA = 0x00000001,
+	EICIRed = 0x00000010,
+	EICIGreen = 0x00000020,
+	EICIBlue = 0x00000040,
+	EICIAlpha = 0x00000080,
+	EICIDepth = 0x00000100,
+	EICINormalX = 0x00000200,
+	EICINormalY = 0x00000400,
+	EICINormalZ = 0x00000800,
+	EICIForceDWORD = 0x7fffffff
+} EImageChannelID;
+
+cpp_quote("#if 0")
+typedef DWORD TPixelChannel;
+cpp_quote("#endif")
+cpp_quote("typedef struct TPixelChannel { union {struct {BYTE bB, bG, bR, bA;}; DWORD n; float f; }; } TPixelChannel;") // for cpp
+
+typedef struct TImagePoint
+{
+	LONG nX;
+	LONG nY;
+} TImagePoint;
+
+typedef struct TImageSize
+{
+	ULONG nX;
+	ULONG nY;
+} TImageSize;
+
+typedef struct TImageStride
+{
+	ULONG nX;
+	ULONG nY;
+} TImageStride;
+
+typedef struct TImageTile
+{
+	ULONG nChannelIDs;
+	TImagePoint tOrigin;
+	TImageSize tSize;
+	TImageStride tStride;
+	ULONG nPixels;
+	[size_is(nPixels)] TPixelChannel const* pData;
+} TImageTile;
+
+[
+	object,
+	uuid(190E1B80-BF99-44E8-9792-6575F9CD6A8F),
+	helpstring("IImageVisitor Interface"),
+	pointer_default(unique)
+]
+interface IImageVisitor : IUnknown
+{
+	[helpstring("method Visit")] HRESULT Visit([in] ULONG a_nTiles, [in, size_is(a_nTiles)] TImageTile const* a_aTiles, [in] ITaskControl* a_pControl);
+};
+
+typedef struct TImageResolution
+{
+	ULONG nNumeratorX;
+	ULONG nDenominatorX;
+	ULONG nNumeratorY;
+	ULONG nDenominatorY;
+} TImageResolution;
+
+typedef [v1_enum] enum EImageChange
+{
+	EICDimensions = 0x01,
+	EICChannels = 0x02,
+	EICResolution = 0x04,
+	EICContent = 0x10,
+	EICMetadata = 0x100,
+	EICColorProfile = 0x200,
+	EICEXIF = 0x400,
+} EImageChange;
+
+typedef struct TImageChange
+{
+	ULONG nGlobalFlags;
+	TImagePoint tOrigin;
+	TImageSize tSize;
+} TImageChange;
+
+[
+	object,
+	uuid(DC39502B-73FB-46B8-841B-13264EC8687A),
+	helpstring("IImageObserver Interface"),
+	pointer_default(unique)
+]
+interface IImageObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] TImageChange a_tImageChange);
+};
+
+typedef [v1_enum] enum EImageOpacity
+{
+	EIOUnknown = 0,
+	EIOTransparent,
+	EIOSemiTransparent,
+	EIOOpaque,
+} EImageOpacity;
+
+typedef struct TChannelDefault
+{
+	EImageChannelID eID;
+	TPixelChannel tValue;
+} TChannelDefault;
+
+[
+	object,
+	uuid(EA94E2FA-3B34-4B69-B9A5-841BF13985F7),
+	helpstring("IEnumImageChannels Interface"),
+	pointer_default(unique)
+]
+interface IEnumImageChannels : IUnknown
+{
+	[helpstring("method Range")] HRESULT Range([in, out] ULONG* a_pStart, [in, out] ULONG* a_pCount);
+	[helpstring("method Consume")] HRESULT Consume([in] ULONG a_nStart, [in] ULONG a_nCount, [in, size_is(a_nCount)] TChannelDefault const* a_aChannelDefaults);
+};
+
+typedef [v1_enum] enum EImageRenderingIntent
+{
+	EIRIPreview = 0,
+	EIRIAccurate = 10,
+} EImageRenderingIntent;
+
+[
+	object,
+	uuid(60D90F75-5DC0-4E9A-9F08-48AAD78CCC8D),
+	helpstring("IDocumentImage Interface"),
+	pointer_default(unique)
+]
+interface IDocumentImage : IUnknown
+{
+	[helpstring("method CanvasGet")] HRESULT CanvasGet([out] TImageSize* a_pCanvasSize, [out] TImageResolution* a_pResolution, [out] TImagePoint* a_pContentOrigin, [out] TImageSize* a_pContentSize, [out] EImageOpacity* a_pContentOpacity);
+	[helpstring("method ChannelsGet")] HRESULT ChannelsGet([out] ULONG* a_pChannelIDs, [out] float* a_pGamma, [in] IEnumImageChannels* a_pChannelDefaults);
+	[helpstring("method TileGet")] HRESULT TileGet([in] ULONG a_nChannelID, [in] TImagePoint const* a_pOrigin, [in] TImageSize const* a_pSize, [in] TImageStride const* a_pStride, [in] ULONG a_nPixels, [in, size_is(a_nPixels)] TPixelChannel* a_pPixels, [in] ITaskControl* a_pControl, [in] EImageRenderingIntent a_eIntent);
+	[helpstring("method Inspect")] HRESULT Inspect([in] ULONG a_nChannelIDs, [in] TImagePoint const* a_pOrigin, [in] TImageSize const* a_pSize, [in] IImageVisitor* a_pVisitor, [in] ITaskControl* a_pControl, [in] EImageRenderingIntent a_eIntent);
+	[helpstring("method BufferLock"), local] HRESULT BufferLock([in] ULONG a_nChannelID, [out] TImagePoint* a_pAllocOrigin, [out] TImageSize* a_pAllocSize, [out] TImagePoint* a_pContentOrigin, [out] TImageSize* a_pContentSize, [out] TPixelChannel const** a_ppBuffer, [in] ITaskControl* a_pControl, [in] EImageRenderingIntent a_eIntent);
+	[helpstring("method BufferUnlock"), local] HRESULT BufferUnlock([in] ULONG a_nChannelID, [in] TPixelChannel const* a_pBuffer);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IImageObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IImageObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+typedef struct TMatrix3x3f
+{
+	float _11, _12, _13;
+	float _21, _22, _23;
+	float _31, _32, _33;
+} TMatrix3x3f;
+
+cpp_quote("#if 0")
+typedef struct TVector2f
+{
+	float x, y;
+} TVector2f;
+cpp_quote("#endif")
+cpp_quote("typedef struct TVector2f {union {struct {float x, y;}; float v[2]; }; } TVector2f;") // for cpp
+
+[
+	object,
+	uuid(E8689ED5-41D6-4CD3-8ACC-8D5A3366248B),
+	helpstring("IRasterImageTransformer Interface"),
+	pointer_default(unique)
+]
+interface IRasterImageTransformer : IUnknown
+{
+	[helpstring("method ProcessTile")] HRESULT ProcessTile([in] EImageChannelID a_eChannelID, [in] float a_fGamma, [in] TPixelChannel const* a_pDefault, [in] TMatrix3x3f const* a_pContentTransform, [in] ULONG a_nSrcPixels, [in, size_is(a_nSrcPixels)] TPixelChannel const* a_pSrcData, [in] TImagePoint const* a_pSrcOrigin, [in] TImageSize const* a_pSrcSize, [in] TImageStride const* a_pSrcStride, [in] ULONG a_nDstSize, [out, size_is(a_nDstSize)] TPixelChannel* a_pDstData, [in] TImagePoint const* a_pDstOrigin, [in] TImageSize const* a_pDstSize, [in] TImageStride const* a_pDstStride);
+};
+
+[
+	object,
+	uuid(689F3CB8-A9E2-48E5-9A36-004AF9B6DC99),
+	helpstring("IDocumentEditableImage Interface"),
+	pointer_default(unique)
+]
+interface IDocumentEditableImage : IDocumentImage
+{
+	[helpstring("method CanvasSet")] HRESULT CanvasSet([in] TImageSize const* a_pSize, [in] TImageResolution const* a_pResolution, [in] TMatrix3x3f const* a_pContentTransform, [in] IRasterImageTransformer* a_pHelper);
+	[helpstring("method ChannelsSet")] HRESULT ChannelsSet([in] ULONG a_nChannels, [in, size_is(a_nChannels)] EImageChannelID const* a_aChannelIDs, [in, size_is(a_nChannels)] TPixelChannel const* a_aChannelDefaults);
+};
+
+typedef struct TRasterImagePixel
+{
+	BYTE bB;
+	BYTE bG;
+	BYTE bR;
+	BYTE bA;
+} TRasterImagePixel;
+
+[
+	object,
+	uuid(6E49030D-5E06-4094-9C92-827DD09946DB),
+	helpstring("IDocumentFactoryRasterImage Interface"),
+	pointer_default(unique)
+]
+interface IDocumentFactoryRasterImage : IUnknown
+{
+	[helpstring("method Create")] HRESULT Create([in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [in] TImageSize const* a_pSize, [in] TImageResolution const* a_pResolution, [in] ULONG a_nChannels, [in, size_is(a_nChannels)] TChannelDefault const* a_aChannelDefaults, [in] float a_fGamma, [in] TImageTile const* a_pTile);
+};
+
+[
+	object,
+	uuid(2977D525-09A9-4AB7-904A-CE512C81F36B),
+	helpstring("IDocumentFactoryMetaData Interface"),
+	pointer_default(unique)
+]
+interface IDocumentFactoryMetaData : IUnknown
+{
+	[helpstring("method AddBlock")] HRESULT AddBlock([in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [in] BSTR a_bstrID, [in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+};
+
+
+typedef [v1_enum] enum ESwatchColorSpace
+{
+	ESCSRGB = 0,
+	ESCSHLS = 1,
+} ESwatchColorSpace;
+
+typedef struct TSwatchColor
+{
+	BSTR bstrName;
+	ESwatchColorSpace eSpace;
+	float f1;
+	float f2;
+	float f3;
+	float f4;
+	float fA;
+} TSwatchColor;
+
+
+typedef struct TColor
+{
+	float fR;
+	float fG;
+	float fB;
+	float fA;
+} TColor;
+
+typedef [v1_enum] enum EColorPickerChange
+{
+	ECPCColor = 1,
+	ECPCLayout = 2,
+	ECPCWindowHeight = 4,
+} EColorPickerChange;
+
+[
+	object,
+	uuid(F622523A-7B88-4018-B22C-F310DE0B3456),
+	helpstring("IColorPickerObserver Interface"),
+	pointer_default(unique)
+]
+interface IColorPickerObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] ULONG a_eChange);
+};
+
+[
+	object,
+	uuid(9CA8335E-FEC0-4C7A-AF8F-F02C6CE2F1F5),
+	helpstring("IColorPicker Interface"),
+	pointer_default(unique)
+]
+interface IColorPicker : IChildWindow
+{
+	[helpstring("method ColorGet")] HRESULT ColorGet([in] TColor* a_pColor);
+	[helpstring("method ColorSet")] HRESULT ColorSet([in] TColor const* a_pColor);
+
+	[helpstring("method Create")] HRESULT Create([in] RWHWND a_hParent, [in] RECT const* a_pPosition, [in] BOOL a_bVisible, [in] LCID a_tLocaleID, [in] ILocalizedString* a_pName, [in] BYTE a_bImportant, [in] BSTR a_bstrContext, [in] BSTR a_bstrLayout);
+	[helpstring("method Layout")] HRESULT Layout([out] BSTR* a_pbstrLayout);
+	[helpstring("method OptimumSize")] HRESULT OptimumSize([in, out] SIZE* a_pSize);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IColorPickerObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IColorPickerObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+
+typedef [v1_enum] enum EColorDithering
+{
+	ECDDontCare = 0,
+	ECDNoDithering = 1,
+	ECDDithering = 2,
+	ECDFixedDithering = 0x100,
+	ECDLocalDithering1 = 0x101,
+	ECDLocalDithering2 = 0x102,
+	ECDLocalDithering3 = 0x103,
+	ECDLocalDithering4 = 0x104,
+	ECDLocalDithering5 = 0x105,
+} EColorDithering;
+
+[
+	object,
+	uuid(0F818537-95A7-4CCD-A929-BDC76AB63D83),
+	helpstring("IColorQuantizer Interface"),
+	pointer_default(unique)
+]
+interface IColorQuantizer : IImageVisitor
+{
+	[helpstring("method Init")] HRESULT Init([in] ULONG a_nColors, [in] EColorDithering a_eDither, [in] BYTE a_bAlphaLimit, [in] TPixelChannel const* a_pBackground, [in] TImageSize const* a_pCanvasSize); // canvas size is optional, but may help selecting the right method
+	[helpstring("method Colors")] HRESULT Colors([in] IEnum2UInts* a_pColors);
+	[helpstring("method Process")] HRESULT Process([in] TImagePoint const* a_pOrigin, [in] TImageSize a_tSize, [in] TImageStride const* a_pStride, [in] ULONG a_nPixels, [in, out, size_is(a_nPixels)] TPixelChannel* a_pData, [in] ITaskControl* a_pControl);
+};
+
+[
+	object,
+	uuid(8602EEA6-5C1A-480F-A9BD-7EF910FC8254),
+	helpstring("IColorWindow Interface"),
+	pointer_default(unique)
+]
+interface IColorWindow : IUnknown
+{
+	[helpstring("method DoModal"), local] HRESULT DoModal([in] RWHWND a_hParent, [in] LCID a_tLocaleID, [in, out] TColor* a_pColor, [in] BYTE a_bAlpha);
+};
+
+[
+	uuid(EB5FF089-409C-4EDB-A308-D22382D65B81),
+	version(1.0),
+	helpstring("RWImaging 1.0 Type Library")
+]
+library RWImagingLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWStorage.tlb");
+	importlib("RWInput.tlb");
+
+	interface IImageMetaData;
+	interface IImageObserver;
+	interface IDocumentImage;
+	interface IDocumentFactoryRasterImage;
+	interface IDocumentFactoryMetaData;
+
+
+	//// standard image pipe parts
+	//[
+	//	uuid(5788B703-0337-4458-8416-9FFAABFFA2AB),
+	//	helpstring("ImageFilterPixelPack Class")
+	//]
+	//coclass ImageFilterPixelPack
+	//{
+	//	[default] interface IImageFilter;
+	//	interface IImageSource;
+	//};
+	//[
+	//	uuid(7F8BE8DB-5D41-4813-8DB2-085C186936C0),
+	//	helpstring("ImageFilterResize Class")
+	//]
+	//coclass ImageFilterResize
+	//{
+	//	[default] interface IImageFilter;
+	//	interface IImageSource;
+	//};
+
+	[
+		uuid(5788B703-0337-4458-8416-9FFAABFFA2AB),
+		helpstring("PixelPackingConverter Class")
+	]
+	coclass PixelFormatConverter
+	{
+		[default] interface IPixelFormatConverter;
+	};
+
+	[
+		uuid(9B41043B-5E6D-463E-9018-D3DF9CF72B0F),
+		helpstring("ImageCache Class")
+	]
+	coclass ImageCache
+	{
+		[default] interface IDocumentImage;
+		interface IDocumentFactoryRasterImage;
+		interface IDocumentBuilder;
+	};
+
+	[
+		uuid(71E227D2-4B24-40A0-83A4-9C2C011220D9),
+		helpstring("ImageMetaData Class")
+	]
+	coclass ImageMetaData
+	{
+		[default] interface IImageMetaData;
+	};
+
+	[
+		uuid(B3C37487-B60A-491C-A0D7-D33CA10E12B9),
+		helpstring("NamedColors Class")
+	]
+	coclass NamedColors
+	{
+		[default] interface INamedColors;
+	};
+
+	[
+		uuid(0A0F9710-DD80-4CE2-8A0D-A5DBCDC76438),
+		helpstring("ColorPicker Class")
+	]
+	coclass ColorPicker
+	{
+		[default] interface IColorPicker;
+	};
+	[
+		uuid(1D8567F4-C66D-4235-BA28-F88E044D5413),
+		helpstring("ColorQuantizer Class")
+	]
+	coclass ColorQuantizer
+	{
+		[default] interface IColorQuantizer;
+	};
+	[
+		uuid(2CBE06C7-4847-4766-AA01-226AF52D5488),
+		helpstring("ColorWindow Class")
+	]
+	coclass ColorWindow
+	{
+		[default] interface IColorWindow;
+	};
+};
+
+
+cpp_quote("#include \"RWImagingUtils.h\"")
+
+cpp_quote("#define ENCFEAT_IMAGE L\"[image]\"")
+cpp_quote("#define ENCFEAT_IMAGE_ALPHA L\"[image_alpha]\"")
+cpp_quote("#define ENCFEAT_IMAGE_META L\"[image_meta]\"")
+cpp_quote("#define ENCFEAT_IMAGE_CANVAS L\"[image_canvas]\"")
+cpp_quote("#define WM_RW_GETPIXELCOLOR (WM_APP+3291)")

@@ -1,0 +1,8 @@
+; RWBatchProcessing.def : Declares the module parameters.
+
+LIBRARY      "RWBatchProcessing.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

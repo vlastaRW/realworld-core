@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{31b50613-4be6-4957-871e-ffdea8f57562}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;cpp;c;cxx;def;odl;idl;hpj;bat;asm;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{f399c1a4-fbeb-4486-b936-831b89598c47}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Enums Files">
+      <UniqueIdentifier>{37a275b9-31a0-4d17-8341-e111f8016008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Localization Files">
+      <UniqueIdentifier>{73fc0737-d93d-461d-bab5-29b8a74caee5}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Shared Internal Files">
+      <UniqueIdentifier>{de2f5fc8-1cbd-46b8-b1d2-28d00814a561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared GUI FIles">
+      <UniqueIdentifier>{11033d3d-172e-4d67-853d-43ab976e1bf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlugInCache Files">
+      <UniqueIdentifier>{0a7d739c-8243-485c-b86d-ac572550e79c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadPool Files">
+      <UniqueIdentifier>{bbd7501f-5db0-4650-8012-9179b40bd275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IconRenderer">
+      <UniqueIdentifier>{ac1eaec8-11e9-42bb-88ea-38e713354682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{a2465991-563d-42b4-9eea-2e8490634413}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWBase.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWBase_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumStrings.cpp">
+      <Filter>Enums Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumStructs.cpp">
+      <Filter>Enums Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumUnknowns.cpp">
+      <Filter>Enums Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumXxxx.cpp">
+      <Filter>Enums Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalizedString.cpp">
+      <Filter>Localization Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlugInCache.cpp">
+      <Filter>PlugInCache Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>ThreadPool Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IconRenderer.cpp">
+      <Filter>IconRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="StockIcons.cpp">
+      <Filter>IconRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GammaTableCache.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumGUIDs.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumInts.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumStrings.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumStructs.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumUInts.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumUnknowns.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumXxxxImpl.h">
+      <Filter>Enums Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalizedString.h">
+      <Filter>Localization Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlugInCache.h">
+      <Filter>PlugInCache Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\InPlaceCalc.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\PlugInCache.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\PortablePath.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ApplicationFileName.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\IconRenderer.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\BlockOperationsCentralImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\CodingStyle.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\CommCtrlDependency.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWBaseBlockOpsUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWBaseEnumUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWBaseWndUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\GammaCorrection.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ContextHelpDlg.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ContextMenuWithIcons.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\CooperatingObjectsManager.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DPIUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DragDropHelper.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\MD5.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ObserverImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\Quaternion.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ReturnedData.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWErrorCodes.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\SubjectImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\StringParsing.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\SubjectNotImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\TextGUID.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\WeakSingleton.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\XPGUI.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWBase.def">
+      <Filter>Misc Files</Filter>
+    </None>
+    <None Include="..\_inc\RWCOMImpl.inl">
+      <Filter>_inc</Filter>
+    </None>
+    <None Include="..\_inc\RWEnumClasses.inl">
+      <Filter>_inc</Filter>
+    </None>
+    <None Include="..\_inc\RWVersionInfo.rc2">
+      <Filter>_inc</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWBase.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWBase.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\_inc\RWbases.txt">
+      <Filter>_inc</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

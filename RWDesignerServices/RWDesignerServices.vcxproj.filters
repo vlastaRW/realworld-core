@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4c44aa66-be05-41a5-a5e6-7d20e9e546a9}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="CustomNewFileTemplate Files">
+      <UniqueIdentifier>{ff47cdca-72e0-41aa-aef6-d9543279baa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShellAssociations Files">
+      <UniqueIdentifier>{e68d2d44-87bf-40ec-9696-665fc3c5ae27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OperationOpenWindow Files">
+      <UniqueIdentifier>{aeee6549-8adb-460a-9f4b-4ec650586128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OperationSave Files">
+      <UniqueIdentifier>{f47070e4-3d32-4772-bc13-ccda2b2268fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StockIcons Files">
+      <UniqueIdentifier>{df8c6483-24e3-45b9-900f-0b1299dfffb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommandPanel Files">
+      <UniqueIdentifier>{cfbb2fe9-020c-4428-8d53-141965f73b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileBrowserView Files">
+      <UniqueIdentifier>{2089896a-8fb1-45f9-930a-d0f47b369c7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OperationSetFormat Files">
+      <UniqueIdentifier>{4f024f48-767e-46ab-80e6-e16cd80e0b62}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWDesignerServices.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomNewFileTemplates.cpp">
+      <Filter>CustomNewFileTemplate Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerFrameToolsShellAssociations.cpp">
+      <Filter>ShellAssociations Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellAssociationsDlg.cpp">
+      <Filter>ShellAssociations Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationOpenWindow.cpp">
+      <Filter>OperationOpenWindow Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationSave.cpp">
+      <Filter>OperationSave Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerFrameStockIcons.cpp">
+      <Filter>StockIcons Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryCommandPanel.cpp">
+      <Filter>CommandPanel Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryFileBrowser.cpp">
+      <Filter>FileBrowserView Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationSetFileFormat.cpp">
+      <Filter>OperationSetFormat Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomNewFileTemplates.h">
+      <Filter>CustomNewFileTemplate Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerFrameToolsShellAssociations.h">
+      <Filter>ShellAssociations Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShellAssociationsDlg.h">
+      <Filter>ShellAssociations Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationOpenWindow.h">
+      <Filter>OperationOpenWindow Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationSave.h">
+      <Filter>OperationSave Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerFrameStockIcons.h">
+      <Filter>StockIcons Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewCommandPanel.h">
+      <Filter>CommandPanel Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryCommandPanel.h">
+      <Filter>CommandPanel Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryFileBrowser.h">
+      <Filter>FileBrowserView Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFileBrowser.h">
+      <Filter>FileBrowserView Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationSetFileFormat.h">
+      <Filter>OperationSetFormat Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWDesignerServices.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWDesignerServices.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

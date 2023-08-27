@@ -1,0 +1,508 @@
+// RWProcessing.idl : IDL source for RWProcessing
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWProcessing.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWInput.idl";
+import "RWConceptSharedState.idl";
+import "RWConceptDesignerView.idl";
+
+interface IOperationManager;
+
+[
+	object,
+	uuid(348D6F28-B558-48FC-B42D-F5E3319D1DA7),
+	helpstring("IOperationContext Interface"),
+	pointer_default(unique)
+]
+interface IOperationContext : IUnknown
+{
+	[helpstring("method StateGet")] HRESULT StateGet([in] BSTR a_bstrCategoryName, [in] REFIID a_iid, [out, iid_is(a_iid)] void** a_ppState);
+	[helpstring("method StateSet")] HRESULT StateSet([in] BSTR a_bstrCategoryName, [in] ISharedState* a_pState);
+
+	[helpstring("method IsCancelled")] HRESULT IsCancelled();
+	[helpstring("method GetOperationInfo")] HRESULT GetOperationInfo([out] ULONG* a_pItemIndex, [out] ULONG* a_pItemsRemaining, [out] ULONG* a_pStepIndex, [out] ULONG* a_pStepsRemaining);
+	[helpstring("method SetErrorMessage")] HRESULT SetErrorMessage([in] ILocalizedString* a_pMessage);
+};
+
+[
+	object,
+	uuid(BC429154-A2B8-4808-A383-82517A57D209),
+	helpstring("IDocumentOperation Interface"),
+	pointer_default(unique)
+]
+interface IDocumentOperation : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([in] IOperationManager* a_pManager, [out] ILocalizedString** a_ppOperationName);
+	[helpstring("method ConfigCreate")] HRESULT ConfigCreate([in] IOperationManager* a_pManager, [out] IConfig** a_ppDefaultConfig);
+
+	[helpstring("method CanActivate")] HRESULT CanActivate([in] IOperationManager* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext);
+	[helpstring("method Activate")] HRESULT Activate([in] IOperationManager* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext, [in] RWHWND a_hParent, [in] LCID a_tLocaleID);
+};
+
+//[
+//	object,
+//	uuid(AC5F0F5C-E5B5-4CDE-8101-F65A728D33F8),
+//	helpstring("IConfigDescriptor Interface"),
+//	pointer_default(unique)
+//]
+//interface IConfigDescriptor : IUnknown
+//{
+//	//[helpstring("method Tags")] HRESULT Tags([out] BSTR* a_pbstrTags);
+//
+//	[helpstring("method Name")] HRESULT Name([in] IOperationManager* a_pManager, [in] IConfig* a_pConfig, [out] ILocalizedString** a_ppName);
+//	[helpstring("method Description")] HRESULT Description([in] IOperationManager* a_pManager, [in] IConfig* a_pConfig, [out] ILocalizedString** a_ppDesc);
+//	[helpstring("method PreviewIcon"), local] HRESULT PreviewIcon([in] IOperationManager* a_pManager, [in] IConfig* a_pConfig, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+//
+//	//[helpstring("method Command")] HRESULT Command([out] BSTR* a_pbstrCmd);
+//	//[helpstring("method Serialize")] HRESULT Serialize([in] IConfig* a_pConfig, [out] BSTR* a_pbstrCmd);
+//	//[helpstring("method Parse")] HRESULT Parse([in] BSTR a_bstrCmd, [in] IConfig* a_pConfig);
+//};
+
+
+[
+	object,
+	uuid(9DC476F9-4A9B-4444-A18E-B61EE2F4CA5E),
+	helpstring("IPlugInVisitor Interface"),
+	pointer_default(unique)
+]
+interface IPlugInVisitor : IUnknown
+{
+	[helpstring("method Run")] HRESULT Run([in] IUnknown* a_pManager, [in] IConfig* a_pConfig, [in] IUnknown* a_pOperation);
+};
+
+[
+	object,
+	uuid(952C68E2-1161-4530-AA51-6B97F965076D),
+	helpstring("ICustomOperationVisitor Interface"),
+	pointer_default(unique)
+]
+interface ICustomOperationVisitor : IUnknown
+{
+	[helpstring("method Visit")] HRESULT Visit([in] IOperationManager* a_pManager, [in] IConfig* a_pConfig, [in] IPlugInVisitor* a_pVisitor);
+};
+
+[
+	object,
+	uuid(8FE1B7C6-DCF1-4B29-A8E9-5D78686B751F),
+	helpstring("IOperationManager Interface"),
+	pointer_default(unique)
+]
+interface IOperationManager : ILateConfigCreator
+{
+	[helpstring("method CreateConfigEx")] HRESULT CreateConfigEx([in] IOperationManager* a_pOverrideForItem, [in] TConfigValue const* a_ptControllerID, [out] IConfig** a_ppConfig);
+
+	[helpstring("method ItemGetCount")] HRESULT ItemGetCount([out] ULONG* a_pnCount);
+	[helpstring("method ItemIDGetDefault")] HRESULT ItemIDGetDefault([out] TConfigValue* a_ptDefaultOpID);
+	[helpstring("method ItemIDGet")] HRESULT ItemIDGet([in] IOperationManager* a_pOverrideForItem, [in] ULONG a_nIndex, [out] TConfigValue* a_ptOperationID, [out] ILocalizedString** a_ppName);
+
+	[helpstring("method InsertIntoConfigAs")] HRESULT InsertIntoConfigAs([in] IOperationManager* a_pOverrideForItem, [in] IConfigWithDependencies* a_pConfig, [in] BSTR a_bstrID, [in] ILocalizedString* a_pItemName, [in] ILocalizedString* a_pItemDesc, [in] ULONG a_nItemConditions, [in, size_is(a_nItemConditions)] const TConfigOptionCondition* a_aItemConditions);
+
+	[helpstring("method CanActivate")] HRESULT CanActivate([in] IOperationManager* a_pOverrideForItem, [in] IDocument* a_pDocument, [in] const TConfigValue* a_ptOperationID, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext);
+	[helpstring("method Activate")] HRESULT Activate([in] IOperationManager* a_pOverrideForItem, [in] IDocument* a_pDocument, [in] const TConfigValue* a_ptOperationID, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext, [in] RWHWND a_hParent, [in] LCID a_tLocaleID);
+
+	[helpstring("method Visit")] HRESULT Visit([in] IOperationManager* a_pOverrideForItem, [in] TConfigValue const* a_ptOperationID, [in] IConfig* a_pConfig, [in] IPlugInVisitor* a_pVisitor);
+};
+
+
+interface ITransformationManager;
+
+[
+	object,
+	uuid(834D4AFB-9F85-4E9F-B7D0-43D04E9ACC64),
+	helpstring("IDocumentTransformation Interface"),
+	pointer_default(unique)
+]
+interface IDocumentTransformation : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([in] ITransformationManager* a_pManager, [out] ILocalizedString** a_ppOperationName);
+	[helpstring("method ConfigCreate")] HRESULT ConfigCreate([in] ITransformationManager* a_pManager, [out] IConfig** a_ppDefaultConfig);
+
+	[helpstring("method CanActivate")] HRESULT CanActivate([in] ITransformationManager* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext);
+	[helpstring("method Activate")] HRESULT Activate([in] ITransformationManager* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext, [in] RWHWND a_hParent, [in] LCID a_tLocaleID, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+};
+
+[
+	object,
+	uuid(289C1E08-ED78-4093-AC7B-7428A6111BD4),
+	helpstring("ICustomTransformationVisitor Interface"),
+	pointer_default(unique)
+]
+interface ICustomTransformationVisitor : IUnknown
+{
+	[helpstring("method Visit")] HRESULT Visit([in] ITransformationManager* a_pManager, [in] IConfig* a_pConfig, [in] IPlugInVisitor* a_pVisitor);
+};
+
+[
+	object,
+	uuid(4D87591F-026A-48F1-B6C1-24DB14102F58),
+	helpstring("ITransformationManager Interface"),
+	pointer_default(unique)
+]
+interface ITransformationManager : ILateConfigCreator
+{
+	[helpstring("method CreateConfigEx")] HRESULT CreateConfigEx([in] ITransformationManager* a_pOverrideForItem, [in] TConfigValue const* a_ptControllerID, [out] IConfig** a_ppConfig);
+
+	[helpstring("method ItemGetCount")] HRESULT ItemGetCount([out] ULONG* a_pnCount);
+	[helpstring("method ItemIDGetDefault")] HRESULT ItemIDGetDefault([out] TConfigValue* a_ptDefaultOpID);
+	[helpstring("method ItemIDGet")] HRESULT ItemIDGet([in] ITransformationManager* a_pOverrideForItem, [in] ULONG a_nIndex, [out] TConfigValue* a_ptOperationID, [out] ILocalizedString** a_ppName);
+
+	[helpstring("method InsertIntoConfigAs")] HRESULT InsertIntoConfigAs([in] ITransformationManager* a_pOverrideForItem, [in] IConfigWithDependencies* a_pConfig, [in] BSTR a_bstrID, [in] ILocalizedString* a_pItemName, [in] ILocalizedString* a_pItemDesc, [in] ULONG a_nItemConditions, [in, size_is(a_nItemConditions)] const TConfigOptionCondition* a_aItemConditions);
+
+	[helpstring("method CanActivate")] HRESULT CanActivate([in] ITransformationManager* a_pOverrideForItem, [in] IDocument* a_pDocument, [in] const TConfigValue* a_ptOperationID, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext);
+	[helpstring("method Activate")] HRESULT Activate([in] ITransformationManager* a_pOverrideForItem, [in] IDocument* a_pDocument, [in] const TConfigValue* a_ptOperationID, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext, [in] RWHWND a_hParent, [in] LCID a_tLocaleID, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+
+	[helpstring("method Visit")] HRESULT Visit([in] ITransformationManager* a_pOverrideForItem, [in] TConfigValue const* a_ptTransformationID, [in] IConfig* a_pConfig, [in] IPlugInVisitor* a_pVisitor);
+};
+
+typedef [v1_enum] enum EMenuCommandState
+{
+	EMCSNormal = 0,
+	EMCSDisabled = 1,
+	EMCSChecked = 2,
+	EMCSDisabledChecked = 3,
+	EMCSRadio = 4,
+	EMCSDisabledRadio = 5,
+	EMCSRadioChecked = 6,
+	EMCSDisabledRadioChecked = 7,
+	EMCSSeparator = 8,
+	EMCSSubMenu = 16,
+	EMCSBreak = 32,
+	EMCSShowButtonText = 64,
+	EMCSExecuteSubMenu = 128,
+	EMCSConstButtonSizeMask = 0x7f000000, // number of "normal button widths" (no autosize flag)
+} EMenuCommandState;
+
+typedef struct TCmdAccel
+{
+	WORD fVirtFlags;
+	WORD wKeyCode;
+} TCmdAccel;
+[
+	object,
+	uuid(DB83EB4A-C722-443B-8213-C7B65095BD8F),
+	helpstring("IDocumentMenuCommand Interface"),
+	pointer_default(unique)
+]
+interface IDocumentMenuCommand : IUnknown
+{
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppText);
+	[helpstring("method Description")] HRESULT Description([out] ILocalizedString** a_ppText);
+	[helpstring("method IconID")] HRESULT IconID([out] GUID* a_pIconID);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method Accelerator")] HRESULT Accelerator([out] TCmdAccel* a_pAccel, [out] TCmdAccel* a_pAuxAccel);
+	[helpstring("method SubCommands")] HRESULT SubCommands([out] IEnumUnknowns** a_ppSubCommands);
+	[helpstring("method State")] HRESULT State([out] EMenuCommandState* a_peState);
+	[helpstring("method Execute")] HRESULT Execute([in] RWHWND a_hParent, [in] LCID a_tLocaleID);
+};
+
+[
+	object,
+	uuid(824A07C4-C89F-4E00-8956-C7D49CAC1524),
+	helpstring("IDocumentMenuCommands Interface"),
+	pointer_default(unique)
+]
+interface ICustomCommandBar : IDocumentMenuCommand
+{
+	[helpstring("method UpdateWindow")] HRESULT UpdateWindow([in] RWHWND a_hParent, [in] LCID a_tLocaleID, [in, out] IChildWindow** a_ppWindow);
+};
+
+interface IMenuCommandsManager;
+
+[
+	object,
+	uuid(31B66FEA-966D-422E-AD80-31C4506F15E5),
+	helpstring("IDocumentMenuCommands Interface"),
+	pointer_default(unique)
+]
+interface IDocumentMenuCommands : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([in] IMenuCommandsManager* a_pManager, [out] ILocalizedString** a_ppOperationName);
+	[helpstring("method ConfigCreate")] HRESULT ConfigCreate([in] IMenuCommandsManager* a_pManager, [out] IConfig** a_ppDefaultConfig);
+
+	[helpstring("method CommandsEnum")] HRESULT CommandsEnum([in] IMenuCommandsManager* a_pManager, [in] IConfig* a_pConfig, [in] IOperationContext* a_pContext, [in] IDesignerView* a_pView, [in] IDocument* a_pDocument, [out] IEnumUnknowns** a_ppSubCommands);
+};
+
+
+[
+	object,
+	uuid(87C111B8-DD1A-4308-A8A9-3777F9571595),
+	helpstring("IMenuCommandsManager Interface"),
+	pointer_default(unique)
+]
+interface IMenuCommandsManager : ILateConfigCreator
+{
+	[helpstring("method CreateConfigEx")] HRESULT CreateConfigEx([in] IMenuCommandsManager* a_pOverrideForItem, [in] TConfigValue const* a_ptControllerID, [out] IConfig** a_ppConfig);
+
+	[helpstring("method ItemGetCount")] HRESULT ItemGetCount([out] ULONG* a_pnCount);
+	[helpstring("method ItemIDGetDefault")] HRESULT ItemIDGetDefault([out] TConfigValue* a_ptDefaultOpID);
+	[helpstring("method ItemIDGet")] HRESULT ItemIDGet([in] IMenuCommandsManager* a_pOverrideForItem, [in] ULONG a_nIndex, [out] TConfigValue* a_ptOperationID, [out] ILocalizedString** a_ppName);
+
+	[helpstring("method InsertIntoConfigAs")] HRESULT InsertIntoConfigAs([in] IMenuCommandsManager* a_pOverrideForItem, [in] IConfigWithDependencies* a_pConfig, [in] BSTR a_bstrID, [in] ILocalizedString* a_pItemName, [in] ILocalizedString* a_pItemDesc, [in] ULONG a_nItemConditions, [in, size_is(a_nItemConditions)] const TConfigOptionCondition* a_aItemConditions);
+
+	[helpstring("method CommandsEnum")] HRESULT CommandsEnum([in] IMenuCommandsManager* a_pOverrideForItem, [in] const TConfigValue* a_ptOperationID, [in] IConfig* a_pConfig, [in] IOperationContext* a_pStates, [in] IDesignerView* a_pView, [in] IDocument* a_pDocument, [out] IEnumUnknowns** a_ppSubCommands);
+}
+
+
+[
+	object,
+	uuid(42646BB2-83C4-43BC-B2AB-50E7DE331719),
+	helpstring("IMenuCommandsOperation Interface"),
+	pointer_default(unique)
+]
+interface IMenuCommandsOperation : IUnknown
+{
+	[helpstring("method OperationManagerSet")] HRESULT OperationManagerSet([in] IOperationManager* a_pOpsMgr);
+};
+
+[
+	object,
+	uuid(D60613A4-46DC-45F7-98BF-5F57AD65FE4B),
+	helpstring("IAutoOperation Interface"),
+	pointer_default(unique)
+]
+interface IAutoOperation : IUnknown
+{
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method Description")] HRESULT Description([out] ILocalizedString** a_ppDesc);
+	[helpstring("method IconID")] HRESULT IconID([out] GUID* a_pIconID);
+	[helpstring("method Accelerator")] HRESULT Accelerator([out] TCmdAccel* a_pAccel, [out] TCmdAccel* a_pAuxAccel);
+	[helpstring("method Configuration")] HRESULT Configuration([in] IConfig* a_pOperationCfg);
+};
+
+[
+	object,
+	uuid(B8B6AB56-B352-403A-AD47-EDA093232A40),
+	helpstring("IMouseGesturesHelper Interface"),
+	pointer_default(unique)
+]
+interface IMouseGesturesHelper : IUnknown
+{
+	[helpstring("method InitConfig")] HRESULT InitConfig([in] IOperationManager* a_pOpMgr, [in] IConfigWithDependencies* a_pMainCfg);
+	[helpstring("method Configure"), local] HRESULT Configure([in] RWHWND a_hParent, [in] LCID a_tLCID, [in] IConfig* a_pMainCfg);
+	[helpstring("method Recognize")] HRESULT Recognize([in] ULONG a_nPoints, [in, size_is(a_nPoints)] POINT const* a_pPoints, [in] IConfig* a_pMainCfg, [out] TConfigValue* a_pOpID, [out] IConfig** a_ppOpCfg);
+};
+
+typedef [v1_enum] enum ELayerStyleExecutionPriority
+{
+	ELSEPFirst = 0,
+	ELSEPRearrange = 10,
+	ELSEPRetouch = 20,
+	ELSEPShapeshift = 30,
+	ELSEPExposure = 40,
+	ELSEPSatin = 50,
+	ELSEPEnclose = 60,
+	ELSEPShadow = 70,
+	ELSEPGlow = 80,
+	ELSEPOpacity = 90,
+	ELSEPLast = 100,
+} ELayerStyleExecutionPriority;
+
+[
+	object,
+	uuid(B8ED39D6-9DED-45FF-9651-05107B0F74EB),
+	helpstring("ILayerStyle Interface"),
+	pointer_default(unique)
+]
+interface ILayerStyle : IUnknown
+{
+	[helpstring("method ExecutionPriority"), local] BYTE ExecutionPriority();
+	[helpstring("method IsPriorityAnchor"), local] HRESULT IsPriorityAnchor();
+};
+
+[
+	object,
+	uuid(D0F2630A-9598-4789-B7BD-B563E226270B),
+	helpstring("IPerformanceMonitor Interface"),
+	pointer_default(unique)
+]
+interface IPerformanceMonitor : IUnknown
+{
+	[helpstring("method IsEnabled")] HRESULT IsEnabled();
+	[helpstring("method RegisterCounter")] HRESULT RegisterCounter([in] BSTR a_bstrCounterID, [in] ILocalizedString* a_pCounterName, [out] ULONG* a_pCounterID);
+	[helpstring("method AddMeasurement")] HRESULT AddMeasurement([in] ULONG a_nCounterID, [in] float a_fValue);
+};
+
+
+
+[
+	uuid(3C566520-B584-4191-B9ED-67B8BD96AB80),
+	version(1.0),
+	helpstring("RWProcessing 1.0 Type Library")
+]
+library RWProcessingLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWStorage.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWConceptSharedState.tlb");
+	importlib("RWConceptDesignerView.tlb");
+
+	interface IDocumentMenuCommand;
+	interface ICustomCommandBar;
+	interface IAutoOperation;
+
+	[
+		uuid(7173FBF9-9EAE-4BAF-8BA9-A00066A4FA0B),
+		helpstring("OperationManager Class")
+	]
+	coclass OperationManager
+	{
+		[default] interface IOperationManager;
+	};
+
+	[
+		uuid(1D4C0BC6-F8FF-4689-99F9-ECA038CEE3ED),
+		helpstring("TransformationManager Class")
+	]
+	coclass TransformationManager
+	{
+		[default] interface ITransformationManager;
+	};
+
+	[
+		uuid(00CF8C1A-032B-41FA-82BD-36DA85291BAB),
+		helpstring("MenuCommandsManager Class")
+	]
+	coclass MenuCommandsManager
+	{
+		[default] interface IMenuCommandsManager;
+	};
+
+	[
+		uuid(B6E57DA2-3A4E-459E-ACA4-DEFF6979C626),
+		helpstring("DocumentOperationNULL Class")
+	]
+	coclass DocumentOperationNULL
+	{
+		[default] interface IDocumentOperation;
+	};
+
+	[
+		uuid(34FA5561-D280-47B6-9407-264AFF1E1838),
+		helpstring("DocumentTransformationNULL Class")
+	]
+	coclass DocumentTransformationNULL
+	{
+		[default] interface IDocumentTransformation;
+	};
+	[
+		uuid(DF2A35B5-0DDD-474B-9070-590EEE961E6C),
+		helpstring("DocumentOperationSplit Class")
+	]
+	coclass DocumentOperationSplit
+	{
+		[default] interface IDocumentOperation;
+	};
+	[
+		uuid(98EE43CF-1FA8-46AB-95F8-0F3A37EA8988),
+		helpstring("DocumentOperationPipe Class")
+	]
+	coclass DocumentOperationPipe
+	{
+		[default] interface IDocumentOperation;
+		//interface IDocumentOperationPipe;
+	};
+	[
+		uuid(29A6E1CA-A23B-4D24-BE7E-7355FB459107),
+		helpstring("MenuCommandsVector Class")
+	]
+	coclass MenuCommandsVector
+	{
+		[default] interface IDocumentMenuCommands;
+	};
+	[
+		uuid(3D7056E7-B419-4845-8815-5D3CA0AFCFFA),
+		helpstring("MenuCommandsPopup Class")
+	]
+	coclass MenuCommandsPopup
+	{
+		[default] interface IDocumentMenuCommands;
+	};
+	[
+		uuid(CE718DB2-71F7-4099-8CF6-FF9044934B06),
+		helpstring("MenuCommandsOperation Class")
+	]
+	coclass MenuCommandsOperation
+	{
+		[default] interface IDocumentMenuCommands;
+		interface IMenuCommandsOperation;
+	};
+	[
+		uuid(7A7460B8-B3CF-413D-B14F-E8D69C5914C8),
+		helpstring("MenuCommandsSeparator Class")
+	]
+	coclass MenuCommandsSeparator
+	{
+		[default] interface IDocumentMenuCommands;
+	};
+
+	[
+		uuid(606E9B33-4E63-4585-A639-1A271914576D),
+		helpstring("DocumentOperationShowConfig Class")
+	]
+	coclass DocumentOperationShowConfig
+	{
+		[default] interface IDocumentOperation;
+	};
+	[
+		uuid(B222E53E-590E-47D1-B97C-3A42EB9A74D8),
+		helpstring("DocumentTransformationShowConfig Class")
+	]
+	coclass DocumentTransformationShowConfig
+	{
+		[default] interface IDocumentTransformation;
+	};
+	[
+		uuid(5962BC66-9292-438E-95EA-E879FB12020F),
+		helpstring("DocumentOperation1DInteractiveConfig Class")
+	]
+	coclass DocumentOperation1DInteractiveConfig
+	{
+		[default] interface IDocumentOperation;
+	};
+	[
+		uuid(0301932D-F619-463E-A345-3AFE5135A921),
+		helpstring("DocumentOperationSequence Class")
+	]
+	coclass DocumentOperationSequence
+	{
+		[default] interface IDocumentOperation;
+	};
+	[
+		uuid(E9C5EFA0-FF55-404C-BDA1-82C34366DB18),
+		helpstring("MenuCommandsAutoOperation Class")
+	]
+	coclass MenuCommandsAutoOperation
+	{
+		[default] interface IDocumentMenuCommands;
+	};
+	[
+		uuid(27174181-FEDE-4CBB-9FCD-CBA94015F340),
+		helpstring("MouseGesturesHelper Class")
+	]
+	coclass MouseGesturesHelper
+	{
+		[default] interface IMouseGesturesHelper;
+	};
+	[
+		uuid(BCD365B1-63E7-43CC-BAF9-9AFA920B3AC6),
+		helpstring("PerformanceManager Class")
+	]
+	coclass PerformanceManager
+	{
+		[default] interface IPerformanceMonitor;
+	};
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentOperation = {0x902734f0, 0x00a5, 0x477c, {0xb3, 0x36, 0xb9, 0x22, 0x1d, 0x46, 0xa3, 0xdd}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentTransformation = {0xd6313391, 0x6375, 0x4e57, {0x9b, 0x8f, 0xbd, 0x6e, 0x83, 0xfa, 0xf5, 0x01}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentMenuCommands = {0xb635c3b9, 0xa60d, 0x4b58, {0xa5, 0x60, 0x60, 0x9d, 0x25, 0x2b, 0x30, 0xe9}};")
+//cpp_quote("#include \"RWProcessingUtils.h\"")

@@ -1,0 +1,804 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_VECTOR DIALOGEX 0, 0, 224, 100
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,14,124,86
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,0,124,14
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,124,0,100,100
+END
+
+IDD_CONFIGGUI_SLIDER DIALOGEX 0, 0, 145, 26
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Parameter name:",IDC_1DRT_PARAMETER,0,0,145,8
+    CONTROL         "",IDC_1DRT_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,0,10,103,16
+    EDITTEXT        IDC_1DRT_EDIT,105,12,40,12,ES_AUTOHSCROLL
+END
+
+IDD_CONFIGGUI_SCRIPTPANEL DIALOGEX 0, 0, 125, 24
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_CONFIGGUI_SEQUENCE DIALOGEX 0, 0, 281, 100
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,14,124,86
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,0,124,14
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,131,0,150,100
+END
+
+IDD_CONFIGGUI_STEP DIALOGEX 0, 0, 150, 94
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_CGS_TYPE,0,0,75,41,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           ":",IDC_STATIC,81,2,8,8
+    COMBOBOX        IDC_CGS_OPERATION,89,0,60,181,CBS_DROPDOWNLIST | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CGS_TRANSFORMATION,89,0,60,181,CBS_DROPDOWNLIST | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGS_OPCONFIG,"Static",SS_BLACKRECT,0,16,150,78
+    CONTROL         "",IDC_CGS_TRCONFIG,"Static",SS_BLACKRECT,0,16,150,78
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CONFIGGUI_VECTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_CONFIGGUI_SLIDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 19
+    END
+
+    IDD_CONFIGGUI_SCRIPTPANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 118
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 17
+    END
+
+    IDD_CONFIGGUI_SEQUENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_CONFIGGUI_STEP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 143
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GESTURES
+//
+
+IDR_DEFAULTGESTURES     GESTURES                "default.gst"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_OPERATION DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Název:",IDC_STATIC,0,2,24,8
+    EDITTEXT        IDC_CG_NAME,35,0,48,12,ES_AUTOHSCROLL
+    LTEXT           "&Zkratka:",IDC_CG_SHORTCUTLABEL,91,2,30,8
+    EDITTEXT        IDC_CG_SHORTCUT,122,0,23,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "&Ikona:",IDC_CG_ICONLABEL,91,18,22,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,16,29,197
+    LTEXT           "&Popis:",IDC_STATIC,0,18,20,8
+    EDITTEXT        IDC_CG_DESCRIPTION,35,16,48,12,ES_AUTOHSCROLL
+    LTEXT           "&Operace:",IDC_STATIC,0,34,31,8
+    COMBOBOX        IDC_CG_OPERATION,35,32,110,217,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,48,145,42
+END
+
+IDD_CONFIGGUI_POPUP DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Název:",IDC_STATIC,0,2,24,8
+    EDITTEXT        IDC_CG_NAME,35,0,48,12,ES_AUTOHSCROLL
+    LTEXT           "&Ikona:",IDC_CG_ICONLABEL,91,2,22,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,0,29,197
+    LTEXT           "&Popis:",IDC_STATIC,0,18,20,8
+    EDITTEXT        IDC_CG_DESCRIPTION,35,16,110,12,ES_AUTOHSCROLL
+    LTEXT           "&Pøíkazy:",IDC_STATIC,0,48,26,8
+    COMBOBOX        IDC_CG_OPERATION,35,46,110,217,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CHECKBOX        "&Text v lištì",IDC_CG_TEXTINTOOLBAR,0,33,51,10
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,62,145,28
+    CHECKBOX        "Ikona podle &výbìru",IDC_CG_ICONFROMRADIO,67,33,78,10
+END
+
+IDD_CONFIGGUI_VECTORITEM DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Pøíkazy:",-1,0,2,26,8
+    COMBOBOX        IDC_CG_OPERATION,41,0,104,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,16,145,74
+END
+
+IDD_CONFIGGUI_OPITEM DIALOGEX 0, 0, 180, 108
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Záhlaví dialogu:",IDC_STATIC,0,2,51,8
+    EDITTEXT        IDC_CG_CAPTION,57,0,59,12,ES_AUTOHSCROLL
+    LTEXT           "Ikona:",IDC_CG_ICONLABEL,124,2,22,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,150,0,29,197
+    LTEXT           "Operace:",IDC_STATIC,0,18,31,8
+    COMBOBOX        IDC_CG_OPERATION,36,16,52,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,88,43
+    LTEXT           "Náhled:",IDC_CG_PREVIEWLABEL,92,18,26,8
+    COMBOBOX        IDC_CG_PREVIEW,124,16,56,146,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,92,32,88,43
+    LTEXT           "Nápovìda:",IDC_CG_HELPTOPIC_LABEL,0,81,39,8
+    EDITTEXT        IDC_CG_HELPTOPIC,40,79,48,12,ES_AUTOHSCROLL
+    LTEXT           "Parametr:",IDC_CG_PARAM1LABEL,0,97,39,8
+    COMBOBOX        IDC_CG_PARAM1NAME,40,95,47,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Rozsah:",IDC_CG_PARAM1BOUNDS,92,97,29,8
+    EDITTEXT        IDC_CG_PARAM1MIN,124,95,11,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CG_PARAM1MAX,137,95,11,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CG_PARAM1SCALE,156,95,24,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Zobrazit:",IDC_CG_PREVIEWMODE_LABEL,92,81,34,8
+    COMBOBOX        IDC_CG_PREVIEWMODE,131,79,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CONFIGGUI_TRANSITEM DIALOGEX 0, 0, 180, 91
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Záhlaví dialogu:",IDC_STATIC,0,2,51,8
+    EDITTEXT        IDC_CG_CAPTION,57,0,59,12,ES_AUTOHSCROLL
+    LTEXT           "Ikona:",IDC_CG_ICONLABEL,124,2,22,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,150,0,29,197
+    LTEXT           "Transformace:",IDC_STATIC,0,18,48,8
+    COMBOBOX        IDC_CG_OPERATION,57,16,31,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,88,43
+    LTEXT           "Náhled:",IDC_CG_PREVIEWLABEL,92,18,26,8
+    COMBOBOX        IDC_CG_PREVIEW,124,16,56,146,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,92,32,88,43
+    LTEXT           "Téma nápovìdy:",IDC_CG_HELPTOPIC_LABEL,0,81,55,8
+    EDITTEXT        IDC_CG_HELPTOPIC,60,79,119,12,ES_AUTOHSCROLL
+END
+
+IDD_CONFIGUREGESTURES DIALOGEX 0, 0, 313, 195
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Konfigurovat gesta myši"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,202,174,50,14
+    PUSHBUTTON      "Storno",IDCANCEL,256,174,50,14
+    LISTBOX         IDC_MG_GESTURES,7,7,96,160,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Operace:",IDC_MG_LABEL,110,9,39,8
+    COMBOBOX        IDC_MG_OPERATION,152,7,154,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_MG_CONFIG,"Static",SS_BLACKRECT,110,26,196,141
+    PUSHBUTTON      "Nápovìda",IDHELP,7,174,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CONFIGGUI_OPERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_POPUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_VECTORITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_OPITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_CONFIGGUI_TRANSITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_CONFIGUREGESTURES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "RWProcessing"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TRANFORMATIONNULL_NAME "» Prázdná transformace «"
+    IDS_OPERATIONNULL_NAME  "» Prázdná operace «"
+    IDS_OPERATIONPIPE_NAME  "» Transformace (vyøazeno) «"
+    IDS_OPERATIONSPLIT_NAME "» Sekvence operací (vyøazeno) «"
+    IDS_MENUCOMMANDSVECTOR_NAME "» Seznam položek «"
+    IDS_MENUCOMMANDSPOPUP_NAME "» Roletové menu «"
+    IDS_MENUCOMMANDSOPERATION_NAME "» Dokumentová operace «"
+    IDS_MENUCOMMANDSSEPARATOR_NAME "--- (oddìlovaè)"
+    IDS_PIPE_TRANSFORMATION_NAME "Transformace"
+    IDS_PIPE_TRANSFORMATION_DESC 
+                            "Document bude transformován zvolenou transformací. Na výsledek bude spuštìna následující operace."
+    IDS_PIPE_OPERATION_NAME "Operace"
+    IDS_PIPE_OPERATION_DESC "Tato operace bude spuštìna na výsledek transformace."
+    IDS_SPLIT_OPERATION1_NAME "Operace 1"
+    IDS_SPLIT_OPERATION1_DESC "První operace."
+    IDS_SPLIT_OPERATION2_NAME "Operace 2"
+    IDS_SPLIT_OPERATION2_DESC "Druhá operace."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_VECTOR_SUBCOMMANDS_NAME "Typ"
+    IDS_CFGID_VECTOR_SUBCOMMANDS_DESC 
+                            "Typ obsaženého objektu s položkami do menu."
+    IDS_CFGID_VECTOR_ITEMS_NAME "Pøíkazy"
+    IDS_CFGID_VECTOR_ITEMS_DESC "Poèet objektù s položkami do menu."
+    IDS_CFGID_POPUP_SUBCOMMANDS_NAME "Typ"
+    IDS_CFGID_POPUP_SUBCOMMANDS_DESC "Pøíkazy vloženého menu."
+    IDS_CFGID_NAME_NAME     "Jméno"
+    IDS_CFGID_NAME_DESC     "Text popisující tento pøíkaz."
+    IDS_CFGID_DESCRITPION_NAME "Popis"
+    IDS_CFGID_DESCRITPION_DESC "Vysvìtlení funkce tohoto pøíkazu."
+    IDS_CFGID_ICONID_NAME   "Ikona"
+    IDS_CFGID_ICONID_DESC   "Ikona pøiøazené tomuto pøíkazu."
+    IDS_CFGID_OPERATION_ID_NAME "Operace"
+    IDS_CFGID_OPERATION_ID_DESC 
+                            "Dokumentová operace spojená s tímto pøíkazem."
+    IDS_SHOWCONFIG          "» Zobrazovat konfiguraci «"
+    IDS_CFGID_POPUP_ICONFROMRADIO_NAME "Ikona podle volby"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_POPUP_ICONFROMRADIO_DESC 
+                            "Je-li povoleno, ikona bude pøevzata z první oznaèené podpoložky."
+    IDS_CFGID_POPUP_TEXTINTOOLBAR_NAME "Text v lištì"
+    IDS_CFGID_POPUP_TEXTINTOOLBAR_DESC 
+                            "Pokud je pøíkaz zobrazen v nástrojové lištì, tlaèítko bude vždy obsahovat jméno pøíkazu."
+    IDS_CFGID_OPERATION_RUNTIMECONFIG_NAME "Zobraz konfiguraci"
+    IDS_CFGID_OPERATION_RUNTIMECONFIG_DESC 
+                            "Zobrazit konfiguraèní dialog pøed vykonáním operace."
+    IDS_LISTBUTTONNAMES     "Vytvoøit nové pøíkazy|Duplikovat pøíkazy|Smazat pøíkazy|Posunout nahoru|Posunout dolù|Importovat pøíkazy|Exportovat pøíkazy|"
+    IDS_RWCOMMANDS_OPEN     "Otevøít pøíkazy menu"
+    IDS_RWCOMMANDS_SAVE     "Uložit pøíkazy menu"
+    IDS_RWCOMMANDS_FILTER   "Soubory s pøíkazy menu RealWorldu"
+    IDS_CFG_DLGSIZEX        "Šíøka okna"
+    IDS_CFG_DLGSIZEY        "Výška okna"
+    IDS_CFG_PREVIEW_NAME    "Náhled"
+    IDS_CFG_PREVIEW_DESC    "Pohled použitý pro náhled na výsledek operace."
+    IDS_CFGID_ICONID_DESC2  "Ikona zobrazená v konfiuraèním dialogu."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_ICONID_NAME2  "Ikona"
+    IDS_CFG_AUTOUPDATE      "Auto-náhled"
+    IDS_1DINTERACTIVECONFIG "» Zobrazovat konfiguraci - 1 parametr «"
+    IDS_CFG_PARAMETER_NAME  "Parametr"
+    IDS_CFG_PARAMETER_DESC  "Tento parametr vybrané operace bude øízen posuvníkem pøi spuštìní."
+    IDS_CFG_PARLOWER_NAME   "Spodní mez"
+    IDS_CFG_PARLOWER_DESC   "Vlastní spodní mez. Použijte shodné hodnoty pro spodní a horní mez pro použití výchozích mezí."
+    IDS_CFG_PARUPPER_NAME   "Horní mez"
+    IDS_CFG_PARUPPER_DESC   "Vlastní horní mez. Použijte shodné hodnoty pro spodní a horní mez pro použití výchozích mezí."
+    IDS_CFG_PARSCALE_NAME   "Stupnice"
+    IDS_CFG_PARSCALE_DESC   "Zpùsob mapování hodnot ze zadaného rozsahu na posuvník v konfiguraèním dialogu."
+    IDS_CFGVAL_LINEAR       "Lineární"
+    IDS_CFGVAL_LOGARITHMIC  "Logaritmická"
+    IDS_CFGID_SHORTCUT_NAME "Zkratka"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_SHORTCUT_DESC "Klávesová zkratka pro aktivaci této operace (platí pouze pro použití z hlavního menu)."
+    IDS_NOSHORTCUT          "žádná"
+    IDS_CFGID_SEQ_STEPS_NAME "Kroky"
+    IDS_CFGID_SEQ_STEPS_DESC "Poèet krokù v sekvenci operací."
+    IDS_CFGID_SEQ_TYPE_NAME "Typ"
+    IDS_CFGID_SEQ_TYPE_DESC "Urèuje, jestli bude tento krok v sekvenci operace nebo transformace."
+    IDS_CFGID_SEQ_OPERATION_NAME "Operace"
+    IDS_CFGID_SEQ_OPERATION_DESC 
+                            "Typ operace provedený v tomto kroku sekvence."
+    IDS_CFGID_SEQ_TRANSFORMATION_NAME "Transformace"
+    IDS_CFGID_SEQ_TRANSFORMATION_DESC 
+                            "Typ transformace provedený v tomto kroku sekvence. (Poznámka: transformace by nemìla být v posledním kroku sekvence, jinak bude její výsledek ztracen.)"
+    IDS_OPERATIONSEQUENCE_NAME "» Sekvence operací «"
+    IDS_SEQBUTTONNAMES      "Pøidat nový krok|Duplikovat krok|Smazat krok|Posunout nahoru|Posunout dolù|Importovat krok|Exportovat krok|"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_CFG_DISPLAYMODE_NAME "Zpùsob zobrazení"
+    IDS_CFGID_CFG_DISPLAYMODE_DESC 
+                            "Urèuje, jak je zobrazen originál a náhled na zpracovný obrázek."
+    IDS_CFGID_CFGVAL_DM_ORIGINAL "Originál"
+    IDS_CFGID_CFGVAL_DM_PROCESSED "Výsledek"
+    IDS_CFGVAL_DM_BOTH      "Oba"
+    IDS_PREVIEWTOOLBAR      "Originál|Výsledek|Oba|Obnovit|Samo-obnovení|"
+    IDS_CUSTCFG_MORECOLORS  "Další barvy..."
+    IDS_CUSTCFG_COLORNAMES  "Èerná|Hnìdá|Tmavá olivovìzelená|Tmavìzelená|Temná modrozelená|Tmavìmodrá|Indigová modø|Tmavìšedá|Rudá|Oranžová|Tmavìžlutá|Zelená|Tmavìzelenomodrá|Modrá|Šedomodrá|Šedá - 40|Èervená|Svìtleoranžová|Žlutozelená|Moøská zeleò|Zelenomodrá|Svìtlemodrá|Fialová|Šedá- 50|Rùžová|Zlatá|Žlutá|Jasnìzelená|Tyrkysová|Azurová|Švestková|Svìtlešedá|Starorùžová|Svìtlehnìdá|Svìtležlutá|Bledìzelená|Svìtletyrkysová|Modrošedá|Levandulová|Bílá|"
+    IDS_CUSTCFG_FROMPIXEL   "Podle bodu obrazovky"
+    IDS_MENUCOMMANDSAUTOOPERATION_NAME "Klasifikované operace"
+    IDS_CFGID_OPERATION_CLASS_NAME "Tøída operací"
+    IDS_CFGID_OPERATION_CLASS_DESC "ID kategorie operací zobrazené v menu."
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_OPERATION DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Name:",IDC_STATIC,0,2,49,8
+    EDITTEXT        IDC_CG_NAME,50,0,25,12,ES_AUTOHSCROLL
+    LTEXT           "&Shortcut:",IDC_CG_SHORTCUTLABEL,85,2,40,8
+    EDITTEXT        IDC_CG_SHORTCUT,126,0,19,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "&Icon:",IDC_CG_ICONLABEL,85,18,29,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,16,29,197
+    LTEXT           "&Description:",IDC_STATIC,0,18,49,8
+    EDITTEXT        IDC_CG_DESCRIPTION,50,16,25,12,ES_AUTOHSCROLL
+    LTEXT           "&Operation:",IDC_STATIC,0,34,49,8
+    COMBOBOX        IDC_CG_OPERATION,50,32,95,190,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,48,145,42
+END
+
+IDD_CONFIGGUI_POPUP DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Name:",IDC_STATIC,0,2,49,8
+    EDITTEXT        IDC_CG_NAME,50,0,29,12,ES_AUTOHSCROLL
+    LTEXT           "&Icon:",IDC_CG_ICONLABEL,88,2,27,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,0,29,197
+    LTEXT           "&Description:",IDC_STATIC,0,18,49,8
+    EDITTEXT        IDC_CG_DESCRIPTION,50,16,95,12,ES_AUTOHSCROLL
+    LTEXT           "&Commands:",IDC_STATIC,0,48,49,8
+    COMBOBOX        IDC_CG_OPERATION,50,46,95,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CHECKBOX        "&Text in toolbar",IDC_CG_TEXTINTOOLBAR,0,33,63,10
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,62,145,28
+    CHECKBOX        "Icon from &selection",IDC_CG_ICONFROMRADIO,68,33,77,10
+END
+
+IDD_CONFIGGUI_VECTORITEM DIALOGEX 0, 0, 145, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Commands:",-1,0,2,49,8
+    COMBOBOX        IDC_CG_OPERATION,50,0,95,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,16,145,74
+END
+
+IDD_CONFIGGUI_OPITEM DIALOGEX 0, 0, 180, 108
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Dialog caption:",IDC_STATIC,0,2,60,8
+    EDITTEXT        IDC_CG_CAPTION,61,0,50,12,ES_AUTOHSCROLL
+    LTEXT           "Icon:",IDC_CG_ICONLABEL,121,2,27,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,150,0,29,197
+    LTEXT           "Operation:",IDC_STATIC,0,18,47,8
+    COMBOBOX        IDC_CG_OPERATION,48,16,39,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,88,43
+    LTEXT           "Preview:",IDC_CG_PREVIEWLABEL,92,18,47,8
+    COMBOBOX        IDC_CG_PREVIEW,140,16,39,163,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,91,32,88,43
+    LTEXT           "Help text:",IDC_CG_HELPTOPIC_LABEL,0,81,48,8
+    EDITTEXT        IDC_CG_HELPTOPIC,49,79,39,12,ES_AUTOHSCROLL
+    LTEXT           "Parameter:",IDC_CG_PARAM1LABEL,0,97,48,8
+    COMBOBOX        IDC_CG_PARAM1NAME,49,95,33,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Bounds:",IDC_CG_PARAM1BOUNDS,90,97,33,8
+    EDITTEXT        IDC_CG_PARAM1MIN,124,95,11,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CG_PARAM1MAX,137,95,11,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CG_PARAM1SCALE,156,95,24,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Display:",IDC_CG_PREVIEWMODE_LABEL,92,81,37,8
+    COMBOBOX        IDC_CG_PREVIEWMODE,131,79,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CONFIGGUI_TRANSITEM DIALOGEX 0, 0, 180, 91
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Dialog caption:",IDC_STATIC,0,2,62,8
+    EDITTEXT        IDC_CG_CAPTION,63,0,48,12,ES_AUTOHSCROLL
+    LTEXT           "Icon:",IDC_CG_ICONLABEL,121,2,27,8
+    CONTROL         "",IDC_CG_ICON,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,150,0,29,197
+    LTEXT           "Transformation:",IDC_STATIC,0,18,62,8
+    COMBOBOX        IDC_CG_OPERATION,63,16,25,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_OPCONFIG,"Static",SS_GRAYRECT,0,32,88,43
+    LTEXT           "Preview:",IDC_CG_PREVIEWLABEL,92,18,41,8
+    COMBOBOX        IDC_CG_PREVIEW,134,16,46,163,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CG_VIEWCONFIG,"Static",SS_GRAYRECT,92,32,88,43
+    LTEXT           "Help topic:",IDC_CG_HELPTOPIC_LABEL,0,81,52,8
+    EDITTEXT        IDC_CG_HELPTOPIC,53,79,126,12,ES_AUTOHSCROLL
+END
+
+IDD_CONFIGUREGESTURES DIALOGEX 0, 0, 313, 195
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+CAPTION "Configure Mouse Gestures"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,202,174,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,256,174,50,14
+    LISTBOX         IDC_MG_GESTURES,7,7,96,160,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Operation:",IDC_MG_LABEL,110,9,52,8
+    COMBOBOX        IDC_MG_OPERATION,163,7,143,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_MG_CONFIG,"Static",SS_BLACKRECT,110,26,196,141
+    PUSHBUTTON      "Help",IDHELP,7,174,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CONFIGGUI_OPERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_POPUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_VECTORITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONFIGGUI_OPITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_CONFIGGUI_TRANSITEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_CONFIGUREGESTURES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""RWVersion.h""\r\n"
+    "#include ""RWVersionInfo.rc2""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "RWProcessing"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TRANFORMATIONNULL_NAME "» No Transformation «"
+    IDS_OPERATIONNULL_NAME  "» No Operation «"
+    IDS_OPERATIONPIPE_NAME  "» Transformation (deprecated) «"
+    IDS_OPERATIONSPLIT_NAME "» Sequence (deprecated) «"
+    IDS_MENUCOMMANDSVECTOR_NAME "» Command List «"
+    IDS_MENUCOMMANDSPOPUP_NAME "» Popup Menu «"
+    IDS_MENUCOMMANDSOPERATION_NAME "» Document Operation «"
+    IDS_MENUCOMMANDSSEPARATOR_NAME "--- (separator)"
+    IDS_PIPE_TRANSFORMATION_NAME "Transformation"
+    IDS_PIPE_TRANSFORMATION_DESC 
+                            "Document will be transformed by this trasformation. Resulting document will be sent to the adjanced operation."
+    IDS_PIPE_OPERATION_NAME "Operation"
+    IDS_PIPE_OPERATION_DESC "This operation will be performed on the transformed document."
+    IDS_SPLIT_OPERATION1_NAME "Operation 1"
+    IDS_SPLIT_OPERATION1_DESC "This operation will be executed first."
+    IDS_SPLIT_OPERATION2_NAME "Operation 2"
+    IDS_SPLIT_OPERATION2_DESC 
+                            "This operation will be executed after the first one."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_VECTOR_SUBCOMMANDS_NAME "Type"
+    IDS_CFGID_VECTOR_SUBCOMMANDS_DESC 
+                            "Type of the contained object with menu commands."
+    IDS_CFGID_VECTOR_ITEMS_NAME "Commands"
+    IDS_CFGID_VECTOR_ITEMS_DESC "Number of menu commands source objects."
+    IDS_CFGID_POPUP_SUBCOMMANDS_NAME "Type"
+    IDS_CFGID_POPUP_SUBCOMMANDS_DESC "Popup menu commands."
+    IDS_CFGID_NAME_NAME     "Name"
+    IDS_CFGID_NAME_DESC     "Text describing this command."
+    IDS_CFGID_DESCRITPION_NAME "Description"
+    IDS_CFGID_DESCRITPION_DESC "Explanation of this command's function."
+    IDS_CFGID_ICONID_NAME   "Icon"
+    IDS_CFGID_ICONID_DESC   "Icon associated with this command."
+    IDS_CFGID_OPERATION_ID_NAME "Operation"
+    IDS_CFGID_OPERATION_ID_DESC 
+                            "Document operation associated with this command."
+    IDS_SHOWCONFIG          "» Display Configuration «"
+    IDS_CFGID_POPUP_ICONFROMRADIO_NAME "Icon from radio"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_POPUP_ICONFROMRADIO_DESC 
+                            "If enabled, the icon will be taken from first selected subcommand."
+    IDS_CFGID_POPUP_TEXTINTOOLBAR_NAME "Text in toolbar"
+    IDS_CFGID_POPUP_TEXTINTOOLBAR_DESC 
+                            "If used in toolbar, the button will always contain command name."
+    IDS_CFGID_OPERATION_RUNTIMECONFIG_NAME "Show config"
+    IDS_CFGID_OPERATION_RUNTIMECONFIG_DESC 
+                            "Show configuration dialog before the operation is executed."
+    IDS_LISTBUTTONNAMES     "Create new commands|Duplicate commands|Delete commands|Move up|Move down|Import commands|Export commands|"
+    IDS_RWCOMMANDS_OPEN     "Open Menu Commands"
+    IDS_RWCOMMANDS_SAVE     "Save Menu Commands"
+    IDS_RWCOMMANDS_FILTER   "RealWorld menu commands"
+    IDS_CFG_DLGSIZEX        "Window width"
+    IDS_CFG_DLGSIZEY        "Window height"
+    IDS_CFG_PREVIEW_NAME    "Preview"
+    IDS_CFG_PREVIEW_DESC    "Identifier of the view used for operation result preview."
+    IDS_CFGID_ICONID_DESC2  "Icon assigned to the configuration window."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_ICONID_NAME2  "Icon"
+    IDS_CFG_AUTOUPDATE      "Auto-preview"
+    IDS_1DINTERACTIVECONFIG "» Display Configuration - 1 Parameter «"
+    IDS_CFG_PARAMETER_NAME  "Parameter"
+    IDS_CFG_PARAMETER_DESC  "This parameter of the selected operation will be controlled by the slider during execution."
+    IDS_CFG_PARLOWER_NAME   "Lower bound"
+    IDS_CFG_PARLOWER_DESC   "Override for the parameter lower bound. Use the same value for upper and lower bound to use default bounds."
+    IDS_CFG_PARUPPER_NAME   "Upper bound"
+    IDS_CFG_PARUPPER_DESC   "Override for the parameter upper bound. Use the same value for upper and lower bound to use default bounds."
+    IDS_CFG_PARSCALE_NAME   "Scale"
+    IDS_CFG_PARSCALE_DESC   "Type of mapping the values from the given range to the slider in configuration dialog."
+    IDS_CFGVAL_LINEAR       "Linear"
+    IDS_CFGVAL_LOGARITHMIC  "Logarithmic"
+    IDS_CFGID_SHORTCUT_NAME "Shortcut"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_SHORTCUT_DESC "Key combination used to activating this operation (only valid if used in main menu)."
+    IDS_NOSHORTCUT          "None"
+    IDS_CFGID_SEQ_STEPS_NAME "Steps"
+    IDS_CFGID_SEQ_STEPS_DESC "Number of steps in the sequence."
+    IDS_CFGID_SEQ_TYPE_NAME "Type"
+    IDS_CFGID_SEQ_TYPE_DESC "Determines whether this step in the sequence will be an operation or a transformation."
+    IDS_CFGID_SEQ_OPERATION_NAME "Operation"
+    IDS_CFGID_SEQ_OPERATION_DESC 
+                            "Type of operation executed in this step of the sequence."
+    IDS_CFGID_SEQ_TRANSFORMATION_NAME "Transformation"
+    IDS_CFGID_SEQ_TRANSFORMATION_DESC 
+                            "Type of transformation executed in this step. (Note: transformation should not be the last step in the sequence, because the result will be lost.)"
+    IDS_OPERATIONSEQUENCE_NAME "» Sequence «"
+    IDS_SEQBUTTONNAMES      "Add new step|Duplicate step|Delete step|Move up|Move down|Import step|Export step|"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_CFG_DISPLAYMODE_NAME "Display mode"
+    IDS_CFGID_CFG_DISPLAYMODE_DESC 
+                            "Controls how is the original and the preview of the processed image displayed."
+    IDS_CFGID_CFGVAL_DM_ORIGINAL "Original"
+    IDS_CFGID_CFGVAL_DM_PROCESSED "Processed"
+    IDS_CFGVAL_DM_BOTH      "Both"
+    IDS_PREVIEWTOOLBAR      "Original|Processed|Both|Refresh|Auto-refresh|"
+    IDS_CUSTCFG_MORECOLORS  "More colors..."
+    IDS_CUSTCFG_COLORNAMES  "Black|Brown|Dark Olive Green|Dark Green|Dark Teal|Dark blue|Indigo|Dark grey|Dark red|Orange|Dark yellow|Green|Teal|Blue|Blue-grey|Grey - 40|Red|Light orange|Lime|Sea green|Aqua|Light blue|Violet|Grey - 50|Pink|Gold|Yellow|Bright green|Turquoise|Skyblue|Plum|Light grey|Rose|Tan|Light yellow|Pale green|Pale turquoise|Pale blue|Lavender|White|"
+    IDS_CUSTCFG_FROMPIXEL   "From screen pixel"
+    IDS_MENUCOMMANDSAUTOOPERATION_NAME "Classified Operations"
+    IDS_CFGID_OPERATION_CLASS_NAME "Operation class"
+    IDS_CFGID_OPERATION_CLASS_DESC 
+                            "Category ID of the operations displayed in menu."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "RWVersion.h"
+#include "RWVersionInfo.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

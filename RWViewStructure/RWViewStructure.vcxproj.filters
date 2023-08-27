@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hpp;hxx;hm;inl;inc;xsd;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{663fd106-f568-4a3a-9126-dfc08defaa2d}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Tree Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StructureRoot Files">
+      <UniqueIdentifier>{36935fb2-d902-4cc0-a8f5-e856c358d101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StructuredItemValue Files">
+      <UniqueIdentifier>{31182d3e-c408-4e0d-8177-9add1e82fb9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExtractSubDocument Files">
+      <UniqueIdentifier>{af812afc-7b9f-4371-82fa-d1666a41f850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChooseBestLayout Files">
+      <UniqueIdentifier>{02a925b7-bf9c-4cf9-93a2-c07c5d4f03f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MenuCommandsSubDocument Files">
+      <UniqueIdentifier>{97c48903-8e16-48d8-8596-1e32d4267a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SubDocumentFrame Files">
+      <UniqueIdentifier>{6bd2c525-33d7-43f8-8498-66d648fc571d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MenuCommandsCondition Files">
+      <UniqueIdentifier>{a62e94f2-b274-4075-9bae-03701f2db072}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUITree.h">
+      <Filter>Tree Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsTree.h">
+      <Filter>Tree Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryTree.h">
+      <Filter>Tree Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewTree.h">
+      <Filter>Tree Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsStructureRoot.h">
+      <Filter>StructureRoot Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsStructuredItemValue.h">
+      <Filter>StructuredItemValue Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentOperationExtractSubDocument.h">
+      <Filter>ExtractSubDocument Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsChooseBestLayout.h">
+      <Filter>ChooseBestLayout Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewChooseBestLayout.h">
+      <Filter>ChooseBestLayout Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewChooseBestLayoutSubDoc.h">
+      <Filter>ChooseBestLayout Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryChooseBestLayout.h">
+      <Filter>ChooseBestLayout Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsSubDocument.h">
+      <Filter>MenuCommandsSubDocument Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUISubDocumentFrame.h">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsSubDocumentFrame.h">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactorySubDocumentFrame.h">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewSubDocumentFrame.h">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsCondition.h">
+      <Filter>MenuCommandsCondition Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWViewStructure.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWViewStructure.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryTree.cpp">
+      <Filter>Tree Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewTree.cpp">
+      <Filter>Tree Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsStructureRoot.cpp">
+      <Filter>StructureRoot Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsStructuredItemValue.cpp">
+      <Filter>StructuredItemValue Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentOperationExtractSubDocument.cpp">
+      <Filter>ExtractSubDocument Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryChooseBestLayout.cpp">
+      <Filter>ChooseBestLayout Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsSubDocument.cpp">
+      <Filter>MenuCommandsSubDocument Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactorySubDocumentFrame.cpp">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewSubDocumentFrame.cpp">
+      <Filter>SubDocumentFrame Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsCondition.cpp">
+      <Filter>MenuCommandsCondition Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWViewStructure.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWViewStructure.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

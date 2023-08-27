@@ -1,0 +1,8 @@
+; RWDesignerServices.def : Declares the module parameters.
+
+LIBRARY      "RWDesignerServices.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

@@ -1,0 +1,85 @@
+//
+// RWVersionInfo.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifndef APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+// these are defined for all RW components here
+#define RWVER0409_PRODUCTINFO 2023,2,0,0
+#define RWVER0409_COMPANY "RealWorld Graphics\0"
+#ifndef RWVER0409_COPYRIGHT
+#define RWVER0409_COPYRIGHT "© 2000-2023 Vlastimil Miléø\0"
+#endif
+#define RWVER0409_TRADEMARKS "\0"
+#define RWVER0409_PRODUCTVERSION "2023.2\0"
+#define RWVER0409_PRODUCTNAME "RealWorld\0"
+#define RWVER_RELEASEDATE "2023.0723"
+
+// these should be defined in each component
+// (in resource.h or in any other file included before this)
+#undef RWVER0409_FILEVERSION
+#define RWVER0409_FILEVERSION "23.2.7.23\0"
+#undef RWVER0409_FILEINFO
+#define RWVER0409_FILEINFO 23,2,7,23
+//#define RWVER0409_COMMENTS "\0"
+//#define RWVER0409_FILEDESC "RW4Shell Module\0"
+//#define RWVER0409_INTERNALNAME "RW4Shell\0"
+//#define RWVER0409_ORIGINALFILENAME "RW4Shell.DLL\0"
+//#define RWVER0409_PRODUCTNAME "RW4Shell Module\0"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION RWVER0409_FILEINFO
+ PRODUCTVERSION RWVER0409_PRODUCTINFO
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", RWVER0409_COMMENTS
+            VALUE "CompanyName", RWVER0409_COMPANY
+            VALUE "FileDescription", RWVER0409_FILEDESC
+            VALUE "FileVersion", RWVER0409_FILEVERSION
+            VALUE "InternalName", RWVER0409_INTERNALNAME
+            VALUE "LegalCopyright", RWVER0409_COPYRIGHT
+            VALUE "LegalTrademarks", RWVER0409_TRADEMARKS
+//            VALUE "OLESelfRegister", "\0"
+            VALUE "OriginalFilename", RWVER0409_ORIGINALFILENAME
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", RWVER0409_PRODUCTNAME
+            VALUE "ProductVersion", RWVER0409_PRODUCTVERSION
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // English (U.S.) resources
+
+#endif    // !_MAC
+
+#endif //!APSTUDIO_INVOKED

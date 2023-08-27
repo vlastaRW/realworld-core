@@ -1,0 +1,179 @@
+// RWDocumentBasic.idl : IDL source for RWDocumentBasic
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWDocumentBasic.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWInput.idl";
+import "RWProcessing.idl";
+import "RWConceptDesignerExtension.idl";
+import "RWScripting.idl";
+
+typedef struct TBinaryChange
+{
+	ULONG nBegSame;
+	ULONG nEndSame;
+	ULONG nNewSize;
+} TBinaryChange;
+
+[
+	object,
+	uuid(D8D2EEF1-1944-4A55-AB08-EBB774F11036),
+	helpstring("IBinaryObserver Interface"),
+	pointer_default(unique)
+]
+interface IBinaryObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] TBinaryChange a_tBinChg);
+};
+
+[
+	object,
+	uuid(B1A19EB0-F75C-44D4-A30A-9C84217BE0D3),
+	helpstring("IDocumentBinary Interface"),
+	pointer_default(unique)
+]
+interface IDocumentBinary : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG* a_pSize);
+	[helpstring("method Data")] HRESULT Data([in] ULONG a_nOffset, [in] ULONG a_nSize, [out, size_is(a_nSize)] BYTE* a_pData);
+
+	[helpstring("method Insert")] HRESULT Insert([in] ULONG a_nOffset, [in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+	[helpstring("method Replace")] HRESULT Replace([in] ULONG a_nOffset, [in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+	[helpstring("method Delete")] HRESULT Delete([in] ULONG a_nOffset, [in] ULONG a_nSize);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IBinaryObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IBinaryObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+[
+	object,
+	uuid(5624E230-4607-490B-81DD-A12E14FA57DC),
+	helpstring("IDocumentFactoryBinary Interface"),
+	pointer_default(unique)
+]
+interface IDocumentFactoryBinary : IUnknown
+{
+	[helpstring("method Init")] HRESULT Init([in] ULONG a_nLength, [in, size_is(a_nLength)] BYTE const* a_pData, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+};
+
+
+[
+	object,
+	uuid(0FB1F14D-BC09-40BE-8DB5-F45C74DB9556),
+	helpstring("ITextObserver Interface"),
+	pointer_default(unique)
+]
+interface ITextObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] LONG a_nLineIndex);
+	// a_nLineIndex is >= 0 if change is inside one line only
+	// a_nLineIndex is < 0 if change line was inserted or deleted or multiple lines were modified
+};
+
+[
+	object,
+	uuid(95BD3A7D-8737-41E8-991D-7BF996BCFC0C),
+	helpstring("IDocumentText Interface"),
+	pointer_default(unique)
+]
+interface IDocumentText : IUnknown
+{
+	[helpstring("method TextGet")] HRESULT TextGet([out] BSTR* a_pbstrText);
+	[helpstring("method TextSet")] HRESULT TextSet([in] BSTR a_bstrText);
+
+	[helpstring("method LinesGetCount")] HRESULT LinesGetCount([out] ULONG* a_pnLineCount);
+	[helpstring("method LineGet")] HRESULT LineGet([in] ULONG a_nIndex, [out] BSTR* a_pbstrLine);
+	[helpstring("method LinesReplace")] HRESULT LinesReplace([in] ULONG a_nIndex, [in] ULONG a_nOldCount, [in] ULONG a_nNewCount, [in, size_is(a_nNewCount)] BSTR* a_pbstrLines);
+	[helpstring("method LineSet")] HRESULT LineSet([in] ULONG a_nIndex, [in] BSTR a_bstrLine);
+	[helpstring("method LineIns")] HRESULT LineIns([in] ULONG a_nIndex, [in] BSTR a_bstrLine);
+	[helpstring("method LineDel")] HRESULT LineDel([in] ULONG a_nIndex);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] ITextObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] ITextObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+[
+	object,
+	uuid(DE2778EF-EFA6-4C0C-B174-1B69AED3E3C2),
+	helpstring("IDocumentFactoryText Interface"),
+	pointer_default(unique)
+]
+interface IDocumentFactoryText : IUnknown
+{
+	[helpstring("method Init")] HRESULT Init([in] BSTR a_bstrText, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+	[helpstring("method InitEx"), local] HRESULT InitEx([in] OLECHAR const* a_pText, [in] ULONG a_nLength, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+};
+
+[
+	object,
+	uuid(650E5419-2D79-4878-B4BC-D531294B590C),
+	dual,
+	nonextensible,
+	helpstring("IScriptedText Interface"),
+	pointer_default(unique)
+]
+interface IScriptedText : IDispatch
+{
+	[propget, id(1), helpstring("property All")] HRESULT All([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("property All")] HRESULT All([in] BSTR newVal);
+	[propget, id(2), helpstring("property LineCount")] HRESULT LineCount([out, retval] ULONG* pCount);
+	[id(3), helpstring("method GetLine")] HRESULT GetLine([in] ULONG a_nIndex, [out, retval] BSTR* a_pbstrLine);
+	[id(4), helpstring("method ReplaceLine")] HRESULT ReplaceLine([in] ULONG a_nIndex, [in] BSTR a_bstrLine);
+	[id(5), helpstring("method InsertLine")] HRESULT InsertLine([in] ULONG a_nIndex, [in] BSTR a_bstrLine);
+	[id(6), helpstring("method DeleteLine")] HRESULT DeleteLine([in] ULONG a_nIndex);
+};
+
+
+[
+	uuid(1BBF5E6F-27C2-4463-9E10-8E2D0F588D6A),
+	version(1.0),
+	helpstring("RWDocumentBasic 1.0 Type Library")
+]
+library RWDocumentBasicLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWProcessing.tlb");
+	importlib("RWConceptDesignerExtension.tlb");
+	importlib("RWScripting.tlb");
+
+	interface IDocumentText;
+	interface IDocumentBinary;
+	interface IScriptedText;
+
+	[
+		uuid(5E9B6A69-4679-4CAF-A1BE-A45D30121D2F),
+		helpstring("DocumentFactoryBinary Class")
+	]
+	coclass DocumentFactoryBinary
+	{
+		[default] interface IDocumentFactoryBinary;
+		interface IDocumentBuilder;
+		interface IDocumentDecoder;
+		interface IDocumentEncoder;
+	};
+	[
+		uuid(869C62CE-DAE9-4333-BB28-6759FCE0EA12),
+		helpstring("DocumentFactoryText Class")
+	]
+	coclass DocumentFactoryText
+	{
+		[default] interface IDocumentFactoryText;
+		interface IDocumentBuilder;
+		interface IDocumentDecoder;
+		interface IDocumentEncoder;
+		interface IDesignerWizard;
+	};
+	[
+		uuid(B27B3694-CC44-455F-9439-C6C057919EF1),
+		helpstring("ScriptingInterfaceBasic Class")
+	]
+	coclass ScriptingInterfaceBasic
+	{
+		[default] interface IScriptingInterface;
+	};
+};
+cpp_quote("#define ENCFEAT_TEXT L\"[text]\"")

@@ -1,0 +1,254 @@
+// RWConceptStructuredData.idl : IDL source for RWConceptStructuredData
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWConceptStructuredData.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWInput.idl";
+import "RWConceptSharedState.idl";
+
+// atomic types accessors
+
+[
+	object,
+	uuid(CF9F1FA2-D6A4-4D9F-AE74-6627F0446DC1),
+	helpstring("IItemString Interface"),
+	pointer_default(unique)
+]
+interface IItemString : IComparable
+{
+	[helpstring("method ValueGet")] HRESULT ValueGet([out] BSTR* a_pbstrValue);
+	[helpstring("method ValueSet")] HRESULT ValueSet([in] BSTR a_bstrValue);
+};
+
+[
+	object,
+	uuid(C66AC604-8D13-4D85-8E26-522CD6770413),
+	helpstring("IItemInt Interface"),
+	pointer_default(unique)
+]
+interface IItemInt : IComparable
+{
+	[helpstring("method ValueGet")] HRESULT ValueGet([out] LONG* a_pnValue);
+	[helpstring("method ValueSet")] HRESULT ValueSet([in] LONG a_nValue);
+};
+
+[
+	object,
+	uuid(23976C24-F92F-4D85-94AE-24FFF9A48534),
+	helpstring("IItemFloat Interface"),
+	pointer_default(unique)
+]
+interface IItemFloat : IComparable
+{
+	[helpstring("method ValueGet")] HRESULT ValueGet([out] float* a_pfValue);
+	[helpstring("method ValueSet")] HRESULT ValueSet([in] float a_fValue);
+};
+
+[
+	object,
+	uuid(61A4F280-6AA8-42F9-B29B-6D925815321D),
+	helpstring("IItemBool Interface"),
+	pointer_default(unique)
+]
+interface IItemBool : IComparable
+{
+	[helpstring("method ValueGet")] HRESULT ValueGet([out] boolean* a_pbValue);
+	[helpstring("method ValueSet")] HRESULT ValueSet([in] boolean a_bValue);
+};
+
+[
+	object,
+	uuid(3EEC7418-CB46-4DEB-BC6D-07F16B058FA5),
+	helpstring("IItemChoice Interface"),
+	pointer_default(unique)
+]
+interface IItemChoice : IComparable
+{
+	[helpstring("method ValueGet")] HRESULT ValueGet([out] ULONG* a_pnValue);
+	[helpstring("method ValueSet")] HRESULT ValueSet([in] ULONG a_nValue);
+	[helpstring("method OptionsEnum")] HRESULT OptionsEnum([out] IEnumUnknowns** a_ppOptionsNames);
+};
+
+
+// IGUIItem
+
+[
+	object,
+	uuid(BFD94C1D-529E-416C-B0E1-454ABB123464),
+	helpstring("IGUIItem Interface"),
+	pointer_default(unique)
+]
+interface IUIItem : IComparable
+{
+	[helpstring("method NameGet")] HRESULT NameGet([in] LCID a_tPreferedLCID, [out] BSTR* a_pbstrName);
+	[helpstring("method DescriptionGet")] HRESULT DescriptionGet([in] LCID a_tPreferedLCID, [out] BSTR* a_pbstrName);
+	[helpstring("method ColorsGet")] HRESULT ColorsGet([out] DWORD* a_prgbPrimary, [out] DWORD* a_prgbSecondary);
+	[helpstring("method IconIDGet")] HRESULT IconIDGet([out] GUID* a_pIconID);
+	[helpstring("method IconGet"), local] HRESULT IconGet([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method UseThumbnail")] HRESULT UseThumbnail();
+	[helpstring("method ExpandedByDefault")] HRESULT ExpandedByDefault();
+};
+
+
+// hierarchical structure
+
+typedef [v1_enum] enum EStructuredChange
+{
+	ESCChildren = 1,
+	ESCGUIRepresentation = 2,
+	ESCContent = 4
+} EStructuredChange;
+
+typedef struct TStructuredChange
+{
+	ULONG nChangeFlags; // EStructuredChange
+	IComparable* pItem;
+} TStructuredChange;
+
+typedef struct TStructuredChanges
+{
+	ULONG nChanges;
+	[size_is(nChanges)] TStructuredChange* aChanges;
+} TStructuredChanges;
+
+[
+	object,
+	uuid(4B2A8C9E-CFA4-4951-967B-0AB469F0E121),
+	helpstring("IStructuredObserver Interface"),
+	pointer_default(unique)
+]
+interface IStructuredObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] TStructuredChanges a_tChanges);
+};
+
+[
+	object,
+	uuid(B2BD9A9B-3971-48E3-91A3-AAEE8D57C337),
+	helpstring("IStructuredRoot Interface"),
+	pointer_default(unique)
+]
+interface IStructuredRoot : IUnknown
+{
+	// !! this interface is not meant to be used directly - only through its descendants
+	[helpstring("method StatePack")] HRESULT StatePack([in] ULONG a_nItems, [in, size_is(a_nItems)] IComparable* const* a_paItems, [out] ISharedState** a_ppState);
+	[helpstring("method StateUnpack")] HRESULT StateUnpack([in] ISharedState* a_pState, [out] IEnumUnknowns** a_ppSelectedItems);
+	[helpstring("method StatePrefix")] HRESULT StatePrefix([out] BSTR* a_pbstrPrefix);
+
+	[helpstring("method ItemsEnum")] HRESULT ItemsEnum([in] IComparable* a_pItem, [out] IEnumUnknowns** a_ppSubItems);
+	[helpstring("method ParentsEnum")] HRESULT ParentsEnum([in] IComparable* a_pItem, [out] IEnumUnknowns** a_ppPredecessors);
+	[helpstring("method ItemFeatureGet")] HRESULT ItemFeatureGet([in] IComparable* a_pItem, [in] REFIID a_iid, [out, iid_is(a_iid)] void** a_ppFeatureInterface);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IStructuredObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IStructuredObserver* a_pObserver, [in] TCookie a_tCookie);
+};
+
+[
+	object,
+	uuid(3E91DCE1-6243-4042-A4B4-380DE5D9C946),
+	helpstring("IStructuredDocument Interface"),
+	pointer_default(unique)
+]
+interface IStructuredDocument : IStructuredRoot
+{
+	[helpstring("method StructuredRootsEnum")] HRESULT StructuredRootsEnum([out] IEnumGUIDs** a_ppStructuredRoots);
+	[helpstring("method NameGet")] HRESULT NameGet([in] REFGUID a_tRootID, [out] ILocalizedString** a_ppName);
+};
+
+typedef [v1_enum] enum EDNDPoint
+{
+	EDNDPUpper = 0,
+	EDNDPLower,
+} EDNDPoint;
+
+cpp_quote("#define DND_INSERTMARK_BEFORE 0x100000")
+cpp_quote("#define DND_INSERTMARK_AFTER 0x200000")
+cpp_quote("#define DND_INSERTMARK_MASK 0x300000")
+
+typedef [v1_enum] enum ERichGUIClipboardAction
+{
+	ERGCACut = 0,
+	ERGCACopy,
+	ERGCAPaste,
+	ERGCASelectAll,
+	ERGCAInvertSelection,
+	ERGCADelete,
+	ERGCADuplicate,
+} ERichGUIClipboardAction;
+
+[
+	object,
+	uuid(91BE6CED-09C5-4C8B-9836-7774513E6369),
+	helpstring("IStructuredItemsRichGUI Interface"),
+	pointer_default(unique)
+]
+interface IStructuredItemsRichGUI : IUnknown
+{
+	[helpstring("method Begin")] HRESULT Begin([in] IEnumUnknowns* a_pSelection, [out] IDataObject** a_ppDataObject, [out] IDropSource** a_ppDropSource, [out] DWORD* a_pOKEffects);
+	[helpstring("method Drag")] HRESULT Drag([in] IDataObject* a_pDataObj, [in] IEnumStrings* a_pFileNames, [in] DWORD a_grfKeyState, [in] IComparable* a_pItem, [in] EDNDPoint a_eDNDPoint, [in, out] DWORD* a_pdwEffect, [out] ILocalizedString** a_ppFeedback);
+	[helpstring("method Drop")] HRESULT Drop([in] IDataObject* a_pDataObj, [in] IEnumStrings* a_pFileNames, [in] DWORD a_grfKeyState, [in] IComparable* a_pItem, [in] EDNDPoint a_eDNDPoint, [in] LCID a_tLocaleID, [out] ISharedState** a_ppNewSel);
+
+	[helpstring("method ClipboardPriority")] HRESULT ClipboardPriority([out] BYTE* a_pPrio); // 128 ... average priority
+	[helpstring("method ClipboardName")] HRESULT ClipboardName([in] ERichGUIClipboardAction a_eAction, [in] ISharedState* a_pState, [out] ILocalizedString** a_ppName);
+	[helpstring("method ClipboardIconID")] HRESULT ClipboardIconID([in] ERichGUIClipboardAction a_eAction, [in] ISharedState* a_pState, [out] GUID* a_pIconID);
+	[helpstring("method ClipboardIcon"), local] HRESULT ClipboardIcon([in] ERichGUIClipboardAction a_eAction, [in] ISharedState* a_pState, [in] ULONG a_nSize, [out] HICON* a_phIcon, [out] BYTE* a_pOverlay);
+	[helpstring("method ClipboardCheck")] HRESULT ClipboardCheck([in] ERichGUIClipboardAction a_eAction, [in] RWHWND a_hWnd, [in] ISharedState* a_pState);
+	[helpstring("method ClipboardRun")] HRESULT ClipboardRun([in] ERichGUIClipboardAction a_eAction, [in] RWHWND a_hWnd, [in] LCID a_tLocaleID, [in] ISharedState* a_pState, [out] ISharedState** a_pNewState);
+
+	[helpstring("method Thumbnail")] HRESULT Thumbnail([in] IComparable* a_pItem, [in] ULONG a_nSizeX, [in] ULONG a_nSizeY, [out, size_is(a_nSizeX*a_nSizeY)] DWORD* a_pBGRAData, [out] RECT* a_prcBounds, [out] ULONG* a_pTimestamp);
+	//[helpstring("method FormatStrings")] HRESULT FormatStrings([in] IComparable* a_pItem);
+};
+
+[
+	object,
+	uuid(0CAE8645-99D1-405F-AA00-B8FA181894C4),
+	helpstring("ISubDocumentID Interface"),
+	pointer_default(unique)
+]
+interface ISubDocumentID : IComparable
+{
+	[helpstring("method SubDocumentGet")] HRESULT SubDocumentGet([out] IDocument** a_ppSubDocument);
+};
+
+[
+	object,
+	uuid(8D1630FE-AD0B-4E0D-A023-B904674CE9F2),
+	helpstring("ISubDocumentsMgr Interface"),
+	pointer_default(unique)
+]
+interface ISubDocumentsMgr : IStructuredRoot
+{
+	[helpstring("method FindByName")] HRESULT FindByName([in] BSTR a_bstrName, [out] ISubDocumentID** a_ppItem);
+};
+
+
+[
+	uuid(3BA52347-D732-4C94-B0AE-4391734CA227),
+	version(1.0),
+	helpstring("RWConceptStructuredData 1.0 Type Library")
+]
+library RWConceptStructuredDataLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWConceptSharedState.tlb");
+
+	interface IItemString;
+	interface IItemInt;
+	interface IItemFloat;
+	interface IItemBool;
+	interface IItemChoice;
+	interface IUIItem;
+	interface IStructuredObserver;
+	interface IStructuredRoot;
+	interface IStructuredDocument;
+	interface ISubDocumentID;
+	interface ISubDocumentsMgr;
+};
+
+cpp_quote("#include \"RWConceptStructuredDataUtils.h\"")

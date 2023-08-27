@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{97c5a70f-c9b3-46b5-934d-95e7cfebd472}</UniqueIdentifier>
+      <Extensions>h;c;cpp;inl;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Splitter Files">
+      <UniqueIdentifier>{9268faf5-7eed-4bea-ba11-275519f738cd}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="DockingWindows Files">
+      <UniqueIdentifier>{45c683e9-b0aa-43c7-b435-baa6d55535c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DockingWindows Files\DockWins">
+      <UniqueIdentifier>{6a24d236-f0f2-4fb6-bd23-63b3bfc0aea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tab Files">
+      <UniqueIdentifier>{ff5c4467-6df1-447a-b9ad-67c4fd4b29ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tab Files\TabFrames">
+      <UniqueIdentifier>{711b47a7-5277-4932-adea-a1c2fb9b2775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tab Files\MenuCommands">
+      <UniqueIdentifier>{3d4f9929-853c-4086-bd6f-a6ef854c69e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rolldown Files">
+      <UniqueIdentifier>{7cb91ac2-4435-42f9-9c20-e161502510d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUISplitter.h">
+      <Filter>Splitter Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsSplitter.h">
+      <Filter>Splitter Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactorySplitter.h">
+      <Filter>Splitter Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewSplitter.h">
+      <Filter>Splitter Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsDockingWindows.h">
+      <Filter>DockingWindows Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewDockingWindows.h">
+      <Filter>DockingWindows Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryDockingWindows.h">
+      <Filter>DockingWindows Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DockableWindow.h">
+      <Filter>DockingWindows Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\dbstate.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DDTracker.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DockingBox.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DockingFrame.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DockingWindow.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DockMisc.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\DWAutoHide.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\dwstate.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\ExtDockingWindow.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\FlyingTabs.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\PackageWindow.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\SimpleSplitterBar.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\ssec.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\sstate.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\stg.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\stgreg.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\stgxml.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\TabDockingBox.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="DockWins\WndFrmPkg.h">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUITab.h">
+      <Filter>Tab Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUITabSubWindow.h">
+      <Filter>Tab Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsTab.h">
+      <Filter>Tab Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryTab.h">
+      <Filter>Tab Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewTab.h">
+      <Filter>Tab Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\atlgdix.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\CustomTabCtrl.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\DotNetTabCtrl.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\PlainTextView.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\SimpleDlgTabCtrls.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\SimpleTabCtrls.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\TabbedDockingWindow.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\TabbedFrame.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="TabFrames\TabbedMDI.h">
+      <Filter>Tab Files\TabFrames</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandsTabControl.h">
+      <Filter>Tab Files\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIRolldown.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigGUIRolldownSubWindow.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsRolldown.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewFactoryRolldown.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignerViewRolldown.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PanelCtrl.h">
+      <Filter>Rolldown Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWViewAreaLayout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWViewAreaLayout.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigGUISplitter.cpp">
+      <Filter>Splitter Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactorySplitter.cpp">
+      <Filter>Splitter Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewSplitter.cpp">
+      <Filter>Splitter Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewDockingWindows.cpp">
+      <Filter>DockingWindows Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryDockingWindows.cpp">
+      <Filter>DockingWindows Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DockWins\DockImpl.cpp">
+      <Filter>DockingWindows Files\DockWins</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryTab.cpp">
+      <Filter>Tab Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewTab.cpp">
+      <Filter>Tab Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandsTabControl.cpp">
+      <Filter>Tab Files\MenuCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewFactoryRolldown.cpp">
+      <Filter>Rolldown Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignerViewRolldown.cpp">
+      <Filter>Rolldown Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PanelCtrl.cpp">
+      <Filter>Rolldown Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWViewAreaLayout.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWViewAreaLayout.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+; RWStorage.def : Declares the module parameters.
+
+LIBRARY      "RWStorage.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

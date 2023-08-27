@@ -1,0 +1,341 @@
+// RWStorage.idl : IDL source for RWStorage
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWStorage.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+
+[
+	object,
+	uuid(5B8EF8BB-396F-4DF2-9A50-21700CDE2AC2),
+	helpstring("IStorageFilterType Interface"),
+	pointer_default(unique)
+]
+interface IDocumentType : IUnknown
+{
+	[helpstring("method UniqueIDGet")] HRESULT UniqueIDGet([out] BSTR* a_pbstrUniqueID);
+
+	[helpstring("method FilterNameGet")] HRESULT FilterNameGet([out] ILocalizedString** a_ppFilterName);
+	[helpstring("method TypeNameGet")] HRESULT TypeNameGet([in] BSTR a_bstrExt, [out] ILocalizedString** a_ppTypeName);
+
+	[helpstring("method IconGet"), local] HRESULT IconGet([in] BSTR a_bstrExt, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method IconPathGet")] HRESULT IconPathGet([in] BSTR a_bstrExt, [out] BSTR* a_pbstrIconPath);
+
+	[helpstring("method DefaultExtensionGet")] HRESULT DefaultExtensionGet([out] BSTR* a_pbstrDefaultExtension);
+	[helpstring("method SupportedExtensionsGet")] HRESULT SupportedExtensionsGet([out] IEnumStrings** a_ppSupportedExtensions);
+
+	[helpstring("method MatchFilename")] HRESULT MatchFilename([in] BSTR a_bstrFilename);
+};
+
+[
+	object,
+	uuid(C23BD436-47E2-4996-A0C5-0BA34ECA9BEC),
+	helpstring("IDocumentTypeWildcards Interface"),
+	pointer_default(unique)
+]
+interface IDocumentTypeWildcards : IDocumentType
+{
+	[helpstring("method Init")] HRESULT Init([in] ILocalizedString* a_pFormatName, [in] BSTR a_bstrFilter);
+	[helpstring("method InitEx"), local] HRESULT InitEx([in] ILocalizedString* a_pFormatName, [in] ILocalizedString* a_pTypeName, [in] ULONG a_nSupportedExtensions, [in, size_is(a_nSupportedExtensions)] BSTR const* a_aSupportedExtensions, [in] BSTR a_bstrIconPath, [in] HMODULE a_hIconModule, [in] UINT a_nIconID, [in] BSTR a_bstrFilter);
+	[helpstring("method FilterGet")] HRESULT FilterGet([out] BSTR* a_pbstrFilter);
+	[helpstring("method InitEx2"), local] HRESULT InitEx2([in] ILocalizedString* a_pFormatName, [in] ILocalizedString* a_pTypeName, [in] ULONG a_nSupportedExtensions, [in, size_is(a_nSupportedExtensions)] BSTR const* a_aSupportedExtensions, [in] BSTR a_bstrIconPath, [in] HICON (__cdecl a_fnGetIcon)(ULONG), [in] BSTR a_bstrFilter);
+};
+
+[
+	object,
+	uuid(44C51E2B-6B44-4B92-BE86-70F97CD292E3),
+	helpstring("IDocumentTypeComposed Interface"),
+	pointer_default(unique)
+]
+interface IDocumentTypeComposed : IDocumentType
+{
+	[helpstring("method Init")] HRESULT Init([in] BSTR a_bstrUniqueID, [in] ILocalizedString* a_pFilterName);
+	[helpstring("method InitEx"), local] HRESULT InitEx([in] BSTR a_bstrUniqueID, [in] ILocalizedString* a_pFilterName, [in] ILocalizedString* a_pTypeName, [in] BSTR a_bstrIconPath, [in] HMODULE a_hIconModule, [in] UINT a_nIconID);
+	[helpstring("method InitAsAllFiles")] HRESULT InitAsAllFiles();
+	[helpstring("method InitAsAllSupportedFiles")] HRESULT InitAsAllSupportedFiles();
+	[helpstring("method DocTypesAddFromList")] HRESULT DocTypesAddFromList([in] ULONG a_nCount, [in, size_is(a_nCount)] IDocumentType** a_apTypes);
+	[helpstring("method DocTypesAddFromEnum")] HRESULT DocTypesAddFromEnum([in] IEnumUnknowns* a_pTypes);
+	[helpstring("method DocTypesGet")] HRESULT DocTypesGet([out] IEnumUnknowns** a_ppTypes);
+};
+
+
+typedef [v1_enum] enum ESeekType
+{
+	ESTStart = 0,
+	ESTCurrent = 1
+} ESeekType;
+
+typedef [v1_enum] enum EFilterType
+{
+	EFTOpenExisting = 0x1,
+	EFTCreateNew = 0x2,
+	EFTAccessRead = 0x10,
+	EFTAccessWrite = 0x20,
+	EFTShareRead = 0x100,
+	EFTShareWrite = 0x200,
+	EFTHintNoStream = 0x1000,
+	EFTFileBrowser = 0x100000,
+	EFTMultiselection = 0x200000, // only works with file system file browser now
+	EFTFileSystemOnly = 0x400000,
+	EFTBackground3D = 0x10000000,
+	EFTBackgroundWindow = 0x20000000,
+	EFTBackgroundMask = 0x30000000,
+	EFT_FORCE_DWORD = 0x7fffffff
+} EFilterType;
+
+[
+	object,
+	uuid(7ECA3FDF-201C-4A88-979F-5EEE884B79E9),
+	helpstring("IDataSrcDirect Interface"),
+	pointer_default(unique)
+]
+interface IDataSrcDirect : IUnknown
+{
+	[helpstring("method SizeGet")] HRESULT SizeGet([out] ULONG* a_pnSize);
+	[helpstring("method SrcLock"), local] HRESULT SrcLock([in] ULONG a_nOffset, [in] ULONG a_nSize, [out] BYTE const** a_ppBuffer);
+	[helpstring("method SrcUnlock"), local] HRESULT SrcUnlock([in] ULONG a_nSize, [in] BYTE const* a_pBuffer);
+};
+
+[
+	object,
+	uuid(A89C21F9-569B-4C30-94EC-9D2F04F3BD2F),
+	helpstring("IDataSrcStream Interface"),
+	pointer_default(unique)
+]
+interface IDataSrcStream : IUnknown
+{
+	[helpstring("method SizeGet")] HRESULT SizeGet([out] ULONG* a_pnSize);
+	[helpstring("method Read")] HRESULT Read([in] ULONG a_nSize, [out, size_is(a_nSize)] BYTE* a_pBuffer);
+	[helpstring("method Seek")] HRESULT Seek([in] ESeekType a_eSeekType, [in] LONG a_nOffset);
+};
+
+//[
+//	object,
+//	uuid(1C772E65-9332-4B57-A24B-05D35015CF56),
+//	helpstring("IDataDstDirect Interface"),
+//	pointer_default(unique)
+//]
+//interface IDataDstDirect : IUnknown
+//{
+//	[helpstring("method SizeGet")] HRESULT SizeGet([out] ULONG* a_pnSize);
+//	[helpstring("method DstLock"), local] HRESULT DstLock([in] ULONG a_nOffset, [in] ULONG a_nSize, [out] BYTE** a_ppBuffer);
+//	[helpstring("method DstUnlock"), local] HRESULT DstUnlock([in] ULONG a_nSize, [in] BYTE* a_pBuffer);
+//};
+
+[
+	object,
+	uuid(E7430B21-7B97-4DA6-A611-4660B66EC2E7),
+	helpstring("IDataDstStream Interface"),
+	pointer_default(unique)
+]
+interface IDataDstStream : IReturnedData
+{
+	[helpstring("method SizeGet")] HRESULT SizeGet([out] ULONG* a_pnSize);
+	[helpstring("method Seek")] HRESULT Seek([in] ULONG a_nSize);
+	[helpstring("method Close")] HRESULT Close();
+};
+
+[
+	object,
+	uuid(BDC2A19C-71D2-4027-99D2-40750622AD05),
+	helpstring("IStorageFilter Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilter : IUnknown
+{
+	[helpstring("method ToText")] HRESULT ToText([in] IStorageFilter* a_pRoot, [out] BSTR* a_pbstrFilter);
+	[helpstring("method SubFilterGet")] HRESULT SubFilterGet([in] BSTR a_bstrRelativeLocation, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method SrcOpen")] HRESULT SrcOpen([out] IDataSrcDirect** a_ppSrc);
+	[helpstring("method DstOpen")] HRESULT DstOpen([out] IDataDstStream** a_ppDst);
+};
+
+typedef [v1_enum] enum EStorageTimeType
+{
+	ESTTCreation = 0,
+	ESTTModification,
+	ESTTAccess,
+} EStorageTimeType;
+
+[
+	object,
+	uuid(FCD16464-07CE-43AB-BED4-2637FDC1BC59),
+	helpstring("IStorageLocatorAttrs Interface"),
+	pointer_default(unique)
+]
+interface IStorageLocatorAttrs : IUnknown
+{
+	[helpstring("method GetTime")] HRESULT GetTime([in] EStorageTimeType a_eType, [out] ULONGLONG* a_pTime);
+	[helpstring("method SetTime")] HRESULT SetTime([in] EStorageTimeType a_eType, [in] ULONGLONG a_nTime);
+};
+
+[
+	object,
+	uuid(63132D76-0CE1-4255-AD97-B5FA46AC4943),
+	helpstring("IStorageFilterBrowsable Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilterBrowsable : IUnknown
+{
+	[helpstring("method OpenInFolder")] HRESULT OpenInFolder();
+};
+
+[
+	object,
+	uuid(FC2A9548-2F6C-406E-8D4F-6541FB6E5423),
+	helpstring("IStorageFilterWindow Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilterWindow : IChildWindow
+{
+	[helpstring("method FilterCreate")] HRESULT FilterCreate([out] IStorageFilter** a_ppFilter);
+	[helpstring("method FiltersCreate")] HRESULT FiltersCreate([out] IEnumUnknowns** a_ppFilters); // use if multiselection is enabled
+	[helpstring("method DocTypesEnum")] HRESULT DocTypesEnum([out] IEnumUnknowns** a_pFormatFilters);
+	[helpstring("method DocTypeGet")] HRESULT DocTypeGet([out] IDocumentType** a_pFormatFilter);
+	[helpstring("method DocTypeSet")] HRESULT DocTypeSet([in] IDocumentType* a_pFormatFilter);
+	[helpstring("method NavigationCommands")] HRESULT NavigationCommands([out] IEnumUnknowns** a_ppCommands);
+	[helpstring("method OnIdle")] HRESULT OnIdle();
+};
+
+[
+	object,
+	uuid(4ABBE22E-FABD-4160-9BD5-643C01651043),
+	helpstring("IStorageFilterWindowCallback Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilterWindowCallback : IUnknown
+{
+	[helpstring("method ForwardOK")] HRESULT ForwardOK();
+	[helpstring("method ForwardCancel")] HRESULT ForwardCancel();
+	[helpstring("method DefaultCommand")] HRESULT DefaultCommand([out] ILocalizedString** a_ppName, [out] ILocalizedString** a_ppDesc, [out] GUID* a_pIconID);
+	[helpstring("method DefaultCommandIcon")] HRESULT DefaultCommandIcon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+};
+
+[
+	object,
+	uuid(672C0083-EF41-45FB-BB98-3BE2DBA77A25),
+	helpstring("IStorageFilterWindowListener Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilterWindowListener : IUnknown
+{
+	[helpstring("method LocatorTextChanged")] HRESULT LocatorTextChanged([in] BSTR a_bstrText);
+	[helpstring("method DocumentChanged")] HRESULT DocumentChanged([in] IDocumentType* a_pType);
+	[helpstring("method DefaultDocumentGet")] HRESULT DefaultDocumentGet([out] IDocumentType** a_ppType);
+};
+
+[
+	object,
+	uuid(AD4AF15E-CFB4-43D9-B63E-3D6FB85495C8),
+	helpstring("IStorageFilterFactory Interface"),
+	pointer_default(unique)
+]
+interface IStorageFilterFactory : IUnknown
+{
+	[helpstring("method NameGet")] HRESULT NameGet([out] ILocalizedString** a_ppName);
+	[helpstring("method IconGet"), local] HRESULT IconGet([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method SupportsGUI")] HRESULT SupportsGUI([in] DWORD a_dwFlags);
+	[helpstring("method FilterCreate")] HRESULT FilterCreate([in] BSTR a_bstrFilter, [in] DWORD a_dwFlags, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method WindowCreate"), local] HRESULT WindowCreate([in] BSTR a_bstrInitial, [in] DWORD a_dwFlags, [in] RWHWND a_hParent, [in] IEnumUnknowns* a_pFormatFilters, [in] IConfig* a_pContextConfig, [in] IStorageFilterWindowCallback* a_pCallback, [in] IStorageFilterWindowListener* a_pListener, [in] LCID a_tLocaleID, [out] IStorageFilterWindow** a_ppWindow);
+	[helpstring("method ContextConfigGetDefault")] HRESULT ContextConfigGetDefault([out] IConfig** a_ppConfig);
+};
+
+[
+	object,
+	uuid(2A05DB36-0A26-45A0-B29E-A027A2CC0F8A),
+	helpstring("IStorageManager Interface"),
+	pointer_default(unique)
+]
+interface IStorageManager : IUnknown
+{
+	[helpstring("method FilterCreate")] HRESULT FilterCreate([in] BSTR a_bstrFilter, [in] DWORD a_dwFlags, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method FilterCreateInteractivelyCfg"), local] HRESULT FilterCreateInteractivelyCfg([in] BSTR a_bstrInitial, [in] DWORD a_dwFlags, [in] RWHWND a_hParent, [in] IEnumUnknowns* a_pFormatFilters, [in] IConfig* a_pUserConfig, [in] IConfig* a_pContextConfig, [in] ILocalizedString* a_pCaption, [in] IStorageFilterWindowListener* a_pListener, [in] LCID a_tLocaleID, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method FilterCreateInteractivelyUID"), local] HRESULT FilterCreateInteractivelyUID([in] BSTR a_bstrInitial, [in] DWORD a_dwFlags, [in] RWHWND a_hParent, [in] IEnumUnknowns* a_pFormatFilters, [in] IConfig* a_pUserConfig, [in] REFGUID a_tContextID, [in] ILocalizedString* a_pCaption, [in] IStorageFilterWindowListener* a_pListener, [in] LCID a_tLocaleID, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method FilterWindowCreate"), local] HRESULT FilterWindowCreate([in] BSTR a_bstrInitial, [in] DWORD a_dwFlags, [in] RWHWND a_hParent, [in] IEnumUnknowns* a_pFormatFilters, [in] IConfig* a_pUserConfig, [in] IConfig* a_pContextConfig, [in] IStorageFilterWindowCallback* a_pCallback, [in] IStorageFilterWindowListener* a_pListener, [in] LCID a_tLocaleID, [out] IStorageFilterWindow** a_ppWindow);
+	[helpstring("method ConfigGetDefault")] HRESULT ConfigGetDefault([out] IConfig** a_ppConfig);
+	[helpstring("method FilterCreateEx")] HRESULT FilterCreateEx([in] IStorageFilter* a_pRoot, [in] BSTR a_bstrLocation, [in] DWORD a_dwFlags, [out] IStorageFilter** a_ppFilter);
+	[helpstring("method FilterCreateInteractivelyCfgHelp"), local] HRESULT FilterCreateInteractivelyCfgHelp([in] BSTR a_bstrInitial, [in] DWORD a_dwFlags, [in] RWHWND a_hParent, [in] IEnumUnknowns* a_pFormatFilters, [in] IConfig* a_pUserConfig, [in] IConfig* a_pContextConfig, [in] ILocalizedString* a_pCaption, [in] BSTR a_bstrHelpLink, [in] IStorageFilterWindowListener* a_pListener, [in] LCID a_tLocaleID, [out] IStorageFilter** a_ppFilter);
+};
+
+[
+	object,
+	uuid(4696FE1B-699E-4071-BB0D-8D052D63A716),
+	helpstring("IStorageBrowserWindow Interface"),
+	pointer_default(unique)
+]
+interface IStorageBrowserWindow : IStorageFilterWindow
+{
+	[helpstring("method ActiveStorageGet")] HRESULT ActiveStorageGet([out] CLSID* a_pclsidPage);
+	[helpstring("method ActiveStorageSet")] HRESULT ActiveStorageSet([in] REFCLSID a_clsidPage);
+	[helpstring("method StoragesEnum")] HRESULT StoragesEnum([out] IEnumGUIDs** a_ppStorageIDs);
+	[helpstring("method StoragesName")] HRESULT StoragesName([in] REFCLSID a_clsidPage, [out] ILocalizedString** a_ppName);
+	[helpstring("method StoragesIcon"), local] HRESULT StoragesIcon([in] REFCLSID a_clsidPage, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+};
+
+
+[
+	uuid(48067FD8-9BF9-4D5A-8DDE-B0CF5EAAEAF6),
+	version(1.0),
+	helpstring("RWStorage 1.0 Type Library")
+]
+library RWStorageLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+
+	interface IStorageBrowserWindow;
+
+	[
+		uuid(A7AC1E4F-7560-43AE-BB3D-969940593CEA),
+		helpstring("StorageManager Class")
+	]
+	coclass StorageManager
+	{
+		[default] interface IStorageManager;
+	};
+
+	[
+		uuid(1F767911-8B60-48F4-A83B-03E3C1B2AD6D),
+		helpstring("StorageFilterFactoryFileSystem Class")
+	]
+	coclass StorageFilterFactoryFileSystem
+	{
+		[default] interface IStorageFilterFactory;
+	};
+	[
+		uuid(927CCD08-FCAC-43AF-915C-34D61FE4D7F6),
+		helpstring("StorageFilterFactoryResource Class")
+	]
+	coclass StorageFilterFactoryResource
+	{
+		[default] interface IStorageFilterFactory;
+	};
+	[
+		uuid(6FE8C7FA-5C3F-4326-8F96-4B8C12459281),
+		helpstring("DocumentTypeWildcards Class")
+	]
+	coclass DocumentTypeWildcards
+	{
+		[default] interface IDocumentTypeWildcards;
+		interface IDocumentType;
+	};
+	[
+		uuid(4B566C5A-EF07-4C58-86A9-6E6AB6661CF7),
+		helpstring("DocumentTypeComposed Class")
+	]
+	coclass DocumentTypeComposed
+	{
+		[default] interface IDocumentTypeComposed;
+		interface IDocumentType;
+	};
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_StorageFilterFactory = {0x7874c9e9, 0x2d43, 0x409a, {0x9e, 0xe1, 0x84, 0x4b, 0x6d, 0x6f, 0x54, 0x99}};")
+
+cpp_quote("#ifndef _NO_RWSTORAGEUTILS_")
+cpp_quote("#include <RWStorageUtils.h>")
+cpp_quote("#endif")

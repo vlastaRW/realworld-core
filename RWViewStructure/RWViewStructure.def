@@ -1,0 +1,10 @@
+; RWViewStructure.def : Declares the module parameters.
+
+LIBRARY      "RWViewStructure.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+;	DllRegisterServer	PRIVATE
+;	DllUnregisterServer	PRIVATE
+	DllEnumClasses		PRIVATE

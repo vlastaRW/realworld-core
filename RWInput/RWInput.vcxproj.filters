@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{0bd4b287-cc54-4741-b921-40819cbc5d40}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{48f3edea-8c79-4098-be9a-05ff56c19af9}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="InputManager Files">
+      <UniqueIdentifier>{f78ff314-6b5c-4aa6-9d58-36199897f25a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{e6953c67-aa80-48f7-af4f-7804cadbeb54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWInput.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RWBase\RWBase_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWInput_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentBase.cpp">
+      <Filter>InputManager Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>InputManager Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentBase.h">
+      <Filter>InputManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_interninc\DrawCache.h">
+      <Filter>InputManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>InputManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\Base64Codec.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DataStoreOutput.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DocumentUndoImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\OwnedUndoImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWInputUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\StringOutput.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\StringOutputUTF8.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\DocumentName.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWInput.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWInput.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWInput.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

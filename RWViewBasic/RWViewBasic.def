@@ -1,0 +1,8 @@
+; RWViewBasic.def : Declares the module parameters.
+
+LIBRARY      "RWViewBasic.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

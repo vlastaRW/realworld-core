@@ -1,0 +1,8 @@
+; RWBase.def : Declares the module parameters.
+
+LIBRARY      "RWBase.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

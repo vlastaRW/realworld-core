@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hpp;hxx;hm;inl;inc;xsd;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{ce1f5111-1fa2-4cea-8f2f-b97994ddaa5c}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="SharedStateEnum">
+      <UniqueIdentifier>{c1f74616-305c-436d-8d81-6750683e75a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SharedStateString">
+      <UniqueIdentifier>{1e68f164-b822-4b06-b5e6-28832a8c412f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SharedStateColor">
+      <UniqueIdentifier>{f9fe727c-2580-4b31-ae42-f6778a690ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{42c6e495-9064-4f40-95bd-1254d3f84280}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWConceptSharedState.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWConceptSharedState_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedStateEnum.cpp">
+      <Filter>SharedStateEnum</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedStateString.cpp">
+      <Filter>SharedStateString</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedStateColor.cpp">
+      <Filter>SharedStateColor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedStateEnum.h">
+      <Filter>SharedStateEnum</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedStateString.h">
+      <Filter>SharedStateString</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedStateColor.h">
+      <Filter>SharedStateColor</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\SharedStateUndo.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWConceptSharedState.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWConceptSharedState.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWConceptSharedState.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

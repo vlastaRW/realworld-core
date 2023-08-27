@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{46e784b0-d543-41f6-8082-6cac00899ddf}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{f1153e24-fa11-4935-a6ae-ae5df23f199a}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="StorageFilterFileSystem Files">
+      <UniqueIdentifier>{022d10f7-9cfb-4c43-a14f-1b9afb1e76cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Storage Management Files">
+      <UniqueIdentifier>{17061548-b397-40e6-99d7-99da1f952739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DocumentType Files">
+      <UniqueIdentifier>{af2eb964-61ea-48fd-9366-4e5c08cc4f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StorageFilterResource Files">
+      <UniqueIdentifier>{96b61375-0abb-4901-b301-79e17ce964bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{ce68b26f-33c6-4a19-a6e4-4ecbcc42096c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RWStorage.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RWBase\RWBase_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWStorage_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterBrowserFileSystem.cpp">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterFactoryFileSystem.cpp">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterFileSystem.cpp">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterWindowFileSystem.cpp">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenFilterDlg.cpp">
+      <Filter>Storage Management Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageManager.cpp">
+      <Filter>Storage Management Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTypeComposed.cpp">
+      <Filter>DocumentType Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentTypeWildcards.cpp">
+      <Filter>DocumentType Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterFactoryResource.cpp">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterResource.cpp">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageFilterWindowResource.cpp">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsFileSystem.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathAnalyzer.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PIDL.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterBrowserFileSystem.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterFactoryFileSystem.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterFileSystem.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterWindowFileSystem.h">
+      <Filter>StorageFilterFileSystem Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigIDsStorage.h">
+      <Filter>Storage Management Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenFilterDlg.h">
+      <Filter>Storage Management Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenFilterFrameDlg.h">
+      <Filter>Storage Management Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageManager.h">
+      <Filter>Storage Management Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTypeComposed.h">
+      <Filter>DocumentType Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentTypeWildcards.h">
+      <Filter>DocumentType Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterFactoryResource.h">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterResource.h">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StorageFilterWindowResource.h">
+      <Filter>StorageFilterResource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWStorageUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\MemoryStorageFilter.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWStorage.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWStorage.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWStorage.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

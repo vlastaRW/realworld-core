@@ -1,0 +1,565 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""RWVersion.h""\r\n"
+    "#include ""RWVersionInfo.rc2\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_TREE DIALOGEX 0, 0, 160, 119
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Synchronizaèní ID &výbìru:",IDC_STATIC,0,2,85,8
+    EDITTEXT        IDC_CGTREE_SELECTION,89,0,70,12,ES_AUTOHSCROLL
+    CHECKBOX        "Zobrazit èáry",IDC_CGTREE_LINES,0,15,58,10
+    LTEXT           "Zpùsob zobrazení:",IDC_STATIC,0,32,68,8
+    COMBOBOX        IDC_CGTREE_VIEWMODE,70,30,89,68,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Pøi stisku &klávesy:",IDC_STATIC,0,48,68,8
+    COMBOBOX        IDC_CGTREE_ONKEYDOWN,70,46,89,78,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Kontextové menu:",IDC_STATIC,0,64,68,8
+    COMBOBOX        IDC_CGTREE_CONTEXTMENU,70,62,89,129,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGTREE_SUBCONFIG,"Static",SS_BLACKRECT,0,78,159,41
+    CHECKBOX        "Posunovat výbìr",IDC_CGTREE_VISONKS,79,15,80,10
+END
+
+IDD_CONFIGGUI_EXTRACTSUBDOC DIALOGEX 0, 0, 163, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Vyber èást podle:",IDC_STATIC,0,2,57,8
+    COMBOBOX        IDC_CGEXTSUBDOC_EXTBY,58,0,58,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CGEXTSUBDOC_SYNCGROUP,120,0,43,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CGEXTSUBDOC_MANUALID,120,0,43,12,ES_AUTOHSCROLL
+    LTEXT           "&Operace s èástí:",IDC_STATIC,0,18,53,8
+    COMBOBOX        IDC_CGEXTSUBDOC_SUBOP,58,16,105,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_CGEXTSUBDOC_SUBCONFIG,0,32,163,14,NOT WS_VISIBLE
+END
+
+IDD_CONFIGGUI_SUBDOCFRAME DIALOGEX 0, 0, 163, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Synchronizaèní ID &výbìru èásti:",IDC_STATIC,0,2,102,8
+    EDITTEXT        IDC_CGSUBDOCFRM_SYNCGROUP,116,0,47,12,ES_AUTOHSCROLL
+    LTEXT           "Typ &pohledu:",IDC_STATIC,0,18,43,8
+    COMBOBOX        IDC_CGSUBDOCFRM_VIEWTYPE,46,16,49,126,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Ne&zavírat",IDC_CGSUBDOCFRM_CACHEVIEWS,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,116,17,47,10
+    LTEXT           "Static",IDC_CGSUBDOCFRM_SUBCONFIG,0,32,163,14,NOT WS_VISIBLE
+    EDITTEXT        IDC_CGSUBDOCFRM_EMPTYMSG,102,16,60,12,ES_AUTOHSCROLL
+END
+
+IDD_CONFIGGUI_SUBDOCCMDS DIALOGEX 0, 0, 163, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Vyber èást podle:",IDC_STATIC,0,2,57,8
+    COMBOBOX        IDC_CGEXTSUBDOC_EXTBY,58,0,58,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CGEXTSUBDOC_SYNCGROUP,120,0,43,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CGEXTSUBDOC_MANUALID,120,0,43,12,ES_AUTOHSCROLL
+    LTEXT           "&Pøíkazy:",IDC_STATIC,0,18,26,8
+    COMBOBOX        IDC_CGEXTSUBDOC_SUBOP,58,16,105,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_CGEXTSUBDOC_SUBCONFIG,0,32,163,14,NOT WS_VISIBLE
+END
+
+IDD_CONFIGGUI_BESTLAYOUT DIALOGEX 0, 0, 204, 76
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,16,100,14
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,30,100,46
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,104,16,100,60
+    LTEXT           "Synchronizaèní ID &výbìru èásti:",IDC_STATIC,0,2,105,8
+    EDITTEXT        IDC_CGSUBDOCFRM_SYNCGROUP,106,0,97,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CONFIGGUI_TREE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 153
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_CONFIGGUI_EXTRACTSUBDOC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_SUBDOCFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_SUBDOCCMDS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_BESTLAYOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "RWViewStructure"
+    IDS_TREE_VIEWNAME       "Struktura - strom"
+    IDS_NAMELESSITEM        "<bezejmená položka>"
+    IDC_TREE_STRUCTUREROOT  "Koøen struktury|"
+    IDS_CFGID_TREE_SELSYNCGROUP_NAME "Synchronizace výbìru"
+    IDS_CFGID_TREE_SELSYNCGROUP_DESC 
+                            "Vybraná položka v tomto pohledu bude synchronizována s ostaními pohledy ve shodné skupinì."
+    IDS_CHOICES             "Možnosti"
+    IDS_VALUE_TRUE          "ano"
+    IDS_VALUE_FALSE         "ne"
+    IDS_CFGID_TREE_STRUCTUREROOT_NAME "Koøen struktury"
+    IDS_CFGID_TREE_STRUCTUREROOT_DESC 
+                            "Urèuje, který koøen struktury bude zvolen pøi vytvoøení pohledu. Tato hodnota je ignorována, má-li dokument jen jednu strukturu nebo není-li zvolená struktura podorována."
+    IDS_CFGID_TREE_KEYDOWNACTION_NAME "Pøi stisku klávesy"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_TREE_KEYDOWNACTION_DESC 
+                            "Zvolená akce se provede pøi stisku klávesy."
+    IDS_CFGVAL_TKDA_JUMPTOITEM "Hledej položku"
+    IDS_CFGVAL_TKDA_STARTEDITING "Upravuj položku"
+    IDS_ENABLE_NAME         "Povolit"
+    IDS_ENABLE_DESC         "Nastavit stav všech vybraných pøepínatelných položek na povoleno."
+    IDS_MENU_STRUCTUREROOT  "Struktura - vybrat koøen"
+    IDS_MENU_STRUCTUREDITEMVALUE "Struktura - hodnota položky"
+    IDS_DISABLE_NAME        "Zakázat"
+    IDS_CFGID_TREE_CONTEXTMENU_NAME "Pøíkazy kontextového menu"
+    IDS_CFGID_TREE_CONTEXTMENU_DESC 
+                            "Objekt urèující, které pøíkazy budou zobrazeny v kontextovém menu okna."
+    IDS_DISABLE_DESC        "Nastavit stav všech vybraných pøepínatelných položek na zakázáno."
+    IDS_TV_CONTEXTHELP      "Toto okno zobrazuje strukturu aktuálního dokumentu. Ovládání:\n - Položku vyberete kliknutím levým tlaèítkem myši. Podržte klávesu CTRL nebo SHIFT pro výbìr více položek.\n - Menu s kontextovými operacemi zobrazíte kliknutím pravým tlaèítkem na položku.\n - Další nápovìdu získáte když pøesunete myš nad prvek a pøeètete si popis ve stavovém øádku (popis není k dispozici pro všechny položky)."
+    IDS_GENERICERROR        "Provedení operace se nezdaøilo a byl vrácen chybový kód 0x%08x. Prosím ovìøte, že je dostatek volné pamìti a konfigurace operace je správná."
+    IDS_CFGID_TREE_VIEWMODE_NAME "Zpùsob zobrazení"
+    IDS_CFGID_TREE_VIEWMODE_DESC 
+                            "Urèuje, jak budou zobrazeny položky ve stromì."
+    IDS_CFGVAL_TVM_SMALLICONS "Malé ikony"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGVAL_TVM_MEDIUMICONS "Støední ikony"
+    IDS_CFGVAL_TVM_LARGEICONS "Velké ikony"
+    IDS_CFGVAL_TVM_THUMBNAILS "Náhledy"
+    IDS_CFGID_TREE_VIEWLINES_NAME "Zobrazit èáry"
+    IDS_CFGID_TREE_VIEWLINES_DESC 
+                            "Zobrazovat ve stromì èáry pro zobrazení vztahù mezi položkami."
+    IDS_CFGID_TREE_SHOWITEMONFOCUS_NAME "Sozbrazit výbìr"
+    IDS_CFGID_TREE_SHOWITEMONFOCUS_DESC 
+                            "Posunout vybranou položku do viditelné oblasti pøi kliknutí mimo okno."
+    IDS_DOCOPEXTRACT_NAME   "Dokument - vyber èást dokumentu"
+    IDS_CFGID_EXTSD_SUBOP_NAME "Vnitøní operace"
+    IDS_CFGID_EXTSD_SUBOP_DESC 
+                            "Tato operace bude provedena s vybranou èástí dokumentu."
+    IDS_CFGID_SUBDOCSOURCE_NAME "Vybrat èást podle"
+    IDS_CFGID_SUBDOCSOURCE_DESC 
+                            "Definuje metodu, podle níž se bude vybírat èást z originálního dokumentu."
+    IDS_CFGVAL_SUBDOCSRC_MANUAL "Podle zadaného ID èásti"
+    IDS_CFGVAL_SUBDOCSRC_CATID "Podle aktuálního výbìru"
+    IDS_CFGVAL_SUBDOCSRC_ALLSUBDOCS "Pro všechny èásti"
+    IDS_CFGID_SUBDOCMANUAL_NAME "ID èásti dokumentu"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_SUBDOCMANUAL_DESC 
+                            "Identifikátor vybírané èásti dokumentu. Toto ID je specifické pro každý typ dokumentu. Pro seznam platných ID, prostudujte dokumentaci k použitému dokumentu."
+    IDS_CFGID_SUBDOCCATID_NAME "Synchronizaèní ID stavu"
+    IDS_CFGID_SUBDOCCATID_DESC 
+                            "Identikátor synchronizaèní skupiny výbìru, která je použita v aktuálním pohledu."
+    IDS_FRM_VIEWNAME        "Dokument - vyber èást dokumentu"
+    IDS_BEST_VIEWNAME       "Dokument - nejlepší layout"
+    IDS_CFGID_FRM_SUBVIEW_NAME "Typ vniøního pohledu"
+    IDS_CFGID_FRM_SUBVIEW_HELP 
+                            "Tento pohled bude použit pro vybranou èást dokumentu."
+    IDS_CFGID_FRM_SELSYNCGROUP_NAME "Synchronizaèní ID stavu"
+    IDS_CFGID_FRM_SELSYNCGROUP_HELP 
+                            "Identikátor synchronizaèní skupiny výbìru, podle jejíhož stavu bude vybrána èást dokumentu."
+    IDS_CFGID_FRM_CACHEVIEWS_NAME "Nezavírat pohledy"
+    IDS_CFGID_FRM_CACHEVIEWS_HELP 
+                            "Je-li povoleno, pohledy se pøi zmìnì èásti dokumentu budou pouze schovávat. Pøi opìtovném otevøení bude tak zachován jejich stav."
+    IDS_CFGID_BEST_SUBVIEW_NAME "Typ pohledu"
+    IDS_CFGID_BEST_SUBVIEW_DESC "Typ pohledu v tomto vnitøním layoutu."
+    IDS_CFGID_BEST_SUBLAYOUTS_NAME "Vnitøní layouty"
+    IDS_CFGID_BEST_SUBLAYOUTS_DESC 
+                            "Poèet vnitøních layoutù. K aktuálnímu dokumentu bude automaticky vybrán nejvhodnìjší layout."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENU_SUBDOCUMENT    "Dokument - vyber èást dokumentu"
+    IDS_CFGID_EXTSD_SUBOP_NAME3 "Vnitøní pøíkazy"
+    IDS_CFGID_EXTSD_SUBOP_DESC3 
+                            "Tyto pøíkazy budou pracovat s vybranou èástí dokumentu."
+    IDS_CFGID_SUBDOCSOURCE_NAME3 "Vybrat èást podle"
+    IDS_CFGID_SUBDOCSOURCE_DESC3 
+                            "Definuje metodu, podle níž se bude vybírat èást z originálního dokumentu."
+    IDS_CFGVAL_SUBDOCSRC_MANUAL3 "Podle zadaného ID èásti"
+    IDS_CFGVAL_SUBDOCSRC_CATID3 "Podle aktuálního stavu pohledù"
+    IDS_CFGID_SUBDOCMANUAL_NAME3 "ID èásti dokumentu"
+    IDS_CFGID_SUBDOCMANUAL_DESC3 
+                            "Identifikátor vybírané èásti dokumentu. Toto ID je specifické pro každý typ dokumentu. Pro seznam platných ID, prostudujte dokumentaci k použitému dokumentu."
+    IDS_CFGID_SUBDOCCATID_NAME3 "Synchronizaèní ID stavu"
+    IDS_CFGID_SUBDOCCATID_DESC3 
+                            "Identikátor synchronizaèní skupiny výbìru, která je použita v aktuálním pohledu."
+    IDS_CGTOOLBAR_BUTTONNAMES 
+                            "Vytvoøit nový layout|Duplikovat layout|Smazat layout|Posunout nahoru|Posunout dolù|"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGGUI_TREE DIALOGEX 0, 0, 160, 119
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Selection sync ID:",IDC_STATIC,0,2,74,8
+    EDITTEXT        IDC_CGTREE_SELECTION,75,0,84,12,ES_AUTOHSCROLL
+    CHECKBOX        "Show lines",IDC_CGTREE_LINES,0,15,71,10
+    LTEXT           "Display mode:",IDC_STATIC,0,32,74,8
+    COMBOBOX        IDC_CGTREE_VIEWMODE,75,30,84,68,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "On &key pressed:",IDC_STATIC,0,48,74,8
+    COMBOBOX        IDC_CGTREE_ONKEYDOWN,75,46,84,82,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Context menu:",IDC_STATIC,0,64,74,8
+    COMBOBOX        IDC_CGTREE_CONTEXTMENU,75,62,84,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_CGTREE_SUBCONFIG,"Static",SS_BLACKRECT,0,78,159,41
+    CHECKBOX        "Scroll selection",IDC_CGTREE_VISONKS,79,15,80,10
+END
+
+IDD_CONFIGGUI_EXTRACTSUBDOC DIALOGEX 0, 0, 163, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Extract part by:",IDC_STATIC,0,2,65,8
+    COMBOBOX        IDC_CGEXTSUBDOC_EXTBY,66,0,50,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CGEXTSUBDOC_SYNCGROUP,120,0,43,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CGEXTSUBDOC_MANUALID,120,0,43,12,ES_AUTOHSCROLL
+    LTEXT           "Part &operation:",IDC_STATIC,0,18,65,8
+    COMBOBOX        IDC_CGEXTSUBDOC_SUBOP,66,16,97,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_CGEXTSUBDOC_SUBCONFIG,0,32,163,14,NOT WS_VISIBLE
+END
+
+IDD_CONFIGGUI_SUBDOCFRAME DIALOGEX 0, 0, 171, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Document part sync ID:",IDC_STATIC,0,2,97,8
+    EDITTEXT        IDC_CGSUBDOCFRM_SYNCGROUP,106,0,65,12,ES_AUTOHSCROLL
+    LTEXT           "&View type:",IDC_STATIC,0,18,46,8
+    COMBOBOX        IDC_CGSUBDOCFRM_VIEWTYPE,48,16,57,126,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "&Cache views",IDC_CGSUBDOCFRM_CACHEVIEWS,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,106,17,65,10
+    LTEXT           "Static",IDC_CGSUBDOCFRM_SUBCONFIG,0,32,171,14,NOT WS_VISIBLE
+    EDITTEXT        IDC_CGSUBDOCFRM_EMPTYMSG,110,16,60,12,ES_AUTOHSCROLL
+END
+
+IDD_CONFIGGUI_SUBDOCCMDS DIALOGEX 0, 0, 163, 46
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Extract part by:",IDC_STATIC,0,2,62,8
+    COMBOBOX        IDC_CGEXTSUBDOC_EXTBY,64,0,52,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CGEXTSUBDOC_SYNCGROUP,120,0,43,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CGEXTSUBDOC_MANUALID,120,0,43,12,ES_AUTOHSCROLL
+    LTEXT           "&Commands:",IDC_STATIC,0,18,61,8
+    COMBOBOX        IDC_CGEXTSUBDOC_SUBOP,64,16,99,160,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_CGEXTSUBDOC_SUBCONFIG,0,32,163,14,NOT WS_VISIBLE
+END
+
+IDD_CONFIGGUI_BESTLAYOUT DIALOGEX 0, 0, 204, 76
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "ToolBar",IDC_CG_TOOLBAR,"ToolbarWindow32",0x994e,0,16,100,14
+    CONTROL         "",IDC_CG_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,0,30,100,46
+    CONTROL         "",IDC_CG_ITEM,"Static",SS_BLACKRECT,104,16,100,60
+    LTEXT           "Document part sync ID:",IDC_STATIC,0,2,97,8
+    EDITTEXT        IDC_CGSUBDOCFRM_SYNCGROUP,106,0,97,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CONFIGGUI_TREE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 153
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_CONFIGGUI_EXTRACTSUBDOC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_SUBDOCFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_SUBDOCCMDS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_CONFIGGUI_BESTLAYOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "RWViewStructure"
+    IDS_TREE_VIEWNAME       "Structure - Tree"
+    IDS_NAMELESSITEM        "<nameless item>"
+    IDC_TREE_STRUCTUREROOT  "Structure root|"
+    IDS_CFGID_TREE_SELSYNCGROUP_NAME "Selection synchronization ID"
+    IDS_CFGID_TREE_SELSYNCGROUP_DESC 
+                            "The selection in this view will be synchronized with other views in the same group."
+    IDS_CHOICES             "Choices"
+    IDS_VALUE_TRUE          "yes"
+    IDS_VALUE_FALSE         "no"
+    IDS_CFGID_TREE_STRUCTUREROOT_NAME "Structure root"
+    IDS_CFGID_TREE_STRUCTUREROOT_DESC 
+                            "Controls the initially displayed structure. This value is ignored if document only has one structured root or if it does not support selected root."
+    IDS_CFGID_TREE_KEYDOWNACTION_NAME "On key pressed"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_TREE_KEYDOWNACTION_DESC 
+                            "The selected action is performed when a key is pressed and the control has focus."
+    IDS_CFGVAL_TKDA_JUMPTOITEM "Jump to item"
+    IDS_CFGVAL_TKDA_STARTEDITING "Edit item"
+    IDS_ENABLE_NAME         "Enable"
+    IDS_ENABLE_DESC         "Set the state of all selected boolean items to true."
+    IDS_MENU_STRUCTUREROOT  "Structure - Select Root"
+    IDS_MENU_STRUCTUREDITEMVALUE "Structure - Item Value"
+    IDS_DISABLE_NAME        "Disable"
+    IDS_CFGID_TREE_CONTEXTMENU_NAME "Context menu commands"
+    IDS_CFGID_TREE_CONTEXTMENU_DESC 
+                            "Object that controls the command in the window's context menu."
+    IDS_DISABLE_DESC        "Set the state of all selected boolean items to false."
+    IDS_TV_CONTEXTHELP      "This view displays hierarchical structure of the current document. Controls:\n - Click on an item with left mouse button to select it. Hold down CTRL or SHIFT to select multiple items.\n - Display context menu by right-clicking on an item.\n - To get more help for an item, move mouse over it and read the hint in status bar (the hint is not always available)."
+    IDS_GENERICERROR        "The attempted operation failed with error code 0x%08x. Please verify that there is enough free memory and that the configuration of the operation is correct."
+    IDS_CFGID_TREE_VIEWMODE_NAME "View mode"
+    IDS_CFGID_TREE_VIEWMODE_DESC "Defines visualization mode for items."
+    IDS_CFGVAL_TVM_SMALLICONS "Small icons"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGVAL_TVM_MEDIUMICONS "Medium icons"
+    IDS_CFGVAL_TVM_LARGEICONS "Large icons"
+    IDS_CFGVAL_TVM_THUMBNAILS "Thumbnails"
+    IDS_CFGID_TREE_VIEWLINES_NAME "Show lines"
+    IDS_CFGID_TREE_VIEWLINES_DESC 
+                            "Display lines in tree to indicate relations between items."
+    IDS_CFGID_TREE_SHOWITEMONFOCUS_NAME "Show selection"
+    IDS_CFGID_TREE_SHOWITEMONFOCUS_DESC 
+                            "Scroll the selected item into view when clicked outside the window."
+    IDS_DOCOPEXTRACT_NAME   "Document - Extract Document Part"
+    IDS_CFGID_EXTSD_SUBOP_NAME "Internal Operation"
+    IDS_CFGID_EXTSD_SUBOP_DESC 
+                            "This operation is performed on the extracted document part."
+    IDS_CFGID_SUBDOCSOURCE_NAME "Extract Part by"
+    IDS_CFGID_SUBDOCSOURCE_DESC 
+                            "Defines how to select a document part from the whole document."
+    IDS_CFGVAL_SUBDOCSRC_MANUAL "Manually entered part-ID"
+    IDS_CFGVAL_SUBDOCSRC_CATID "From current selection"
+    IDS_CFGVAL_SUBDOCSRC_ALLSUBDOCS "All available parts"
+    IDS_CFGID_SUBDOCMANUAL_NAME "Document Part-ID"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CFGID_SUBDOCMANUAL_DESC 
+                            "ID of the extracted document part. This ID is document specific. Refer to documentation of the used document to learn about its part IDs."
+    IDS_CFGID_SUBDOCCATID_NAME "State Synchronization ID"
+    IDS_CFGID_SUBDOCCATID_DESC 
+                            "Identifier of a selection synchronization group used in current view."
+    IDS_FRM_VIEWNAME        "Document - Extract Document Part"
+    IDS_BEST_VIEWNAME       "Document - Best Layout"
+    IDS_CFGID_FRM_SUBVIEW_NAME "Internal view type"
+    IDS_CFGID_FRM_SUBVIEW_HELP 
+                            "This view is used for the extracted document part."
+    IDS_CFGID_FRM_SELSYNCGROUP_NAME "State synchronization ID"
+    IDS_CFGID_FRM_SELSYNCGROUP_HELP 
+                            "Identifier of a selection synchronization group used for document part extraction."
+    IDS_CFGID_FRM_CACHEVIEWS_NAME "Keep views open"
+    IDS_CFGID_FRM_CACHEVIEWS_HELP 
+                            "If enabled, a internal view will not be closed when another document part is selected. This will preserve the state of the view when the document part is re-opened."
+    IDS_CFGID_BEST_SUBVIEW_NAME "View type"
+    IDS_CFGID_BEST_SUBVIEW_DESC "View type in this internal layout."
+    IDS_CFGID_BEST_SUBLAYOUTS_NAME "Internal layouts"
+    IDS_CFGID_BEST_SUBLAYOUTS_DESC 
+                            "Number of layouts. Best suited layout is automatically choosed based on current document."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENU_SUBDOCUMENT    "Document - Extract Document Part"
+    IDS_CFGID_EXTSD_SUBOP_NAME2 "Internal commands"
+    IDS_CFGID_EXTSD_SUBOP_DESC2 
+                            "These commands will work with the extracted document part."
+    IDS_CFGID_SUBDOCSOURCE_NAME2 "Extract part by"
+    IDS_CFGID_SUBDOCSOURCE_DESC2 
+                            "Defines how to select a document part from the whole document."
+    IDS_CFGVAL_SUBDOCSRC_MANUAL2 "Manually entered part-ID"
+    IDS_CFGVAL_SUBDOCSRC_CATID2 "From current view state"
+    IDS_CFGID_SUBDOCMANUAL_NAME2 "Document part-ID"
+    IDS_CFGID_SUBDOCMANUAL_DESC2 
+                            "ID of the extracted document part. This ID is document specific. Refer to documentation of the used document to learn about its part IDs."
+    IDS_CFGID_SUBDOCCATID_NAME2 "State synchronization ID"
+    IDS_CFGID_SUBDOCCATID_DESC2 
+                            "Identifier of a selection synchronization group used in current view."
+    IDS_CGTOOLBAR_BUTTONNAMES 
+                            "Create new layout|Duplicate layout|Delete layout|Move up|Move down|"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "RWVersion.h"
+#include "RWVersionInfo.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

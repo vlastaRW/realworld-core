@@ -1,0 +1,8 @@
+; RWProcessing.def : Declares the module parameters.
+
+LIBRARY      "RWProcessing.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

@@ -1,0 +1,593 @@
+// RWBase.idl : IDL source for RWBase
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWBase.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//#########################################################
+// IComparable interface
+//
+[
+	object,
+	uuid(9DBE37C3-78F1-4933-9A23-BEDA2C47559D),
+	helpstring("IComparable Interface"),
+	pointer_default(unique)
+]
+interface IComparable : IUnknown
+{
+	[helpstring("method Compare")] HRESULT Compare([in] IComparable* a_pOther);
+	[helpstring("method CLSIDGet")] HRESULT CLSIDGet([out] CLSID* a_pCLSID);
+};
+
+cpp_quote("static const HRESULT S_LESS = 10;")
+cpp_quote("static const HRESULT S_MORE = 11;")
+
+//#########################################################
+// interfaces for block operations
+//
+[
+	object,
+	uuid(3EBE7E42-0CAD-4DC0-B75A-E609884AFB9E),
+	helpstring("IBlockOperations Interface"),
+	pointer_default(unique)
+]
+interface IBlockOperations : IUnknown
+{
+	[helpstring("method WriteLock")] HRESULT WriteLock();
+	[helpstring("method WriteUnlock")] HRESULT WriteUnlock();
+	//[helpstring("method CanWriteLock")] HRESULT CanWriteLock();
+	[helpstring("method ReadLock")] HRESULT ReadLock();
+	[helpstring("method ReadUnlock")] HRESULT ReadUnlock();
+	//[helpstring("method CanReadLock")] HRESULT CanReadLock();
+};
+
+//#########################################################
+// windowing interfaces
+//
+cpp_quote("#if 0")
+typedef int RWHWND; // for midl
+cpp_quote("#endif")
+cpp_quote("typedef HWND RWHWND;") // for cpp
+
+typedef DWORD TCookie;
+
+[
+	object,
+	uuid(1BC268B8-223B-4D84-AACB-9BCFF8E201B0),
+	helpstring("IChildWindow Interface"),
+	pointer_default(unique),
+	local
+]
+interface IChildWindow : IUnknown
+{
+	[helpstring("method Handle")] HRESULT Handle([out] RWHWND *a_pHandle);
+	[helpstring("method SendMessage")] HRESULT SendMessage([in] UINT a_uMsg, [in] WPARAM a_wParam, [in] LPARAM a_lParam);
+	[helpstring("method Show")] HRESULT Show([in] BOOL a_bShow);
+	[helpstring("method Move")] HRESULT Move([in] RECT const * a_prcPosition);
+	[helpstring("method Destroy")] HRESULT Destroy();
+	[helpstring("method PreTranslateMessage")] HRESULT PreTranslateMessage([in] MSG const* a_pMsg, [in] BOOL a_bBeforeAccel);
+};
+
+[
+	object,
+	uuid(4B24D3BC-0075-4403-AF57-F6B01DD56A30),
+	helpstring("IChildWindowInit Interface"),
+	pointer_default(unique)
+]
+interface IChildWindowInit : IChildWindow
+{
+	[helpstring("method Create")] HRESULT Create([in] RWHWND a_hParent, [in] RECT const* a_prcPositon, [in] UINT a_nCtlID, [in] LCID a_tLocaleID, [in] BOOL a_bVisible);
+};
+
+//#########################################################
+// IEnumXxxx and IEnumXxxxInit interfaces
+//
+[
+	object,
+	uuid(EA565CF4-F21E-4DEB-BFA7-BA62EA33BDC5),
+	helpstring("IEnumInts Interface"),
+	pointer_default(unique)
+]
+interface IEnumInts : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [out] LONG* a_pnItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [out, size_is(a_nCount)] LONG* a_anItems);
+};
+
+[
+	object,
+	uuid(74C6DC38-34C8-43d6-B88A-FD812FCB49C7),
+	helpstring("IEnumIntsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumIntsInit : IEnumInts
+{
+	[helpstring("method Insert")] HRESULT Insert([in] LONG a_nItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in, size_is(a_nCount)] LONG const* a_anItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] IEnumInts* a_pSource);
+};
+
+[
+	object,
+	uuid(D51C53C4-E973-4dce-8497-4C0F1CFC0CCB),
+	helpstring("IEnumUInts Interface"),
+	pointer_default(unique)
+]
+interface IEnumUInts : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [out] ULONG* a_pnItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [out, size_is(a_nCount)] ULONG* a_anItems);
+};
+
+[
+	object,
+	uuid(35D46A90-23A6-47ea-A6C1-FD03C0130EB3),
+	helpstring("IEnumUIntsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumUIntsInit : IEnumUInts
+{
+	[helpstring("method Insert")] HRESULT Insert([in] ULONG a_nItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in, size_is(a_nCount)] ULONG const* a_anItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] IEnumUInts* a_pSource);
+};
+
+[
+	object,
+	uuid(E112E749-B2C0-49f7-8B76-B57409BFD0C5),
+	helpstring("IEnumGUIDs Interface"),
+	pointer_default(unique)
+]
+interface IEnumGUIDs : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [out] GUID* a_ptItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [out, size_is(a_nCount)] GUID* a_atItems);
+};
+
+[
+	object,
+	uuid(21D87325-29CB-4802-AA95-A42DDEEB73A9),
+	helpstring("IEnumGUIDsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumGUIDsInit : IEnumGUIDs
+{
+	[helpstring("method Insert")] HRESULT Insert([in] GUID a_tItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in, size_is(a_nCount)] GUID const* a_atItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] IEnumGUIDs* a_pSource);
+};
+
+[
+	object,
+	uuid(E5DFD28B-459F-41F5-AF0C-BD0C9835107D),
+	helpstring("IEnumStrings Interface"),
+	pointer_default(unique)
+]
+interface IEnumStrings : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [out] BSTR* a_pbstrItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [out, size_is(a_nCount)] BSTR* a_abstrItems);
+};
+
+[
+	object,
+	uuid(B6478FBD-CBE7-4684-AAD5-58A5891C283C),
+	helpstring("IEnumStringsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumStringsInit : IEnumStrings
+{
+	[helpstring("method Insert")] HRESULT Insert([in] BSTR a_bstrItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in, size_is(a_nCount)] BSTR const* a_abstrItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] IEnumStrings* a_pSource);
+};
+
+[
+	object,
+	uuid(A7DAC7D7-DAA6-420E-8E66-8BF32FB3EE95),
+	helpstring("IEnumUnknowns Interface"),
+	pointer_default(unique)
+]
+interface IEnumUnknowns : IUnknown
+{
+cpp_quote("#if (_MSC_VER >= 1100) && defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("EXTERN_C const IID IID_IEnumUnknowns;")
+cpp_quote("extern \"C++\"")
+cpp_quote("{")
+cpp_quote("    template<typename T> GUID rwuuidof() { return __uuidof(T); }")
+cpp_quote("    MIDL_INTERFACE(\"A7DAC7D7-DAA6-420E-8E66-8BF32FB3EE95\")")
+cpp_quote("    IEnumUnknowns : public IUnknown")
+cpp_quote("    {")
+cpp_quote("    public:")
+cpp_quote("        virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE Size( ")
+cpp_quote("            /* [out] */ ULONG *a_pnSize) = 0;")
+cpp_quote("        virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE Get( ")
+cpp_quote("            /* [in] */ ULONG a_nIndex,")
+cpp_quote("            /* [in] */ REFIID a_iid,")
+cpp_quote("            /* [out][iid_is] */ void **a_ppItem) = 0;")
+cpp_quote("        virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE GetMultiple( ")
+cpp_quote("            /* [in] */ ULONG a_nIndexFirst,")
+cpp_quote("            /* [in] */ ULONG a_nCount,")
+cpp_quote("            /* [in] */ REFIID a_iid,")
+cpp_quote("            /* [size_is][out][iid_is] */ void **a_apItems) = 0;")
+cpp_quote("            template<class Q> HRESULT STDMETHODCALLTYPE Get(ULONG a_nIndex, Q** pp) {return Get(a_nIndex, rwuuidof<Q>(), (void **)pp);} ")
+cpp_quote("    };")
+cpp_quote("}")
+cpp_quote("#else")
+	[helpstring("method Size")] HRESULT Size([out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [in] REFIID a_iid, [iid_is(a_iid), out] void** a_ppItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [in] REFIID a_iid, [iid_is(a_iid), out, size_is(a_nCount)] void** a_apItems);
+};
+cpp_quote("#endif")
+
+[
+	object,
+	uuid(04D7F11E-A7A7-4182-A18E-3B9F3F0F92B7),
+	helpstring("IEnumUnknownsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumUnknownsInit : IEnumUnknowns
+{
+	[helpstring("method Insert")] HRESULT Insert([in] IUnknown* a_pItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in, size_is(a_nCount)] IUnknown* const* a_apItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] IEnumUnknowns* a_pSource);
+};
+
+[
+	object,
+	uuid(81C52F3A-1B9A-4439-BC35-D6E4FC7038F3),
+	helpstring("IEnumStructs Interface"),
+	pointer_default(unique)
+]
+interface IEnumStructs : IUnknown
+{
+	[helpstring("method Size")] HRESULT Size([in] ULONG a_nStructSize, [out] ULONG *a_pnSize);
+	[helpstring("method Get")] HRESULT Get([in] ULONG a_nIndex, [in] ULONG a_nStructSize, [out, size_is(a_nStructSize)] BYTE* a_pItem);
+	[helpstring("method GetMultiple")] HRESULT GetMultiple([in] ULONG a_nIndexFirst, [in] ULONG a_nCount, [in] ULONG a_nStructSize, [out, size_is(a_nCount*a_nStructSize)] BYTE* a_aItems);
+};
+
+[
+	object,
+	uuid(E6401198-7CA4-4f69-BDEB-F2C1165C50E3),
+	helpstring("IEnumStructsInit Interface"),
+	pointer_default(unique)
+]
+interface IEnumStructsInit : IEnumStructs
+{
+	[helpstring("method Insert")] HRESULT Insert([in] ULONG a_nStructSize, [in, size_is(a_nStructSize)] BYTE const* a_pItem);
+	[helpstring("method InsertMultiple")] HRESULT InsertMultiple([in] ULONG a_nCount, [in] ULONG a_nStructSize, [in, size_is(a_nCount*a_nStructSize)] BYTE const* a_aItems);
+	[helpstring("method InsertFromEnum")] HRESULT InsertFromEnum([in] ULONG a_nStructSize, [in] IEnumStructs* a_pSource);
+};
+
+//#########################################################
+// IEnum2Xxxx interfaces will be replacing IEnumXxxx
+// prevents unnecessary copying and object creation
+//
+
+[
+	object,
+	uuid(36F02181-20AA-42DE-9902-21C23B1E12D6),
+	helpstring("IEnum2UInts Interface"),
+	pointer_default(unique)
+]
+interface IEnum2UInts : IUnknown
+{
+	[helpstring("method Range")] HRESULT Range([in, out] ULONG* a_pStart, [in, out] ULONG* a_pCount);
+	[helpstring("method Consume")] HRESULT Consume([in] ULONG a_nStart, [in] ULONG a_nCount, [in, size_is(a_nCount)] ULONG const* a_aVals);
+};
+
+[
+	object,
+	uuid(16621128-550B-4FD0-864E-0B7EBE42EDF8),
+	helpstring("IEnum2Strings Interface"),
+	pointer_default(unique)
+]
+interface IEnum2Strings : IUnknown
+{
+	[helpstring("method Range")] HRESULT Range([in, out] ULONG* a_pStart, [in, out] ULONG* a_pCount);
+	[helpstring("method Consume")] HRESULT Consume([in] ULONG a_nStart, [in] ULONG a_nCount, [in, size_is(a_nCount)] wchar_t const* const* a_aVals);
+};
+
+//#########################################################
+// ILocalizedString interface
+//
+[
+	object,
+	uuid(E0DA446E-64A4-4A43-B1BB-16239DA9BBBF),
+	helpstring("ILocalizedString Interface"),
+	pointer_default(unique)
+]
+interface ILocalizedString : IUnknown
+{
+	[helpstring("method Get")] HRESULT Get([out] BSTR* a_pbstrString);
+	[helpstring("method GetLocalized")] HRESULT GetLocalized([in] LCID a_tLCID, [out] BSTR* a_pbstrString);
+};
+
+//#########################################################
+// ILocalizedStringInit interface
+//
+[
+	object,
+	uuid(153DF778-11AB-4dc5-AE52-7A44413700D1),
+	helpstring("ILocalizedStringInit Interface"),
+	pointer_default(unique)
+]
+interface ILocalizedStringInit : ILocalizedString
+{
+	[helpstring("method SetDefault")] HRESULT SetDefault([in] LCID a_tDefaultLCID);
+	[helpstring("method Insert")] HRESULT Insert([in] LCID a_tLCID, [in] BSTR a_bstrString);
+};
+
+//#########################################################
+// IStringTable interface
+//
+[
+	object,
+	uuid(4C6EBC84-8F2A-4B99-B1FA-C05822B8B891),
+	helpstring("IStringTable Interface"),
+	pointer_default(unique)
+]
+interface IStringTable : IUnknown
+{
+	[helpstring("method StringGet")] HRESULT StringGet([in] int a_nID, [out] ILocalizedString** a_ppString);
+	[helpstring("method StringEnumIDs")] HRESULT EnumIDs([out] IEnumInts** a_ppIDs);
+};
+
+//#########################################################
+// IStringTableInit interface
+//
+[
+	object,
+	uuid(D399A78A-B850-479c-A50A-035847CA94CD),
+	helpstring("IStringTableInit Interface"),
+	pointer_default(unique)
+]
+interface IStringTableInit : IStringTable
+{
+	[helpstring("method InitializeLocal"), local] HRESULT InitializeLocal([in] HMODULE a_hModule, [in] LCID a_tDefaultLCID);
+	[helpstring("method Initialize")] HRESULT Initialize([in] BSTR a_bstrModulePath, [in] LCID a_tDefaultLCID);
+};
+
+//#########################################################
+// IPlugInCache interface
+//
+[
+	object,
+	uuid(E880D570-E8DD-4743-99F5-00AAADCB7F55),
+	helpstring("IPlugInCache Interface"),
+	pointer_default(unique)
+]
+interface IPlugInCache : IUnknown
+{
+	[helpstring("method CLSIDsEnum")] HRESULT CLSIDsEnum([in] REFGUID a_guidCategory, [in] DWORD a_nMaxAge, [out] IEnumGUIDs** a_ppCLSIDs);
+	[helpstring("method InterfacesEnum")] HRESULT InterfacesEnum([in] REFGUID a_guidCategory, [in] REFIID a_iidRequiredInterface, [in] DWORD a_nMaxAge, [out] IEnumUnknowns** a_ppObjects, [out] IEnumGUIDs** a_ppCLSIDs);
+};
+
+[
+	object,
+	uuid(D8D3F2F3-749E-4435-93C5-4D649CA39EC3),
+	helpstring("IReturnedData Interface"),
+	pointer_default(unique)
+]
+interface IReturnedData : IUnknown
+{
+	[helpstring("method Write")] HRESULT Write([in] ULONG a_nSize, [in, size_is(a_nSize)] BYTE const* a_pData);
+};
+
+[
+	object,
+	uuid(ABE95784-4AA1-4FE5-B477-B5B49ADE5661),
+	helpstring("ITranslator Interface"),
+	pointer_default(unique)
+]
+interface ITranslator : IUnknown
+{
+	[helpstring("method Translate")] HRESULT Translate([in] BSTR a_bstrEng, [in] LCID a_tLocaleID, [out] BSTR* a_pTranslated);
+	[helpstring("method TranslateInPlace")] HRESULT TranslateInPlace([in] ULONG a_nBufLen, [in, out, size_is(a_nBufLen)] OLECHAR* a_pszBuffer, [in] LCID a_tLocaleID);
+};
+
+interface IThreadedTask;
+
+[
+	object,
+	uuid(818ECE66-96CB-4CBA-BCCF-8E2496EBD867),
+	helpstring("ITaskControl Interface"),
+	pointer_default(unique)
+]
+interface ITaskControl : IUnknown
+{
+	[helpstring("method Cancelled")] HRESULT Cancelled();
+	[helpstring("method Progress")] HRESULT Progress([in] ULONG a_nDone, [in] ULONG a_nTotal);
+	[helpstring("method Execute")] HRESULT Execute([in] ULONG a_nMaxThreads, [in] IThreadedTask* a_pTask);
+};
+
+[
+	object,
+	uuid(996CAA67-6EFC-49C7-A1AE-2DF08533C1D4),
+	helpstring("IThreadPool Interface"),
+	pointer_default(unique),
+	local
+]
+interface IThreadPool : IUnknown
+{
+	[helpstring("method MaxThreads")] ULONG MaxThreads();
+	[helpstring("method Execute")] HRESULT Execute([in] ULONG a_nMaxThreads, [in] IThreadedTask* a_pTask);
+};
+
+[
+	object,
+	uuid(6E71AFCB-F03B-42DD-8EDE-407759258652),
+	helpstring("IThreadPoolControl Interface"),
+	pointer_default(unique),
+	local
+]
+interface IThreadPoolControl : IThreadPool
+{
+	[helpstring("method MaxThreadsSet")] HRESULT MaxThreadsSet([in] ULONG a_nMaxThreads);
+	[helpstring("method ProcessorInfoGet")] HRESULT ProcessorInfoGet([out] ULONG* a_pCores, [out] ULONG* a_pThreads);
+};
+
+[
+	object,
+	uuid(D81B296C-598A-42D9-9C91-4F89A5B4346B),
+	helpstring("IThreadedTask Interface"),
+	pointer_default(unique)
+]
+interface IThreadedTask : IUnknown
+{
+	[helpstring("method Execute")] HRESULT Execute([in] ULONG a_nIndex, [in] ULONG a_nTotal);
+};
+
+typedef [v1_enum] enum ELicensingMode
+{
+	ELMDonate = 0,
+	ELMBeta,
+	ELMEnterSerial,
+} ELicensingMode;
+
+[
+	object,
+	uuid(08C40E4D-68C1-4339-824F-2EDDD64B82EC),
+	helpstring("IApplicationInfo Interface"),
+	pointer_default(unique)
+]
+interface IApplicationInfo : IUnknown
+{
+	[helpstring("method Name")] HRESULT Name([out] ILocalizedString** a_ppName);
+	[helpstring("method Version")] HRESULT Version([out] ULONG* a_pVersion);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method Identifier")] HRESULT Identifier([out] BSTR* a_pbstrAppID);
+	[helpstring("method AboutBox")] HRESULT AboutBox([in] RWHWND a_hWndParent, [in] LCID a_tLocaleID);
+
+	[helpstring("method Portable")] HRESULT Portable();
+	[helpstring("method AppDataFolder")] HRESULT AppDataFolder([out] BSTR* a_pbstrFolder);
+	[helpstring("method AppRootFolder")] HRESULT AppRootFolder([out] BSTR* a_pbstrFolder);
+
+	[helpstring("method LicensingMode")] HRESULT LicensingMode([out] ELicensingMode* a_eLicensing);
+	[helpstring("method License")] HRESULT License([out] BSTR* a_pbstrName, [out] BSTR* a_pbstrOrganization, [out] BSTR* a_pbstrSerial, [out] ULONG* a_pAppLicCode, [out] ULONG* a_pDaysInstalled);
+	[helpstring("method LicenseSet")] HRESULT LicenseSet([in] BSTR a_bstrName, [in] BSTR a_bstrOrganization, [in] BSTR a_bstrSerial);
+	[helpstring("method LicenseBox")] HRESULT LicenseBox([in] RWHWND a_hWndParent, [in] LCID a_tLocaleID);
+
+	[helpstring("method Account")] HRESULT Account([out] BSTR* a_pbstrServer, [out] BSTR* a_pbstrLogin, [out] BSTR* a_pbstrPassHash);
+	[helpstring("method AccountSet")] HRESULT AccountSet([in] BSTR a_bstrLogin, [in] BSTR a_bstrPassword);
+	[helpstring("method AccountBox")] HRESULT AccountBox([in] RWHWND a_hWndParent, [in] LCID a_tLocaleID);
+	[helpstring("method AccountHash")] HRESULT AccountHash([in] BSTR a_bstrPassword, [out] BSTR* a_pbstrHash);
+};
+
+
+[
+	uuid(13440ECA-30C0-467E-9CA2-BD8138281895),
+	version(1.0),
+	helpstring("RWBase 1.0 Type Library")
+]
+library RWBaseLib
+{
+	importlib("stdole2.tlb");
+
+	interface IComparable;
+	interface IBlockOperations;
+	interface IChildWindow;
+	interface IChildWindowInit;
+	interface IReturnedData;
+	interface ITranslator; // here to break a cyclic dependency due to packaging of localization-based classes in RWLocalization
+	interface IApplicationInfo; // object with CLSID_ApplicationInfo shall be accessible through RWCoCreateInstance
+
+	interface IEnum2UInts;
+	interface IEnum2Strings;
+
+	[
+		uuid(34D0D23D-4703-475B-A830-7DFA2ABB1AFB),
+		helpstring("EnumInts Class")
+	]
+	coclass EnumInts
+	{
+		[default] interface IEnumInts;
+		interface IEnumIntsInit;
+	};
+	[
+		uuid(B67D60A9-C69B-4df2-BFC2-249E9894CD31),
+		helpstring("EnumUInts Class")
+	]
+	coclass EnumUInts
+	{
+		[default] interface IEnumUInts;
+		interface IEnumUIntsInit;
+	};
+	[
+		uuid(77E50E8C-D9B4-43f0-9FB2-AB4497DF2D56),
+		helpstring("EnumGUIDs Class")
+	]
+	coclass EnumGUIDs
+	{
+		[default] interface IEnumGUIDs;
+		interface IEnumGUIDsInit;
+	};
+	[
+		uuid(A886157C-7F3D-46B6-AED0-A8E2076B97F4),
+		helpstring("EnumStrings Class")
+	]
+	coclass EnumStrings
+	{
+		[default] interface IEnumStrings;
+		interface IEnumStringsInit;
+	};
+	[
+		uuid(8E2CB7C6-BEC0-40CF-95A5-F9252EA6A958),
+		helpstring("EnumUnknowns Class")
+	]
+	coclass EnumUnknowns
+	{
+		[default] interface IEnumUnknowns;
+		interface IEnumUnknownsInit;
+	};
+	[
+		uuid(00CE0629-8F0D-45FB-B589-C40B16664EEF),
+		helpstring("EnumStructs Class")
+	]
+	coclass EnumStructs
+	{
+		[default] interface IEnumStructs;
+		interface IEnumStructsInit;
+	};
+
+	[
+		uuid(64F1D978-EB2E-4211-BDB2-3981F4C516B2),
+		helpstring("LocalizedString Class")
+	]
+	coclass LocalizedString
+	{
+		[default] interface ILocalizedStringInit;
+		interface ILocalizedString;
+	};
+	[
+		uuid(A241D5F0-8A0B-4EFB-9BF7-A40A411E7020),
+		helpstring("PlugInCache Class")
+	]
+	coclass PlugInCache
+	{
+		[default] interface IPlugInCache;
+	};
+	[
+		uuid(321CCCC6-4E78-47A2-A629-FAA8871F6BB8),
+		helpstring("ThreadPool Class")
+	]
+	coclass ThreadPool
+	{
+		[default] interface IThreadPool;
+	};
+};
+
+//cpp_quote("#include \"RWBaseEnumUtils.h\"")
+cpp_quote("#include \"RWBaseWndUtils.h\"")
+cpp_quote("#include \"RWBaseBlockOpsUtils.h\"")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class DECLSPEC_UUID(\"A8527808-1328-4221-9858-18E47799C379\") Translator;")
+cpp_quote("class DECLSPEC_UUID(\"FC40A739-0D46-4E79-9819-EFCE2EC9192C\") ApplicationInfo;")
+cpp_quote("#endif")

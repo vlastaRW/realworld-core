@@ -1,0 +1,8 @@
+; RWThumbnails.def : Declares the module parameters.
+
+LIBRARY      "RWThumbnails.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllEnumClasses		PRIVATE

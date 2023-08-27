@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ConfigWithDependencies">
+      <UniqueIdentifier>{c777d540-2447-4b64-b33c-543505229283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{17dbd2ab-5f64-4bf3-a443-ffa1911210d8}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{25df9d5a-aef2-4a07-b4a2-75b5fc9addc3}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="SubConfigSwitch">
+      <UniqueIdentifier>{bfb16b19-87b7-4f33-ab53-dbeffda8a342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SubConfigSwitchLate">
+      <UniqueIdentifier>{898f9764-2796-461f-9a32-b22a69e419e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SubConfigVector">
+      <UniqueIdentifier>{08c94940-56c4-4a81-93da-ff668059a795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MiniConfigWnd Files">
+      <UniqueIdentifier>{0b6097d2-04d6-4849-b8be-fec6bfd2af7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FullConfigWnd Files">
+      <UniqueIdentifier>{f75843aa-aa15-43f5-93df-0cd0b8e758a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AutoConfigWnd">
+      <UniqueIdentifier>{bd3894d1-2578-4a55-97e2-f5ce4c454b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigInMemory">
+      <UniqueIdentifier>{81628dab-8f30-4f3a-beb0-918e18ba0e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TreeConfigWnd Files">
+      <UniqueIdentifier>{1e88456f-e4d9-4161-86ff-8a0921b3b780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigItems">
+      <UniqueIdentifier>{b01d7ae2-b43b-491c-afbc-4446d0226693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigValueHelper">
+      <UniqueIdentifier>{1452bea7-2aa7-4916-9608-67bb89431cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GlobalConfigManager Files">
+      <UniqueIdentifier>{097d5a80-f6fd-441c-96ae-a099f95d9034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_inc">
+      <UniqueIdentifier>{b1b6eb2d-f0fd-4cf7-a825-d1bf4e6b8bd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConfigItemConditions.cpp">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigWDItemOptions.cpp">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigWDItemRange.cpp">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigWDItemSimple.cpp">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigWithDependencies.cpp">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="RWConfig.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RWBase\RWBase_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RWConfig_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubConfigSwitch.cpp">
+      <Filter>SubConfigSwitch</Filter>
+    </ClCompile>
+    <ClCompile Include="SubConfigSwitchLate.cpp">
+      <Filter>SubConfigSwitchLate</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigVctItem.cpp">
+      <Filter>SubConfigVector</Filter>
+    </ClCompile>
+    <ClCompile Include="SubConfigVector.cpp">
+      <Filter>SubConfigVector</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniConfigWnd.cpp">
+      <Filter>MiniConfigWnd Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigListDlg.cpp">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FullConfigWnd.cpp">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TableManager.cpp">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoConfigWnd.cpp">
+      <Filter>AutoConfigWnd</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigInMemory.cpp">
+      <Filter>ConfigInMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeConfigWnd.cpp">
+      <Filter>TreeConfigWnd Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigItemCheckBox.cpp">
+      <Filter>ConfigItems</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigItemComboBox.cpp">
+      <Filter>ConfigItems</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigItemEditBox.cpp">
+      <Filter>ConfigItems</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigItemSlider.cpp">
+      <Filter>ConfigItems</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigValueHelper.cpp">
+      <Filter>ConfigValueHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalConfigManager.cpp">
+      <Filter>GlobalConfigManager Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConfigItemConditions.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWDItem.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWDItemCustomOptions.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWDItemOptions.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWDItemRange.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWDItemSimple.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigWithDependencies.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumConfigItemOptions.h">
+      <Filter>ConfigWithDependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RWVersion.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubConfigSwitch.h">
+      <Filter>SubConfigSwitch</Filter>
+    </ClInclude>
+    <ClInclude Include="SubConfigSwitchLate.h">
+      <Filter>SubConfigSwitchLate</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigVctItem.h">
+      <Filter>SubConfigVector</Filter>
+    </ClInclude>
+    <ClInclude Include="SubConfigVector.h">
+      <Filter>SubConfigVector</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniConfigWnd.h">
+      <Filter>MiniConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipAreaDlg.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigListDlg.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigVisualizer.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FullConfigWnd.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncedConfigData.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncedData.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TableManager.h">
+      <Filter>FullConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoConfigWnd.h">
+      <Filter>AutoConfigWnd</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigInMemory.h">
+      <Filter>ConfigInMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigMessages.h">
+      <Filter>TreeConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeConfigWnd.h">
+      <Filter>TreeConfigWnd Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemCheckBox.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemComboBox.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemCtl.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemEditBox.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemEditBoxFloat.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemEditBoxNumber.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigItemSlider.h">
+      <Filter>ConfigItems</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigValueHelper.h">
+      <Filter>ConfigValueHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConfigManager.h">
+      <Filter>GlobalConfigManager Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\RWConfigUtils.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ConfigCustomGUIIcons.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ConfigCustomGUIImpl.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ConfigCustomGUIList.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_inc\ConfigCustomGUIML.h">
+      <Filter>_inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RWConfig.def">
+      <Filter>Misc Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RWConfig.rc">
+      <Filter>Misc Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="CustomGUI.ico">
+      <Filter>TreeConfigWnd Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\_inc\RWConfig.idl">
+      <Filter>_inc</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

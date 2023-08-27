@@ -1,0 +1,329 @@
+// RWInput.idl : IDL source for RWInput
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWInput.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWConfig.idl";
+import "RWStorage.idl";
+
+typedef [v1_enum] enum EDocumentChange
+{
+	EDCDirtyness = 1,
+	EDCLocation = 2,
+	EDCFeatures = 4,
+	EDCUndoLevel = 8,
+	EDCQuickInfo = 16,
+	EDC_FORCE_DWORD = 0x7fffffff
+} EDocumentChange;
+
+[
+	object,
+	uuid(B9C3E436-690C-497F-823C-878E4AFF499B),
+	helpstring("IDocumentObserver Interface"),
+	pointer_default(unique)
+]
+interface IDocumentObserver : IUnknown
+{
+	[helpstring("method Notify")] HRESULT Notify([in] TCookie a_tCookie, [in] ULONG a_nChangeFlags);
+};
+
+interface IDocumentData;
+interface IDocument;
+
+[
+	object,
+	uuid(C85545AD-44BC-46E7-BFD2-9E00B5FB727F),
+	helpstring("IDocumentUndoStep Interface"),
+	pointer_default(unique)
+]
+interface IDocumentUndoStep : IUnknown
+{
+	[helpstring("method Execute")] HRESULT Execute();
+	[helpstring("method MemorySize")] HRESULT MemorySize([out] ULONGLONG* a_pnSize);
+	[helpstring("method Merge")] HRESULT Merge([in] IDocumentUndoStep* a_pNextStep, [in] DWORD a_dwTimeDelta);
+};
+
+[
+	object,
+	uuid(BA657CB5-8A91-4123-8A2E-98BA1EB6A17C),
+	helpstring("IDocumentBase Interface"),
+	pointer_default(unique)
+]
+interface IDocumentBase : IBlockOperations
+{
+	[helpstring("method DataBlockIDs")] HRESULT DataBlockIDs([out] IEnumStrings** a_ppIDs);
+	[helpstring("method DataBlockGet")] HRESULT DataBlockGet([in] BSTR a_bstrID, [in] REFIID a_iid, [out, iid_is(a_iid)] void** a_ppFeatureInterface);
+	[helpstring("method DataBlockSet")] HRESULT DataBlockSet([in] BSTR a_bstrID, [in] IDocumentData* a_pBlock);
+	[helpstring("method DataBlockDoc")] HRESULT DataBlockDoc([in] BSTR a_bstrID, [out] IDocument** a_ppSubDocument);
+
+	[helpstring("method LocationGet")] HRESULT LocationGet([out] IStorageFilter** a_ppLocation);
+	[helpstring("method LocationSet")] HRESULT LocationSet([in] IStorageFilter* a_pLocation);
+	[helpstring("method EncoderGet")] HRESULT EncoderGet([out] CLSID* a_pEncoderID, [out] IConfig** a_ppConfig);
+	[helpstring("method EncoderSet")] HRESULT EncoderSet([in] REFCLSID a_tEncoderID, [in] IConfig* a_pConfig);
+
+	[helpstring("method UndoEnabled")] HRESULT UndoEnabled();
+	[helpstring("method UndoStep")] HRESULT UndoStep(IDocumentUndoStep* a_pStep);
+
+	[helpstring("method SetDirty")] HRESULT SetDirty();
+	[helpstring("method RefreshEncoder")] HRESULT RefreshEncoder();
+	[helpstring("method UpdateQuickInfo")] HRESULT UpdateQuickInfo();
+
+	[helpstring("method UndoStepCancel")] HRESULT UndoStepCancel();
+};
+
+[
+	object,
+	uuid(E3385BBB-0889-429A-B749-30039F8E798F),
+	helpstring("IEnumEncoderAspects Interface"),
+	pointer_default(unique)
+]
+interface IEnumEncoderAspects : IUnknown
+{
+	[helpstring("method Range")] HRESULT Range([in, out] ULONG* a_pStart, [in, out] ULONG* a_pCount);
+	[helpstring("method Consume")] HRESULT Consume([in] ULONG a_nStart, [in] ULONG a_nCount, [in, size_is(a_nCount)] BSTR const* a_abstrIDs, [in, size_is(a_nCount)] float const* a_afWeights);
+};
+
+[
+	object,
+	uuid(2B1ADA5F-43BF-44D6-AFB8-032E753DF66A),
+	helpstring("IDocument Interface"),
+	pointer_default(unique)
+]
+interface IDocument : IBlockOperations
+{
+	[helpstring("method BuilderID")] HRESULT BuilderID([out] CLSID* a_pguidBuilder);
+	[helpstring("method EncoderGet")] HRESULT EncoderGet([out] CLSID* a_pEncoderID, [out] IConfig** a_ppConfig);
+	[helpstring("method EncoderSet")] HRESULT EncoderSet([in] REFCLSID a_tEncoderID, [in] IConfig* a_pConfig);
+
+	[helpstring("method QueryFeatureInterface")] HRESULT QueryFeatureInterface([in] REFIID a_iid, [out, iid_is(a_iid)] void** a_ppFeatureInterface);
+
+	[helpstring("method LocationGet")] HRESULT LocationGet([out] IStorageFilter** a_ppLocation);
+	[helpstring("method LocationSet")] HRESULT LocationSet([in] IStorageFilter* a_pLocation);
+
+	[helpstring("method IsDirty")] HRESULT IsDirty();
+	[helpstring("method SetDirty")] HRESULT SetDirty();
+	[helpstring("method ClearDirty")] HRESULT ClearDirty();
+
+	[helpstring("method EncoderAspects")] HRESULT EncoderAspects([in] IEnumEncoderAspects* a_pEnumAspects);
+
+	[helpstring("method DocumentCopy")] HRESULT DocumentCopy([in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [in] CLSID* a_tPreviewEffectID, [in] IConfig* a_pPreviewEffect);
+
+	[helpstring("method ObserverIns")] HRESULT ObserverIns([in] IDocumentObserver* a_pObserver, [in] TCookie a_tCookie);
+	[helpstring("method ObserverDel")] HRESULT ObserverDel([in] IDocumentObserver* a_pObserver, [in] TCookie a_tCookie);
+
+	[helpstring("method QuickInfo")] HRESULT QuickInfo([in] ULONG a_nInfoIndex, [out] ILocalizedString** a_ppInfo);
+};
+
+typedef [v1_enum] enum EUndoMode
+{
+	EUMDefault = 0,
+	EUMDisabled = 1,
+	EUMSingleStep = 2,
+	EUMMemoryLimited = 3,
+	EUMAllSteps = 4,
+} EUndoMode;
+
+[
+	object,
+	uuid(5172B7DF-CC79-4A8A-99A2-0331B9E146C9),
+	helpstring("IDocumentUndo Interface"),
+	pointer_default(unique)
+]
+interface IDocumentUndo : IUnknown
+{
+	[helpstring("method UndoModeSet")] HRESULT UndoModeSet([in] EUndoMode a_eMode);
+	[helpstring("method UndoModeGet")] HRESULT UndoModeGet([out] EUndoMode* a_pMode);
+
+	[helpstring("method StepCount")] HRESULT StepCount([out] ULONG* a_pnUndoSteps, [out] ULONG* a_pnRedoSteps);
+	[helpstring("method StepName")] HRESULT StepName([in] BOOL a_bRedo, [in] ULONG a_nStep, [out] ILocalizedString** a_ppName);
+	[helpstring("method StepIcon")] HRESULT StepIcon([in] BOOL a_bRedo, [in] ULONG a_nStep, [in] ULONG a_nSize, [out] HICON* a_phIcon);
+
+	[helpstring("method Undo")] HRESULT Undo([in] ULONG a_nSteps);
+	[helpstring("method Redo")] HRESULT Redo([in] ULONG a_nSteps);
+
+	// MUST be paired properly or the step will never end
+	// can be nested (internal name is ignored)
+	// if write-locked, step ends after unlock
+	[helpstring("method StepStart")] HRESULT StepStart([in] ILocalizedString* a_pName);
+	[helpstring("method StepEnd")] HRESULT StepEnd();
+
+	[helpstring("method StepAddExternal")] HRESULT StepAddExternal([in] IDocumentUndoStep* a_pStep);
+};
+
+typedef [v1_enum] enum EDocumentResourceManager
+{
+	EDRMNoAction = 0,
+	EDRMGetMemoryUsage = 0x1,
+	EDRMAccurate = 0x10,
+	EDRMGetAccurateMemoryUsage = 0x11,
+	EDRMMinimizeUsage = 0x10000,
+	EDRMMinimizeAndGetMemoryUsage = 0x10001,
+	EDRMMinimizeAndGetAccurateMemoryUsage = 0x10011,
+} EDocumentResourceManager;
+
+[
+	object,
+	uuid(4ABD7F48-AC59-41E4-843B-FE4D09E48F7B),
+	helpstring("IDocumentData Interface"),
+	pointer_default(unique)
+]
+interface IDocumentData : IUnknown
+{
+	[helpstring("method Init")] HRESULT Init([in] IDocumentBase* a_pCallback, [in] BSTR a_bstrID);
+
+	[helpstring("method BuilderID")] HRESULT BuilderID([out] CLSID* a_pguidBuilder);
+	[helpstring("method Aspects")] HRESULT Aspects([in] IEnumEncoderAspects* a_pEnumAspects);
+
+	[helpstring("method WriteFinished")] HRESULT WriteFinished();
+
+	[helpstring("method DataCopy")] HRESULT DataCopy([in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [in] CLSID* a_tPreviewEffectID, [in] IConfig* a_pPreviewEffect);
+
+	[helpstring("method QuickInfo")] HRESULT QuickInfo([in] ULONG a_nInfoIndex, [out] ILocalizedString** a_ppInfo);
+
+	[helpstring("method DefaultUndoMode")] HRESULT DefaultUndoMode([out] EUndoMode* a_peDefaultMode);
+	[helpstring("method MaximumUndoSize")] HRESULT MaximumUndoSize([out] ULONGLONG* a_pnMaximumSize);
+
+	[helpstring("method LocationChanged")] HRESULT LocationChanged([in] IStorageFilter* a_pOldLoc);
+	[helpstring("method RemovingBlock")] HRESULT RemovingBlock();
+
+	[helpstring("method ComponentFeatureOverride")] HRESULT ComponentFeatureOverride([in] BSTR a_bstrID, [in] REFIID a_iid, [in, out, iid_is(a_iid)] void** a_ppFeatureInterface);
+	[helpstring("method ComponentLocationGet")] HRESULT ComponentLocationGet([in] BSTR a_bstrID, [in] IStorageFilter* a_pThisLoc, [out] IStorageFilter** a_ppComponentLoc);
+
+	[helpstring("method ResourcesManage")] HRESULT ResourcesManage([in] EDocumentResourceManager a_eActions, [out] ULONGLONG* a_pValue);
+};
+
+
+typedef [v1_enum] enum EDocumentPriority
+{
+	EDPMinimum = 1,
+	EDPLow = 64,
+	EDPAverage = 127,
+	EDPHigh = 192,
+	EDPMaximum = 254,
+} EDocumentPriority;
+
+//#########################################################
+// IDocumentBuilder and IDocumentDecoder - file parsing
+//
+
+[
+	object,
+	uuid(2B78783B-19F0-494A-B0B2-034C3D0AB763),
+	helpstring("IDocumentBuilder Interface"),
+	pointer_default(unique)
+]
+interface IDocumentBuilder : IUnknown
+{
+	[helpstring("method Priority")] HRESULT Priority([out] ULONG* a_pnPriority);
+	[helpstring("method TypeName")] HRESULT TypeName([out] ILocalizedString** a_ppType);
+	[helpstring("method Icon"), local] HRESULT Icon([in] ULONG a_nSize, [out] HICON* a_phIcon);
+	[helpstring("method FormatInfo")] HRESULT FormatInfo([out] ILocalizedString** a_ppFormat, [out] BSTR* a_pbstrShellIcon);
+	[helpstring("method HasFeatures")] HRESULT HasFeatures([in] ULONG a_nCount, [in, size_is(a_nCount)] IID const* a_aiidRequired);
+};
+
+[
+	object,
+	uuid(A617A0A4-326D-415F-92DF-DBFE9598FE62),
+	helpstring("IDocumentDecoder Interface"),
+	pointer_default(unique)
+]
+interface IDocumentDecoder : IUnknown
+{
+	[helpstring("method Priority")] HRESULT Priority([out] ULONG* a_pnPriority);
+	[helpstring("method DocumentType")] HRESULT DocumentType([out] IDocumentType** a_ppDocumentType);
+	[helpstring("method IsCompatible")] HRESULT IsCompatible([in] ULONG a_nBuilders, [in, size_is(a_nBuilders)] IDocumentBuilder* const* a_apBuilders);
+	[helpstring("method Parse")] HRESULT Parse([in] ULONG a_nLen, [in, size_is(a_nLen)] BYTE const* a_pData, [in] IStorageFilter* a_pLocation, [in] ULONG a_nBuilders, [in, size_is(a_nBuilders)] IDocumentBuilder* const* a_apBuilders, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [out] GUID* a_pEncoderID, [out] IConfig** a_ppEncoderCfg, [in] ITaskControl* a_pControl);
+};
+
+//#########################################################
+// IDocumentEncoder - serialization
+//
+[
+	object,
+	uuid(B782ED25-19E3-4000-94FE-7F8574924F8B),
+	helpstring("IDocumentEncoder Interface"),
+	pointer_default(unique)
+]
+interface IDocumentEncoder : IUnknown
+{
+	[helpstring("method DocumentType")] HRESULT DocumentType([in] IDocumentType** a_ppDocType);
+	[helpstring("method DefaultConfig")] HRESULT DefaultConfig([in] IConfig** a_ppDefCfg);
+	[helpstring("method CanSerialize")] HRESULT CanSerialize([in] IDocument* a_pDoc, [out] BSTR* a_pbstrAspects);
+	[helpstring("method Serialize")] HRESULT Serialize([in] IDocument* a_pDoc, [in] IConfig* a_pCfg, [in] IReturnedData* a_pDst, [in] IStorageFilter* a_pLocation, [in] ITaskControl* a_pControl);
+};
+
+
+//#########################################################
+// IInputManager - interface for clients
+//
+[
+	object,
+	uuid(3C6D8DCF-2340-4E7B-ADC8-66173F597052),
+	helpstring("IInputManager Interface"),
+	pointer_default(unique)
+]
+interface IInputManager : IUnknown
+{
+	[helpstring("method DocumentTypesEnum")] HRESULT DocumentTypesEnum([out] IEnumUnknowns** a_ppDocumentTypes);
+	[helpstring("method DocumentTypesEnumEx")] HRESULT DocumentTypesEnumEx([in] IUnknown* a_pBuilderSpec, [out] IEnumUnknowns** a_ppDocumentTypes);
+	[helpstring("method DocumentCreate")] HRESULT DocumentCreate([in] IStorageFilter* a_pSource, [in] IBlockOperations* a_pOwner, [out] IDocument** a_ppDocument);
+	[helpstring("method DocumentCreateEx")] HRESULT DocumentCreateEx([in] IUnknown* a_pBuilderSpec, [in] IStorageFilter* a_pSource, [in] IBlockOperations* a_pOwner, [out] IDocument** a_ppDocument);
+	[helpstring("method DocumentCreateData")] HRESULT DocumentCreateData([in] IUnknown* a_pBuilderSpec, [in] IStorageFilter* a_pSource, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase);
+	[helpstring("method DocumentCreateDataEx")] HRESULT DocumentCreateDataEx([in] IUnknown* a_pBuilderSpec, [in] ULONG a_nLen, [in, size_is(a_nLen)] BYTE const* a_pData, [in] IStorageFilter* a_pLocation, [in] BSTR a_bstrPrefix, [in] IDocumentBase* a_pBase, [out] GUID* a_pEncoderID, [out] IConfig** a_ppEncoderCfg, [in] ITaskControl* a_pControl);
+	[helpstring("method GetCompatibleBuilders")] HRESULT GetCompatibleBuilders([in] ULONG a_nCount, [in, size_is(a_nCount)] IID const* a_aiidRequired, [out] IEnumUnknowns** a_ppBuilders);
+
+	[helpstring("method SaveOptionsGet")] HRESULT SaveOptionsGet([in] IDocument* a_pDocument, [out] IConfig** a_ppSaveOptions, [out] IEnumUnknowns** a_ppFormatFilters, [out] IStorageFilterWindowListener** a_ppWindowListener);
+	[helpstring("method SaveEncoder")] HRESULT SaveEncoder([in] IConfig* a_pSaveOptions, [out] GUID* a_pEncoderID, [out] IConfig** a_ppEncoderCfg);
+	[helpstring("method Save")] HRESULT Save([in] IDocument* a_pDocument, [in] IConfig* a_pSaveOptions, [in] IStorageFilter* a_pSaveCopyAsDestination);
+
+	[helpstring("method FindBestEncoder")] HRESULT FindBestEncoder([in] IDocument* a_pDocument, [out] GUID* a_pEncID, [out] IConfig** a_ppEncCfg);
+	[helpstring("method FindBestEncoderEx")] HRESULT FindBestEncoderEx([in] IDocument* a_pDocument, [in] ULONG a_nExtra, [in, size_is(a_nExtra)] BSTR const* a_abstrIDs, [in, size_is(a_nExtra)] float const* a_afWeights, [out] GUID* a_pEncID, [out] IConfig** a_ppEncCfg);
+};
+
+
+[
+	uuid(610A1C52-DE6C-4368-BBE9-31DFD9AF1CE7),
+	version(1.0),
+	helpstring("RWInput 1.0 Type Library")
+]
+library RWInputLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	importlib("RWConfig.tlb");
+	importlib("RWStorage.tlb");
+
+	interface IDocumentFactory;
+	interface IDocumentForConfig;
+	interface IDocumentEncoder;
+	interface IDocumentBuilder;
+	interface IDocumentDecoder;
+
+	[
+		uuid(4ED2E209-CB79-4849-9175-BFCC033132E1),
+		helpstring("InputManager Class")
+	]
+	coclass InputManager
+	{
+		[default] interface IInputManager;
+	};
+
+	[
+		uuid(76DA054A-FB2A-43CA-B11F-9607E0F5D486),
+		helpstring("DocumentBase Class")
+	]
+	coclass DocumentBase
+	{
+		[default] interface IDocumentBase;
+	};
+};
+
+cpp_quote("#include \"RWInputUtils.h\"")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentEncoder = {0x102ad5c6, 0xaf1e, 0x4411, {0xad, 0xe1, 0x48, 0x58, 0x94, 0x88, 0xf7, 0x2b}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentDecoder = {0xa3c866eb, 0xe812, 0x4508, {0x9f, 0xfb, 0x02, 0x21, 0x97, 0x8a, 0xbc, 0x19}};")
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_DocumentBuilder = {0xaaa9c743, 0x24e7, 0x48e4, {0xae, 0xe3, 0x34, 0xcc, 0x40, 0x7b, 0xee, 0x24}};")
+cpp_quote("#define ENCFEAT_STANDARD L\"[standard]\"")

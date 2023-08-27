@@ -1,0 +1,304 @@
+// RWScripting.idl : IDL source for RWScripting
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RWScripting.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "RWBase.idl";
+import "RWInput.idl";
+import "RWProcessing.idl";
+
+
+[
+	object,
+	uuid(BDE5D118-8C75-480E-ABC9-FBA7B92986C3),
+	helpstring("IScriptingSite Interface"),
+	pointer_default(unique)
+]
+interface IScriptingSite : IUnknown
+{
+	[helpstring("method AddItem")] HRESULT AddItem([in] BSTR a_bstrName, [in] IDispatch* a_pItem);
+};
+
+interface IScriptingInterfaceManager;
+
+[
+	object,
+	uuid(AADB0FA7-53AB-4A64-8B49-B8C345E1EC50),
+	helpstring("IScriptingInterface Interface"),
+	pointer_default(unique)
+]
+interface IScriptingInterface : IUnknown
+{
+	[helpstring("method GetGlobalObjects")] HRESULT GetGlobalObjects([in] IScriptingInterfaceManager* a_pScriptingMgr, [in] IScriptingSite* a_pSite, [in] IUnknown* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pStates, [in] RWHWND a_hParent, [in] LCID a_tLocaleID);
+	[helpstring("method GetInterfaceAdaptors")] HRESULT GetInterfaceAdaptors([in] IScriptingInterfaceManager* a_pScriptingMgr, [in] IScriptingSite* a_pSite, [in] IDocument* a_pDocument);
+	[helpstring("method GetKeywords")] HRESULT GetKeywords([in] IScriptingInterfaceManager* a_pScriptingMgr, [in] IEnumStringsInit* a_pPrimary, [in] IEnumStringsInit* a_pSecondary);
+};
+
+interface IScriptedDocument;
+
+[
+	object,
+	uuid(AFD03BB9-7AA2-48CF-BA1F-0E3D8F0C1F50),
+	helpstring("IJScriptArrayInit Interface"),
+	pointer_default(unique)
+]
+interface IJScriptArrayInit : IDispatch
+{
+	[helpstring("method Add")] HRESULT Add([in] VARIANT a_tVal);
+	[helpstring("method AddNumber")] HRESULT AddNumber([in] LONG a_nVal);
+	[helpstring("method AddString")] HRESULT AddString([in] BSTR a_bstrVal);
+	[helpstring("method AddObject")] HRESULT AddObject([in] IDispatch* a_pVal);
+	[helpstring("method AddFloat")] HRESULT AddFloat([in] float a_fVal);
+};
+
+[
+	object,
+	uuid(DC58576F-C379-4921-859F-4AB173534017),
+	helpstring("IScriptingInterfaceManager Interface"),
+	pointer_default(unique)
+]
+interface IScriptingInterfaceManager : IUnknown
+{
+	[helpstring("method GetGlobalObjects")] HRESULT GetGlobalObjects([in] IScriptingSite* a_pSite, [in] IUnknown* a_pManager, [in] IDocument* a_pDocument, [in] IConfig* a_pConfig, [in] IOperationContext* a_pStates, [in] RWHWND a_hParent, [in] LCID a_tLocaleID);
+	[helpstring("method GetInterfaceAdaptors")] HRESULT GetInterfaceAdaptors([in] IScriptingSite* a_pSite, [in] IDocument* a_pDocument);
+	[helpstring("method GetKeywords")] HRESULT GetKeywords([in] IEnumStringsInit* a_pPrimary, [in] IEnumStringsInit* a_pSecondary);
+	[helpstring("method WrapDocument")] HRESULT WrapDocument([in] IScriptingInterfaceManager* a_pOverride, [in] IDocument* a_pDocument, [out] IScriptedDocument** a_ppWrapped);
+	[helpstring("method CreateJScriptArray")] HRESULT CreateJScriptArray([out] IJScriptArrayInit** a_ppArray);
+};
+
+[
+	object,
+	uuid(ACED54F8-611F-4DCC-A935-6B6AA5B4E9B3),
+	helpstring("IScriptingInterfaceBasics Interface"),
+	pointer_default(unique)
+]
+interface IScriptingInterfaceBasics : IUnknown
+{
+	[helpstring("method InitGlobals")] HRESULT InitGlobals([in] BSTR a_bstrAppName);
+};
+
+[
+	object,
+	uuid(F9D7EF8E-ABA2-4E9B-B279-9EDEAD80AC72),
+	dual,
+	nonextensible,
+	helpstring("IScriptedDocument Interface"),
+	pointer_default(unique)
+]
+interface IScriptedDocument : IDispatch
+{
+	[propget, id(1), helpstring("property Location")] HRESULT Location([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("property Location")] HRESULT Location([in] BSTR newVal);
+	[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+	[id(3), helpstring("method Save")] HRESULT Save();
+	[id(4), helpstring("method SaveCopyAs")] HRESULT SaveCopyAs([in] BSTR location);
+	[id(5), helpstring("method Duplicate")] HRESULT Duplicate([out, retval] IScriptedDocument** ppCopy);
+	[id(6), helpstring("method SupportsFeature")] HRESULT SupportsFeature([in] BSTR a_bstrFeature, [out, retval] VARIANT_BOOL* pSupport);
+	[propget, id(7), helpstring("property DefaultExtension")] HRESULT DefaultExtension([out, retval] BSTR* pVal);
+};
+
+[
+	object,
+	uuid(81E73AA3-B22A-414B-AF62-28839527F4A4),
+	dual,
+	nonextensible,
+	helpstring("IScriptedOpConfig Interface"),
+	pointer_default(unique)
+]
+interface IScriptedOpConfig : IDispatch
+{
+	[propget, id(1), helpstring("property ParameterNames")] HRESULT ParameterNames([out, retval] VARIANT* pNames);
+	[id(2), helpstring("method SetParameter")] HRESULT SetParameter([in] BSTR parameterName, [in] VARIANT parameterValue);
+	[id(3), helpstring("method GetParameter")] HRESULT GetParameter([in] BSTR parameterName, [out, retval] VARIANT* parameterValue);
+	[id(4), helpstring("method Execute")] HRESULT Execute([in] IUnknown* document, [in, optional] VARIANT context, [out, retval] IScriptedDocument** ppDocument);
+	[helpstring("method GetOpIDAndConfig")] HRESULT GetOpIDAndConfig([out] TConfigValue* a_pOpID, [out] IConfig** a_ppOpCfg);
+};
+
+[
+	object,
+	uuid(88328199-B066-449E-99CA-8C3D326DFED8),
+	dual,
+	nonextensible,
+	helpstring("IScriptedOperation Interface"),
+	pointer_default(unique)
+]
+interface IScriptedOperation : IDispatch
+{
+	[id(1), helpstring("method Create")] HRESULT Create([in] BSTR guidOrName, [out, retval] IScriptedOpConfig** ppConfig);
+	[id(2), helpstring("method Execute")] HRESULT Execute([in] IScriptedOpConfig* config, [in] IUnknown* document, [in, optional] VARIANT context, [out, retval] IScriptedDocument** ppDocument);
+	[id(3), helpstring("method Process")] HRESULT Process([in] BSTR guidOrName, [in] IUnknown* document, [in] IDispatch* config, [in, optional] VARIANT context, [out, retval] IScriptedDocument** ppDocument);
+	//[id(3), helpstring("method Transform")] HRESULT Transform([in] IScriptedOpConfig* config, [in] IUnknown* document, [in, optional] VARIANT context, [out, retval] IScriptedDocument** ppDocument);
+};
+
+[
+	object,
+	uuid(FF44E0B1-25D5-41BB-9D50-D48DB65563B0),
+	dual,
+	nonextensible,
+	helpstring("IScriptedRNG Interface"),
+	pointer_default(unique)
+]
+interface IScriptedRNG : IDispatch
+{
+	[id(1), helpstring("method NextVal")] HRESULT NextVal([out, retval] double* val);
+	[id(2), helpstring("method NextInt")] HRESULT NextInt([in] ULONG limit, [out, retval] ULONG* val);
+};
+
+[
+	object,
+	uuid(68140015-2467-4B77-9709-1D901F634D5D),
+	dual,
+	nonextensible,
+	helpstring("IScriptedApplication Interface"),
+	pointer_default(unique)
+]
+interface IScriptedApplication : IDispatch
+{
+	[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR* name);
+	[propget, id(2), helpstring("property Version")] HRESULT Version([out, retval] BSTR* version);
+	[propget, id(3), helpstring("property LocaleID")] HRESULT LocaleID([out, retval] ULONG* localeID);
+	[propget, id(4), helpstring("property Clipboard")] HRESULT Clipboard([out, retval] BSTR* text);
+	[propput, id(4), helpstring("property Clipboard")] HRESULT Clipboard([in] BSTR text);
+	[id(5), helpstring("method MessageBox")] HRESULT MessageBox([in] BSTR text, [in] BSTR caption, [in] VARIANT_BOOL question, [out, retval] VARIANT_BOOL* answer);
+	[id(6), helpstring("method FileDialog")] HRESULT FileDialog([in] BSTR initialPath, [in] BSTR caption, [in] VARIANT_BOOL fileMustExist, [out, retval] BSTR* pPath);
+	[id(7), helpstring("method OpenDocument")] HRESULT OpenDocument([in] BSTR path, [out, retval] IScriptedDocument** ppDocument);
+	[id(8), helpstring("method OpenDocumentAs")] HRESULT OpenDocumentAs([in] BSTR path, [in] BSTR builderID, [out, retval] IScriptedDocument** ppDocument);
+	[id(9), helpstring("method CreateDocument")] HRESULT CreateDocument([in] IScriptedOpConfig* config, [in, optional] VARIANT builder, [out, retval] IScriptedDocument** ppDocument);
+	[id(10), helpstring("method OpenWindow")] HRESULT OpenWindow([in] IDispatch* pDocument);
+	[id(11), helpstring("method GetCreatedTime")] HRESULT GetCreatedTime([in] BSTR path, [out, retval] double* pMSFrom1970);
+	[id(12), helpstring("method Translate")] HRESULT Translate([in] BSTR eng, [out, retval] BSTR* pTranslated);
+	[id(13), helpstring("method CreateWizard")] HRESULT CreateWizard([in] BSTR wizardID, [out, retval] IScriptedOpConfig** ppConfig);
+	[id(14), helpstring("method GetFileSize")] HRESULT GetFileSize([in] BSTR path, [out, retval] ULONG* pBytes);
+	[id(15), helpstring("method CreateRNG")] HRESULT CreateRNG([in] double seed, [out, retval] IScriptedRNG** rng);
+};
+
+[
+	object,
+	uuid(80E9C220-D48A-4C76-8872-2528C5416FC3),
+	dual,
+	nonextensible,
+	helpstring("IScriptedConfiguration Interface"),
+	pointer_default(unique)
+]
+interface IScriptedConfiguration : IDispatch
+{
+	[id(1), helpstring("method GetValue")] HRESULT GetValue([in] BSTR id, [out, retval] VARIANT* pVal);
+	[id(2), helpstring("method GetValueOrDefault")] HRESULT GetValueOrDefault([in] BSTR id, [in] VARIANT defVal, [out, retval] VARIANT* pVal);
+	[id(3), helpstring("method SetValue")] HRESULT SetValue([in] BSTR id, [in] VARIANT val);
+	[propput, id(4), helpstring("property Columns")] HRESULT Columns([in] LONG columns);
+	[id(5), helpstring("method AddStaticText")] HRESULT AddStaticText([in] BSTR text);
+	[id(6), helpstring("method AddEditBox")] HRESULT AddEditBox([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] VARIANT initialValue, [in, optional] VARIANT forceInitial);
+	[id(7), helpstring("method AddSlider")] HRESULT AddSlider([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] LONG minimum, [in] LONG maximum, [in] LONG initialValue, [in, optional] VARIANT forceInitial);
+	[id(8), helpstring("method AddCheckBox")] HRESULT AddCheckBox([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] VARIANT_BOOL initialValue, [in, optional] VARIANT forceInitial);
+	[id(9), helpstring("method Add1ofNPicker")] HRESULT Add1ofNPicker([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] IDispatch* options, [in] LONG initialIndex, [in, optional] VARIANT forceInitial);
+	[id(10), helpstring("method AddColorButton")] HRESULT AddColorButton([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] LONG initialRGB, [in, optional] VARIANT forceInitial);
+	[id(11), helpstring("method AddFilePath")] HRESULT AddFilePath([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] BSTR filter, [in] BSTR initialPath, [in, optional] VARIANT forceInitial);
+	[id(12), helpstring("method AddAlphaColorButton")] HRESULT AddAlphaColorButton([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] ULONG initialARGB, [in, optional] VARIANT forceInitial);
+	[propput, id(13), helpstring("property SplitPreview")] HRESULT SplitPreview([in] VARIANT pos); // false to disable, true or a number to enable (and set initial value)
+	[id(14), helpstring("method AddColorGradient")] HRESULT AddColorGradient([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] BSTR initialGradient, [in, optional] VARIANT forceInitial);
+	[id(15), helpstring("method RenderGradient")] HRESULT RenderGradient([in] BSTR cfg, [in] ULONG total, [in] ULONG first, [in] ULONG count, [in, optional] VARIANT type, [out, retval] IDispatch** colors);
+	[id(16), helpstring("method AddAlignment")] HRESULT AddAlignment([in] BSTR id, [in] BSTR name, [in] BSTR description, [in] float initialX, [in] float initialY, [in, optional] VARIANT forceInitial);
+};
+
+[
+	object,
+	uuid(B3FE3B9D-C93F-4EA8-84E1-89D6F655BAF3),
+	dual,
+	nonextensible,
+	helpstring("IScriptedContext Interface"),
+	pointer_default(unique)
+]
+interface IScriptedContext : IDispatch
+{
+	[id(1), helpstring("method GetState")] HRESULT GetState([in] BSTR stateID, [out, retval] BSTR* pVal);
+	[id(2), helpstring("method SetState")] HRESULT SetState([in] BSTR stateID, [in] BSTR val);
+	[propget, id(3), helpstring("property Canceled")] HRESULT Canceled([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(4), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR message);
+	[propget, id(5), helpstring("property ItemIndex")] HRESULT ItemIndex([out, retval] ULONG* pVal);
+	[propget, id(6), helpstring("property ItemsRemaining")] HRESULT ItemsRemaining([out, retval] ULONG* pVal);
+	[propget, id(7), helpstring("property StepIndex")] HRESULT StepIndex([out, retval] ULONG* pVal);
+	[propget, id(8), helpstring("property StepsRemaining")] HRESULT StepsRemaining([out, retval] ULONG* pVal);
+	[id(9), helpstring("method StopProcessing")] HRESULT StopProcessing([in] VARIANT_BOOL showErrorBox);
+	[id(10), helpstring("method GetValue")] HRESULT GetValue([in] BSTR name, [out] VARIANT* pVal);
+	[id(11), helpstring("method SetValue")] HRESULT SetValue([in] BSTR name, [in] VARIANT val);
+	[id(12), helpstring("method ClearValues")] HRESULT ClearValues();
+};
+
+[
+	object,
+	uuid(534CFBD6-9518-4BA0-9C44-A6C18181205E),
+	dual,
+	nonextensible,
+	helpstring("IScriptedTransformation Interface"),
+	pointer_default(unique)
+]
+interface IScriptedTransformation : IDispatch
+{
+	[propput, id(1), helpstring("property Result")] HRESULT Result([in] IDispatch* pDocument);
+};
+
+
+[
+	uuid(3949FBB0-B062-45F5-8C03-044DB0289B9B),
+	version(1.0),
+	helpstring("RWScripting 1.0 Type Library")
+]
+library RWScriptingLib
+{
+	importlib("stdole2.tlb");
+	importlib("RWBase.tlb");
+	//importlib("RWConfig.tlb");
+	//importlib("RWStorage.tlb");
+	importlib("RWInput.tlb");
+	importlib("RWProcessing.tlb");
+	//importlib("RWConceptSharedState.tlb");
+	//importlib("RWConceptDesignerView.tlb");
+
+	interface IScriptedDocument;
+	interface IScriptedOpConfig;
+	interface IScriptedOperation;
+	interface IScriptedApplication;
+	interface IScriptedConfiguration;
+	interface IScriptedContext;
+	interface IScriptedTransformation;
+
+	[
+		uuid(AC42806D-4914-42B8-B321-B77D5039B01C),
+		helpstring("DocumentOperationJScript Class")
+	]
+	coclass DocumentOperationJScript
+	{
+		[default] interface IDocumentOperation;
+	};
+	[
+		uuid(8D23171C-33D1-47BF-8C0E-218094E6935A),
+		helpstring("ScriptingInterfaceManager Class")
+	]
+	coclass ScriptingInterfaceManager
+	{
+		[default] interface IScriptingInterfaceManager;
+	};
+	[
+		uuid(063C51F7-BDBA-4822-93E3-27DD5AE03668),
+		helpstring("ScriptingInterfaceBasics Class")
+	]
+	coclass ScriptingInterfaceBasics
+	{
+		[default] interface IScriptingInterface;
+		interface IScriptingInterfaceBasics;
+	};
+	[
+		uuid(A6118182-1509-4DF4-98DA-08892F8AD330),
+		helpstring("DocumentTransformationJScript Class")
+	]
+	coclass DocumentTransformationJScript
+	{
+		[default] interface IDocumentTransformation;
+	};
+};
+
+cpp_quote("EXTERN_C __declspec(selectany) const GUID CATID_ScriptingInterface = {0x15a9709d, 0xee25, 0x4120, {0xa5, 0x15, 0x58, 0x61, 0xa2, 0xf, 0x40, 0x1b}};")
