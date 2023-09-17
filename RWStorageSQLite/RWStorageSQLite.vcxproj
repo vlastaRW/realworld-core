@@ -439,6 +439,9 @@
     <ProjectReference Include="..\RWConfig\RWConfig.vcxproj">
       <Project>{2730efc3-c2d8-4e97-81eb-bd4f6a45e7d9}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\RWProcessing\RWProcessing.vcxproj">
+      <Project>{c2cca8ad-6e80-4c5d-a28c-3a3ae85c7e49}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\RWStorage\RWStorage.vcxproj">
       <Project>{47fe0a95-4959-4106-89fb-659c91fdeb23}</Project>
     </ProjectReference>

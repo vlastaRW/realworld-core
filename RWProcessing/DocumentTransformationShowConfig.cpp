@@ -2,8 +2,8 @@
 
 #include "stdafx.h"
 #include "DocumentTransformationShowConfig.h"
-#include <SharedStringTable.h>
 #include "ShowConfigWithPreviewDlg.h"
+#include <SharedStringTable.h>
 
 
 const OLECHAR CFGID_CFG_TRANSFORMATION[] = L"CfgTransformation";

@@ -729,7 +729,7 @@ struct CDocumentTypeCreatorWildchars3
 			CMultiLanguageString::GetAuto(t_pszTypeNameID),
 			nExtensions, pExtensions,
 			iDst == 0 ? NULL : CComBSTR(szShellIcon),
-			_pModule->get_m_hInst(), t_fnGetFilterIcon,
+			t_fnGetFilterIcon,
 			bstrFilter);
 
 		for (size_t i = 0; i < nExtensions; ++i)

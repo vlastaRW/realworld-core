@@ -258,37 +258,37 @@ struct CIconRendererReceiver : public IStockIcons::ILayerReceiver
 {
 	CIconRendererReceiver(ULONG sizeX, ULONG sizeY) : sizeX(sizeX), sizeY(sizeY)
 	{
-		buffer.Attach(new DWORD[sizeX*sizeY]);
-		ZeroMemory(buffer.m_p, sizeX*sizeY*sizeof*buffer.m_p);
+		buffer.Allocate(sizeX*sizeY);
+		clear();
 		RWCoCreateInstance(pIR, __uuidof(IconRenderer));
 	}
 	CIconRendererReceiver(ULONG size) : sizeX(size), sizeY(size)
 	{
-		buffer.Attach(new DWORD[sizeX*sizeY]);
-		ZeroMemory(buffer.m_p, sizeX*sizeY*sizeof*buffer.m_p);
+		buffer.Allocate(sizeX*sizeY);
+		clear();
 		RWCoCreateInstance(pIR, __uuidof(IconRenderer));
 	}
 	bool operator()(IRLayer const& layer, IRTarget const* target = NULL)
 	{
-		return SUCCEEDED(pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, layer.canvas, layer.polygonCount, layer.pathCount, layer.polygons, layer.paths, layer.material, target));
+		return pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, layer.canvas, layer.polygonCount, layer.pathCount, layer.polygons, layer.paths, layer.material, target);
 	}
 	bool operator()(IRCanvas const* canvas, ULONG polygonCount, IRPolygon const* polygons, IRMaterial const* material, IRTarget const* target = NULL)
 	{
-		return SUCCEEDED(pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, polygonCount, 0, polygons, NULL, material, target));
+		return pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, polygonCount, 0, polygons, NULL, material, target);
 	}
 	bool operator()(IRCanvas const* canvas, ULONG pathCount, IRPath const* paths, IRMaterial const* material, IRTarget const* target = NULL)
 	{
-		return SUCCEEDED(pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 0, pathCount, NULL, paths, material, target));
+		return pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 0, pathCount, NULL, paths, material, target);
 	}
 	bool operator()(IRCanvas const* canvas, ULONG pointCount, IRPolyPoint const* points, IRMaterial const* material, IRTarget const* target = NULL)
 	{
 		IRPolygon poly = {pointCount, points};
-		return SUCCEEDED(pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 1, 0, &poly, NULL, material, target));
+		return pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 1, 0, &poly, NULL, material, target);
 	}
 	bool operator()(IRCanvas const* canvas, ULONG pointCount, IRPathPoint const* points, IRMaterial const* material, IRTarget const* target = NULL)
 	{
 		IRPath path = {pointCount, points};
-		return SUCCEEDED(pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 0, 1, NULL, &path, material, target));
+		return pIR->RenderLayer(sizeX, sizeY, sizeX, buffer, canvas, 0, 1, NULL, &path, material, target);
 	}
 	HICON get() const
 	{
@@ -314,6 +314,10 @@ struct CIconRendererReceiver : public IStockIcons::ILayerReceiver
 	{
 		return buffer.m_p+(sizeY-1-row)*sizeX;
 	}
+	void clear()
+	{
+		ZeroMemory(buffer.m_p, sizeX * sizeY * sizeof * buffer.m_p);
+	}
 
 private:
 	ULONG sizeX;
@@ -324,13 +328,12 @@ private:
 
 #ifdef AUTOCANVASSUPPORT
 
-#include <IconRenderer.h>
 #include <set>
 
 struct IRAutoCanvas : public IRCanvas
 {
 	operator IRCanvas const*() { return this; }
-	IRAutoCanvas(ULONG n, IRPolyPoint const* p)
+	IRAutoCanvas(ULONG n, IRPolygon const* pp)
 	{
 		x0 = y0 = 1e6f;
 		x1 = y1 = -1e6f;
@@ -339,15 +342,19 @@ struct IRAutoCanvas : public IRCanvas
 
 		std::set<float> gridX;
 		std::set<float> gridY;
-		for (ULONG i = 0; i < n; ++i)
+		for (ULONG j = 0; j < n; ++j)
 		{
-			if (x0 > p[i].x) x0 = p[i].x;
-			if (y0 > p[i].y) y0 = p[i].y;
-			if (x1 < p[i].x) x1 = p[i].x;
-			if (y1 < p[i].y) y1 = p[i].y;
-			char j = i == 0 ? n-1 : i-1;
-			if (p[i].x == p[j].x) gridX.insert(p[i].x);
-			if (p[i].y == p[j].y) gridY.insert(p[i].y);
+			IRPolyPoint const* p = pp[j].points;
+			for (ULONG i = 0; i < pp[j].count; ++i)
+			{
+				if (x0 > p[i].x) x0 = p[i].x;
+				if (y0 > p[i].y) y0 = p[i].y;
+				if (x1 < p[i].x) x1 = p[i].x;
+				if (y1 < p[i].y) y1 = p[i].y;
+				char j = i == 0 ? n - 1 : i - 1;
+				if (p[i].x == p[j].x) gridX.insert(p[i].x);
+				if (p[i].y == p[j].y) gridY.insert(p[i].y);
+			}
 		}
 		if (gridX.size()+gridY.size() > 0)
 		{
@@ -373,45 +380,41 @@ private:
 	CAutoVectorPtr<IRGridItem> mem;
 };
 
-inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nVertices, IRPolyPoint const* a_pVertices, int a_nSize, bool a_bAutoScale)
+inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nVertices, IRPolyPoint const* a_pVertices, int a_nSize, bool a_bAutoScale, RECT const* padding = nullptr)
 {
-	IRAutoCanvas canvas(a_nVertices, a_pVertices);
+	CIconRendererReceiver cRenderer(a_nSize);
+	IRPolygon const poly{ a_nVertices, a_pVertices };
+	IRAutoCanvas canvas{ 1, &poly };
 	if (!a_bAutoScale)
 	{
 		canvas.x0 = canvas.y0 = 0;
 		canvas.x1 = canvas.y1 = 1;
 	}
-	IRPolygon const poly = {a_nVertices, a_pVertices};
-	return pIR->CreateIcon(a_nSize, &canvas, 1, &poly, pSI->GetMaterial(ESMInterior));
+	cRenderer(&canvas, a_nVertices, a_pVertices, pSI->GetMaterial(ESMInterior));
+	return padding ? cRenderer.get(*padding) : cRenderer.get();
 }
 
-inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nPolygons, IRPolygon const* a_pPolygons, int a_nSize, bool a_bAutoScale)
+inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nPolygons, IRPolygon const* a_pPolygons, int a_nSize, bool a_bAutoScale, RECT const* padding = nullptr)
 {
 	CIconRendererReceiver cRenderer(a_nSize);
-	for (IRPolygon const* const e = a_pPolygons+a_nPolygons; a_pPolygons != e; ++a_pPolygons)
+	IRAutoCanvas canvas(a_nPolygons, a_pPolygons);
+	if (!a_bAutoScale)
 	{
-		IRAutoCanvas canvas(a_pPolygons->count, a_pPolygons->points);
-		if (!a_bAutoScale)
-		{
-			canvas.x0 = canvas.y0 = 0;
-			canvas.x1 = canvas.y1 = 1;
-		}
-		cRenderer(&canvas, a_pPolygons->count, a_pPolygons->points, pSI->GetMaterial(ESMInterior));
+		canvas.x0 = canvas.y0 = 0;
+		canvas.x1 = canvas.y1 = 1;
 	}
-	return cRenderer.get();
+	cRenderer(&canvas, a_nPolygons, a_pPolygons, pSI->GetMaterial(ESMInterior));
+	return padding ? cRenderer.get(*padding) : cRenderer.get();
 }
 
-inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nPolygons, IRPolygon const* a_pPolygons, int a_nSize, float tl, float br)
+inline HICON IconFromPolygon(IStockIcons* pSI, IIconRenderer* pIR, int a_nPolygons, IRPolygon const* a_pPolygons, int a_nSize, float tl, float br, RECT const* padding = nullptr)
 {
 	CIconRendererReceiver cRenderer(a_nSize);
-	for (IRPolygon const* const e = a_pPolygons+a_nPolygons; a_pPolygons != e; ++a_pPolygons)
-	{
-		IRAutoCanvas canvas(a_pPolygons->count, a_pPolygons->points);
-		canvas.x0 = canvas.y0 = tl;
-		canvas.x1 = canvas.y1 = br;
-		cRenderer(&canvas, a_pPolygons->count, a_pPolygons->points, pSI->GetMaterial(ESMInterior));
-	}
-	return cRenderer.get();
+	IRAutoCanvas canvas(a_nPolygons, a_pPolygons);
+	canvas.x0 = canvas.y0 = tl;
+	canvas.x1 = canvas.y1 = br;
+	cRenderer(&canvas, a_nPolygons, a_pPolygons, pSI->GetMaterial(ESMInterior));
+	return padding ? cRenderer.get(*padding) : cRenderer.get();
 }
 
 
