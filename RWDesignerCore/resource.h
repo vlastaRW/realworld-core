@@ -50,6 +50,7 @@
 #define IDS_MD_HELP_REGISTER            165
 #define IDS_MN_HELP_BETA                166
 #define IDS_MD_HELP_BETA                167
+#define IDS_CONFIGUREWINDOW             168
 #define IDS_RECENTFILES_COLNAME         192
 #define IDS_RECENTFILES_COLPATH         193
 #define IDS_RECENTFILES_COLTYPE         194

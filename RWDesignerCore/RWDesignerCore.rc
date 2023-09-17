@@ -671,6 +671,7 @@ BEGIN
     IDS_MD_HELP_REGISTER    "Vložte obdržené sériové èíslo nebo objednejte novou licenci."
     IDS_MN_HELP_BETA        "Beta problém..."
     IDS_MD_HELP_BETA        "Nahlásit problém s beta verzí."
+    IDS_CONFIGUREWINDOW     "Konfigurovat okno"
 END
 
 #endif    // Czech (Czech Republic) resources
@@ -1266,6 +1267,7 @@ BEGIN
     IDS_MD_HELP_REGISTER    "Enter received serial number or order a new license."
     IDS_MN_HELP_BETA        "Beta feedback..."
     IDS_MD_HELP_BETA        "Report a problem with the beta version."
+    IDS_CONFIGUREWINDOW     "Configure window"
 END
 
 #endif    // English (United States) resources

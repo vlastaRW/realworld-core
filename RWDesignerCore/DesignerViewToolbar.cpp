@@ -767,6 +767,9 @@ LRESULT CDesignerViewToolbar::OnRightClick(int a_idCtrl, LPNMHDR a_pnmh, BOOL& a
 	TCHAR szCommand[128] = _T("");
 	Win32LangEx::LoadString(_pModule->get_m_hInst(), IDS_CONFIGURETOOLBAR, szCommand, itemsof(szCommand), LANGIDFROMLCID(m_tLocaleID));
 	AddItem(cMenu, 1, szCommand, -1, 0);
+	CComBSTR bstrCfgWin;
+	CMultiLanguageString::GetLocalized(L"[0409]Configure window[0405]Konfigurovat okno", m_tLocaleID, &bstrCfgWin);
+	AddItem(cMenu, 2, bstrCfgWin.m_str, -1, 0);
 
 	POINT pt = pNMMouse->pt;
 	::ClientToScreen(pNMMouse->hdr.hwndFrom, &pt);
@@ -774,7 +777,7 @@ LRESULT CDesignerViewToolbar::OnRightClick(int a_idCtrl, LPNMHDR a_pnmh, BOOL& a
 	ZeroMemory(&tPMParams, sizeof tPMParams);
 	tPMParams.cbSize = sizeof tPMParams;
 	UINT nSelection = cMenu.TrackPopupMenuEx(TPM_LEFTALIGN|TPM_LEFTBUTTON|TPM_RIGHTBUTTON|TPM_NONOTIFY|TPM_RETURNCMD|TPM_VERPOSANIMATION, pt.x, pt.y, m_hWnd);
-	if (nSelection != 0)
+	if (nSelection == 1)
 	{
 		OLECHAR sz[64];
 		swprintf(sz, L"%s\\%08x", CFGID_TOOLBAR_ITEMS, nTB);
@@ -792,6 +795,37 @@ LRESULT CDesignerViewToolbar::OnRightClick(int a_idCtrl, LPNMHDR a_pnmh, BOOL& a
 			pTBCfg->SubConfigGet(CComBSTR(CFGID_TOOLBAR_COMMANDS), &m_cToolbars[nTB].pCmdsCfg);
 		}
 	}
+	else if (nSelection == 2)
+	{
+		CComPtr<IConfig> pViewCfg;
+		m_pConfig->SubConfigGet(CComBSTR(CFGID_TOOLBAR_VIEW), &pViewCfg);
+		CComPtr<IConfig> pDup;
+		pViewCfg->DuplicateCreate(&pDup);
+		CConfigFrameDlg<NULL, NULL, HELPTOPIC_CONFIGURETOOLBAR, IDS_CONFIGUREWINDOW, GetIconLayout> cDlg(pDup, NULL, m_tLocaleID, _T(""));
+		if (IDOK == cDlg.DoModal(m_hWnd))
+		{
+			CopyConfigValues(pViewCfg, pDup);
+			RECT rc;
+			GetClientRect(&rc);
+			if (m_pView)
+			{
+				HWND hWnd;
+				m_pView->Handle(&hWnd);
+				::GetWindowRect(hWnd, &rc);
+				ScreenToClient(&rc);
+				m_pView->Destroy();
+				m_pView = NULL;
+			}
+			CConfigValue cViewID;
+			m_pConfig->ItemValueGet(CComBSTR(CFGID_TOOLBAR_VIEW), &cViewID);
+			m_pViewManager->CreateWnd(m_pViewManager, cViewID, pViewCfg, m_pStateMgr, m_pStatusBar, m_pDocument, m_hWnd, &rc, EDVWSNoBorder, m_tLocaleID, &m_pView);
+			if (m_pView)
+			{
+				m_pView->Show(TRUE);
+			}
+		}
+	}
+
 	m_cCommands.clear();
 	return 0;
 }
